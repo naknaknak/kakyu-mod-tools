@@ -1,0 +1,331 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://tools/content_suite/apps/audio_arc_editor.gd" id="1_script"]
+
+[node name="AudioArcEditor" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Layout" type="VBoxContainer" parent="Margin"]
+layout_mode = 2
+
+[node name="Toolbar" type="HBoxContainer" parent="Margin/Layout"]
+layout_mode = 2
+
+[node name="Open" type="Button" parent="Margin/Layout/Toolbar"]
+layout_mode = 2
+text = "Open audio ARC..."
+
+[node name="Preview" type="Button" parent="Margin/Layout/Toolbar"]
+layout_mode = 2
+text = "Preview"
+
+[node name="Stop" type="Button" parent="Margin/Layout/Toolbar"]
+layout_mode = 2
+text = "Stop"
+
+[node name="AnalyzeTimeline" type="Button" parent="Margin/Layout/Toolbar"]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+text = "Analyze timeline"
+
+[node name="Extract" type="Button" parent="Margin/Layout/Toolbar"]
+layout_mode = 2
+text = "Extract selected..."
+
+[node name="OverlayActions" type="HBoxContainer" parent="Margin/Layout"]
+layout_mode = 2
+
+[node name="LoadOverlay" type="Button" parent="Margin/Layout/OverlayActions"]
+layout_mode = 2
+text = "Load overlay..."
+
+[node name="HotReloadOverlay" type="Button" parent="Margin/Layout/OverlayActions"]
+layout_mode = 2
+text = "Hot Reload overlay"
+
+[node name="ClearOverlay" type="Button" parent="Margin/Layout/OverlayActions"]
+layout_mode = 2
+text = "Clear overlay"
+
+[node name="LoadMesReferences" type="Button" parent="Margin/Layout/OverlayActions"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Load MES references..."
+
+[node name="ArchiveLabel" type="Label" parent="Margin/Layout"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "No archive open"
+text_overrun_behavior = 3
+
+[node name="FilterEdit" type="LineEdit" parent="Margin/Layout"]
+unique_name_in_owner = true
+layout_mode = 2
+placeholder_text = "Filter OGG/WAV entry names..."
+clear_button_enabled = true
+
+[node name="SessionActions" type="HBoxContainer" parent="Margin/Layout"]
+layout_mode = 2
+
+[node name="AddReplacement" type="Button" parent="Margin/Layout/SessionActions"]
+layout_mode = 2
+text = "Add/update replacement..."
+
+[node name="ConvertWav" type="Button" parent="Margin/Layout/SessionActions"]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+text = "Convert WAV to target..."
+
+[node name="RemoveReplacement" type="Button" parent="Margin/Layout/SessionActions"]
+layout_mode = 2
+text = "Remove pending"
+
+[node name="ClearSession" type="Button" parent="Margin/Layout/SessionActions"]
+layout_mode = 2
+text = "Clear session"
+
+[node name="SaveActions" type="HBoxContainer" parent="Margin/Layout"]
+layout_mode = 2
+
+[node name="SaveOverlay" type="Button" parent="Margin/Layout/SaveActions"]
+layout_mode = 2
+text = "Save session to overlay..."
+
+[node name="ExportArc" type="Button" parent="Margin/Layout/SaveActions"]
+layout_mode = 2
+text = "Export session as new ARC..."
+
+[node name="BatchActions" type="HBoxContainer" parent="Margin/Layout"]
+layout_mode = 2
+
+[node name="ExtractSelectedFolder" type="Button" parent="Margin/Layout/BatchActions"]
+layout_mode = 2
+text = "Extract selected to folder..."
+
+[node name="ExtractArchive" type="Button" parent="Margin/Layout/BatchActions"]
+layout_mode = 2
+text = "Extract archive..."
+
+[node name="ExportReport" type="Button" parent="Margin/Layout/BatchActions"]
+layout_mode = 2
+text = "Export audio report..."
+
+[node name="Split" type="HSplitContainer" parent="Margin/Layout"]
+layout_mode = 2
+size_flags_vertical = 3
+split_offset = 300
+
+[node name="EntryTree" type="Tree" parent="Margin/Layout/Split"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+columns = 3
+column_titles_visible = true
+hide_root = true
+
+[node name="Right" type="VBoxContainer" parent="Margin/Layout/Split"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Details" type="RichTextLabel" parent="Margin/Layout/Split/Right"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+fit_content = true
+text = "Select an OGG or WAV entry to validate its header."
+
+[node name="ReferenceActions" type="HBoxContainer" parent="Margin/Layout/Split/Right"]
+layout_mode = 2
+
+[node name="MesReferenceSelect" type="OptionButton" parent="Margin/Layout/Split/Right/ReferenceActions"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+disabled = true
+
+[node name="OpenReferenceEventPlayer" type="Button" parent="Margin/Layout/Split/Right/ReferenceActions"]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+text = "Open in Event Player"
+
+[node name="SessionLabel" type="Label" parent="Margin/Layout/Split/Right"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Pending session: 0 replacements"
+autowrap_mode = 2
+
+[node name="SessionTree" type="Tree" parent="Margin/Layout/Split/Right"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+size_flags_vertical = 3
+columns = 3
+column_titles_visible = true
+hide_root = true
+
+[node name="ExtractionProgressRow" type="HBoxContainer" parent="Margin/Layout"]
+unique_name_in_owner = true
+layout_mode = 2
+visible = false
+
+[node name="ExtractionProgress" type="ProgressBar" parent="Margin/Layout/ExtractionProgressRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+show_percentage = false
+
+[node name="CancelExtraction" type="Button" parent="Margin/Layout/ExtractionProgressRow"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Cancel extraction"
+
+[node name="StatusLabel" type="Label" parent="Margin/Layout"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+text = "Original archives are opened read-only. Replacement files are loaded only for validation, preview, and save."
+autowrap_mode = 2
+
+[node name="OpenDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+title = "Open read-only audio ARC"
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.arc ; Kakyu ARC archives")
+
+[node name="ExtractDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+title = "Extract audio entry to a new file"
+file_mode = 4
+access = 2
+
+[node name="ExtractDirectoryDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+title = "Extract audio entries into a folder"
+file_mode = 2
+access = 2
+
+[node name="ReportDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+title = "Export audio metadata report"
+file_mode = 4
+access = 2
+filters = PackedStringArray("*.json ; Kakyu audio metadata report")
+
+[node name="ReplacementDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+title = "Choose validated replacement audio"
+file_mode = 0
+access = 2
+
+[node name="ConversionSourceDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+title = "Choose PCM WAV conversion source"
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.wav ; PCM WAV source")
+
+[node name="ConversionOutputDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+title = "Publish converted PCM WAV to a new file"
+file_mode = 4
+access = 2
+filters = PackedStringArray("*.wav ; PCM WAV output")
+
+[node name="OverlayDirectoryDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+title = "Choose overlay package directory"
+file_mode = 2
+access = 2
+
+[node name="LoadOverlayDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+title = "Load existing overlay package"
+file_mode = 2
+access = 2
+
+[node name="MesReferenceDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+title = "Load read-only MES audio references"
+file_mode = 0
+access = 2
+filters = PackedStringArray("mes.arc ; Kakyu MES archive")
+
+[node name="ExportArcDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+title = "Export a verified new ARC copy"
+file_mode = 4
+access = 2
+filters = PackedStringArray("*.arc ; Kakyu ARC archives")
+
+[node name="DiscardSessionDialog" type="ConfirmationDialog" parent="."]
+unique_name_in_owner = true
+title = "Discard pending replacements?"
+
+[node name="ClearSessionDialog" type="ConfirmationDialog" parent="."]
+unique_name_in_owner = true
+title = "Clear replacement session?"
+
+[node name="PreviewPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+
+[connection signal="pressed" from="Margin/Layout/Toolbar/Open" to="." method="_on_open_pressed"]
+[connection signal="pressed" from="Margin/Layout/Toolbar/Preview" to="." method="_on_preview_pressed"]
+[connection signal="pressed" from="Margin/Layout/Toolbar/Stop" to="." method="_on_stop_pressed"]
+[connection signal="pressed" from="Margin/Layout/Toolbar/AnalyzeTimeline" to="." method="_on_analyze_timeline_pressed"]
+[connection signal="pressed" from="Margin/Layout/Toolbar/Extract" to="." method="_on_extract_pressed"]
+[connection signal="pressed" from="Margin/Layout/OverlayActions/LoadOverlay" to="." method="_on_load_overlay_pressed"]
+[connection signal="pressed" from="Margin/Layout/OverlayActions/HotReloadOverlay" to="." method="_on_hot_reload_overlay_pressed"]
+[connection signal="pressed" from="Margin/Layout/OverlayActions/ClearOverlay" to="." method="_on_clear_overlay_pressed"]
+[connection signal="pressed" from="Margin/Layout/OverlayActions/LoadMesReferences" to="." method="_on_load_mes_references_pressed"]
+[connection signal="pressed" from="Margin/Layout/Split/Right/ReferenceActions/OpenReferenceEventPlayer" to="." method="_on_open_reference_event_player_pressed"]
+[connection signal="text_changed" from="Margin/Layout/FilterEdit" to="." method="_on_filter_changed"]
+[connection signal="pressed" from="Margin/Layout/SessionActions/AddReplacement" to="." method="_on_add_replacement_pressed"]
+[connection signal="pressed" from="Margin/Layout/SessionActions/ConvertWav" to="." method="_on_convert_wav_pressed"]
+[connection signal="pressed" from="Margin/Layout/SessionActions/RemoveReplacement" to="." method="_on_remove_replacement_pressed"]
+[connection signal="pressed" from="Margin/Layout/SessionActions/ClearSession" to="." method="_on_clear_session_pressed"]
+[connection signal="pressed" from="Margin/Layout/SaveActions/SaveOverlay" to="." method="_on_save_overlay_pressed"]
+[connection signal="pressed" from="Margin/Layout/SaveActions/ExportArc" to="." method="_on_export_arc_pressed"]
+[connection signal="pressed" from="Margin/Layout/BatchActions/ExtractSelectedFolder" to="." method="_on_extract_selected_folder_pressed"]
+[connection signal="pressed" from="Margin/Layout/BatchActions/ExtractArchive" to="." method="_on_extract_archive_pressed"]
+[connection signal="pressed" from="Margin/Layout/BatchActions/ExportReport" to="." method="_on_export_report_pressed"]
+[connection signal="pressed" from="Margin/Layout/ExtractionProgressRow/CancelExtraction" to="." method="_on_cancel_extraction_pressed"]
+[connection signal="item_selected" from="Margin/Layout/Split/EntryTree" to="." method="_on_entry_selected"]
+[connection signal="multi_selected" from="Margin/Layout/Split/EntryTree" to="." method="_on_entry_multi_selected"]
+[connection signal="item_selected" from="Margin/Layout/Split/Right/SessionTree" to="." method="_on_session_entry_selected"]
+[connection signal="file_selected" from="OpenDialog" to="." method="_on_archive_selected"]
+[connection signal="file_selected" from="ExtractDialog" to="." method="_on_extract_path_selected"]
+[connection signal="dir_selected" from="ExtractDirectoryDialog" to="." method="_on_extract_directory_selected"]
+[connection signal="file_selected" from="ReplacementDialog" to="." method="_on_replacement_file_selected"]
+[connection signal="file_selected" from="ConversionSourceDialog" to="." method="_on_conversion_source_selected"]
+[connection signal="file_selected" from="ConversionOutputDialog" to="." method="_on_conversion_output_selected"]
+[connection signal="dir_selected" from="OverlayDirectoryDialog" to="." method="_on_overlay_directory_selected"]
+[connection signal="dir_selected" from="LoadOverlayDialog" to="." method="_on_load_overlay_directory_selected"]
+[connection signal="file_selected" from="MesReferenceDialog" to="." method="_on_mes_reference_archive_selected"]
+[connection signal="file_selected" from="ExportArcDialog" to="." method="_on_export_arc_path_selected"]
+[connection signal="file_selected" from="ReportDialog" to="." method="_on_report_path_selected"]
+[connection signal="confirmed" from="DiscardSessionDialog" to="." method="_on_discard_session_confirmed"]
+[connection signal="confirmed" from="ClearSessionDialog" to="." method="_on_clear_session_confirmed"]

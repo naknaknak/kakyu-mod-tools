@@ -1,0 +1,1082 @@
+{
+  "schema_version": "kakyu_event_definition/v7",
+  "contract_fingerprint": "a48267ac13ccdfac87859bade15c872f966392020a34a10d7d3ba332ad167d25",
+  "names_fingerprint": "94223afe79303bd54eaa4bcdfd7b1e22a806191a749f80bea31d0068568fb29e",
+  "id": "common.town.27c_ev.talk-q1.1",
+  "kind": "event",
+  "display": {
+    "title_ko": "27c_ev에서 공통 이벤트 (Q_TALK1)",
+    "title_en": "Common event at 27c_ev (Q_TALK1)",
+    "heroine": "common",
+    "category": "town",
+    "place": "27c_ev"
+  },
+  "evidence": {
+    "kind": "analysis_group",
+    "archive_sha256": "31a95b31cb0f1051cf973a4dba4f4a5405671e4488240adfafb9b02290986aa6",
+    "groups": [
+      {
+        "group_id": "27c-ev-q-talk",
+        "profile_sha256": "dad96e4c993ad93d1ee21a362ded009e48a93b8216563916e197d3d41c1c9306",
+        "route_ids": [
+          "q-talk-1"
+        ]
+      }
+    ],
+    "members": [
+      {
+        "entry": "27C_EV.MES",
+        "entry_sha256": "2af24ef7a0bf66a3006c66da133ec7f653f79bf5904fad7ff2f39f42302ccec3"
+      },
+      {
+        "entry": "Q_TALK1.MES",
+        "entry_sha256": "07bf927d23082251c29e58b2fa183cf0ea8b4b2e22f0008cf0e147ed10f60ad0"
+      },
+      {
+        "entry": "Q_PIC.MES",
+        "entry_sha256": "8c2e6a60891e1a807fb6e587084b797d7da47bf4725cff840d1791ef7813a522"
+      },
+      {
+        "entry": "LIBLARY.LIB",
+        "entry_sha256": "d9aba6eb8dab51fe321e22c868ed0cf38416bba1f0cf2f5d7d719f48e89b8b4d"
+      },
+      {
+        "entry": "DEF_MAIN.MES",
+        "entry_sha256": "f2012ce5d90f60a5d1ca8190e03571341c0384c2d3d96e9aec2b3ab949db0ef0"
+      },
+      {
+        "entry": "START.MES",
+        "entry_sha256": "ba57bf666fbd9db9b3110f2bf1c70e80e11a35de00e82256aaaf35921c77038f"
+      }
+    ],
+    "document_refs": [],
+    "effect_witnesses": [
+      {
+        "result": "body",
+        "cell": {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 10
+        },
+        "basis": "flag_pattern",
+        "entry": 0,
+        "final": 1,
+        "declared": false
+      },
+      {
+        "result": "body",
+        "cell": {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2031
+        },
+        "basis": "flag_pattern",
+        "entry": 0,
+        "final": 1,
+        "declared": false
+      },
+      {
+        "result": "body",
+        "cell": {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2033
+        },
+        "basis": "flag_pattern",
+        "entry": 0,
+        "final": 1,
+        "declared": false
+      },
+      {
+        "result": "h2_talk",
+        "cell": {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 10
+        },
+        "basis": "flag_pattern",
+        "entry": 0,
+        "final": 1,
+        "declared": false
+      },
+      {
+        "result": "h2_talk",
+        "cell": {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2031
+        },
+        "basis": "flag_pattern",
+        "entry": 0,
+        "final": 1,
+        "declared": false
+      },
+      {
+        "result": "h2_talk",
+        "cell": {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2033
+        },
+        "basis": "flag_pattern",
+        "entry": 0,
+        "final": 1,
+        "declared": false
+      }
+    ]
+  },
+  "package_binding": {
+    "schema": "kakyu_playback_package/v7",
+    "package_sha256": "fe9bb6bd3256189ab9dd1ff91d75f95d378d8b625aae7e011ba16ccbb849f288"
+  },
+  "trigger": {
+    "type": "caller_dispatch",
+    "caller": {
+      "entry": "27C_EV.MES",
+      "entry_sha256": "2af24ef7a0bf66a3006c66da133ec7f653f79bf5904fad7ff2f39f42302ccec3",
+      "offset": 37984,
+      "end": 37999,
+      "command": 15,
+      "kind": "nested_call"
+    },
+    "callee": {
+      "entry": "Q_TALK1.MES",
+      "entry_sha256": "07bf927d23082251c29e58b2fa183cf0ea8b4b2e22f0008cf0e147ed10f60ad0",
+      "start_coordinate": 0
+    },
+    "origin": {
+      "kind": "typed_guard",
+      "offset": 37892
+    },
+    "order_hint": {
+      "scope": "27C_EV.MES",
+      "rank": 3,
+      "of": 3,
+      "basis": "guard_offset",
+      "chain_confirmed": false
+    }
+  },
+  "scenes": [],
+  "guard": {
+    "offset": 37892,
+    "end": 37909,
+    "false_target": 40128,
+    "record_sha256": "158220695ae55ee1bf412010d41a97a191747a85418d00f36a3d67e6983e06d0",
+    "conjuncts": [
+      {
+        "kind": "cell",
+        "storage": "global_u8",
+        "bank": 0,
+        "index": 250,
+        "op": "equal",
+        "value": 0
+      },
+      {
+        "kind": "cell",
+        "storage": "global_u8",
+        "bank": 0,
+        "index": 254,
+        "op": "not_equal",
+        "value": 0
+      }
+    ],
+    "witnesses": [
+      {
+        "case_id": "accepted",
+        "writes": [],
+        "expected": 1
+      },
+      {
+        "case_id": "rejected",
+        "writes": [
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 250,
+            "value": 1
+          }
+        ],
+        "expected": 0
+      }
+    ]
+  },
+  "conditions": [
+    {
+      "type": "mes_expression",
+      "ast": {
+        "lhs": {
+          "lhs": {
+            "bank": 0,
+            "index": {
+              "type": "literal",
+              "value": 250
+            },
+            "source": {
+              "offset": 37893,
+              "token": "0xf3"
+            },
+            "storage": "global_u8",
+            "type": "state_ref"
+          },
+          "op": "equal",
+          "rhs": {
+            "source": {
+              "offset": 37896,
+              "token": "0x00"
+            },
+            "type": "literal",
+            "value": 0,
+            "width": 8
+          },
+          "source": {
+            "offset": 37897,
+            "token": "0xef"
+          },
+          "type": "binary"
+        },
+        "op": "logical_and",
+        "rhs": {
+          "lhs": {
+            "bank": 0,
+            "index": {
+              "type": "literal",
+              "value": 254
+            },
+            "source": {
+              "offset": 37898,
+              "token": "0xf3"
+            },
+            "storage": "global_u8",
+            "type": "state_ref"
+          },
+          "op": "not_equal",
+          "rhs": {
+            "source": {
+              "offset": 37901,
+              "token": "0x00"
+            },
+            "type": "literal",
+            "value": 0,
+            "width": 8
+          },
+          "source": {
+            "offset": 37902,
+            "token": "0xf0"
+          },
+          "type": "binary"
+        },
+        "source": {
+          "offset": 37903,
+          "token": "0xe6"
+        },
+        "type": "binary"
+      },
+      "source_offset": 37892,
+      "failure_reason": "guard_rejected"
+    }
+  ],
+  "presets": [
+    {
+      "preset_id": "baseline",
+      "label": "baseline",
+      "writes": [
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 250,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 254,
+          "value": 1
+        }
+      ]
+    }
+  ],
+  "dialogue": [
+    {
+      "kind": "hop",
+      "hop_id": "h1_caller_dispatch"
+    },
+    {
+      "kind": "hop",
+      "hop_id": "h2_talk"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "Q_TALK1.MES",
+        "at": 749,
+        "s": 7,
+        "raw_sha256": "ceca32fdb294dcbd24c324a809fd1f6fe689ea1266e9c5c0c043a3c530fc9170"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "Q_TALK1.MES",
+        "at": 803,
+        "s": 2,
+        "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "Q_TALK1.MES",
+      "at": 807,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "Q_TALK1.MES",
+        "at": 824,
+        "s": 8,
+        "raw_sha256": "cd7b33d876173684b124ef78619247c386fad7c17938574b1aba510c51201742"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "Q_TALK1.MES",
+        "at": 900,
+        "s": 9,
+        "raw_sha256": "88f088af66530af70f745c47b3c3a4f20c8817d99a6bd9cda252474bd1c50a56"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "Q_TALK1.MES",
+        "at": 968,
+        "s": 2,
+        "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "Q_TALK1.MES",
+      "at": 972,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "Q_TALK1.MES",
+        "at": 989,
+        "s": 10,
+        "raw_sha256": "b499cc90da86c14b3756e8ef34305f1a0dafbc99b30b32812c06c36e37b94ac7"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "Q_TALK1.MES",
+        "at": 1043,
+        "s": 0,
+        "raw_sha256": "d6aa22267bc0d54642b9fb0c2f7c4edc07158ac1691684424763e3bbb53eb4aa"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "Q_TALK1.MES",
+      "at": 1055,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "Q_TALK1.MES",
+        "at": 1072,
+        "s": 11,
+        "raw_sha256": "dfebcd59be67595ac3d83427b716ce43bff6ef3ee904c468fc4aed651254001b"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "Q_TALK1.MES",
+      "at": 1120,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "Q_TALK1.MES",
+        "at": 1137,
+        "s": 12,
+        "raw_sha256": "d0182991eca5ea72b613b02972e786e650f1e54791e719abfc45309b0d97cc1a"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "Q_TALK1.MES",
+        "at": 1201,
+        "s": 2,
+        "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "Q_TALK1.MES",
+      "at": 1205,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "Q_TALK1.MES",
+        "at": 1222,
+        "s": 13,
+        "raw_sha256": "2751dc15c440bf5a7ae153eb0adf9926dfa64e1536e565c3d1f2a8f3ac91c22c"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "Q_TALK1.MES",
+        "at": 1272,
+        "s": 14,
+        "raw_sha256": "2c351c277991d94feec39240d3473d4345d8b1d8a88df4b90021fe52750b0b74"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "Q_TALK1.MES",
+        "at": 1336,
+        "s": 2,
+        "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "Q_TALK1.MES",
+      "at": 1340,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "Q_TALK1.MES",
+        "at": 1357,
+        "s": 15,
+        "raw_sha256": "29efcb8c28f0e7848bebc760f5a235f2aa13375fd4caa4b79cf77a4d20a4072e"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "Q_TALK1.MES",
+        "at": 1433,
+        "s": 16,
+        "raw_sha256": "3a2d6205f777e5a653445a95f9dc162227052ca4ced5ef3c854c1bf22f20b0a1"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "Q_TALK1.MES",
+        "at": 1511,
+        "s": 2,
+        "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "Q_TALK1.MES",
+      "at": 1515,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "Q_TALK1.MES",
+        "at": 1532,
+        "s": 17,
+        "raw_sha256": "9aa97d0b572336ab4905b361ad8f7fe7271910a6d9face2aa231eaff0a3b48dc"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "Q_TALK1.MES",
+        "at": 1604,
+        "s": 18,
+        "raw_sha256": "575471394dcc0cd8c116c95f0a23694fc5c0923c6c2b2b28a51d227b8227459c"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "Q_TALK1.MES",
+        "at": 1666,
+        "s": 2,
+        "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "Q_TALK1.MES",
+      "at": 1670,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "Q_TALK1.MES",
+        "at": 1687,
+        "s": 19,
+        "raw_sha256": "bdea816f86644a735959da820cbb027550bee1affe4d61e8ffef24487e8e6707"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "Q_TALK1.MES",
+        "at": 1739,
+        "s": 20,
+        "raw_sha256": "d3e91908a5b46ac6ad32a718756bc24b2b72a91092e6d5d60ab144e6c3624817"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "Q_TALK1.MES",
+      "at": 1757,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "Q_TALK1.MES",
+        "at": 1774,
+        "s": 21,
+        "raw_sha256": "b6adacf282e27f7ba4f270f3db0567f06212ef0c348717c3058b09da7f52656e"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "Q_TALK1.MES",
+        "at": 1824,
+        "s": 2,
+        "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "Q_TALK1.MES",
+      "at": 1828,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "Q_TALK1.MES",
+        "at": 1845,
+        "s": 22,
+        "raw_sha256": "a8fd7eb611900c3f47cb6fe9efdfd6b51a4c75d71417c72349ddd1f4fa8cbbc1"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "Q_TALK1.MES",
+        "at": 1915,
+        "s": 0,
+        "raw_sha256": "d6aa22267bc0d54642b9fb0c2f7c4edc07158ac1691684424763e3bbb53eb4aa"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "Q_TALK1.MES",
+      "at": 1927,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "Q_TALK1.MES",
+        "at": 1944,
+        "s": 23,
+        "raw_sha256": "f9498afe63203c228ebff123ccb4020f989988af4844087e0b9427b17e1575e0"
+      }
+    },
+    {
+      "kind": "scene_end"
+    }
+  ],
+  "after": [
+    {
+      "type": "write_legacy_value",
+      "storage": "global_u8",
+      "bank": 0,
+      "index": 10,
+      "value": 1,
+      "cell_class": "flag"
+    },
+    {
+      "type": "write_legacy_value",
+      "storage": "global_u8",
+      "bank": 0,
+      "index": 2031,
+      "value": 1,
+      "cell_class": "flag"
+    },
+    {
+      "type": "write_legacy_value",
+      "storage": "global_u8",
+      "bank": 0,
+      "index": 2033,
+      "value": 1,
+      "cell_class": "flag"
+    }
+  ],
+  "results": {
+    "result_default": {
+      "selected_by": {
+        "kind": "default"
+      },
+      "event_played": true,
+      "dialogue": [],
+      "after": [],
+      "terminal": "flow"
+    }
+  },
+  "terminals": {
+    "flow": {
+      "kind": "callee_return",
+      "owner_entry": "Q_TALK1.MES",
+      "offset": 2034,
+      "end": 2035,
+      "next_target": "",
+      "required_state": []
+    }
+  },
+  "dependencies": [
+    {
+      "entry": "Q_PIC.MES",
+      "entry_sha256": "8c2e6a60891e1a807fb6e587084b797d7da47bf4725cff840d1791ef7813a522",
+      "role": "nested_presentation"
+    }
+  ],
+  "presentation": {
+    "status": "deferred",
+    "resources": [
+      {
+        "entry": "LIBLARY.LIB",
+        "source_offset": 38062,
+        "kind": "mmo",
+        "name": "27CPA_3.MMO"
+      },
+      {
+        "entry": "LIBLARY.LIB",
+        "source_offset": 38126,
+        "kind": "unclassified",
+        "name": "27CPA_3.MMO"
+      },
+      {
+        "entry": "Q_PIC.MES",
+        "source_offset": 138,
+        "kind": "bgm",
+        "name": "SINJI.WAV"
+      }
+    ]
+  },
+  "unresolved": [
+    "no done flag identified in the guard: the flow's own origin guard ((global_u8[250] equal 0); (global_u8[254] not_equal 0)) names no cleared completion flag",
+    "The state at the anchor is seeded, a tool decision: global_u8[250] = 0, global_u8[254] = 1. The origin is the caller's block guard at 37892; the cells are the guard's own conjuncts alone, solved by the smallest round value that satisfies them. The script is a chain of bodies each selected by flags and dates, and every cell the guard does not fix is 0 (the natural state), so the body that state selects is the one that plays.",
+    "The script asks no question on the default path; it plays the body the seeded state selects (1 answer path(s) measured).",
+    "The caller resumes into the place's day loop after the call, which runs on day after day (its own definition steps stop at the probe's limit, and under the original calendar the loop plays on to the game's ending): there is no natural end to measure, so the flow ends at the script's own return.",
+    "effect on banked_u16[1] for result h1_caller_dispatch: no matching shift witness (entry=0 final=7)",
+    "effect on banked_u16[1] for result body: no matching shift witness (entry=0 final=7)",
+    "argument storage: global_i32[1] = 30 written by command 0x09 at Q_PIC.MES:138; not an event effect (TD-56 D11)",
+    "argument storage: global_i32[1] = 119811 written by command 0x09 at Q_TALK1.MES:1981; not an event effect (TD-56 D11)"
+  ],
+  "flow": {
+    "evidence": {
+      "group": "27c-ev-q-talk",
+      "profile_sha256": "dad96e4c993ad93d1ee21a362ded009e48a93b8216563916e197d3d41c1c9306",
+      "route": "q-talk-1"
+    },
+    "origin": {
+      "entry": "27C_EV.MES",
+      "entry_sha256": "2af24ef7a0bf66a3006c66da133ec7f653f79bf5904fad7ff2f39f42302ccec3",
+      "offset": 37892,
+      "guard": {
+        "offset": 37892,
+        "end": 37909,
+        "false_target": 40128,
+        "record_sha256": "158220695ae55ee1bf412010d41a97a191747a85418d00f36a3d67e6983e06d0"
+      }
+    },
+    "state_context": {
+      "kind": "fresh"
+    },
+    "hops": [
+      {
+        "hop_id": "h1_caller_dispatch",
+        "entry": "27C_EV.MES",
+        "entry_sha256": "2af24ef7a0bf66a3006c66da133ec7f653f79bf5904fad7ff2f39f42302ccec3",
+        "entered_by": {
+          "kind": "origin",
+          "offset": 37892,
+          "end": 37909
+        },
+        "answers": [],
+        "gates": [],
+        "map_locations": [],
+        "poll_supplies": [],
+        "dialogue": [],
+        "after": [],
+        "message_count": 0
+      },
+      {
+        "hop_id": "h2_talk",
+        "entry": "Q_TALK1.MES",
+        "entry_sha256": "07bf927d23082251c29e58b2fa183cf0ea8b4b2e22f0008cf0e147ed10f60ad0",
+        "entered_by": {
+          "kind": "nested_call",
+          "offset": 37984,
+          "end": 37999
+        },
+        "answers": [],
+        "gates": [],
+        "map_locations": [],
+        "poll_supplies": [],
+        "dialogue": [
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "Q_TALK1.MES",
+              "at": 749,
+              "s": 7,
+              "raw_sha256": "ceca32fdb294dcbd24c324a809fd1f6fe689ea1266e9c5c0c043a3c530fc9170"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "Q_TALK1.MES",
+              "at": 803,
+              "s": 2,
+              "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+            }
+          },
+          {
+            "kind": "name_insert",
+            "entry": "Q_TALK1.MES",
+            "at": 807,
+            "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "Q_TALK1.MES",
+              "at": 824,
+              "s": 8,
+              "raw_sha256": "cd7b33d876173684b124ef78619247c386fad7c17938574b1aba510c51201742"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "Q_TALK1.MES",
+              "at": 900,
+              "s": 9,
+              "raw_sha256": "88f088af66530af70f745c47b3c3a4f20c8817d99a6bd9cda252474bd1c50a56"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "Q_TALK1.MES",
+              "at": 968,
+              "s": 2,
+              "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+            }
+          },
+          {
+            "kind": "name_insert",
+            "entry": "Q_TALK1.MES",
+            "at": 972,
+            "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "Q_TALK1.MES",
+              "at": 989,
+              "s": 10,
+              "raw_sha256": "b499cc90da86c14b3756e8ef34305f1a0dafbc99b30b32812c06c36e37b94ac7"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "Q_TALK1.MES",
+              "at": 1043,
+              "s": 0,
+              "raw_sha256": "d6aa22267bc0d54642b9fb0c2f7c4edc07158ac1691684424763e3bbb53eb4aa"
+            }
+          },
+          {
+            "kind": "name_insert",
+            "entry": "Q_TALK1.MES",
+            "at": 1055,
+            "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "Q_TALK1.MES",
+              "at": 1072,
+              "s": 11,
+              "raw_sha256": "dfebcd59be67595ac3d83427b716ce43bff6ef3ee904c468fc4aed651254001b"
+            }
+          },
+          {
+            "kind": "name_insert",
+            "entry": "Q_TALK1.MES",
+            "at": 1120,
+            "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "Q_TALK1.MES",
+              "at": 1137,
+              "s": 12,
+              "raw_sha256": "d0182991eca5ea72b613b02972e786e650f1e54791e719abfc45309b0d97cc1a"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "Q_TALK1.MES",
+              "at": 1201,
+              "s": 2,
+              "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+            }
+          },
+          {
+            "kind": "name_insert",
+            "entry": "Q_TALK1.MES",
+            "at": 1205,
+            "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "Q_TALK1.MES",
+              "at": 1222,
+              "s": 13,
+              "raw_sha256": "2751dc15c440bf5a7ae153eb0adf9926dfa64e1536e565c3d1f2a8f3ac91c22c"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "Q_TALK1.MES",
+              "at": 1272,
+              "s": 14,
+              "raw_sha256": "2c351c277991d94feec39240d3473d4345d8b1d8a88df4b90021fe52750b0b74"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "Q_TALK1.MES",
+              "at": 1336,
+              "s": 2,
+              "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+            }
+          },
+          {
+            "kind": "name_insert",
+            "entry": "Q_TALK1.MES",
+            "at": 1340,
+            "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "Q_TALK1.MES",
+              "at": 1357,
+              "s": 15,
+              "raw_sha256": "29efcb8c28f0e7848bebc760f5a235f2aa13375fd4caa4b79cf77a4d20a4072e"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "Q_TALK1.MES",
+              "at": 1433,
+              "s": 16,
+              "raw_sha256": "3a2d6205f777e5a653445a95f9dc162227052ca4ced5ef3c854c1bf22f20b0a1"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "Q_TALK1.MES",
+              "at": 1511,
+              "s": 2,
+              "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+            }
+          },
+          {
+            "kind": "name_insert",
+            "entry": "Q_TALK1.MES",
+            "at": 1515,
+            "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "Q_TALK1.MES",
+              "at": 1532,
+              "s": 17,
+              "raw_sha256": "9aa97d0b572336ab4905b361ad8f7fe7271910a6d9face2aa231eaff0a3b48dc"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "Q_TALK1.MES",
+              "at": 1604,
+              "s": 18,
+              "raw_sha256": "575471394dcc0cd8c116c95f0a23694fc5c0923c6c2b2b28a51d227b8227459c"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "Q_TALK1.MES",
+              "at": 1666,
+              "s": 2,
+              "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+            }
+          },
+          {
+            "kind": "name_insert",
+            "entry": "Q_TALK1.MES",
+            "at": 1670,
+            "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "Q_TALK1.MES",
+              "at": 1687,
+              "s": 19,
+              "raw_sha256": "bdea816f86644a735959da820cbb027550bee1affe4d61e8ffef24487e8e6707"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "Q_TALK1.MES",
+              "at": 1739,
+              "s": 20,
+              "raw_sha256": "d3e91908a5b46ac6ad32a718756bc24b2b72a91092e6d5d60ab144e6c3624817"
+            }
+          },
+          {
+            "kind": "name_insert",
+            "entry": "Q_TALK1.MES",
+            "at": 1757,
+            "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "Q_TALK1.MES",
+              "at": 1774,
+              "s": 21,
+              "raw_sha256": "b6adacf282e27f7ba4f270f3db0567f06212ef0c348717c3058b09da7f52656e"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "Q_TALK1.MES",
+              "at": 1824,
+              "s": 2,
+              "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+            }
+          },
+          {
+            "kind": "name_insert",
+            "entry": "Q_TALK1.MES",
+            "at": 1828,
+            "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "Q_TALK1.MES",
+              "at": 1845,
+              "s": 22,
+              "raw_sha256": "a8fd7eb611900c3f47cb6fe9efdfd6b51a4c75d71417c72349ddd1f4fa8cbbc1"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "Q_TALK1.MES",
+              "at": 1915,
+              "s": 0,
+              "raw_sha256": "d6aa22267bc0d54642b9fb0c2f7c4edc07158ac1691684424763e3bbb53eb4aa"
+            }
+          },
+          {
+            "kind": "name_insert",
+            "entry": "Q_TALK1.MES",
+            "at": 1927,
+            "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "Q_TALK1.MES",
+              "at": 1944,
+              "s": 23,
+              "raw_sha256": "f9498afe63203c228ebff123ccb4020f989988af4844087e0b9427b17e1575e0"
+            }
+          }
+        ],
+        "after": [
+          {
+            "type": "write_legacy_value",
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 10,
+            "value": 1,
+            "cell_class": "flag"
+          },
+          {
+            "type": "write_legacy_value",
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 2031,
+            "value": 1,
+            "cell_class": "flag"
+          },
+          {
+            "type": "write_legacy_value",
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 2033,
+            "value": 1,
+            "cell_class": "flag"
+          }
+        ],
+        "message_count": 37
+      }
+    ],
+    "terminal": "flow"
+  }
+}

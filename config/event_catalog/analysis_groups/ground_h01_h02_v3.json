@@ -1,0 +1,522 @@
+{
+  "schema": "kakyu_event_analysis_group/v3",
+  "group_id": "ground-h01-h02",
+  "archive_sha256": "31a95b31cb0f1051cf973a4dba4f4a5405671e4488240adfafb9b02290986aa6",
+  "source_members": [
+    {"entry": "GROUND.MES", "entry_sha256": "b5dd1b444d1dbb4327e46a853e881c5ff46890a0b01b7ed7e9b92f2fdbc8b282"},
+    {"entry": "EVENTH01.MES", "entry_sha256": "030f9857181f0fe0865abf56c25c18e80e9d3bc5f97232d39aa82bf09b0aa9f8"},
+    {"entry": "EVENTH02.MES", "entry_sha256": "328a6a9d76b8935237be5993a46c05938753aca409bf70584fd9b37bbd97f04b"},
+    {"entry": "DEF_MAIN.MES", "entry_sha256": "f2012ce5d90f60a5d1ca8190e03571341c0384c2d3d96e9aec2b3ab949db0ef0"},
+    {"entry": "LIBLARY.LIB", "entry_sha256": "d9aba6eb8dab51fe321e22c868ed0cf38416bba1f0cf2f5d7d719f48e89b8b4d"},
+    {"entry": "START.MES", "entry_sha256": "ba57bf666fbd9db9b3110f2bf1c70e80e11a35de00e82256aaaf35921c77038f"}
+  ],
+  "routes": [
+    {
+      "route_id": "h01-first",
+      "qualification": "caller_continuation_observation",
+      "caller": {"entry": "GROUND.MES", "offset": 2612, "end": 2628, "command": 15},
+      "callee": {"entry": "EVENTH01.MES", "offset": 0},
+      "guard": {"offset": 1914, "end": 1961, "false_target": 3271, "prefix_sha256": "922be9c110c858536a53f89f54722ec7b404cbd5053818d67d34404323922040"},
+      "baseline": [
+        {"storage": "state_u16", "bank": 0, "index": 0, "value": 30},
+        {"storage": "state_u16", "bank": 0, "index": 1, "value": 15},
+        {"storage": "state_u16", "bank": 0, "index": 7, "value": 501},
+        {"storage": "state_u16", "bank": 0, "index": 4, "value": 6},
+        {"storage": "state_u16", "bank": 0, "index": 16, "value": 1},
+        {"storage": "state_u16", "bank": 0, "index": 19, "value": 1530},
+        {"storage": "global_u8", "bank": 0, "index": 397, "value": 0},
+        {"storage": "global_u8", "bank": 0, "index": 2278, "value": 0},
+        {"storage": "global_u8", "bank": 0, "index": 2276, "value": 0}
+      ],
+      "guard_cases": [
+        {"case_id": "baseline", "writes": [], "expected": 1},
+        {"case_id": "state_u16-16-0", "writes": [{"storage": "state_u16", "bank": 0, "index": 16, "value": 0}], "expected": 0},
+        {"case_id": "state_u16-16-2", "writes": [{"storage": "state_u16", "bank": 0, "index": 16, "value": 2}], "expected": 0},
+        {"case_id": "state_u16-7-418", "writes": [{"storage": "state_u16", "bank": 0, "index": 7, "value": 418}], "expected": 0},
+        {"case_id": "state_u16-7-419", "writes": [{"storage": "state_u16", "bank": 0, "index": 7, "value": 419}], "expected": 0},
+        {"case_id": "state_u16-7-420", "writes": [{"storage": "state_u16", "bank": 0, "index": 7, "value": 420}], "expected": 1},
+        {"case_id": "state_u16-4-5", "writes": [{"storage": "state_u16", "bank": 0, "index": 4, "value": 5}], "expected": 0},
+        {"case_id": "state_u16-4-7", "writes": [{"storage": "state_u16", "bank": 0, "index": 4, "value": 7}], "expected": 0},
+        {"case_id": "state_u16-19-1699", "writes": [{"storage": "state_u16", "bank": 0, "index": 19, "value": 1699}], "expected": 1},
+        {"case_id": "state_u16-19-1700", "writes": [{"storage": "state_u16", "bank": 0, "index": 19, "value": 1700}], "expected": 0},
+        {"case_id": "state_u16-19-1701", "writes": [{"storage": "state_u16", "bank": 0, "index": 19, "value": 1701}], "expected": 0},
+        {"case_id": "global_u8-397-1", "writes": [{"storage": "global_u8", "bank": 0, "index": 397, "value": 1}], "expected": 0},
+        {"case_id": "global_u8-2278-1", "writes": [{"storage": "global_u8", "bank": 0, "index": 2278, "value": 1}], "expected": 0},
+        {"case_id": "global_u8-2276-1", "writes": [{"storage": "global_u8", "bank": 0, "index": 2276, "value": 1}], "expected": 0}
+      ],
+      "variants": [
+        {
+          "variant_id": "baseline",
+          "writes": [],
+          "selections": [],
+          "message_count": 21,
+          "expected_state": [
+            {"storage": "banked_u16", "bank": 0, "index": 1, "value": 7},
+            {"storage": "global_u8", "bank": 0, "index": 2276, "value": 1},
+            {"storage": "global_u8", "bank": 0, "index": 3260, "value": 1},
+            {"storage": "global_u8", "bank": 0, "index": 3598, "value": 1},
+            {"storage": "global_u8", "bank": 0, "index": 5211, "value": 1},
+            {"storage": "state_u16", "bank": 0, "index": 8, "value": 0}
+          ],
+          "expected_resume_state": [
+            {"storage": "global_u8", "bank": 0, "index": 2278, "value": 1},
+            {"storage": "global_u8", "bank": 0, "index": 2333, "value": 1},
+            {"storage": "global_u8", "bank": 0, "index": 3000, "value": 2},
+            {"storage": "global_u8", "bank": 0, "index": 3005, "value": 15},
+            {"storage": "state_u16", "bank": 0, "index": 19, "value": 1550},
+            {"storage": "state_u16", "bank": 0, "index": 2, "value": 1},
+            {"storage": "state_u16", "bank": 0, "index": 8, "value": 4}
+          ],
+          "reentry": {
+            "outcome": {"offset": 5359, "end": 5360, "op": "command_00", "status": "script_return"},
+            "message_count": 32,
+            "expected_state": [
+              {"storage": "global_u8", "bank": 0, "index": 3000, "value": 0},
+              {"storage": "global_u8", "bank": 0, "index": 3005, "value": 0},
+              {"storage": "state_u16", "bank": 0, "index": 2, "value": 0},
+              {"storage": "state_u16", "bank": 0, "index": 8, "value": 0}
+            ]
+          }
+        }
+      ],
+      "outcome": {"offset": 2509, "end": 2510, "op": "command_00", "status": "script_return"},
+      "caller_outcome": {"kind": "dispatch"},
+      "expected_state": [],
+      "state_context": {"kind": "original_calendar", "entry": "START.MES", "table_sha256": "f21ee0fcb09e960046878e35ad0410aed88680f849ace471b713ef7a12525b4a"},
+      "choice_contracts": [],
+      "resume": {
+        "start": 2628,
+        "boundary_policy": "stop_before_unprovided_dependency",
+        "outcome": {
+          "offset": 6308,
+          "end": 6324,
+          "op": "script_dispatch",
+          "status": "script_dispatch_boundary",
+          "target": "EVENTK01.MES",
+          "record_sha256": "35bc0ad7a506f897240827b69796a8e67e48eeec2e8364011bd3efcfccaaa389",
+          "source_binding": {"kind": "typed_record"}
+        },
+        "message_count": 23,
+        "expected_state": []
+      },
+      "reentry": {
+        "outcome": {"offset": 5359, "end": 5360, "op": "command_00", "status": "script_return"},
+        "message_count": 32,
+        "expected_state": [
+          {"storage": "global_u8", "bank": 0, "index": 3000, "value": 0},
+          {"storage": "global_u8", "bank": 0, "index": 3005, "value": 0},
+          {"storage": "state_u16", "bank": 0, "index": 2, "value": 0},
+          {"storage": "state_u16", "bank": 0, "index": 8, "value": 0}
+        ]
+      },
+      "unresolved": ["outer_scheduler", "unvisited_branch_states", "native_presentation", "downstream_dependency_execution"]
+    },
+    {
+      "route_id": "h01-repeat",
+      "qualification": "caller_continuation_observation",
+      "caller": {"entry": "GROUND.MES", "offset": 3513, "end": 3529, "command": 15},
+      "callee": {"entry": "EVENTH01.MES", "offset": 0},
+      "guard": {"offset": 3271, "end": 3331, "false_target": 4092, "prefix_sha256": "6ea305c989a9b464bcf343e70c2b30498fb2fe7fa7e17b2dc8d8382fc9ef5fb8"},
+      "baseline": [
+        {"storage": "state_u16", "bank": 0, "index": 0, "value": 30},
+        {"storage": "state_u16", "bank": 0, "index": 1, "value": 15},
+        {"storage": "state_u16", "bank": 0, "index": 7, "value": 501},
+        {"storage": "state_u16", "bank": 0, "index": 4, "value": 6},
+        {"storage": "state_u16", "bank": 0, "index": 16, "value": 1},
+        {"storage": "state_u16", "bank": 0, "index": 19, "value": 1530},
+        {"storage": "global_u8", "bank": 0, "index": 397, "value": 0},
+        {"storage": "global_u8", "bank": 0, "index": 2278, "value": 0},
+        {"storage": "global_u8", "bank": 0, "index": 2276, "value": 1},
+        {"storage": "global_u8", "bank": 0, "index": 2277, "value": 1},
+        {"storage": "global_u8", "bank": 0, "index": 2280, "value": 0}
+      ],
+      "guard_cases": [
+        {"case_id": "baseline", "writes": [], "expected": 1},
+        {"case_id": "state_u16-7-418", "writes": [{"storage": "state_u16", "bank": 0, "index": 7, "value": 418}], "expected": 0},
+        {"case_id": "state_u16-7-419", "writes": [{"storage": "state_u16", "bank": 0, "index": 7, "value": 419}], "expected": 0},
+        {"case_id": "state_u16-7-420", "writes": [{"storage": "state_u16", "bank": 0, "index": 7, "value": 420}], "expected": 1},
+        {"case_id": "state_u16-4-5", "writes": [{"storage": "state_u16", "bank": 0, "index": 4, "value": 5}], "expected": 0},
+        {"case_id": "state_u16-4-7", "writes": [{"storage": "state_u16", "bank": 0, "index": 4, "value": 7}], "expected": 0},
+        {"case_id": "state_u16-19-1699", "writes": [{"storage": "state_u16", "bank": 0, "index": 19, "value": 1699}], "expected": 1},
+        {"case_id": "state_u16-19-1700", "writes": [{"storage": "state_u16", "bank": 0, "index": 19, "value": 1700}], "expected": 0},
+        {"case_id": "state_u16-19-1701", "writes": [{"storage": "state_u16", "bank": 0, "index": 19, "value": 1701}], "expected": 0},
+        {"case_id": "global_u8-397-1", "writes": [{"storage": "global_u8", "bank": 0, "index": 397, "value": 1}], "expected": 0},
+        {"case_id": "global_u8-2278-1", "writes": [{"storage": "global_u8", "bank": 0, "index": 2278, "value": 1}], "expected": 0},
+        {"case_id": "global_u8-2276-0", "writes": [{"storage": "global_u8", "bank": 0, "index": 2276, "value": 0}], "expected": 0},
+        {"case_id": "global_u8-2276-2", "writes": [{"storage": "global_u8", "bank": 0, "index": 2276, "value": 2}], "expected": 0},
+        {"case_id": "global_u8-2277-2", "writes": [{"storage": "global_u8", "bank": 0, "index": 2277, "value": 2}], "expected": 1},
+        {"case_id": "global_u8-2277-3", "writes": [{"storage": "global_u8", "bank": 0, "index": 2277, "value": 3}], "expected": 0},
+        {"case_id": "global_u8-2277-4", "writes": [{"storage": "global_u8", "bank": 0, "index": 2277, "value": 4}], "expected": 1},
+        {"case_id": "global_u8-2277-0", "writes": [{"storage": "global_u8", "bank": 0, "index": 2277, "value": 0}], "expected": 0},
+        {"case_id": "global_u8-2280-1", "writes": [{"storage": "global_u8", "bank": 0, "index": 2280, "value": 1}], "expected": 0}
+      ],
+      "variants": [
+        {
+          "variant_id": "baseline",
+          "writes": [],
+          "selections": [],
+          "message_count": 32,
+          "expected_state": [{"storage": "banked_u16", "bank": 0, "index": 1, "value": 7}, {"storage": "state_u16", "bank": 0, "index": 8, "value": 0}],
+          "expected_resume_state": [
+            {"storage": "global_u8", "bank": 0, "index": 2278, "value": 1},
+            {"storage": "global_u8", "bank": 0, "index": 2280, "value": 1},
+            {"storage": "global_u8", "bank": 0, "index": 2333, "value": 1},
+            {"storage": "global_u8", "bank": 0, "index": 3000, "value": 2},
+            {"storage": "global_u8", "bank": 0, "index": 3005, "value": 15},
+            {"storage": "state_u16", "bank": 0, "index": 19, "value": 1550},
+            {"storage": "state_u16", "bank": 0, "index": 2, "value": 1},
+            {"storage": "state_u16", "bank": 0, "index": 8, "value": 4}
+          ],
+          "reentry": {"outcome": {"offset": 5365, "end": 5366, "op": "command_00", "status": "script_return"}, "message_count": 0, "expected_state": []}
+        }
+      ],
+      "outcome": {"offset": 5359, "end": 5360, "op": "command_00", "status": "script_return"},
+      "caller_outcome": {"kind": "dispatch"},
+      "expected_state": [],
+      "state_context": {"kind": "original_calendar", "entry": "START.MES", "table_sha256": "f21ee0fcb09e960046878e35ad0410aed88680f849ace471b713ef7a12525b4a"},
+      "choice_contracts": [],
+      "resume": {
+        "start": 3529,
+        "boundary_policy": "stop_before_unprovided_dependency",
+        "outcome": {
+          "offset": 16859,
+          "end": 16875,
+          "op": "script_dispatch",
+          "status": "script_dispatch_boundary",
+          "target": "EVENTK01.MES",
+          "record_sha256": "35bc0ad7a506f897240827b69796a8e67e48eeec2e8364011bd3efcfccaaa389",
+          "source_binding": {"kind": "typed_record"}
+        },
+        "message_count": 18,
+        "expected_state": []
+      },
+      "reentry": {"outcome": {"offset": 5365, "end": 5366, "op": "command_00", "status": "script_return"}, "message_count": 0, "expected_state": []},
+      "unresolved": ["outer_scheduler", "unvisited_branch_states", "native_presentation", "downstream_dependency_execution"]
+    },
+    {
+      "route_id": "h02-first",
+      "qualification": "caller_continuation_observation",
+      "caller": {"entry": "GROUND.MES", "offset": 4319, "end": 4335, "command": 15},
+      "callee": {"entry": "EVENTH02.MES", "offset": 0},
+      "guard": {"offset": 4092, "end": 4145, "false_target": 4888, "prefix_sha256": "3ebe392b27a48f1bb093f9c6495ed270c0f942a9a49ae534bec38e209e68cedb"},
+      "baseline": [
+        {"storage": "state_u16", "bank": 0, "index": 0, "value": 30},
+        {"storage": "state_u16", "bank": 0, "index": 1, "value": 15},
+        {"storage": "state_u16", "bank": 0, "index": 7, "value": 501},
+        {"storage": "state_u16", "bank": 0, "index": 4, "value": 6},
+        {"storage": "state_u16", "bank": 0, "index": 16, "value": 1},
+        {"storage": "state_u16", "bank": 0, "index": 19, "value": 1530},
+        {"storage": "global_u8", "bank": 0, "index": 397, "value": 1},
+        {"storage": "global_u8", "bank": 0, "index": 2278, "value": 0},
+        {"storage": "global_u8", "bank": 0, "index": 2282, "value": 1},
+        {"storage": "global_u8", "bank": 0, "index": 2283, "value": 0}
+      ],
+      "guard_cases": [
+        {"case_id": "baseline", "writes": [], "expected": 1},
+        {"case_id": "state_u16-16-0", "writes": [{"storage": "state_u16", "bank": 0, "index": 16, "value": 0}], "expected": 0},
+        {"case_id": "state_u16-16-2", "writes": [{"storage": "state_u16", "bank": 0, "index": 16, "value": 2}], "expected": 0},
+        {"case_id": "state_u16-7-418", "writes": [{"storage": "state_u16", "bank": 0, "index": 7, "value": 418}], "expected": 0},
+        {"case_id": "state_u16-7-419", "writes": [{"storage": "state_u16", "bank": 0, "index": 7, "value": 419}], "expected": 0},
+        {"case_id": "state_u16-7-420", "writes": [{"storage": "state_u16", "bank": 0, "index": 7, "value": 420}], "expected": 1},
+        {"case_id": "state_u16-4-5", "writes": [{"storage": "state_u16", "bank": 0, "index": 4, "value": 5}], "expected": 0},
+        {"case_id": "state_u16-4-7", "writes": [{"storage": "state_u16", "bank": 0, "index": 4, "value": 7}], "expected": 0},
+        {"case_id": "state_u16-19-1699", "writes": [{"storage": "state_u16", "bank": 0, "index": 19, "value": 1699}], "expected": 1},
+        {"case_id": "state_u16-19-1700", "writes": [{"storage": "state_u16", "bank": 0, "index": 19, "value": 1700}], "expected": 0},
+        {"case_id": "state_u16-19-1701", "writes": [{"storage": "state_u16", "bank": 0, "index": 19, "value": 1701}], "expected": 0},
+        {"case_id": "global_u8-397-0", "writes": [{"storage": "global_u8", "bank": 0, "index": 397, "value": 0}], "expected": 0},
+        {"case_id": "global_u8-397-2", "writes": [{"storage": "global_u8", "bank": 0, "index": 397, "value": 2}], "expected": 0},
+        {"case_id": "global_u8-2278-1", "writes": [{"storage": "global_u8", "bank": 0, "index": 2278, "value": 1}], "expected": 0},
+        {"case_id": "global_u8-2282-0", "writes": [{"storage": "global_u8", "bank": 0, "index": 2282, "value": 0}], "expected": 0},
+        {"case_id": "global_u8-2282-2", "writes": [{"storage": "global_u8", "bank": 0, "index": 2282, "value": 2}], "expected": 0},
+        {"case_id": "global_u8-2283-1", "writes": [{"storage": "global_u8", "bank": 0, "index": 2283, "value": 1}], "expected": 0}
+      ],
+      "variants": [
+        {
+          "variant_id": "baseline",
+          "writes": [],
+          "selections": [],
+          "message_count": 40,
+          "expected_state": [
+            {"storage": "banked_u16", "bank": 0, "index": 1, "value": 7},
+            {"storage": "global_u8", "bank": 0, "index": 264, "value": 1},
+            {"storage": "global_u8", "bank": 0, "index": 3263, "value": 1},
+            {"storage": "global_u8", "bank": 0, "index": 3599, "value": 1},
+            {"storage": "global_u8", "bank": 0, "index": 5212, "value": 1},
+            {"storage": "global_u8", "bank": 0, "index": 5213, "value": 1},
+            {"storage": "state_u16", "bank": 0, "index": 8, "value": 0}
+          ],
+          "expected_resume_state": [
+            {"storage": "global_u8", "bank": 0, "index": 2278, "value": 1},
+            {"storage": "global_u8", "bank": 0, "index": 2283, "value": 1},
+            {"storage": "global_u8", "bank": 0, "index": 2285, "value": 1},
+            {"storage": "global_u8", "bank": 0, "index": 2333, "value": 1},
+            {"storage": "global_u8", "bank": 0, "index": 3005, "value": 15},
+            {"storage": "state_u16", "bank": 0, "index": 19, "value": 1550},
+            {"storage": "state_u16", "bank": 0, "index": 2, "value": 1},
+            {"storage": "state_u16", "bank": 0, "index": 8, "value": 4}
+          ],
+          "reentry": {"outcome": {"offset": 10259, "end": 10260, "op": "command_00", "status": "script_return"}, "message_count": 0, "expected_state": []}
+        }
+      ],
+      "outcome": {"offset": 3484, "end": 3485, "op": "command_00", "status": "script_return"},
+      "caller_outcome": {"kind": "dispatch"},
+      "expected_state": [],
+      "state_context": {"kind": "original_calendar", "entry": "START.MES", "table_sha256": "f21ee0fcb09e960046878e35ad0410aed88680f849ace471b713ef7a12525b4a"},
+      "choice_contracts": [],
+      "resume": {
+        "start": 4335,
+        "boundary_policy": "stop_before_unprovided_dependency",
+        "outcome": {
+          "offset": 7227,
+          "end": 7240,
+          "op": "script_dispatch",
+          "status": "script_dispatch_boundary",
+          "target": "K_PIC.MES",
+          "record_sha256": "4f92a07c31c2af500af09f4124fffe2813868f88d9f8ad02d2ab8d23d003070d",
+          "source_binding": {
+            "kind": "typed_record"
+          }
+        },
+        "message_count": 12,
+        "expected_state": []
+      },
+      "reentry": {"outcome": {"offset": 10259, "end": 10260, "op": "command_00", "status": "script_return"}, "message_count": 0, "expected_state": []},
+      "unresolved": ["outer_scheduler", "unvisited_branch_states", "native_presentation", "downstream_dependency_execution"]
+    },
+    {
+      "route_id": "h02-later",
+      "qualification": "caller_continuation_observation",
+      "caller": {"entry": "GROUND.MES", "offset": 5285, "end": 5301, "command": 15},
+      "callee": {"entry": "EVENTH02.MES", "offset": 0},
+      "guard": {"offset": 4888, "end": 4977, "false_target": 5845, "prefix_sha256": "5b112248f510f3e92fbd000805896ee61a86bbd76f183605b3fb5236a17c184c"},
+      "baseline": [
+        {"storage": "state_u16", "bank": 0, "index": 0, "value": 30},
+        {"storage": "state_u16", "bank": 0, "index": 1, "value": 15},
+        {"storage": "state_u16", "bank": 0, "index": 7, "value": 501},
+        {"storage": "state_u16", "bank": 0, "index": 4, "value": 6},
+        {"storage": "state_u16", "bank": 0, "index": 16, "value": 1},
+        {"storage": "state_u16", "bank": 0, "index": 19, "value": 1530},
+        {"storage": "global_u8", "bank": 0, "index": 397, "value": 1},
+        {"storage": "global_u8", "bank": 0, "index": 170, "value": 0},
+        {"storage": "global_u8", "bank": 0, "index": 174, "value": 0},
+        {"storage": "global_u8", "bank": 0, "index": 177, "value": 0},
+        {"storage": "global_u8", "bank": 0, "index": 2278, "value": 0},
+        {"storage": "global_u8", "bank": 0, "index": 2286, "value": 1},
+        {"storage": "global_u8", "bank": 0, "index": 2292, "value": 0},
+        {"storage": "global_u8", "bank": 0, "index": 2124, "value": 0},
+        {"storage": "global_u8", "bank": 0, "index": 2627, "value": 1},
+        {"storage": "global_u8", "bank": 0, "index": 2167, "value": 0},
+        {"storage": "global_u8", "bank": 0, "index": 2283, "value": 1}
+      ],
+      "guard_cases": [
+        {"case_id": "baseline", "writes": [], "expected": 1},
+        {"case_id": "state_u16-16-0", "writes": [{"storage": "state_u16", "bank": 0, "index": 16, "value": 0}], "expected": 0},
+        {"case_id": "state_u16-16-2", "writes": [{"storage": "state_u16", "bank": 0, "index": 16, "value": 2}], "expected": 0},
+        {"case_id": "state_u16-4-5", "writes": [{"storage": "state_u16", "bank": 0, "index": 4, "value": 5}], "expected": 0},
+        {"case_id": "state_u16-4-7", "writes": [{"storage": "state_u16", "bank": 0, "index": 4, "value": 7}], "expected": 0},
+        {"case_id": "state_u16-19-1528", "writes": [{"storage": "state_u16", "bank": 0, "index": 19, "value": 1528}], "expected": 0},
+        {"case_id": "state_u16-19-1529", "writes": [{"storage": "state_u16", "bank": 0, "index": 19, "value": 1529}], "expected": 0},
+        {"case_id": "state_u16-19-1699", "writes": [{"storage": "state_u16", "bank": 0, "index": 19, "value": 1699}], "expected": 1},
+        {"case_id": "state_u16-19-1700", "writes": [{"storage": "state_u16", "bank": 0, "index": 19, "value": 1700}], "expected": 0},
+        {"case_id": "state_u16-19-1701", "writes": [{"storage": "state_u16", "bank": 0, "index": 19, "value": 1701}], "expected": 0},
+        {"case_id": "global_u8-397-0", "writes": [{"storage": "global_u8", "bank": 0, "index": 397, "value": 0}], "expected": 0},
+        {"case_id": "global_u8-397-2", "writes": [{"storage": "global_u8", "bank": 0, "index": 397, "value": 2}], "expected": 0},
+        {"case_id": "global_u8-170-1", "writes": [{"storage": "global_u8", "bank": 0, "index": 170, "value": 1}], "expected": 0},
+        {"case_id": "global_u8-174-1", "writes": [{"storage": "global_u8", "bank": 0, "index": 174, "value": 1}], "expected": 0},
+        {"case_id": "global_u8-177-1", "writes": [{"storage": "global_u8", "bank": 0, "index": 177, "value": 1}], "expected": 0},
+        {"case_id": "global_u8-2278-1", "writes": [{"storage": "global_u8", "bank": 0, "index": 2278, "value": 1}], "expected": 0},
+        {"case_id": "global_u8-2286-0", "writes": [{"storage": "global_u8", "bank": 0, "index": 2286, "value": 0}], "expected": 0},
+        {"case_id": "global_u8-2286-2", "writes": [{"storage": "global_u8", "bank": 0, "index": 2286, "value": 2}], "expected": 0},
+        {"case_id": "global_u8-2292-1", "writes": [{"storage": "global_u8", "bank": 0, "index": 2292, "value": 1}], "expected": 0},
+        {"case_id": "global_u8-2124-1", "writes": [{"storage": "global_u8", "bank": 0, "index": 2124, "value": 1}], "expected": 0},
+        {"case_id": "global_u8-2627-0", "writes": [{"storage": "global_u8", "bank": 0, "index": 2627, "value": 0}], "expected": 0},
+        {"case_id": "global_u8-2627-2", "writes": [{"storage": "global_u8", "bank": 0, "index": 2627, "value": 2}], "expected": 0},
+        {"case_id": "global_u8-2167-1", "writes": [{"storage": "global_u8", "bank": 0, "index": 2167, "value": 1}], "expected": 0}
+      ],
+      "variants": [
+        {
+          "variant_id": "choice-1",
+          "writes": [],
+          "selections": [{"boundary_offset": 6998, "result_value": 1}],
+          "message_count": 36,
+          "expected_state": [{"storage": "banked_u16", "bank": 0, "index": 1, "value": 7}, {"storage": "state_u16", "bank": 0, "index": 21, "value": 1}],
+          "expected_resume_state": [
+            {"storage": "global_u8", "bank": 0, "index": 2167, "value": 1},
+            {"storage": "global_u8", "bank": 0, "index": 2291, "value": 1},
+            {"storage": "global_u8", "bank": 0, "index": 3000, "value": 2},
+            {"storage": "global_u8", "bank": 0, "index": 3005, "value": 15},
+            {"storage": "state_u16", "bank": 0, "index": 0, "value": 0},
+            {"storage": "state_u16", "bank": 0, "index": 1, "value": 4},
+            {"storage": "state_u16", "bank": 0, "index": 10, "value": 501},
+            {"storage": "state_u16", "bank": 0, "index": 16, "value": 13},
+            {"storage": "state_u16", "bank": 0, "index": 19, "value": 1540},
+            {"storage": "state_u16", "bank": 0, "index": 2, "value": 1},
+            {"storage": "state_u16", "bank": 0, "index": 21, "value": 0},
+            {"storage": "state_u16", "bank": 0, "index": 25, "value": 9504},
+            {"storage": "state_u16", "bank": 0, "index": 8, "value": 4}
+          ],
+          "reentry": {
+            "outcome": {"offset": 6998, "end": 7003, "op": "script_transfer", "status": "def_selection_boundary"},
+            "message_count": 12,
+            "expected_state": [
+              {"storage": "global_u8", "bank": 0, "index": 2278, "value": 1},
+              {"storage": "global_u8", "bank": 0, "index": 3005, "value": 0},
+              {"storage": "global_u8", "bank": 0, "index": 4001, "value": 1},
+              {"storage": "state_u16", "bank": 0, "index": 8, "value": 0}
+            ]
+          }
+        },
+        {
+          "variant_id": "choice-2",
+          "writes": [],
+          "selections": [{"boundary_offset": 6998, "result_value": 2}],
+          "message_count": 32,
+          "expected_state": [{"storage": "banked_u16", "bank": 0, "index": 1, "value": 7}, {"storage": "state_u16", "bank": 0, "index": 21, "value": 2}],
+          "expected_resume_state": [
+            {"storage": "global_u8", "bank": 0, "index": 2167, "value": 1},
+            {"storage": "global_u8", "bank": 0, "index": 2291, "value": 1},
+            {"storage": "global_u8", "bank": 0, "index": 3000, "value": 2},
+            {"storage": "global_u8", "bank": 0, "index": 3005, "value": 15},
+            {"storage": "state_u16", "bank": 0, "index": 0, "value": 0},
+            {"storage": "state_u16", "bank": 0, "index": 1, "value": 4},
+            {"storage": "state_u16", "bank": 0, "index": 10, "value": 501},
+            {"storage": "state_u16", "bank": 0, "index": 16, "value": 13},
+            {"storage": "state_u16", "bank": 0, "index": 19, "value": 1540},
+            {"storage": "state_u16", "bank": 0, "index": 2, "value": 1},
+            {"storage": "state_u16", "bank": 0, "index": 21, "value": 0},
+            {"storage": "state_u16", "bank": 0, "index": 25, "value": 9504},
+            {"storage": "state_u16", "bank": 0, "index": 8, "value": 4}
+          ],
+          "reentry": {
+            "outcome": {"offset": 6998, "end": 7003, "op": "script_transfer", "status": "def_selection_boundary"},
+            "message_count": 12,
+            "expected_state": [
+              {"storage": "global_u8", "bank": 0, "index": 2278, "value": 1},
+              {"storage": "global_u8", "bank": 0, "index": 3005, "value": 0},
+              {"storage": "global_u8", "bank": 0, "index": 4001, "value": 1},
+              {"storage": "state_u16", "bank": 0, "index": 8, "value": 0}
+            ]
+          }
+        },
+        {
+          "variant_id": "choice-3",
+          "writes": [],
+          "selections": [{"boundary_offset": 6998, "result_value": 3}],
+          "message_count": 44,
+          "expected_state": [
+            {"storage": "banked_u16", "bank": 0, "index": 1, "value": 7},
+            {"storage": "banked_u16", "bank": 0, "index": 207, "value": 2},
+            {"storage": "global_u8", "bank": 0, "index": 2292, "value": 1},
+            {"storage": "global_u8", "bank": 0, "index": 3266, "value": 1},
+            {"storage": "global_u8", "bank": 0, "index": 3600, "value": 1},
+            {"storage": "global_u8", "bank": 0, "index": 5214, "value": 1},
+            {"storage": "state_u16", "bank": 0, "index": 21, "value": 3}
+          ],
+          "expected_resume_state": [
+            {"storage": "global_u8", "bank": 0, "index": 2167, "value": 1},
+            {"storage": "global_u8", "bank": 0, "index": 2291, "value": 1},
+            {"storage": "global_u8", "bank": 0, "index": 3000, "value": 2},
+            {"storage": "global_u8", "bank": 0, "index": 3005, "value": 15},
+            {"storage": "state_u16", "bank": 0, "index": 0, "value": 0},
+            {"storage": "state_u16", "bank": 0, "index": 1, "value": 4},
+            {"storage": "state_u16", "bank": 0, "index": 10, "value": 501},
+            {"storage": "state_u16", "bank": 0, "index": 16, "value": 13},
+            {"storage": "state_u16", "bank": 0, "index": 19, "value": 1540},
+            {"storage": "state_u16", "bank": 0, "index": 2, "value": 1},
+            {"storage": "state_u16", "bank": 0, "index": 21, "value": 0},
+            {"storage": "state_u16", "bank": 0, "index": 25, "value": 9504},
+            {"storage": "state_u16", "bank": 0, "index": 8, "value": 4}
+          ],
+          "reentry": {"outcome": {"offset": 10259, "end": 10260, "op": "command_00", "status": "script_return"}, "message_count": 0, "expected_state": []}
+        }
+      ],
+      "outcome": {"offset": 10253, "end": 10254, "op": "command_00", "status": "script_return"},
+      "caller_outcome": {"kind": "dispatch"},
+      "expected_state": [],
+      "state_context": {"kind": "original_calendar", "entry": "START.MES", "table_sha256": "f21ee0fcb09e960046878e35ad0410aed88680f849ace471b713ef7a12525b4a"},
+      "choice_contracts": [
+        {
+          "boundary_offset": 6998,
+          "bytecode_sha256": "440b94b2dc6f4961b3ce5c79c9396c1a91e39f8d41bc9a916fcc22593cf04a49",
+          "code_size": 10260,
+          "comparisons": [
+            {"fallthrough_offset": 7023, "false_target_offset": 7739, "result": 1, "source_offset": 7008},
+            {"fallthrough_offset": 7754, "false_target_offset": 8286, "result": 2, "source_offset": 7739}
+          ],
+          "consumer_kind": "one_based_state_u16_21_branch_chain",
+          "definition_count": 3,
+          "definitions": [
+            {
+              "body_offset": 6783,
+              "body_sha256": "76524b40127280ddb4f454fb177360661665c6a9721d6f640ab6ae2054ed2004",
+              "body_size": 53,
+              "definition_id": 0,
+              "source_offset": 6774,
+              "target_offset": 6836
+            },
+            {
+              "body_offset": 6850,
+              "body_sha256": "2610b4478e418ced29030d98fced3ea9bc394d5b118841f29543681824792a17",
+              "body_size": 65,
+              "definition_id": 1,
+              "source_offset": 6841,
+              "target_offset": 6915
+            },
+            {
+              "body_offset": 6929,
+              "body_sha256": "726d7cbcd1eac254e4c2f29972b1a44fb8dc4d44a3130e20d76a561935206cd0",
+              "body_size": 59,
+              "definition_id": 2,
+              "source_offset": 6920,
+              "target_offset": 6988
+            }
+          ],
+          "fallback_offset": -1,
+          "gate": {},
+          "gate_policy": "not_applicable",
+          "input_policy": "explicit_remake_choice",
+          "native_input_semantics": "unresolved",
+          "ok": true,
+          "omitted_native_effects": ["state_u16_18_result", "state_u16_13_output", "routine20", "native_vector_clear"],
+          "option_entry_offsets": [7023, 7754, 8286],
+          "result_index": 21,
+          "result_storage": "state_u16",
+          "result_values": [1, 2, 3],
+          "resume_offset": 7003,
+          "schema": "kakyu_mes_routine40_choice_contract/v3",
+          "source_identity": {"archive": "mes.arc", "entry": "EVENTH02.MES"},
+          "variants": []
+        }
+      ],
+      "resume": {
+        "start": 5301,
+        "boundary_policy": "natural_handoff",
+        "outcome": {
+          "offset": 66123,
+          "end": 66136,
+          "op": "script_handoff_marker",
+          "status": "script_handoff_boundary",
+          "target": "MACHI.MES",
+          "record_sha256": "496ee6fc5e929a0d78f596b742cf256b0651842fc13c717c182cd217879ac047",
+          "source_binding": {
+            "kind": "typed_record"
+          }
+        },
+        "message_count": 6,
+        "expected_state": []
+      },
+      "reentry": {
+        "outcome": {"offset": 6998, "end": 7003, "op": "script_transfer", "status": "def_selection_boundary"},
+        "message_count": 12,
+        "expected_state": [
+          {"storage": "global_u8", "bank": 0, "index": 2278, "value": 1},
+          {"storage": "global_u8", "bank": 0, "index": 3005, "value": 0},
+          {"storage": "global_u8", "bank": 0, "index": 4001, "value": 1},
+          {"storage": "state_u16", "bank": 0, "index": 8, "value": 0}
+        ]
+      },
+      "unresolved": ["outer_scheduler", "unvisited_branch_states", "native_presentation"]
+    }
+  ],
+  "payload_sha256": "cc79d1fe3bcf24210445d5c2848e84df4e9156c0d140e6efa1255902ca7a2dd3"
+}

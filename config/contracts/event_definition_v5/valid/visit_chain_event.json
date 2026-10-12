@@ -1,0 +1,229 @@
+{
+  "schema_version": "kakyu_event_definition/v5",
+  "contract_fingerprint": "self",
+  "names_fingerprint": "self",
+  "id": "nana.school.gate.07.1",
+  "kind": "event",
+  "display": {
+    "title_ko": "nana gate 사건",
+    "title_en": "nana at gate",
+    "heroine": "nana",
+    "category": "school",
+    "place": "gate"
+  },
+  "evidence": {
+    "kind": "analysis_group",
+    "archive_sha256": "60d6b88cf31644ae02762247f9ebb10bd1e4114c6508e4095a021c25f946bd79",
+    "groups": [
+      {
+        "group_id": "fixture_group",
+        "profile_sha256": "f22f859c49b5d17687b2044e9125502a9954032adff5118bc17ae14a7d3c20ef",
+        "route_ids": [
+          "route_0"
+        ]
+      }
+    ],
+    "members": [
+      {
+        "entry": "CALLER",
+        "entry_sha256": "51f67ee25bf640b459e96cd177d141f57fbca04a8f8de4718b56874ae3b53bd4"
+      },
+      {
+        "entry": "CALLEE",
+        "entry_sha256": "93392ef68974d699e5f13db9d7cfc5c1bbc2014ea3c46b0c625c5d83b38d45e0"
+      }
+    ],
+    "document_refs": []
+  },
+  "package_binding": {
+    "schema": "kakyu_playback_package/v7",
+    "package_sha256": "8d0a43aa7bb222f99ad300ff8de6c80eb61fcbfaefb3a74d4d55810ff852e88f"
+  },
+  "trigger": {
+    "type": "caller_dispatch",
+    "caller": {
+      "entry": "CALLER",
+      "entry_sha256": "51f67ee25bf640b459e96cd177d141f57fbca04a8f8de4718b56874ae3b53bd4",
+      "offset": 100,
+      "end": 140,
+      "command": 15,
+      "kind": "nested_call"
+    },
+    "callee": {
+      "entry": "CALLEE",
+      "entry_sha256": "93392ef68974d699e5f13db9d7cfc5c1bbc2014ea3c46b0c625c5d83b38d45e0",
+      "start_coordinate": 0
+    },
+    "origin": {
+      "kind": "caller_prefix",
+      "offset": 100
+    }
+  },
+  "conditions": [
+    {
+      "type": "mes_expression",
+      "ast": {
+        "op": "and",
+        "args": []
+      },
+      "source_offset": 100,
+      "failure_reason": "guard_rejected"
+    }
+  ],
+  "presets": [],
+  "dialogue": [
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "CALLEE",
+        "at": 10,
+        "s": 0,
+        "raw_sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "CALLEE",
+        "at": 20,
+        "s": 1,
+        "raw_sha256": "2222222222222222222222222222222222222222222222222222222222222222"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "CALLEE",
+      "at": 25,
+      "raw_sha256": "3333333333333333333333333333333333333333333333333333333333333333"
+    }
+  ],
+  "after": [],
+  "results": {
+    "result_default": {
+      "selected_by": {
+        "kind": "default"
+      },
+      "event_played": true,
+      "dialogue": [
+        {
+          "kind": "scene_end"
+        }
+      ],
+      "after": [],
+      "terminal": "term_natural"
+    }
+  },
+  "terminals": {
+    "term_natural": {
+      "kind": "natural_handoff",
+      "owner_entry": "CALLEE",
+      "offset": 300,
+      "end": 320,
+      "next_target": "MACHI.MES",
+      "required_state": []
+    }
+  },
+  "dependencies": [],
+  "presentation": {
+    "status": "deferred",
+    "resources": []
+  },
+  "unresolved": [],
+  "visits": [
+    {
+      "visit_id": "v1",
+      "follows": "first",
+      "select": [
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 900,
+          "operator": "equals",
+          "value": 0
+        }
+      ],
+      "dialogue": [
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "CALLEE",
+            "at": 10,
+            "s": 0,
+            "raw_sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+          }
+        },
+        {
+          "kind": "scene_end"
+        }
+      ],
+      "after": [
+        {
+          "type": "add_legacy_value",
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 900,
+          "delta": 1,
+          "cell_class": "counter"
+        }
+      ],
+      "repeats": false,
+      "evidence": {
+        "group": "fixture_group",
+        "profile_sha256": "f22f859c49b5d17687b2044e9125502a9954032adff5118bc17ae14a7d3c20ef",
+        "route": "route_0",
+        "seed_basis": "tool_seeded"
+      }
+    },
+    {
+      "visit_id": "v2",
+      "follows": "v1",
+      "select": [
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 900,
+          "operator": "equals",
+          "value": 1
+        },
+        {
+          "type": "mes_expression",
+          "ast": {
+            "op": "or",
+            "args": [
+              {
+                "kind": "cell",
+                "storage": "global_u8",
+                "bank": 0,
+                "index": 901,
+                "op": "not_equal",
+                "value": 0
+              }
+            ]
+          }
+        }
+      ],
+      "dialogue": [
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "CALLEE",
+            "at": 20,
+            "s": 1,
+            "raw_sha256": "2222222222222222222222222222222222222222222222222222222222222222"
+          }
+        },
+        {
+          "kind": "scene_end"
+        }
+      ],
+      "after": [],
+      "repeats": true,
+      "evidence": {
+        "group": "fixture_group",
+        "profile_sha256": "f22f859c49b5d17687b2044e9125502a9954032adff5118bc17ae14a7d3c20ef",
+        "route": "route_0",
+        "seed_basis": "none"
+      }
+    }
+  ]
+}

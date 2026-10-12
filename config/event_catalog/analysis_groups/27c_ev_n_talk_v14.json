@@ -1,0 +1,364 @@
+{
+  "schema": "kakyu_event_analysis_group/v14",
+  "group_id": "27c-ev-n-talk",
+  "archive_sha256": "31a95b31cb0f1051cf973a4dba4f4a5405671e4488240adfafb9b02290986aa6",
+  "source_members": [
+    {
+      "entry": "27C_EV.MES",
+      "entry_sha256": "2af24ef7a0bf66a3006c66da133ec7f653f79bf5904fad7ff2f39f42302ccec3"
+    },
+    {
+      "entry": "N_TALK.MES",
+      "entry_sha256": "1f9bed2649048db1cc7231cb14b0ae78f0af2d5076b0fdedcb77015e4f45305b"
+    },
+    {
+      "entry": "N_PIC.MES",
+      "entry_sha256": "b4fac3ca304f4784fbf6f96ff8ef6adc8f1c53dfbb4102bab48244cf28e750b4"
+    },
+    {
+      "entry": "LIBLARY.LIB",
+      "entry_sha256": "d9aba6eb8dab51fe321e22c868ed0cf38416bba1f0cf2f5d7d719f48e89b8b4d"
+    },
+    {
+      "entry": "DEF_MAIN.MES",
+      "entry_sha256": "f2012ce5d90f60a5d1ca8190e03571341c0384c2d3d96e9aec2b3ab949db0ef0"
+    },
+    {
+      "entry": "START.MES",
+      "entry_sha256": "ba57bf666fbd9db9b3110f2bf1c70e80e11a35de00e82256aaaf35921c77038f"
+    },
+    {
+      "entry": "N_TALK1.MES",
+      "entry_sha256": "d96bd36006cb6cb623a330821e94aef5450f68a287445cc7be5dbd97b7c948e4"
+    }
+  ],
+  "routes": [
+    {
+      "route_id": "n-talk-plain",
+      "state_context": {
+        "kind": "fresh"
+      },
+      "origin": {
+        "entry": "27C_EV.MES",
+        "offset": 1591,
+        "guard": {
+          "offset": 1591,
+          "end": 1608,
+          "false_target": 2090,
+          "prefix_sha256": "9d25fcf54e794d81acf7e1915c6eb2735174065fefd0c87dc8067696b7547e91",
+          "record_sha256": "b1b7930b4588b9342e39c68a7b9f4d554eae2c0ae13df18698a4f3a49421b6db",
+          "source_binding": {
+            "kind": "typed_record"
+          }
+        },
+        "guard_cases": [
+          {
+            "case_id": "accepted",
+            "expected": 1,
+            "writes": []
+          },
+          {
+            "case_id": "rejected",
+            "expected": 0,
+            "writes": [
+              {
+                "bank": 0,
+                "index": 352,
+                "storage": "global_u8",
+                "value": 1
+              }
+            ]
+          }
+        ]
+      },
+      "baseline": [
+        {
+          "bank": 0,
+          "index": 352,
+          "storage": "global_u8",
+          "value": 0
+        },
+        {
+          "bank": 0,
+          "index": 243,
+          "storage": "global_u8",
+          "value": 0
+        }
+      ],
+      "choice_contracts": [],
+      "hops": [
+        {
+          "hop_id": "h1_caller_dispatch",
+          "entry": "27C_EV.MES",
+          "entered_by": {
+            "kind": "origin"
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 0,
+            "outcome": {
+              "offset": 1678,
+              "end": 1692,
+              "op": "script_dispatch",
+              "status": "script_dispatch_boundary",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "8e0c90bbdb47eb75bee6e37e0b279440f6bca1bc17572ef526e12cd9be708bc7",
+              "target": "N_TALK.MES"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h2_talk",
+          "entry": "N_TALK.MES",
+          "entered_by": {
+            "kind": "nested_call",
+            "offset": 1678,
+            "end": 1692,
+            "op": "script_dispatch",
+            "record_sha256": "8e0c90bbdb47eb75bee6e37e0b279440f6bca1bc17572ef526e12cd9be708bc7",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 19,
+            "outcome": {
+              "offset": 6879,
+              "end": 6880,
+              "op": "command_00",
+              "status": "script_return",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+            },
+            "expected_state": []
+          }
+        }
+      ],
+      "terminal": {
+        "entry": "N_TALK.MES",
+        "offset": 6879,
+        "end": 6880,
+        "op": "command_00",
+        "status": "script_return",
+        "source_binding": {
+          "kind": "typed_record"
+        },
+        "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+      },
+      "variants": [
+        {
+          "variant_id": "default",
+          "writes": [],
+          "expected_state": []
+        }
+      ],
+      "unresolved": [
+        "The state at the anchor is seeded, a tool decision: global_u8[352] = 0, global_u8[243] = 0. The origin is the caller's block guard at 1591; the cells are the guard's own conjuncts alone, solved by the smallest round value that satisfies them. The script is a chain of bodies each selected by flags and dates, and every cell the guard does not fix is 0 (the natural state), so the body that state selects is the one that plays.",
+        "The script asks no question on the default path; it plays the body the seeded state selects (1 answer path(s) measured).",
+        "The caller resumes after the call and does not reach a natural end the probe can measure (hop 3 stops: stop=no catalog choice at 0x114F in E_TALK.MES, terminal=@-1), so the flow ends at the script's own return."
+      ]
+    },
+    {
+      "route_id": "n-talk-1",
+      "state_context": {
+        "kind": "fresh"
+      },
+      "origin": {
+        "entry": "27C_EV.MES",
+        "offset": 82427,
+        "guard": {
+          "offset": 82427,
+          "end": 82470,
+          "false_target": 82674,
+          "prefix_sha256": "3af5f149c7b6b5c35e3832c8183b9be8910e8a94ee53920af2c1fc9cb04e81c6",
+          "record_sha256": "43195f5edcee4cce80e8047b545935adaceb5d7ceaccae7a560ed059e47aac8a",
+          "source_binding": {
+            "kind": "typed_record"
+          }
+        },
+        "guard_cases": [
+          {
+            "case_id": "accepted",
+            "expected": 1,
+            "writes": []
+          },
+          {
+            "case_id": "rejected",
+            "expected": 0,
+            "writes": [
+              {
+                "bank": 0,
+                "index": 1624,
+                "storage": "global_u8",
+                "value": 1
+              }
+            ]
+          }
+        ]
+      },
+      "baseline": [
+        {
+          "bank": 0,
+          "index": 7,
+          "storage": "state_u16",
+          "value": 508
+        },
+        {
+          "bank": 0,
+          "index": 1624,
+          "storage": "global_u8",
+          "value": 0
+        },
+        {
+          "bank": 0,
+          "index": 1620,
+          "storage": "global_u8",
+          "value": 0
+        },
+        {
+          "bank": 0,
+          "index": 1621,
+          "storage": "global_u8",
+          "value": 1
+        },
+        {
+          "bank": 0,
+          "index": 1623,
+          "storage": "global_u8",
+          "value": 0
+        }
+      ],
+      "choice_contracts": [],
+      "hops": [
+        {
+          "hop_id": "h1_caller_dispatch",
+          "entry": "27C_EV.MES",
+          "entered_by": {
+            "kind": "origin"
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 0,
+            "outcome": {
+              "offset": 82509,
+              "end": 82524,
+              "op": "script_dispatch",
+              "status": "script_dispatch_boundary",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "0ebe13110f7e07ec63450ae3ff9688fc832cd1084cb79501ebdec14b92f3565e",
+              "target": "N_TALK1.MES"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h2_talk",
+          "entry": "N_TALK1.MES",
+          "entered_by": {
+            "kind": "nested_call",
+            "offset": 82509,
+            "end": 82524,
+            "op": "script_dispatch",
+            "record_sha256": "0ebe13110f7e07ec63450ae3ff9688fc832cd1084cb79501ebdec14b92f3565e",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 23,
+            "outcome": {
+              "offset": 3931,
+              "end": 3932,
+              "op": "command_00",
+              "status": "script_return",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h3_caller_resume",
+          "entry": "27C_EV.MES",
+          "entered_by": {
+            "kind": "resume",
+            "offset": 3931,
+            "end": 3932,
+            "op": "command_00",
+            "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 6,
+            "outcome": {
+              "offset": 83150,
+              "end": 83164,
+              "op": "script_handoff_marker",
+              "status": "script_handoff_boundary",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "2d9cee6f2cdddc4dbce52fb044e393784fd7142a70916607af58e609b92dcce1",
+              "target": "FLOOR5.MES"
+            },
+            "expected_state": []
+          }
+        }
+      ],
+      "terminal": {
+        "entry": "27C_EV.MES",
+        "offset": 83150,
+        "end": 83164,
+        "op": "script_handoff_marker",
+        "status": "script_handoff_boundary",
+        "source_binding": {
+          "kind": "typed_record"
+        },
+        "record_sha256": "2d9cee6f2cdddc4dbce52fb044e393784fd7142a70916607af58e609b92dcce1",
+        "target": "FLOOR5.MES"
+      },
+      "variants": [
+        {
+          "variant_id": "default",
+          "writes": [],
+          "expected_state": []
+        }
+      ],
+      "unresolved": [
+        "The state at the anchor is seeded, a tool decision: state_u16[7] = 508, global_u8[1624] = 0, global_u8[1620] = 0, global_u8[1621] = 1, global_u8[1623] = 0. The origin is the caller's block guard at 82427; the cells are the guard's own conjuncts alone, solved by the smallest round value that satisfies them. The script is a chain of bodies each selected by flags and dates, and every cell the guard does not fix is 0 (the natural state), so the body that state selects is the one that plays.",
+        "The script asks no question on the default path; it plays the body the seeded state selects (1 answer path(s) measured).",
+        "Hop 3 resumes the caller after the call and runs to its natural end, the handoff to FLOOR5.MES (the probe reached it without a stop); it plays 6 message(s) on the default path."
+      ]
+    }
+  ],
+  "payload_sha256": "b4c4d18b8279565f3b7410be2ccaeafa80ef11b53c70257c59b2d896d2bc1ef6"
+}

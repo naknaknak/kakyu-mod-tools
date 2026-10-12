@@ -1,0 +1,1344 @@
+{
+  "schema": "kakyu_event_analysis_group/v6",
+  "group_id": "machi-g04",
+  "archive_sha256": "31a95b31cb0f1051cf973a4dba4f4a5405671e4488240adfafb9b02290986aa6",
+  "source_members": [
+    {
+      "entry": "MACHI.MES",
+      "entry_sha256": "56b0f4243f3c0944624ea0ef11b369391761ff394816775264c144bb76391488"
+    },
+    {
+      "entry": "EVENTG04.MES",
+      "entry_sha256": "906a4a2121eb14cc37a0f4dbe2096d30242fe7bddbfddcfe1a36cdd4df58e26c"
+    },
+    {
+      "entry": "G_PIC.MES",
+      "entry_sha256": "80b91250f0c466ca15b5617ca6979fe43789259493e818dd6e4686ccb0f8131f"
+    },
+    {
+      "entry": "START.MES",
+      "entry_sha256": "ba57bf666fbd9db9b3110f2bf1c70e80e11a35de00e82256aaaf35921c77038f"
+    },
+    {
+      "entry": "DEF_MAIN.MES",
+      "entry_sha256": "f2012ce5d90f60a5d1ca8190e03571341c0384c2d3d96e9aec2b3ab949db0ef0"
+    },
+    {
+      "entry": "LIBLARY.LIB",
+      "entry_sha256": "d9aba6eb8dab51fe321e22c868ed0cf38416bba1f0cf2f5d7d719f48e89b8b4d"
+    }
+  ],
+  "routes": [
+    {
+      "route_id": "machi-g04-result1",
+      "qualification": "root_replacement_observation",
+      "origin_offset": 4170,
+      "caller": {
+        "entry": "MACHI.MES",
+        "offset": 5927,
+        "end": 5943,
+        "command": 14,
+        "source_binding": {
+          "kind": "typed_record"
+        },
+        "record_sha256": "8376306023c49b13c2954c623f4792a2823bad7134501246917d3e184a1157cb"
+      },
+      "callee": {
+        "entry": "EVENTG04.MES",
+        "offset": 0
+      },
+      "guard": {
+        "offset": 4170,
+        "end": 4181,
+        "false_target": 5948,
+        "source_binding": {
+          "kind": "typed_record"
+        },
+        "record_sha256": "5186b137261a7d2b12ae59ae05cda7c5d5bbab267b48dc0d66e762ef7ab76eff",
+        "prefix_sha256": "d6426b8c78876659d99ed729b6c76e4c7ca55ac48fffcf1c3160b7109c1cc942"
+      },
+      "post_guard_expected": 0,
+      "caller_outcome": {
+        "kind": "root_handoff"
+      },
+      "outcome": {
+        "offset": 13664,
+        "end": 13677,
+        "op": "script_handoff_marker",
+        "status": "script_handoff_boundary",
+        "target": "MACHI.MES",
+        "source_binding": {
+          "kind": "typed_record"
+        },
+        "record_sha256": "496ee6fc5e929a0d78f596b742cf256b0651842fc13c717c182cd217879ac047"
+      },
+      "state_context": {
+        "kind": "original_calendar",
+        "entry": "START.MES",
+        "table_sha256": "f21ee0fcb09e960046878e35ad0410aed88680f849ace471b713ef7a12525b4a"
+      },
+      "choice_contracts": [
+        {
+          "boundary_offset": 9037,
+          "bytecode_sha256": "f2d22dd336883d818c11aebd0400614d10b2d006a3df71ec69b5f8bcc4c3c91c",
+          "code_size": 13693,
+          "comparisons": [
+            {
+              "fallthrough_offset": 9062,
+              "false_target_offset": 10705,
+              "result": 1,
+              "source_offset": 9047
+            },
+            {
+              "fallthrough_offset": 10720,
+              "false_target_offset": 12559,
+              "result": 2,
+              "source_offset": 10705
+            }
+          ],
+          "consumer_kind": "one_based_state_u16_21_branch_chain",
+          "definition_count": 3,
+          "definitions": [
+            {
+              "body_offset": 8898,
+              "body_sha256": "ef1d25fc7264ac661c0111006f86093409d9bc5f0d8c5126570721bfbf859cdc",
+              "body_size": 47,
+              "definition_id": 0,
+              "source_offset": 8889,
+              "target_offset": 8945
+            },
+            {
+              "body_offset": 8959,
+              "body_sha256": "239f0b59b92f41ac7acce28679fafb40a13137cc6a35e15586e1f90ad52ade89",
+              "body_size": 29,
+              "definition_id": 1,
+              "source_offset": 8950,
+              "target_offset": 8988
+            },
+            {
+              "body_offset": 9002,
+              "body_sha256": "75f8577b5fac4dccdcba7dc193119288a096730785858577fbc173829bf145b5",
+              "body_size": 25,
+              "definition_id": 2,
+              "source_offset": 8993,
+              "target_offset": 9027
+            }
+          ],
+          "fallback_offset": -1,
+          "gate": {},
+          "gate_policy": "not_applicable",
+          "input_policy": "explicit_remake_choice",
+          "native_input_semantics": "unresolved",
+          "omitted_native_effects": [
+            "state_u16_18_result",
+            "state_u16_13_output",
+            "routine20",
+            "native_vector_clear"
+          ],
+          "option_entry_offsets": [
+            9062,
+            10720,
+            12559
+          ],
+          "result_index": 21,
+          "result_storage": "state_u16",
+          "result_values": [
+            1,
+            2,
+            3
+          ],
+          "resume_offset": 9042,
+          "schema": "kakyu_mes_routine40_choice_contract/v3",
+          "source_identity": {
+            "archive": "mes.arc",
+            "entry": "EVENTG04.MES"
+          },
+          "variants": []
+        }
+      ],
+      "baseline": [
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 0,
+          "value": 0
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 1,
+          "value": 13
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 2,
+          "value": 0
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 4,
+          "value": 0
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 7,
+          "value": 701
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 19,
+          "value": 1200
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 21,
+          "value": 0
+        },
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 204,
+          "value": 50
+        },
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 242,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 1470,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 1389,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 356,
+          "value": 0
+        }
+      ],
+      "expected_state": [
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 242,
+          "value": 36
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 108,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 244,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 286,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2632,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3000,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3002,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3528,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 5124,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 5125,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 5126,
+          "value": 1
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 8,
+          "value": 46
+        }
+      ],
+      "guard_cases": [
+        {
+          "case_id": "baseline",
+          "writes": [],
+          "expected": 1
+        },
+        {
+          "case_id": "global_u8-1470-0",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 1470,
+              "storage": "global_u8",
+              "value": 0
+            }
+          ],
+          "expected": 0
+        }
+      ],
+      "reentry": {
+        "outcome": {
+          "offset": 13664,
+          "end": 13677,
+          "op": "script_handoff_marker",
+          "status": "script_handoff_boundary",
+          "target": "MACHI.MES",
+          "source_binding": {
+            "kind": "typed_record"
+          },
+          "record_sha256": "496ee6fc5e929a0d78f596b742cf256b0651842fc13c717c182cd217879ac047"
+        },
+        "message_count": 156,
+        "expected_state": []
+      },
+      "variants": [
+        {
+          "variant_id": "state2-16",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 2,
+              "storage": "state_u16",
+              "value": 16
+            }
+          ],
+          "selections": [
+            {
+              "owner_entry": "EVENTG04.MES",
+              "boundary_offset": 9037,
+              "result_value": 1
+            }
+          ],
+          "message_count": 156,
+          "expected_state": []
+        },
+        {
+          "variant_id": "date-1224",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 7,
+              "storage": "state_u16",
+              "value": 1224
+            }
+          ],
+          "selections": [
+            {
+              "owner_entry": "EVENTG04.MES",
+              "boundary_offset": 9037,
+              "result_value": 1
+            }
+          ],
+          "message_count": 156,
+          "expected_state": []
+        },
+        {
+          "variant_id": "date-1301",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 7,
+              "storage": "state_u16",
+              "value": 1301
+            }
+          ],
+          "selections": [
+            {
+              "owner_entry": "EVENTG04.MES",
+              "boundary_offset": 9037,
+              "result_value": 1
+            }
+          ],
+          "message_count": 156,
+          "expected_state": []
+        },
+        {
+          "variant_id": "global_u8_1389-1",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 1389,
+              "storage": "global_u8",
+              "value": 1
+            }
+          ],
+          "selections": [
+            {
+              "owner_entry": "EVENTG04.MES",
+              "boundary_offset": 9037,
+              "result_value": 1
+            }
+          ],
+          "message_count": 156,
+          "expected_state": []
+        },
+        {
+          "variant_id": "word204-2",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 204,
+              "storage": "banked_u16",
+              "value": 2
+            }
+          ],
+          "selections": [
+            {
+              "owner_entry": "EVENTG04.MES",
+              "boundary_offset": 9037,
+              "result_value": 1
+            }
+          ],
+          "message_count": 156,
+          "expected_state": [
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 204,
+              "value": 0
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3005,
+              "value": 1
+            }
+          ]
+        },
+        {
+          "variant_id": "word204-3",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 204,
+              "storage": "banked_u16",
+              "value": 3
+            }
+          ],
+          "selections": [
+            {
+              "owner_entry": "EVENTG04.MES",
+              "boundary_offset": 9037,
+              "result_value": 1
+            }
+          ],
+          "message_count": 156,
+          "expected_state": [
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 204,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3005,
+              "value": 1
+            }
+          ]
+        },
+        {
+          "variant_id": "callee-state_u16_8-1",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 8,
+              "storage": "state_u16",
+              "value": 1
+            }
+          ],
+          "selections": [
+            {
+              "owner_entry": "EVENTG04.MES",
+              "boundary_offset": 9037,
+              "result_value": 1
+            }
+          ],
+          "message_count": 156,
+          "expected_state": []
+        },
+        {
+          "variant_id": "callee-global_u8_3006-1",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 3006,
+              "storage": "global_u8",
+              "value": 1
+            }
+          ],
+          "selections": [
+            {
+              "owner_entry": "EVENTG04.MES",
+              "boundary_offset": 9037,
+              "result_value": 1
+            }
+          ],
+          "message_count": 156,
+          "expected_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3005,
+              "value": 15
+            }
+          ]
+        },
+        {
+          "variant_id": "callee-global_u8_2847-1",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 2847,
+              "storage": "global_u8",
+              "value": 1
+            }
+          ],
+          "selections": [
+            {
+              "owner_entry": "EVENTG04.MES",
+              "boundary_offset": 9037,
+              "result_value": 1
+            }
+          ],
+          "message_count": 156,
+          "expected_state": []
+        }
+      ],
+      "unresolved": [
+        "Natural scheduling into the typed origin 4170 is not established: the global_u8[356] == 2 test at 4111 is upstream and not measured; what schedules MACHI.MES here is the map's own flow.",
+        "What sets global_u8[1470] is not established; the caller (MACHI.MES) itself clears global_u8[1470] at 5916..5922, immediately before the 5927..5943 dispatch, so completion is caller-owned before the callee ever runs (18M I09's shape) -- the callee itself has no done-gate, and a direct reentry replays every message.",
+        "The three routine-40 results at EVENTG04.MES:9037 are supplied explicitly in every variant's selections. Native input, option rendering and cadence are omitted under the bounded runtime policy.",
+        "Results 1 and 2 move the affection word banked_u16[204] by -2 behind a > 2 gate (offsets 10645 / 12499); result 3 moves it by +2 unconditionally (offset 13567). Both arms of the > 2 gate are witnessed by the word204-2 / word204-3 variants.",
+        "The callee writes banked_u16[242] = 36 on every measured row (asserted constant below).",
+        "The gap's state_u16[2] loop, the 1224/1301 Christmas-date arms and the global_u8[1389] arms (4230..4920, ahead of the 5927..5943 dispatch) select preludes only; the [1389] arms change the prefix length (16 / 8 messages measured) and are declared as variants of result 1 only.",
+        "MACHI.MES past the handoff and native presentation are not measured."
+      ]
+    },
+    {
+      "route_id": "machi-g04-result2",
+      "qualification": "root_replacement_observation",
+      "origin_offset": 4170,
+      "caller": {
+        "entry": "MACHI.MES",
+        "offset": 5927,
+        "end": 5943,
+        "command": 14,
+        "source_binding": {
+          "kind": "typed_record"
+        },
+        "record_sha256": "8376306023c49b13c2954c623f4792a2823bad7134501246917d3e184a1157cb"
+      },
+      "callee": {
+        "entry": "EVENTG04.MES",
+        "offset": 0
+      },
+      "guard": {
+        "offset": 4170,
+        "end": 4181,
+        "false_target": 5948,
+        "source_binding": {
+          "kind": "typed_record"
+        },
+        "record_sha256": "5186b137261a7d2b12ae59ae05cda7c5d5bbab267b48dc0d66e762ef7ab76eff",
+        "prefix_sha256": "d6426b8c78876659d99ed729b6c76e4c7ca55ac48fffcf1c3160b7109c1cc942"
+      },
+      "post_guard_expected": 0,
+      "caller_outcome": {
+        "kind": "root_handoff"
+      },
+      "outcome": {
+        "offset": 13664,
+        "end": 13677,
+        "op": "script_handoff_marker",
+        "status": "script_handoff_boundary",
+        "target": "MACHI.MES",
+        "source_binding": {
+          "kind": "typed_record"
+        },
+        "record_sha256": "496ee6fc5e929a0d78f596b742cf256b0651842fc13c717c182cd217879ac047"
+      },
+      "state_context": {
+        "kind": "original_calendar",
+        "entry": "START.MES",
+        "table_sha256": "f21ee0fcb09e960046878e35ad0410aed88680f849ace471b713ef7a12525b4a"
+      },
+      "choice_contracts": [
+        {
+          "boundary_offset": 9037,
+          "bytecode_sha256": "f2d22dd336883d818c11aebd0400614d10b2d006a3df71ec69b5f8bcc4c3c91c",
+          "code_size": 13693,
+          "comparisons": [
+            {
+              "fallthrough_offset": 9062,
+              "false_target_offset": 10705,
+              "result": 1,
+              "source_offset": 9047
+            },
+            {
+              "fallthrough_offset": 10720,
+              "false_target_offset": 12559,
+              "result": 2,
+              "source_offset": 10705
+            }
+          ],
+          "consumer_kind": "one_based_state_u16_21_branch_chain",
+          "definition_count": 3,
+          "definitions": [
+            {
+              "body_offset": 8898,
+              "body_sha256": "ef1d25fc7264ac661c0111006f86093409d9bc5f0d8c5126570721bfbf859cdc",
+              "body_size": 47,
+              "definition_id": 0,
+              "source_offset": 8889,
+              "target_offset": 8945
+            },
+            {
+              "body_offset": 8959,
+              "body_sha256": "239f0b59b92f41ac7acce28679fafb40a13137cc6a35e15586e1f90ad52ade89",
+              "body_size": 29,
+              "definition_id": 1,
+              "source_offset": 8950,
+              "target_offset": 8988
+            },
+            {
+              "body_offset": 9002,
+              "body_sha256": "75f8577b5fac4dccdcba7dc193119288a096730785858577fbc173829bf145b5",
+              "body_size": 25,
+              "definition_id": 2,
+              "source_offset": 8993,
+              "target_offset": 9027
+            }
+          ],
+          "fallback_offset": -1,
+          "gate": {},
+          "gate_policy": "not_applicable",
+          "input_policy": "explicit_remake_choice",
+          "native_input_semantics": "unresolved",
+          "omitted_native_effects": [
+            "state_u16_18_result",
+            "state_u16_13_output",
+            "routine20",
+            "native_vector_clear"
+          ],
+          "option_entry_offsets": [
+            9062,
+            10720,
+            12559
+          ],
+          "result_index": 21,
+          "result_storage": "state_u16",
+          "result_values": [
+            1,
+            2,
+            3
+          ],
+          "resume_offset": 9042,
+          "schema": "kakyu_mes_routine40_choice_contract/v3",
+          "source_identity": {
+            "archive": "mes.arc",
+            "entry": "EVENTG04.MES"
+          },
+          "variants": []
+        }
+      ],
+      "baseline": [
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 0,
+          "value": 0
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 1,
+          "value": 13
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 2,
+          "value": 0
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 4,
+          "value": 0
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 7,
+          "value": 701
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 19,
+          "value": 1200
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 21,
+          "value": 0
+        },
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 204,
+          "value": 50
+        },
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 242,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 1470,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 1389,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 356,
+          "value": 0
+        }
+      ],
+      "expected_state": [
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 242,
+          "value": 36
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 108,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 244,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 286,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2632,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3000,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3002,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3528,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 5124,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 5125,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 5126,
+          "value": 1
+        }
+      ],
+      "guard_cases": [
+        {
+          "case_id": "baseline",
+          "writes": [],
+          "expected": 1
+        },
+        {
+          "case_id": "global_u8-1470-0",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 1470,
+              "storage": "global_u8",
+              "value": 0
+            }
+          ],
+          "expected": 0
+        }
+      ],
+      "reentry": {
+        "outcome": {
+          "offset": 13664,
+          "end": 13677,
+          "op": "script_handoff_marker",
+          "status": "script_handoff_boundary",
+          "target": "MACHI.MES",
+          "source_binding": {
+            "kind": "typed_record"
+          },
+          "record_sha256": "496ee6fc5e929a0d78f596b742cf256b0651842fc13c717c182cd217879ac047"
+        },
+        "message_count": 160,
+        "expected_state": []
+      },
+      "variants": [
+        {
+          "variant_id": "word204-2",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 204,
+              "storage": "banked_u16",
+              "value": 2
+            }
+          ],
+          "selections": [
+            {
+              "owner_entry": "EVENTG04.MES",
+              "boundary_offset": 9037,
+              "result_value": 2
+            }
+          ],
+          "message_count": 160,
+          "expected_state": [
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 204,
+              "value": 0
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3005,
+              "value": 1
+            }
+          ]
+        },
+        {
+          "variant_id": "word204-3",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 204,
+              "storage": "banked_u16",
+              "value": 3
+            }
+          ],
+          "selections": [
+            {
+              "owner_entry": "EVENTG04.MES",
+              "boundary_offset": 9037,
+              "result_value": 2
+            }
+          ],
+          "message_count": 160,
+          "expected_state": [
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 204,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3005,
+              "value": 1
+            }
+          ]
+        },
+        {
+          "variant_id": "callee-global_u8_3006-1",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 3006,
+              "storage": "global_u8",
+              "value": 1
+            }
+          ],
+          "selections": [
+            {
+              "owner_entry": "EVENTG04.MES",
+              "boundary_offset": 9037,
+              "result_value": 2
+            }
+          ],
+          "message_count": 160,
+          "expected_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3005,
+              "value": 15
+            }
+          ]
+        }
+      ],
+      "unresolved": [
+        "Natural scheduling into the typed origin 4170 is not established: the global_u8[356] == 2 test at 4111 is upstream and not measured; what schedules MACHI.MES here is the map's own flow.",
+        "What sets global_u8[1470] is not established; the caller (MACHI.MES) itself clears global_u8[1470] at 5916..5922, immediately before the 5927..5943 dispatch, so completion is caller-owned before the callee ever runs (18M I09's shape) -- the callee itself has no done-gate, and a direct reentry replays every message.",
+        "The three routine-40 results at EVENTG04.MES:9037 are supplied explicitly in every variant's selections. Native input, option rendering and cadence are omitted under the bounded runtime policy.",
+        "Results 1 and 2 move the affection word banked_u16[204] by -2 behind a > 2 gate (offsets 10645 / 12499); result 3 moves it by +2 unconditionally (offset 13567). Both arms of the > 2 gate are witnessed by the word204-2 / word204-3 variants.",
+        "The callee writes banked_u16[242] = 36 on every measured row (asserted constant below).",
+        "The gap's state_u16[2] loop, the 1224/1301 Christmas-date arms and the global_u8[1389] arms (4230..4920, ahead of the 5927..5943 dispatch) select preludes only; the [1389] arms change the prefix length (16 / 8 messages measured) and are declared as variants of result 1 only.",
+        "MACHI.MES past the handoff and native presentation are not measured."
+      ]
+    },
+    {
+      "route_id": "machi-g04-result3",
+      "qualification": "root_replacement_observation",
+      "origin_offset": 4170,
+      "caller": {
+        "entry": "MACHI.MES",
+        "offset": 5927,
+        "end": 5943,
+        "command": 14,
+        "source_binding": {
+          "kind": "typed_record"
+        },
+        "record_sha256": "8376306023c49b13c2954c623f4792a2823bad7134501246917d3e184a1157cb"
+      },
+      "callee": {
+        "entry": "EVENTG04.MES",
+        "offset": 0
+      },
+      "guard": {
+        "offset": 4170,
+        "end": 4181,
+        "false_target": 5948,
+        "source_binding": {
+          "kind": "typed_record"
+        },
+        "record_sha256": "5186b137261a7d2b12ae59ae05cda7c5d5bbab267b48dc0d66e762ef7ab76eff",
+        "prefix_sha256": "d6426b8c78876659d99ed729b6c76e4c7ca55ac48fffcf1c3160b7109c1cc942"
+      },
+      "post_guard_expected": 0,
+      "caller_outcome": {
+        "kind": "root_handoff"
+      },
+      "outcome": {
+        "offset": 13664,
+        "end": 13677,
+        "op": "script_handoff_marker",
+        "status": "script_handoff_boundary",
+        "target": "MACHI.MES",
+        "source_binding": {
+          "kind": "typed_record"
+        },
+        "record_sha256": "496ee6fc5e929a0d78f596b742cf256b0651842fc13c717c182cd217879ac047"
+      },
+      "state_context": {
+        "kind": "original_calendar",
+        "entry": "START.MES",
+        "table_sha256": "f21ee0fcb09e960046878e35ad0410aed88680f849ace471b713ef7a12525b4a"
+      },
+      "choice_contracts": [
+        {
+          "boundary_offset": 9037,
+          "bytecode_sha256": "f2d22dd336883d818c11aebd0400614d10b2d006a3df71ec69b5f8bcc4c3c91c",
+          "code_size": 13693,
+          "comparisons": [
+            {
+              "fallthrough_offset": 9062,
+              "false_target_offset": 10705,
+              "result": 1,
+              "source_offset": 9047
+            },
+            {
+              "fallthrough_offset": 10720,
+              "false_target_offset": 12559,
+              "result": 2,
+              "source_offset": 10705
+            }
+          ],
+          "consumer_kind": "one_based_state_u16_21_branch_chain",
+          "definition_count": 3,
+          "definitions": [
+            {
+              "body_offset": 8898,
+              "body_sha256": "ef1d25fc7264ac661c0111006f86093409d9bc5f0d8c5126570721bfbf859cdc",
+              "body_size": 47,
+              "definition_id": 0,
+              "source_offset": 8889,
+              "target_offset": 8945
+            },
+            {
+              "body_offset": 8959,
+              "body_sha256": "239f0b59b92f41ac7acce28679fafb40a13137cc6a35e15586e1f90ad52ade89",
+              "body_size": 29,
+              "definition_id": 1,
+              "source_offset": 8950,
+              "target_offset": 8988
+            },
+            {
+              "body_offset": 9002,
+              "body_sha256": "75f8577b5fac4dccdcba7dc193119288a096730785858577fbc173829bf145b5",
+              "body_size": 25,
+              "definition_id": 2,
+              "source_offset": 8993,
+              "target_offset": 9027
+            }
+          ],
+          "fallback_offset": -1,
+          "gate": {},
+          "gate_policy": "not_applicable",
+          "input_policy": "explicit_remake_choice",
+          "native_input_semantics": "unresolved",
+          "omitted_native_effects": [
+            "state_u16_18_result",
+            "state_u16_13_output",
+            "routine20",
+            "native_vector_clear"
+          ],
+          "option_entry_offsets": [
+            9062,
+            10720,
+            12559
+          ],
+          "result_index": 21,
+          "result_storage": "state_u16",
+          "result_values": [
+            1,
+            2,
+            3
+          ],
+          "resume_offset": 9042,
+          "schema": "kakyu_mes_routine40_choice_contract/v3",
+          "source_identity": {
+            "archive": "mes.arc",
+            "entry": "EVENTG04.MES"
+          },
+          "variants": []
+        }
+      ],
+      "baseline": [
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 0,
+          "value": 0
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 1,
+          "value": 13
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 2,
+          "value": 0
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 4,
+          "value": 0
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 7,
+          "value": 701
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 19,
+          "value": 1200
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 21,
+          "value": 0
+        },
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 204,
+          "value": 50
+        },
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 242,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 1470,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 1389,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 356,
+          "value": 0
+        }
+      ],
+      "expected_state": [
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 204,
+          "value": 52
+        },
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 242,
+          "value": 36
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 108,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 244,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 286,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2632,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3000,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3002,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3528,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 5124,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 5125,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 5126,
+          "value": 1
+        }
+      ],
+      "guard_cases": [
+        {
+          "case_id": "baseline",
+          "writes": [],
+          "expected": 1
+        },
+        {
+          "case_id": "global_u8-1470-0",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 1470,
+              "storage": "global_u8",
+              "value": 0
+            }
+          ],
+          "expected": 0
+        }
+      ],
+      "reentry": {
+        "outcome": {
+          "offset": 13664,
+          "end": 13677,
+          "op": "script_handoff_marker",
+          "status": "script_handoff_boundary",
+          "target": "MACHI.MES",
+          "source_binding": {
+            "kind": "typed_record"
+          },
+          "record_sha256": "496ee6fc5e929a0d78f596b742cf256b0651842fc13c717c182cd217879ac047"
+        },
+        "message_count": 144,
+        "expected_state": []
+      },
+      "variants": [
+        {
+          "variant_id": "callee-global_u8_3006-1",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 3006,
+              "storage": "global_u8",
+              "value": 1
+            }
+          ],
+          "selections": [
+            {
+              "owner_entry": "EVENTG04.MES",
+              "boundary_offset": 9037,
+              "result_value": 3
+            }
+          ],
+          "message_count": 144,
+          "expected_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3005,
+              "value": 15
+            }
+          ]
+        },
+        {
+          "variant_id": "callee-global_u8_2847-1",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 2847,
+              "storage": "global_u8",
+              "value": 1
+            }
+          ],
+          "selections": [
+            {
+              "owner_entry": "EVENTG04.MES",
+              "boundary_offset": 9037,
+              "result_value": 3
+            }
+          ],
+          "message_count": 144,
+          "expected_state": []
+        }
+      ],
+      "unresolved": [
+        "Natural scheduling into the typed origin 4170 is not established: the global_u8[356] == 2 test at 4111 is upstream and not measured; what schedules MACHI.MES here is the map's own flow.",
+        "What sets global_u8[1470] is not established; the caller (MACHI.MES) itself clears global_u8[1470] at 5916..5922, immediately before the 5927..5943 dispatch, so completion is caller-owned before the callee ever runs (18M I09's shape) -- the callee itself has no done-gate, and a direct reentry replays every message.",
+        "The three routine-40 results at EVENTG04.MES:9037 are supplied explicitly in every variant's selections. Native input, option rendering and cadence are omitted under the bounded runtime policy.",
+        "Results 1 and 2 move the affection word banked_u16[204] by -2 behind a > 2 gate (offsets 10645 / 12499); result 3 moves it by +2 unconditionally (offset 13567). Both arms of the > 2 gate are witnessed by the word204-2 / word204-3 variants.",
+        "The callee writes banked_u16[242] = 36 on every measured row (asserted constant below).",
+        "The gap's state_u16[2] loop, the 1224/1301 Christmas-date arms and the global_u8[1389] arms (4230..4920, ahead of the 5927..5943 dispatch) select preludes only; the [1389] arms change the prefix length (16 / 8 messages measured) and are declared as variants of result 1 only.",
+        "MACHI.MES past the handoff and native presentation are not measured."
+      ]
+    }
+  ],
+  "payload_sha256": "9e6ab73f0f46c6805eadcdb0e761e076b8ec1d052fecc959b837c61ee5a74869"
+}

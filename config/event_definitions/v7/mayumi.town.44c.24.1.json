@@ -1,0 +1,1976 @@
+{
+  "schema_version": "kakyu_event_definition/v7",
+  "contract_fingerprint": "a48267ac13ccdfac87859bade15c872f966392020a34a10d7d3ba332ad167d25",
+  "names_fingerprint": "94223afe79303bd54eaa4bcdfd7b1e22a806191a749f80bea31d0068568fb29e",
+  "id": "mayumi.town.44c.24.1",
+  "kind": "event",
+  "display": {
+    "title_ko": "44c에서 마유미 (EVENTI24)",
+    "title_en": "Mayumi at 44c (EVENTI24)",
+    "heroine": "mayumi",
+    "category": "town",
+    "place": "44c"
+  },
+  "evidence": {
+    "kind": "analysis_group",
+    "archive_sha256": "31a95b31cb0f1051cf973a4dba4f4a5405671e4488240adfafb9b02290986aa6",
+    "groups": [
+      {
+        "group_id": "44c-i24",
+        "profile_sha256": "c40f53d56987d1d748b6c028278019a8e895db528d253e7af739c5a03364b5ac",
+        "route_ids": [
+          "44c-i24"
+        ]
+      }
+    ],
+    "members": [
+      {
+        "entry": "44C.MES",
+        "entry_sha256": "49b5ae569923d6b0e58bf6bf64786f2e96fe9de00c9bad56cd450cb4a487d0ce"
+      },
+      {
+        "entry": "EVENTI24.MES",
+        "entry_sha256": "69c0f70d5727843932c53caf60c1a7c55bc5df75a16ec7669a57341d95b522e9"
+      },
+      {
+        "entry": "START.MES",
+        "entry_sha256": "ba57bf666fbd9db9b3110f2bf1c70e80e11a35de00e82256aaaf35921c77038f"
+      },
+      {
+        "entry": "DEF_MAIN.MES",
+        "entry_sha256": "f2012ce5d90f60a5d1ca8190e03571341c0384c2d3d96e9aec2b3ab949db0ef0"
+      },
+      {
+        "entry": "LIBLARY.LIB",
+        "entry_sha256": "d9aba6eb8dab51fe321e22c868ed0cf38416bba1f0cf2f5d7d719f48e89b8b4d"
+      }
+    ],
+    "document_refs": [],
+    "effect_witnesses": [
+      {
+        "result": "body",
+        "cell": {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 1
+        },
+        "basis": "shift_witness",
+        "entry": 0,
+        "final": 7,
+        "step": 7,
+        "shifted_entry": 7,
+        "shifted_final": 7,
+        "declared": false
+      },
+      {
+        "result": "body",
+        "cell": {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 1350
+        },
+        "basis": "flag_pattern",
+        "entry": 0,
+        "final": 1,
+        "declared": false
+      },
+      {
+        "result": "body",
+        "cell": {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3511
+        },
+        "basis": "flag_pattern",
+        "entry": 0,
+        "final": 1,
+        "declared": false
+      },
+      {
+        "result": "body",
+        "cell": {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 4000
+        },
+        "basis": "shift_witness",
+        "entry": 1,
+        "final": 0,
+        "step": 7,
+        "shifted_entry": 8,
+        "shifted_final": 0,
+        "declared": false
+      },
+      {
+        "result": "body",
+        "cell": {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 5108
+        },
+        "basis": "flag_pattern",
+        "entry": 0,
+        "final": 1,
+        "declared": false
+      },
+      {
+        "result": "body",
+        "cell": {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 8
+        },
+        "basis": "shift_witness",
+        "entry": 1,
+        "final": 0,
+        "step": 7,
+        "shifted_entry": 8,
+        "shifted_final": 0,
+        "declared": false
+      }
+    ]
+  },
+  "package_binding": {
+    "schema": "kakyu_playback_package/v7",
+    "package_sha256": "fe9bb6bd3256189ab9dd1ff91d75f95d378d8b625aae7e011ba16ccbb849f288"
+  },
+  "trigger": {
+    "type": "caller_dispatch",
+    "caller": {
+      "entry": "44C.MES",
+      "entry_sha256": "49b5ae569923d6b0e58bf6bf64786f2e96fe9de00c9bad56cd450cb4a487d0ce",
+      "offset": 34164,
+      "end": 34180,
+      "command": 15,
+      "kind": "nested_call"
+    },
+    "callee": {
+      "entry": "EVENTI24.MES",
+      "entry_sha256": "69c0f70d5727843932c53caf60c1a7c55bc5df75a16ec7669a57341d95b522e9",
+      "start_coordinate": 0
+    },
+    "origin": {
+      "kind": "typed_guard",
+      "offset": 33748
+    },
+    "order_hint": {
+      "scope": "44C.MES",
+      "rank": 2,
+      "of": 6,
+      "basis": "guard_offset",
+      "chain_confirmed": true
+    }
+  },
+  "scenes": [],
+  "guard": {
+    "offset": 33748,
+    "end": 33860,
+    "false_target": 34195,
+    "record_sha256": "caf93a17277d80bed56894bab9ee5d04021501806ead9f99cd6b9f0cb234e839",
+    "conjuncts": [
+      {
+        "kind": "weekday",
+        "op": "equal",
+        "value": 0
+      },
+      {
+        "kind": "date",
+        "op": "greater_than",
+        "value": 915
+      },
+      {
+        "kind": "date",
+        "op": "less_than",
+        "value": 1511
+      },
+      {
+        "kind": "clock",
+        "op": "greater_than",
+        "value": 1800
+      },
+      {
+        "kind": "clock",
+        "op": "less_than",
+        "value": 2201
+      },
+      {
+        "kind": "cell",
+        "storage": "banked_u16",
+        "bank": 0,
+        "index": 203,
+        "op": "greater_than",
+        "value": 100
+      },
+      {
+        "kind": "cell",
+        "storage": "global_u8",
+        "bank": 0,
+        "index": 130,
+        "op": "equal",
+        "value": 0
+      },
+      {
+        "kind": "cell",
+        "storage": "global_u8",
+        "bank": 0,
+        "index": 137,
+        "op": "equal",
+        "value": 0
+      },
+      {
+        "kind": "cell",
+        "storage": "global_u8",
+        "bank": 0,
+        "index": 134,
+        "op": "equal",
+        "value": 0
+      },
+      {
+        "kind": "cell",
+        "storage": "global_u8",
+        "bank": 0,
+        "index": 1259,
+        "op": "equal",
+        "value": 0
+      },
+      {
+        "kind": "cell",
+        "storage": "global_u8",
+        "bank": 0,
+        "index": 1301,
+        "op": "equal",
+        "value": 1
+      },
+      {
+        "kind": "cell",
+        "storage": "global_u8",
+        "bank": 0,
+        "index": 1226,
+        "op": "equal",
+        "value": 0
+      },
+      {
+        "kind": "cell",
+        "storage": "global_u8",
+        "bank": 0,
+        "index": 1262,
+        "op": "equal",
+        "value": 0
+      },
+      {
+        "kind": "cell",
+        "storage": "global_u8",
+        "bank": 0,
+        "index": 1350,
+        "op": "equal",
+        "value": 0
+      },
+      {
+        "kind": "cell",
+        "storage": "global_u8",
+        "bank": 0,
+        "index": 1228,
+        "op": "equal",
+        "value": 0
+      },
+      {
+        "kind": "cell",
+        "storage": "global_u8",
+        "bank": 0,
+        "index": 372,
+        "op": "equal",
+        "value": 1
+      },
+      {
+        "kind": "cell",
+        "storage": "global_u8",
+        "bank": 0,
+        "index": 1219,
+        "op": "equal",
+        "value": 0
+      }
+    ],
+    "witnesses": [
+      {
+        "case_id": "baseline",
+        "writes": [],
+        "expected": 1
+      },
+      {
+        "case_id": "state_u16-4-6",
+        "writes": [
+          {
+            "storage": "state_u16",
+            "bank": 0,
+            "index": 4,
+            "value": 6
+          }
+        ],
+        "expected": 0
+      },
+      {
+        "case_id": "date-915",
+        "writes": [
+          {
+            "storage": "state_u16",
+            "bank": 0,
+            "index": 7,
+            "value": 915
+          }
+        ],
+        "expected": 0
+      },
+      {
+        "case_id": "date-916",
+        "writes": [
+          {
+            "storage": "state_u16",
+            "bank": 0,
+            "index": 7,
+            "value": 916
+          }
+        ],
+        "expected": 1
+      },
+      {
+        "case_id": "date-1510",
+        "writes": [
+          {
+            "storage": "state_u16",
+            "bank": 0,
+            "index": 7,
+            "value": 1510
+          }
+        ],
+        "expected": 1
+      },
+      {
+        "case_id": "date-1511",
+        "writes": [
+          {
+            "storage": "state_u16",
+            "bank": 0,
+            "index": 7,
+            "value": 1511
+          }
+        ],
+        "expected": 0
+      },
+      {
+        "case_id": "clock-1800",
+        "writes": [
+          {
+            "storage": "state_u16",
+            "bank": 0,
+            "index": 19,
+            "value": 1800
+          }
+        ],
+        "expected": 0
+      },
+      {
+        "case_id": "clock-1801",
+        "writes": [
+          {
+            "storage": "state_u16",
+            "bank": 0,
+            "index": 19,
+            "value": 1801
+          }
+        ],
+        "expected": 1
+      },
+      {
+        "case_id": "clock-2200",
+        "writes": [
+          {
+            "storage": "state_u16",
+            "bank": 0,
+            "index": 19,
+            "value": 2200
+          }
+        ],
+        "expected": 1
+      },
+      {
+        "case_id": "clock-2201",
+        "writes": [
+          {
+            "storage": "state_u16",
+            "bank": 0,
+            "index": 19,
+            "value": 2201
+          }
+        ],
+        "expected": 0
+      },
+      {
+        "case_id": "word203-100",
+        "writes": [
+          {
+            "storage": "banked_u16",
+            "bank": 0,
+            "index": 203,
+            "value": 100
+          }
+        ],
+        "expected": 0
+      },
+      {
+        "case_id": "word203-101",
+        "writes": [
+          {
+            "storage": "banked_u16",
+            "bank": 0,
+            "index": 203,
+            "value": 101
+          }
+        ],
+        "expected": 1
+      },
+      {
+        "case_id": "global_u8-1301-0",
+        "writes": [
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 1301,
+            "value": 0
+          }
+        ],
+        "expected": 0
+      },
+      {
+        "case_id": "global_u8-372-0",
+        "writes": [
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 372,
+            "value": 0
+          }
+        ],
+        "expected": 0
+      },
+      {
+        "case_id": "global_u8-130-1",
+        "writes": [
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 130,
+            "value": 1
+          }
+        ],
+        "expected": 0
+      },
+      {
+        "case_id": "global_u8-137-1",
+        "writes": [
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 137,
+            "value": 1
+          }
+        ],
+        "expected": 0
+      },
+      {
+        "case_id": "global_u8-134-1",
+        "writes": [
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 134,
+            "value": 1
+          }
+        ],
+        "expected": 0
+      },
+      {
+        "case_id": "global_u8-1259-1",
+        "writes": [
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 1259,
+            "value": 1
+          }
+        ],
+        "expected": 0
+      },
+      {
+        "case_id": "global_u8-1226-1",
+        "writes": [
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 1226,
+            "value": 1
+          }
+        ],
+        "expected": 0
+      },
+      {
+        "case_id": "global_u8-1262-1",
+        "writes": [
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 1262,
+            "value": 1
+          }
+        ],
+        "expected": 0
+      },
+      {
+        "case_id": "global_u8-1350-1",
+        "writes": [
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 1350,
+            "value": 1
+          }
+        ],
+        "expected": 0
+      },
+      {
+        "case_id": "global_u8-1228-1",
+        "writes": [
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 1228,
+            "value": 1
+          }
+        ],
+        "expected": 0
+      },
+      {
+        "case_id": "global_u8-1219-1",
+        "writes": [
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 1219,
+            "value": 1
+          }
+        ],
+        "expected": 0
+      }
+    ]
+  },
+  "conditions": [
+    {
+      "type": "mes_expression",
+      "ast": {
+        "lhs": {
+          "lhs": {
+            "lhs": {
+              "lhs": {
+                "lhs": {
+                  "lhs": {
+                    "lhs": {
+                      "lhs": {
+                        "lhs": {
+                          "lhs": {
+                            "lhs": {
+                              "lhs": {
+                                "lhs": {
+                                  "lhs": {
+                                    "lhs": {
+                                      "lhs": {
+                                        "lhs": {
+                                          "bank": 0,
+                                          "index": {
+                                            "type": "literal",
+                                            "value": 4
+                                          },
+                                          "source": {
+                                            "offset": 33749,
+                                            "token": "0x80"
+                                          },
+                                          "storage": "state_u16",
+                                          "type": "state_ref"
+                                        },
+                                        "op": "equal",
+                                        "rhs": {
+                                          "source": {
+                                            "offset": 33751,
+                                            "token": "0x00"
+                                          },
+                                          "type": "literal",
+                                          "value": 0,
+                                          "width": 8
+                                        },
+                                        "source": {
+                                          "offset": 33752,
+                                          "token": "0xef"
+                                        },
+                                        "type": "binary"
+                                      },
+                                      "op": "logical_and",
+                                      "rhs": {
+                                        "lhs": {
+                                          "bank": 0,
+                                          "index": {
+                                            "type": "literal",
+                                            "value": 7
+                                          },
+                                          "source": {
+                                            "offset": 33753,
+                                            "token": "0x80"
+                                          },
+                                          "storage": "state_u16",
+                                          "type": "state_ref"
+                                        },
+                                        "op": "greater_than",
+                                        "rhs": {
+                                          "source": {
+                                            "offset": 33755,
+                                            "token": "0xf1"
+                                          },
+                                          "type": "literal",
+                                          "value": 915,
+                                          "width": 16
+                                        },
+                                        "source": {
+                                          "offset": 33758,
+                                          "token": "0xec"
+                                        },
+                                        "type": "binary"
+                                      },
+                                      "source": {
+                                        "offset": 33759,
+                                        "token": "0xe6"
+                                      },
+                                      "type": "binary"
+                                    },
+                                    "op": "logical_and",
+                                    "rhs": {
+                                      "lhs": {
+                                        "bank": 0,
+                                        "index": {
+                                          "type": "literal",
+                                          "value": 7
+                                        },
+                                        "source": {
+                                          "offset": 33760,
+                                          "token": "0x80"
+                                        },
+                                        "storage": "state_u16",
+                                        "type": "state_ref"
+                                      },
+                                      "op": "less_than",
+                                      "rhs": {
+                                        "source": {
+                                          "offset": 33762,
+                                          "token": "0xf1"
+                                        },
+                                        "type": "literal",
+                                        "value": 1511,
+                                        "width": 16
+                                      },
+                                      "source": {
+                                        "offset": 33765,
+                                        "token": "0xeb"
+                                      },
+                                      "type": "binary"
+                                    },
+                                    "source": {
+                                      "offset": 33766,
+                                      "token": "0xe6"
+                                    },
+                                    "type": "binary"
+                                  },
+                                  "op": "logical_and",
+                                  "rhs": {
+                                    "lhs": {
+                                      "bank": 0,
+                                      "index": {
+                                        "type": "literal",
+                                        "value": 19
+                                      },
+                                      "source": {
+                                        "offset": 33767,
+                                        "token": "0x80"
+                                      },
+                                      "storage": "state_u16",
+                                      "type": "state_ref"
+                                    },
+                                    "op": "greater_than",
+                                    "rhs": {
+                                      "source": {
+                                        "offset": 33769,
+                                        "token": "0xf1"
+                                      },
+                                      "type": "literal",
+                                      "value": 1800,
+                                      "width": 16
+                                    },
+                                    "source": {
+                                      "offset": 33772,
+                                      "token": "0xec"
+                                    },
+                                    "type": "binary"
+                                  },
+                                  "source": {
+                                    "offset": 33773,
+                                    "token": "0xe6"
+                                  },
+                                  "type": "binary"
+                                },
+                                "op": "logical_and",
+                                "rhs": {
+                                  "lhs": {
+                                    "bank": 0,
+                                    "index": {
+                                      "type": "literal",
+                                      "value": 19
+                                    },
+                                    "source": {
+                                      "offset": 33774,
+                                      "token": "0x80"
+                                    },
+                                    "storage": "state_u16",
+                                    "type": "state_ref"
+                                  },
+                                  "op": "less_than",
+                                  "rhs": {
+                                    "source": {
+                                      "offset": 33776,
+                                      "token": "0xf1"
+                                    },
+                                    "type": "literal",
+                                    "value": 2201,
+                                    "width": 16
+                                  },
+                                  "source": {
+                                    "offset": 33779,
+                                    "token": "0xeb"
+                                  },
+                                  "type": "binary"
+                                },
+                                "source": {
+                                  "offset": 33780,
+                                  "token": "0xe6"
+                                },
+                                "type": "binary"
+                              },
+                              "op": "logical_and",
+                              "rhs": {
+                                "lhs": {
+                                  "bank": 0,
+                                  "index": {
+                                    "source": {
+                                      "offset": 33781,
+                                      "token": "0xf1"
+                                    },
+                                    "type": "literal",
+                                    "value": 203,
+                                    "width": 16
+                                  },
+                                  "source": {
+                                    "offset": 33784,
+                                    "token": "0xa0"
+                                  },
+                                  "storage": "banked_u16",
+                                  "type": "state_ref"
+                                },
+                                "op": "greater_than",
+                                "rhs": {
+                                  "source": {
+                                    "offset": 33786,
+                                    "token": "0x64"
+                                  },
+                                  "type": "literal",
+                                  "value": 100,
+                                  "width": 8
+                                },
+                                "source": {
+                                  "offset": 33787,
+                                  "token": "0xec"
+                                },
+                                "type": "binary"
+                              },
+                              "source": {
+                                "offset": 33788,
+                                "token": "0xe6"
+                              },
+                              "type": "binary"
+                            },
+                            "op": "logical_and",
+                            "rhs": {
+                              "lhs": {
+                                "bank": 0,
+                                "index": {
+                                  "type": "literal",
+                                  "value": 130
+                                },
+                                "source": {
+                                  "offset": 33789,
+                                  "token": "0xf3"
+                                },
+                                "storage": "global_u8",
+                                "type": "state_ref"
+                              },
+                              "op": "equal",
+                              "rhs": {
+                                "source": {
+                                  "offset": 33792,
+                                  "token": "0x00"
+                                },
+                                "type": "literal",
+                                "value": 0,
+                                "width": 8
+                              },
+                              "source": {
+                                "offset": 33793,
+                                "token": "0xef"
+                              },
+                              "type": "binary"
+                            },
+                            "source": {
+                              "offset": 33794,
+                              "token": "0xe6"
+                            },
+                            "type": "binary"
+                          },
+                          "op": "logical_and",
+                          "rhs": {
+                            "lhs": {
+                              "bank": 0,
+                              "index": {
+                                "type": "literal",
+                                "value": 137
+                              },
+                              "source": {
+                                "offset": 33795,
+                                "token": "0xf3"
+                              },
+                              "storage": "global_u8",
+                              "type": "state_ref"
+                            },
+                            "op": "equal",
+                            "rhs": {
+                              "source": {
+                                "offset": 33798,
+                                "token": "0x00"
+                              },
+                              "type": "literal",
+                              "value": 0,
+                              "width": 8
+                            },
+                            "source": {
+                              "offset": 33799,
+                              "token": "0xef"
+                            },
+                            "type": "binary"
+                          },
+                          "source": {
+                            "offset": 33800,
+                            "token": "0xe6"
+                          },
+                          "type": "binary"
+                        },
+                        "op": "logical_and",
+                        "rhs": {
+                          "lhs": {
+                            "bank": 0,
+                            "index": {
+                              "type": "literal",
+                              "value": 134
+                            },
+                            "source": {
+                              "offset": 33801,
+                              "token": "0xf3"
+                            },
+                            "storage": "global_u8",
+                            "type": "state_ref"
+                          },
+                          "op": "equal",
+                          "rhs": {
+                            "source": {
+                              "offset": 33804,
+                              "token": "0x00"
+                            },
+                            "type": "literal",
+                            "value": 0,
+                            "width": 8
+                          },
+                          "source": {
+                            "offset": 33805,
+                            "token": "0xef"
+                          },
+                          "type": "binary"
+                        },
+                        "source": {
+                          "offset": 33806,
+                          "token": "0xe6"
+                        },
+                        "type": "binary"
+                      },
+                      "op": "logical_and",
+                      "rhs": {
+                        "lhs": {
+                          "bank": 0,
+                          "index": {
+                            "type": "literal",
+                            "value": 1259
+                          },
+                          "source": {
+                            "offset": 33807,
+                            "token": "0xf3"
+                          },
+                          "storage": "global_u8",
+                          "type": "state_ref"
+                        },
+                        "op": "equal",
+                        "rhs": {
+                          "source": {
+                            "offset": 33810,
+                            "token": "0x00"
+                          },
+                          "type": "literal",
+                          "value": 0,
+                          "width": 8
+                        },
+                        "source": {
+                          "offset": 33811,
+                          "token": "0xef"
+                        },
+                        "type": "binary"
+                      },
+                      "source": {
+                        "offset": 33812,
+                        "token": "0xe6"
+                      },
+                      "type": "binary"
+                    },
+                    "op": "logical_and",
+                    "rhs": {
+                      "lhs": {
+                        "bank": 0,
+                        "index": {
+                          "type": "literal",
+                          "value": 1301
+                        },
+                        "source": {
+                          "offset": 33813,
+                          "token": "0xf3"
+                        },
+                        "storage": "global_u8",
+                        "type": "state_ref"
+                      },
+                      "op": "equal",
+                      "rhs": {
+                        "source": {
+                          "offset": 33816,
+                          "token": "0x01"
+                        },
+                        "type": "literal",
+                        "value": 1,
+                        "width": 8
+                      },
+                      "source": {
+                        "offset": 33817,
+                        "token": "0xef"
+                      },
+                      "type": "binary"
+                    },
+                    "source": {
+                      "offset": 33818,
+                      "token": "0xe6"
+                    },
+                    "type": "binary"
+                  },
+                  "op": "logical_and",
+                  "rhs": {
+                    "lhs": {
+                      "bank": 0,
+                      "index": {
+                        "type": "literal",
+                        "value": 1226
+                      },
+                      "source": {
+                        "offset": 33819,
+                        "token": "0xf3"
+                      },
+                      "storage": "global_u8",
+                      "type": "state_ref"
+                    },
+                    "op": "equal",
+                    "rhs": {
+                      "source": {
+                        "offset": 33822,
+                        "token": "0x00"
+                      },
+                      "type": "literal",
+                      "value": 0,
+                      "width": 8
+                    },
+                    "source": {
+                      "offset": 33823,
+                      "token": "0xef"
+                    },
+                    "type": "binary"
+                  },
+                  "source": {
+                    "offset": 33824,
+                    "token": "0xe6"
+                  },
+                  "type": "binary"
+                },
+                "op": "logical_and",
+                "rhs": {
+                  "lhs": {
+                    "bank": 0,
+                    "index": {
+                      "type": "literal",
+                      "value": 1262
+                    },
+                    "source": {
+                      "offset": 33825,
+                      "token": "0xf3"
+                    },
+                    "storage": "global_u8",
+                    "type": "state_ref"
+                  },
+                  "op": "equal",
+                  "rhs": {
+                    "source": {
+                      "offset": 33828,
+                      "token": "0x00"
+                    },
+                    "type": "literal",
+                    "value": 0,
+                    "width": 8
+                  },
+                  "source": {
+                    "offset": 33829,
+                    "token": "0xef"
+                  },
+                  "type": "binary"
+                },
+                "source": {
+                  "offset": 33830,
+                  "token": "0xe6"
+                },
+                "type": "binary"
+              },
+              "op": "logical_and",
+              "rhs": {
+                "lhs": {
+                  "bank": 0,
+                  "index": {
+                    "type": "literal",
+                    "value": 1350
+                  },
+                  "source": {
+                    "offset": 33831,
+                    "token": "0xf3"
+                  },
+                  "storage": "global_u8",
+                  "type": "state_ref"
+                },
+                "op": "equal",
+                "rhs": {
+                  "source": {
+                    "offset": 33834,
+                    "token": "0x00"
+                  },
+                  "type": "literal",
+                  "value": 0,
+                  "width": 8
+                },
+                "source": {
+                  "offset": 33835,
+                  "token": "0xef"
+                },
+                "type": "binary"
+              },
+              "source": {
+                "offset": 33836,
+                "token": "0xe6"
+              },
+              "type": "binary"
+            },
+            "op": "logical_and",
+            "rhs": {
+              "lhs": {
+                "bank": 0,
+                "index": {
+                  "type": "literal",
+                  "value": 1228
+                },
+                "source": {
+                  "offset": 33837,
+                  "token": "0xf3"
+                },
+                "storage": "global_u8",
+                "type": "state_ref"
+              },
+              "op": "equal",
+              "rhs": {
+                "source": {
+                  "offset": 33840,
+                  "token": "0x00"
+                },
+                "type": "literal",
+                "value": 0,
+                "width": 8
+              },
+              "source": {
+                "offset": 33841,
+                "token": "0xef"
+              },
+              "type": "binary"
+            },
+            "source": {
+              "offset": 33842,
+              "token": "0xe6"
+            },
+            "type": "binary"
+          },
+          "op": "logical_and",
+          "rhs": {
+            "lhs": {
+              "bank": 0,
+              "index": {
+                "type": "literal",
+                "value": 372
+              },
+              "source": {
+                "offset": 33843,
+                "token": "0xf3"
+              },
+              "storage": "global_u8",
+              "type": "state_ref"
+            },
+            "op": "equal",
+            "rhs": {
+              "source": {
+                "offset": 33846,
+                "token": "0x01"
+              },
+              "type": "literal",
+              "value": 1,
+              "width": 8
+            },
+            "source": {
+              "offset": 33847,
+              "token": "0xef"
+            },
+            "type": "binary"
+          },
+          "source": {
+            "offset": 33848,
+            "token": "0xe6"
+          },
+          "type": "binary"
+        },
+        "op": "logical_and",
+        "rhs": {
+          "lhs": {
+            "bank": 0,
+            "index": {
+              "type": "literal",
+              "value": 1219
+            },
+            "source": {
+              "offset": 33849,
+              "token": "0xf3"
+            },
+            "storage": "global_u8",
+            "type": "state_ref"
+          },
+          "op": "equal",
+          "rhs": {
+            "source": {
+              "offset": 33852,
+              "token": "0x00"
+            },
+            "type": "literal",
+            "value": 0,
+            "width": 8
+          },
+          "source": {
+            "offset": 33853,
+            "token": "0xef"
+          },
+          "type": "binary"
+        },
+        "source": {
+          "offset": 33854,
+          "token": "0xe6"
+        },
+        "type": "binary"
+      },
+      "source_offset": 33748,
+      "failure_reason": "guard_rejected"
+    },
+    {
+      "type": "event_not_completed",
+      "event_id": "mayumi.town.44c.24.1",
+      "failure_reason": "already_completed",
+      "done_cell": {
+        "storage": "global_u8",
+        "bank": 0,
+        "index": 1350,
+        "value": 1
+      },
+      "source": "guard_flag"
+    }
+  ],
+  "presets": [
+    {
+      "preset_id": "baseline",
+      "label": "baseline",
+      "writes": [
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 0,
+          "value": 0
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 1,
+          "value": 13
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 4,
+          "value": 0
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 7,
+          "value": 1001
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 19,
+          "value": 2000
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 21,
+          "value": 0
+        },
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 203,
+          "value": 110
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 1301,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 372,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 130,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 137,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 134,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 1259,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 1226,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 1262,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 1350,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 1228,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 1219,
+          "value": 0
+        }
+      ]
+    },
+    {
+      "preset_id": "44c-i24/date-916",
+      "label": "date-916",
+      "writes": [
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 7,
+          "value": 916
+        }
+      ]
+    },
+    {
+      "preset_id": "44c-i24/date-1510",
+      "label": "date-1510",
+      "writes": [
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 7,
+          "value": 1510
+        }
+      ]
+    },
+    {
+      "preset_id": "44c-i24/clock-1801",
+      "label": "clock-1801",
+      "writes": [
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 19,
+          "value": 1801
+        }
+      ]
+    },
+    {
+      "preset_id": "44c-i24/clock-2200",
+      "label": "clock-2200",
+      "writes": [
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 19,
+          "value": 2200
+        }
+      ]
+    },
+    {
+      "preset_id": "44c-i24/word203-101",
+      "label": "word203-101",
+      "writes": [
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 203,
+          "value": 101
+        }
+      ]
+    },
+    {
+      "preset_id": "44c-i24/callee-state_u16_8-1",
+      "label": "callee-state_u16_8-1",
+      "writes": [
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 8,
+          "value": 1
+        }
+      ]
+    },
+    {
+      "preset_id": "44c-i24/callee-global_u8_4000-1",
+      "label": "callee-global_u8_4000-1",
+      "writes": [
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 4000,
+          "value": 1
+        }
+      ]
+    },
+    {
+      "preset_id": "44c-i24/callee-global_u8_3006-1",
+      "label": "callee-global_u8_3006-1",
+      "writes": [
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3006,
+          "value": 1
+        }
+      ]
+    },
+    {
+      "preset_id": "44c-i24/callee-global_u8_2847-1",
+      "label": "callee-global_u8_2847-1",
+      "writes": [
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2847,
+          "value": 1
+        }
+      ]
+    }
+  ],
+  "dialogue": [
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "44C.MES",
+        "at": 34018,
+        "s": 0,
+        "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "44C.MES",
+      "at": 34022,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "44C.MES",
+        "at": 34039,
+        "s": 1,
+        "raw_sha256": "cdcc3c789420a9568ac5f4424908b6bab4f9d388e1e3917413e16d564c6985a2"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "44C.MES",
+        "at": 34081,
+        "s": 0,
+        "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "44C.MES",
+      "at": 34085,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "44C.MES",
+        "at": 34102,
+        "s": 201,
+        "raw_sha256": "be30c71b198d6ce0dffde0de11617448325c766e22e4453208fce2ca90aafc15"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTI24.MES",
+        "at": 800,
+        "s": 0,
+        "raw_sha256": "e28da4cdcfd32febbc1f9c2b9880453ff7dbf882929ec1d8badf465600f75c67"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTI24.MES",
+        "at": 852,
+        "s": 1,
+        "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "EVENTI24.MES",
+      "at": 856,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTI24.MES",
+        "at": 873,
+        "s": 2,
+        "raw_sha256": "ebd51a1ddcbda6d5ab9d492beab4c34c504ce1c537f86f270791160f540330de"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTI24.MES",
+        "at": 935,
+        "s": 3,
+        "raw_sha256": "1d1e1820c46239be7a2a6b4f4946d4b0093d91d585f5bc66bf159880c99f21f7"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTI24.MES",
+        "at": 985,
+        "s": 1,
+        "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "EVENTI24.MES",
+      "at": 989,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTI24.MES",
+        "at": 1006,
+        "s": 4,
+        "raw_sha256": "cdcc3c789420a9568ac5f4424908b6bab4f9d388e1e3917413e16d564c6985a2"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTI24.MES",
+        "at": 1110,
+        "s": 5,
+        "raw_sha256": "8cd24ae62f9afe7e63f461dd26e8bf7c816b0f5a6b1028cc17dec75bb87c1a7d"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTI24.MES",
+        "at": 1182,
+        "s": 1,
+        "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "EVENTI24.MES",
+      "at": 1186,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTI24.MES",
+        "at": 1203,
+        "s": 6,
+        "raw_sha256": "c7d2bdf1b0a3064af981eb7279914dd30a9b999a50c2156c68ca2e0f68e7a687"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTI24.MES",
+        "at": 1261,
+        "s": 3,
+        "raw_sha256": "1d1e1820c46239be7a2a6b4f4946d4b0093d91d585f5bc66bf159880c99f21f7"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTI24.MES",
+        "at": 1311,
+        "s": 1,
+        "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "EVENTI24.MES",
+      "at": 1315,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTI24.MES",
+        "at": 1332,
+        "s": 4,
+        "raw_sha256": "cdcc3c789420a9568ac5f4424908b6bab4f9d388e1e3917413e16d564c6985a2"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTI24.MES",
+        "at": 1426,
+        "s": 7,
+        "raw_sha256": "39a915e771ddbf7fcb24b1a1235d0bd7f8dfc25f5888e62bbce56d7f0b27f437"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTI24.MES",
+        "at": 1496,
+        "s": 1,
+        "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "EVENTI24.MES",
+      "at": 1500,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTI24.MES",
+        "at": 1517,
+        "s": 8,
+        "raw_sha256": "b09071a669d221d9a93b3add5eda3f6f9b764931914047811ac3ac0b3f02860d"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTI24.MES",
+        "at": 1559,
+        "s": 3,
+        "raw_sha256": "1d1e1820c46239be7a2a6b4f4946d4b0093d91d585f5bc66bf159880c99f21f7"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTI24.MES",
+        "at": 1609,
+        "s": 1,
+        "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "EVENTI24.MES",
+      "at": 1613,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTI24.MES",
+        "at": 1630,
+        "s": 4,
+        "raw_sha256": "cdcc3c789420a9568ac5f4424908b6bab4f9d388e1e3917413e16d564c6985a2"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTI24.MES",
+        "at": 1734,
+        "s": 9,
+        "raw_sha256": "ca24d7f88299cae6a56495fb16199a8a948294eadf4115bfcf8bd4b4c63012ed"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTI24.MES",
+        "at": 2047,
+        "s": 1,
+        "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "EVENTI24.MES",
+      "at": 2051,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTI24.MES",
+        "at": 2068,
+        "s": 4,
+        "raw_sha256": "cdcc3c789420a9568ac5f4424908b6bab4f9d388e1e3917413e16d564c6985a2"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTI24.MES",
+        "at": 2110,
+        "s": 1,
+        "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "EVENTI24.MES",
+      "at": 2114,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTI24.MES",
+        "at": 2131,
+        "s": 10,
+        "raw_sha256": "6d0ee92ae8a61f59a283fdffb42a156bae527e448aa8840c49a4fee67afc8d9e"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTI24.MES",
+        "at": 2187,
+        "s": 1,
+        "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "EVENTI24.MES",
+      "at": 2191,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTI24.MES",
+        "at": 2208,
+        "s": 4,
+        "raw_sha256": "cdcc3c789420a9568ac5f4424908b6bab4f9d388e1e3917413e16d564c6985a2"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTI24.MES",
+        "at": 2250,
+        "s": 1,
+        "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "EVENTI24.MES",
+      "at": 2254,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTI24.MES",
+        "at": 2271,
+        "s": 11,
+        "raw_sha256": "a971af105a7f9390b1b2e8c59e2d5500f722cd44a91c48629c0596654f9621d6"
+      }
+    },
+    {
+      "kind": "scene_end"
+    }
+  ],
+  "after": [
+    {
+      "type": "write_legacy_value",
+      "storage": "banked_u16",
+      "bank": 0,
+      "index": 1,
+      "value": 7,
+      "cell_class": "unnamed"
+    },
+    {
+      "type": "write_legacy_value",
+      "storage": "global_u8",
+      "bank": 0,
+      "index": 1350,
+      "value": 1,
+      "cell_class": "flag"
+    },
+    {
+      "type": "write_legacy_value",
+      "storage": "global_u8",
+      "bank": 0,
+      "index": 3511,
+      "value": 1,
+      "cell_class": "flag"
+    },
+    {
+      "type": "write_legacy_value",
+      "storage": "global_u8",
+      "bank": 0,
+      "index": 4000,
+      "value": 0,
+      "cell_class": "counter"
+    },
+    {
+      "type": "write_legacy_value",
+      "storage": "global_u8",
+      "bank": 0,
+      "index": 5108,
+      "value": 1,
+      "cell_class": "flag"
+    },
+    {
+      "type": "write_legacy_value",
+      "storage": "state_u16",
+      "bank": 0,
+      "index": 8,
+      "value": 0,
+      "cell_class": "unnamed"
+    }
+  ],
+  "results": {
+    "result_default": {
+      "selected_by": {
+        "kind": "default"
+      },
+      "event_played": true,
+      "dialogue": [],
+      "after": [],
+      "terminal": "44c-i24.resume",
+      "reentry": {
+        "outcome": "other",
+        "message_count": 0,
+        "after": []
+      }
+    }
+  },
+  "terminals": {
+    "44c-i24.outcome": {
+      "kind": "callee_return",
+      "owner_entry": "EVENTI24.MES",
+      "offset": 2358,
+      "end": 2359,
+      "required_state": []
+    },
+    "44c-i24.resume": {
+      "kind": "def_selection_boundary",
+      "owner_entry": "44C.MES",
+      "offset": 45952,
+      "end": 45957,
+      "required_state": []
+    }
+  },
+  "dependencies": [],
+  "presentation": {
+    "status": "deferred",
+    "resources": [
+      {
+        "entry": "44C.MES",
+        "source_offset": 33877,
+        "kind": "mmo",
+        "name": "I24A.MMO"
+      },
+      {
+        "entry": "EVENTI24.MES",
+        "source_offset": 435,
+        "kind": "mmo",
+        "name": "I24.MMO"
+      },
+      {
+        "entry": "EVENTI24.MES",
+        "source_offset": 594,
+        "kind": "mmo",
+        "name": "I24AN.MMO"
+      },
+      {
+        "entry": "EVENTI24.MES",
+        "source_offset": 616,
+        "kind": "ax",
+        "name": "I24.AX"
+      },
+      {
+        "entry": "EVENTI24.MES",
+        "source_offset": 706,
+        "kind": "bgm",
+        "name": "FURARE.WAV"
+      },
+      {
+        "entry": "EVENTI24.MES",
+        "source_offset": 761,
+        "kind": "voice",
+        "name": "I0227.OGG"
+      },
+      {
+        "entry": "EVENTI24.MES",
+        "source_offset": 1066,
+        "kind": "voice",
+        "name": "I0228.OGG"
+      },
+      {
+        "entry": "EVENTI24.MES",
+        "source_offset": 1382,
+        "kind": "voice",
+        "name": "I0229.OGG"
+      },
+      {
+        "entry": "EVENTI24.MES",
+        "source_offset": 1690,
+        "kind": "voice",
+        "name": "I0230.OGG"
+      },
+      {
+        "entry": "EVENTI24.MES",
+        "source_offset": 2021,
+        "kind": "bgm",
+        "name": "MY_ROOM.WAV"
+      },
+      {
+        "entry": "LIBLARY.LIB",
+        "source_offset": 54851,
+        "kind": "mmo",
+        "name": "44C.MMO"
+      },
+      {
+        "entry": "LIBLARY.LIB",
+        "source_offset": 54911,
+        "kind": "unclassified",
+        "name": "44C.MMO"
+      }
+    ]
+  },
+  "unresolved": [
+    "Natural scheduling into the typed origin 33748 is not established: what schedules 44C.MES into this guard, as opposed to any of its other five intros, is not measured.",
+    "What sets global_u8[372] and global_u8[1301], and raises banked_u16[203] above 100, is not established.",
+    "The caller resume stops at the dormitory's routine-40 registered-definition selection 44C.MES:45952; its definitions are not in the stored form mes_routine40_choice_contract.gd supports, so nothing past that selection is qualified.",
+    "Native presentation records are omitted under the bounded runtime policy.",
+    "done_cell = the guard's cleared flag the event sets",
+    "effect on global_u8[3005] for result result_default: no matching shift witness (entry=0 final=15)",
+    "argument storage: global_i32[1] = 48923 written by command 0x09 at EVENTI24.MES:2308; not an event effect (TD-56 D11)"
+  ]
+}

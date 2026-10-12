@@ -1,0 +1,3321 @@
+{
+  "schema": "kakyu_event_analysis_group/v13",
+  "group_id": "44c-m03",
+  "archive_sha256": "31a95b31cb0f1051cf973a4dba4f4a5405671e4488240adfafb9b02290986aa6",
+  "source_members": [
+    {
+      "entry": "44C.MES",
+      "entry_sha256": "49b5ae569923d6b0e58bf6bf64786f2e96fe9de00c9bad56cd450cb4a487d0ce"
+    },
+    {
+      "entry": "EVENTM03.MES",
+      "entry_sha256": "f833462a193ece5aeb3c150413b3e46084f1f6f93f19bfab14ea4b1d1a330731"
+    },
+    {
+      "entry": "START.MES",
+      "entry_sha256": "ba57bf666fbd9db9b3110f2bf1c70e80e11a35de00e82256aaaf35921c77038f"
+    },
+    {
+      "entry": "DEF_MAIN.MES",
+      "entry_sha256": "f2012ce5d90f60a5d1ca8190e03571341c0384c2d3d96e9aec2b3ab949db0ef0"
+    },
+    {
+      "entry": "LIBLARY.LIB",
+      "entry_sha256": "d9aba6eb8dab51fe321e22c868ed0cf38416bba1f0cf2f5d7d719f48e89b8b4d"
+    }
+  ],
+  "routes": [
+    {
+      "route_id": "44c-m03",
+      "origin_offset": 60364,
+      "caller": {
+        "entry": "44C.MES",
+        "offset": 61182,
+        "end": 61198,
+        "command": 15,
+        "record_sha256": "e93df200737a11190379d5b9e9b210fc2e5aa206ca0bd8b6c48c307213291ab2",
+        "source_binding": {
+          "kind": "typed_record"
+        }
+      },
+      "guard": {
+        "offset": 60364,
+        "end": 60461,
+        "false_target": 62617,
+        "record_sha256": "0e4479dc2c04600f85e5ecbcfbb0a8d8f47e53b38e50819ae5c3b84685eb63c2",
+        "prefix_sha256": "5ac0dff8dc437a1d99c0a060b493cbf95622de8b09b84e7054f293520240981d",
+        "source_binding": {
+          "kind": "typed_record"
+        }
+      },
+      "callee": {
+        "entry": "EVENTM03.MES",
+        "offset": 0
+      },
+      "qualification": "caller_continuation_observation",
+      "post_guard_expected": 1,
+      "caller_outcome": {
+        "kind": "dispatch"
+      },
+      "state_context": {
+        "kind": "original_calendar",
+        "entry": "START.MES",
+        "table_sha256": "f21ee0fcb09e960046878e35ad0410aed88680f849ace471b713ef7a12525b4a"
+      },
+      "choice_contracts": [],
+      "baseline": [
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 0,
+          "value": 0
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 1,
+          "value": 13
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 4,
+          "value": 0
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 7,
+          "value": 1001
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 19,
+          "value": 1900
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 21,
+          "value": 3
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2504,
+          "value": 0
+        }
+      ],
+      "guard_cases": [
+        {
+          "case_id": "baseline-weekday0-clock1900",
+          "writes": [],
+          "expected": 1
+        },
+        {
+          "case_id": "arm1-weekday6-clock1900-accept",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 4,
+              "storage": "state_u16",
+              "value": 6
+            },
+            {
+              "bank": 0,
+              "index": 19,
+              "storage": "state_u16",
+              "value": 1900
+            }
+          ],
+          "expected": 1
+        },
+        {
+          "case_id": "weekday6-clock1859-reject",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 4,
+              "storage": "state_u16",
+              "value": 6
+            },
+            {
+              "bank": 0,
+              "index": 19,
+              "storage": "state_u16",
+              "value": 1859
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "arm2-weekday0-clock900-accept",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 19,
+              "storage": "state_u16",
+              "value": 900
+            }
+          ],
+          "expected": 1
+        },
+        {
+          "case_id": "weekday0-clock901-reject",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 19,
+              "storage": "state_u16",
+              "value": 901
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "weekday0-clock1859-reject",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 19,
+              "storage": "state_u16",
+              "value": 1859
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "arm3-weekday0-clock1860-accept",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 19,
+              "storage": "state_u16",
+              "value": 1860
+            }
+          ],
+          "expected": 1
+        },
+        {
+          "case_id": "weekday3-clock1900-reject",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 4,
+              "storage": "state_u16",
+              "value": 3
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "weekday3-clock900-reject",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 4,
+              "storage": "state_u16",
+              "value": 3
+            },
+            {
+              "bank": 0,
+              "index": 19,
+              "storage": "state_u16",
+              "value": 900
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "arm4-date1223-weekday3-clock900-accept",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 4,
+              "storage": "state_u16",
+              "value": 3
+            },
+            {
+              "bank": 0,
+              "index": 7,
+              "storage": "state_u16",
+              "value": 1223
+            },
+            {
+              "bank": 0,
+              "index": 19,
+              "storage": "state_u16",
+              "value": 900
+            }
+          ],
+          "expected": 1
+        },
+        {
+          "case_id": "date1223-weekday3-clock901-reject",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 4,
+              "storage": "state_u16",
+              "value": 3
+            },
+            {
+              "bank": 0,
+              "index": 7,
+              "storage": "state_u16",
+              "value": 1223
+            },
+            {
+              "bank": 0,
+              "index": 19,
+              "storage": "state_u16",
+              "value": 901
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "date1223-weekday3-clock1859-reject",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 4,
+              "storage": "state_u16",
+              "value": 3
+            },
+            {
+              "bank": 0,
+              "index": 7,
+              "storage": "state_u16",
+              "value": 1223
+            },
+            {
+              "bank": 0,
+              "index": 19,
+              "storage": "state_u16",
+              "value": 1859
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "arm5-date1223-weekday3-clock1860-accept",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 4,
+              "storage": "state_u16",
+              "value": 3
+            },
+            {
+              "bank": 0,
+              "index": 7,
+              "storage": "state_u16",
+              "value": 1223
+            },
+            {
+              "bank": 0,
+              "index": 19,
+              "storage": "state_u16",
+              "value": 1860
+            }
+          ],
+          "expected": 1
+        },
+        {
+          "case_id": "arm6-date1224-weekday3-clock900-accept",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 4,
+              "storage": "state_u16",
+              "value": 3
+            },
+            {
+              "bank": 0,
+              "index": 7,
+              "storage": "state_u16",
+              "value": 1224
+            },
+            {
+              "bank": 0,
+              "index": 19,
+              "storage": "state_u16",
+              "value": 900
+            }
+          ],
+          "expected": 1
+        },
+        {
+          "case_id": "date1224-weekday3-clock1930-reject",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 4,
+              "storage": "state_u16",
+              "value": 3
+            },
+            {
+              "bank": 0,
+              "index": 7,
+              "storage": "state_u16",
+              "value": 1224
+            },
+            {
+              "bank": 0,
+              "index": 19,
+              "storage": "state_u16",
+              "value": 1930
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "arm7-date1224-weekday3-clock1931-accept",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 4,
+              "storage": "state_u16",
+              "value": 3
+            },
+            {
+              "bank": 0,
+              "index": 7,
+              "storage": "state_u16",
+              "value": 1224
+            },
+            {
+              "bank": 0,
+              "index": 19,
+              "storage": "state_u16",
+              "value": 1931
+            }
+          ],
+          "expected": 1
+        },
+        {
+          "case_id": "state_u16-21-2-gate_is_before_origin",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 21,
+              "storage": "state_u16",
+              "value": 2
+            }
+          ],
+          "expected": 1
+        }
+      ],
+      "outcome": {
+        "offset": 13317,
+        "end": 13318,
+        "op": "command_00",
+        "status": "script_return"
+      },
+      "expected_state": [
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 1,
+          "value": 7
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 350,
+          "value": 2
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 351,
+          "value": 3
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2417,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2420,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3554,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 4000,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 5154,
+          "value": 1
+        }
+      ],
+      "resume": {
+        "start": 61198,
+        "boundary_policy": "def_selection_boundary",
+        "outcome": {
+          "offset": 45952,
+          "end": 45957,
+          "op": "script_transfer",
+          "status": "def_selection_boundary",
+          "target": "",
+          "record_sha256": "92a059b1c678e8fb53ecf67b79ae4ebca133078412fe1db5110d9c8d41faabab",
+          "source_binding": {
+            "kind": "typed_record"
+          }
+        },
+        "message_count": 6,
+        "expected_state": [
+          {
+            "storage": "state_u16",
+            "bank": 0,
+            "index": 2,
+            "value": 1
+          }
+        ]
+      },
+      "reentry": {
+        "outcome": {
+          "offset": 45884,
+          "end": 45885,
+          "op": "command_00",
+          "status": "script_return"
+        },
+        "message_count": 17,
+        "expected_state": []
+      },
+      "variants": [
+        {
+          "variant_id": "arm1-weekday6-clock1900",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 4,
+              "storage": "state_u16",
+              "value": 6
+            },
+            {
+              "bank": 0,
+              "index": 19,
+              "storage": "state_u16",
+              "value": 1900
+            }
+          ],
+          "selections": [],
+          "message_count": 24,
+          "expected_state": [],
+          "expected_resume_state": []
+        },
+        {
+          "variant_id": "arm2-weekday0-clock900",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 19,
+              "storage": "state_u16",
+              "value": 900
+            }
+          ],
+          "selections": [],
+          "message_count": 24,
+          "expected_state": [
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 8,
+              "value": 46
+            }
+          ],
+          "expected_resume_state": [
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 19,
+              "value": 915
+            }
+          ],
+          "post_guard_expected": 0
+        },
+        {
+          "variant_id": "arm3-weekday0-clock1900",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 4,
+              "storage": "state_u16",
+              "value": 0
+            },
+            {
+              "bank": 0,
+              "index": 19,
+              "storage": "state_u16",
+              "value": 1900
+            }
+          ],
+          "selections": [],
+          "message_count": 24,
+          "expected_state": [],
+          "expected_resume_state": []
+        },
+        {
+          "variant_id": "arm4-date1223-clock900",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 4,
+              "storage": "state_u16",
+              "value": 3
+            },
+            {
+              "bank": 0,
+              "index": 7,
+              "storage": "state_u16",
+              "value": 1223
+            },
+            {
+              "bank": 0,
+              "index": 19,
+              "storage": "state_u16",
+              "value": 900
+            }
+          ],
+          "selections": [],
+          "message_count": 24,
+          "expected_state": [
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 8,
+              "value": 46
+            }
+          ],
+          "expected_resume_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 285,
+              "value": 1
+            },
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 0,
+              "value": 22
+            },
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 11
+            },
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 8,
+              "value": 11
+            },
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 10,
+              "value": 1223
+            },
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 19,
+              "value": 915
+            },
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 25,
+              "value": 9728
+            }
+          ],
+          "post_guard_expected": 0
+        },
+        {
+          "variant_id": "arm5-date1223-clock1860",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 4,
+              "storage": "state_u16",
+              "value": 3
+            },
+            {
+              "bank": 0,
+              "index": 7,
+              "storage": "state_u16",
+              "value": 1223
+            },
+            {
+              "bank": 0,
+              "index": 19,
+              "storage": "state_u16",
+              "value": 1860
+            }
+          ],
+          "selections": [],
+          "message_count": 24,
+          "expected_state": [],
+          "expected_resume_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 285,
+              "value": 1
+            },
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 0,
+              "value": 22
+            },
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 11
+            },
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 8,
+              "value": 11
+            },
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 10,
+              "value": 1223
+            },
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 25,
+              "value": 9728
+            }
+          ]
+        },
+        {
+          "variant_id": "arm6-date1224-clock900",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 4,
+              "storage": "state_u16",
+              "value": 3
+            },
+            {
+              "bank": 0,
+              "index": 7,
+              "storage": "state_u16",
+              "value": 1224
+            },
+            {
+              "bank": 0,
+              "index": 19,
+              "storage": "state_u16",
+              "value": 900
+            }
+          ],
+          "selections": [],
+          "message_count": 24,
+          "expected_state": [
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 8,
+              "value": 46
+            }
+          ],
+          "expected_resume_state": [
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 0,
+              "value": 23
+            },
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 11
+            },
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 8,
+              "value": 11
+            },
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 10,
+              "value": 1224
+            },
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 19,
+              "value": 915
+            },
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 25,
+              "value": 9728
+            }
+          ],
+          "post_guard_expected": 0
+        },
+        {
+          "variant_id": "arm7-date1224-clock1931",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 4,
+              "storage": "state_u16",
+              "value": 3
+            },
+            {
+              "bank": 0,
+              "index": 7,
+              "storage": "state_u16",
+              "value": 1224
+            },
+            {
+              "bank": 0,
+              "index": 19,
+              "storage": "state_u16",
+              "value": 1931
+            }
+          ],
+          "selections": [],
+          "message_count": 24,
+          "expected_state": [],
+          "expected_resume_state": [
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 0,
+              "value": 23
+            },
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 11
+            },
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 8,
+              "value": 11
+            },
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 10,
+              "value": 1224
+            },
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 19,
+              "value": 1946
+            },
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 25,
+              "value": 9728
+            }
+          ]
+        },
+        {
+          "variant_id": "callee-global_u8_2516-1",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 2516,
+              "storage": "global_u8",
+              "value": 1
+            }
+          ],
+          "selections": [],
+          "message_count": 24,
+          "expected_state": [],
+          "expected_resume_state": [],
+          "reentry": {
+            "outcome": {
+              "offset": 40871,
+              "end": 40872,
+              "op": "command_00",
+              "status": "script_return"
+            },
+            "message_count": 2,
+            "expected_state": []
+          }
+        },
+        {
+          "variant_id": "callee-global_u8_2517-1",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 2517,
+              "storage": "global_u8",
+              "value": 1
+            }
+          ],
+          "selections": [],
+          "message_count": 24,
+          "expected_state": [],
+          "expected_resume_state": []
+        },
+        {
+          "variant_id": "callee-global_u8_2520-1",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 2520,
+              "storage": "global_u8",
+              "value": 1
+            }
+          ],
+          "selections": [],
+          "message_count": 24,
+          "expected_state": [],
+          "expected_resume_state": []
+        },
+        {
+          "variant_id": "callee-global_u8_4000-1",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 4000,
+              "storage": "global_u8",
+              "value": 1
+            }
+          ],
+          "selections": [],
+          "message_count": 24,
+          "expected_state": [],
+          "expected_resume_state": []
+        },
+        {
+          "variant_id": "callee-state_u16_7-615",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 7,
+              "storage": "state_u16",
+              "value": 615
+            }
+          ],
+          "selections": [],
+          "message_count": 24,
+          "expected_state": [],
+          "expected_resume_state": [
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 0,
+              "value": 14
+            },
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 5
+            },
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 8,
+              "value": 5
+            },
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 10,
+              "value": 615
+            },
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 25,
+              "value": 9536
+            }
+          ]
+        },
+        {
+          "variant_id": "callee-global_u8_3006-1",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 3006,
+              "storage": "global_u8",
+              "value": 1
+            }
+          ],
+          "selections": [],
+          "message_count": 24,
+          "expected_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3005,
+              "value": 15
+            }
+          ],
+          "expected_resume_state": []
+        },
+        {
+          "variant_id": "callee-global_u8_2847-1",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 2847,
+              "storage": "global_u8",
+              "value": 1
+            }
+          ],
+          "selections": [],
+          "message_count": 24,
+          "expected_state": [],
+          "expected_resume_state": []
+        },
+        {
+          "variant_id": "callee-global_u8_2417-1",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 2417,
+              "storage": "global_u8",
+              "value": 1
+            }
+          ],
+          "selections": [],
+          "message_count": 24,
+          "expected_state": [],
+          "expected_resume_state": []
+        },
+        {
+          "variant_id": "callee-global_u8_2518-1",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 2518,
+              "storage": "global_u8",
+              "value": 1
+            }
+          ],
+          "selections": [],
+          "message_count": 24,
+          "expected_state": [],
+          "expected_resume_state": []
+        },
+        {
+          "variant_id": "callee-global_u8_2507-1",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 2507,
+              "storage": "global_u8",
+              "value": 1
+            }
+          ],
+          "selections": [],
+          "message_count": 24,
+          "expected_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2507,
+              "value": 1
+            }
+          ],
+          "expected_resume_state": []
+        }
+      ],
+      "unresolved": [
+        "Natural scheduling into the typed origin 60364 is not established: it is the last guard of a shared 44C.MES ladder (analysis/44c_group_measure.json, entry EVENTM03.MES) behind the gate 51227..51237 (state_u16[21] == 3) and about twenty unrelated branches/guards (EVENTM17's and EVENTM10's own two), none of which are part of this route; state_u16[21] = 3 is seeded as a baseline cell instead.",
+        "The guard reads only the calendar (state_u16[4], [7], [19]); nothing on the caller's side closes it for most seeded scenarios (post_guard_expected = 1 at route level, Core 0.315.0). The callee's own global_u8[2417] is what sends every later pass to 45884..45885 on route 1, and that is declared as this route's reentry, not as completion of the guard. Measured directly: the resume's own +15-minute clock nudge (state_u16[19]) closes the guard (post_guard_expected = 0) only for the three arms whose clock sits at 900 (900 + 15 = 915, failing 'less_than 901') - arm2, arm4 and arm6, and their route-2 counterparts (six variants total, not the two clock=900 arms a prior pass through this material named - the seven-arm disjunction has three such arms, per route); every other declared arm (1900/1860/1931 variants) and every calendar-independent callee-branch variant leaves the guard accepting after continuation.",
+        "The caller resume stops at the dormitory's routine-40 registered-definition selection 44C.MES:45952 (the same coordinate EVENTI24's own resume stops at); its definitions are not in the stored form mes_routine40_choice_contract.gd supports, so nothing past that selection is qualified.",
+        "The resume advances the clock (state_u16[19]) by fifteen minutes (1900 -> 1915) inside a library routine; measured as a resume_effects_state cell, not attributed to a specific caller-side write site.",
+        "global_u8[2445] and global_u8[2447] (cross-guard flags EVENTM10's own guards read) and the caller's own global_u8[2419] if/elif/elif prelude (60466..60954) are not exercised beyond the first prelude arm (global_u8[2419] == 0): this route's measured seeds never flip global_u8[2419] or reach the 60715/60937 arms.",
+        "Native presentation records are omitted under the bounded runtime policy."
+      ],
+      "visits": [
+        {
+          "visit_id": "ladder-00",
+          "after": "route",
+          "entry_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2420,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2421,
+              "value": 0
+            },
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 7
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 350,
+              "value": 2
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 351,
+              "value": 3
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3554,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 4000,
+              "value": 0
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 5154,
+              "value": 1
+            }
+          ],
+          "seed_writes": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2417,
+              "value": 0
+            }
+          ],
+          "seed_basis": "tool_seeded",
+          "outcome": {
+            "offset": 38838,
+            "end": 38839,
+            "op": "command_00",
+            "status": "script_return"
+          },
+          "message_count": 14,
+          "expected_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2421,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2417,
+              "value": 1
+            }
+          ],
+          "dispatches": []
+        },
+        {
+          "visit_id": "ladder-01",
+          "after": "ladder-00",
+          "entry_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2420,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2421,
+              "value": 1
+            },
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 7
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 350,
+              "value": 3
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 351,
+              "value": 4
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3554,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 4000,
+              "value": 0
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 5154,
+              "value": 1
+            }
+          ],
+          "seed_writes": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2417,
+              "value": 0
+            }
+          ],
+          "seed_basis": "tool_seeded",
+          "outcome": {
+            "offset": 38838,
+            "end": 38839,
+            "op": "command_00",
+            "status": "script_return"
+          },
+          "message_count": 18,
+          "expected_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2421,
+              "value": 2
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2417,
+              "value": 1
+            }
+          ],
+          "dispatches": []
+        },
+        {
+          "visit_id": "ladder-02",
+          "after": "ladder-01",
+          "entry_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2420,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2421,
+              "value": 2
+            },
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 7
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 350,
+              "value": 0
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 351,
+              "value": 4
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3554,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 4000,
+              "value": 0
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 5154,
+              "value": 1
+            }
+          ],
+          "seed_writes": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2417,
+              "value": 0
+            }
+          ],
+          "seed_basis": "tool_seeded",
+          "outcome": {
+            "offset": 38838,
+            "end": 38839,
+            "op": "command_00",
+            "status": "script_return"
+          },
+          "message_count": 23,
+          "expected_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2421,
+              "value": 3
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2417,
+              "value": 1
+            }
+          ],
+          "dispatches": []
+        },
+        {
+          "visit_id": "ladder-03",
+          "after": "ladder-02",
+          "entry_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2420,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2421,
+              "value": 3
+            },
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 7
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 350,
+              "value": 2
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 351,
+              "value": 0
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3554,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 4000,
+              "value": 0
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 5154,
+              "value": 1
+            }
+          ],
+          "seed_writes": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2417,
+              "value": 0
+            }
+          ],
+          "seed_basis": "tool_seeded",
+          "outcome": {
+            "offset": 38838,
+            "end": 38839,
+            "op": "command_00",
+            "status": "script_return"
+          },
+          "message_count": 31,
+          "expected_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2421,
+              "value": 4
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2417,
+              "value": 1
+            }
+          ],
+          "dispatches": []
+        },
+        {
+          "visit_id": "ladder-04",
+          "after": "ladder-03",
+          "entry_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2420,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2421,
+              "value": 4
+            },
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 7
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 350,
+              "value": 3
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 351,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3554,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 4000,
+              "value": 0
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 5154,
+              "value": 1
+            }
+          ],
+          "seed_writes": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2417,
+              "value": 0
+            }
+          ],
+          "seed_basis": "tool_seeded",
+          "outcome": {
+            "offset": 38838,
+            "end": 38839,
+            "op": "command_00",
+            "status": "script_return"
+          },
+          "message_count": 23,
+          "expected_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2421,
+              "value": 5
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2417,
+              "value": 1
+            }
+          ],
+          "dispatches": []
+        },
+        {
+          "visit_id": "ladder-05",
+          "after": "ladder-04",
+          "entry_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2420,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2421,
+              "value": 5
+            },
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 7
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 350,
+              "value": 3
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 351,
+              "value": 3
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3554,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 4000,
+              "value": 0
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 5154,
+              "value": 1
+            }
+          ],
+          "seed_writes": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2417,
+              "value": 0
+            }
+          ],
+          "seed_basis": "tool_seeded",
+          "outcome": {
+            "offset": 38838,
+            "end": 38839,
+            "op": "command_00",
+            "status": "script_return"
+          },
+          "message_count": 29,
+          "expected_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2421,
+              "value": 6
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2417,
+              "value": 1
+            }
+          ],
+          "dispatches": []
+        },
+        {
+          "visit_id": "ladder-06",
+          "after": "ladder-05",
+          "entry_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2420,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2421,
+              "value": 6
+            },
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 7
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 350,
+              "value": 3
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 351,
+              "value": 3
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3554,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 4000,
+              "value": 0
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 5154,
+              "value": 1
+            }
+          ],
+          "seed_writes": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2417,
+              "value": 0
+            }
+          ],
+          "seed_basis": "tool_seeded",
+          "outcome": {
+            "offset": 38838,
+            "end": 38839,
+            "op": "command_00",
+            "status": "script_return"
+          },
+          "message_count": 18,
+          "expected_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2421,
+              "value": 7
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2417,
+              "value": 1
+            }
+          ],
+          "dispatches": []
+        },
+        {
+          "visit_id": "ladder-07",
+          "after": "ladder-06",
+          "entry_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2420,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2421,
+              "value": 7
+            },
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 7
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 350,
+              "value": 0
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 351,
+              "value": 4
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3554,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 4000,
+              "value": 0
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 5154,
+              "value": 1
+            }
+          ],
+          "seed_writes": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2417,
+              "value": 0
+            }
+          ],
+          "seed_basis": "tool_seeded",
+          "outcome": {
+            "offset": 38838,
+            "end": 38839,
+            "op": "command_00",
+            "status": "script_return"
+          },
+          "message_count": 32,
+          "expected_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2421,
+              "value": 8
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2417,
+              "value": 1
+            }
+          ],
+          "dispatches": []
+        },
+        {
+          "visit_id": "ladder-08",
+          "after": "ladder-07",
+          "entry_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2420,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2421,
+              "value": 8
+            },
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 7
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 350,
+              "value": 2
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 351,
+              "value": 0
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3554,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 4000,
+              "value": 0
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 5154,
+              "value": 1
+            }
+          ],
+          "seed_writes": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2417,
+              "value": 0
+            }
+          ],
+          "seed_basis": "tool_seeded",
+          "outcome": {
+            "offset": 38838,
+            "end": 38839,
+            "op": "command_00",
+            "status": "script_return"
+          },
+          "message_count": 20,
+          "expected_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2421,
+              "value": 9
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2417,
+              "value": 1
+            }
+          ],
+          "dispatches": []
+        },
+        {
+          "visit_id": "ladder-09",
+          "after": "ladder-08",
+          "entry_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2420,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2421,
+              "value": 9
+            },
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 7
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 350,
+              "value": 0
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 351,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3554,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 4000,
+              "value": 0
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 5154,
+              "value": 1
+            }
+          ],
+          "seed_writes": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2417,
+              "value": 0
+            }
+          ],
+          "seed_basis": "tool_seeded",
+          "outcome": {
+            "offset": 38838,
+            "end": 38839,
+            "op": "command_00",
+            "status": "script_return"
+          },
+          "message_count": 22,
+          "expected_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2421,
+              "value": 10
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2417,
+              "value": 1
+            }
+          ],
+          "dispatches": []
+        },
+        {
+          "visit_id": "ladder-10",
+          "after": "ladder-09",
+          "entry_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2420,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2421,
+              "value": 10
+            },
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 7
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 350,
+              "value": 4
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 351,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3554,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 4000,
+              "value": 0
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 5154,
+              "value": 1
+            }
+          ],
+          "seed_writes": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2417,
+              "value": 0
+            }
+          ],
+          "seed_basis": "tool_seeded",
+          "outcome": {
+            "offset": 38838,
+            "end": 38839,
+            "op": "command_00",
+            "status": "script_return"
+          },
+          "message_count": 17,
+          "expected_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2421,
+              "value": 11
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2417,
+              "value": 1
+            }
+          ],
+          "dispatches": []
+        },
+        {
+          "visit_id": "ladder-11",
+          "after": "ladder-10",
+          "entry_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2420,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2421,
+              "value": 11
+            },
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 7
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 350,
+              "value": 4
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 351,
+              "value": 4
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3554,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 4000,
+              "value": 0
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 5154,
+              "value": 1
+            }
+          ],
+          "seed_writes": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2417,
+              "value": 0
+            }
+          ],
+          "seed_basis": "tool_seeded",
+          "outcome": {
+            "offset": 38838,
+            "end": 38839,
+            "op": "command_00",
+            "status": "script_return"
+          },
+          "message_count": 18,
+          "expected_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2421,
+              "value": 12
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2417,
+              "value": 1
+            }
+          ],
+          "dispatches": []
+        },
+        {
+          "visit_id": "ladder-12",
+          "after": "ladder-11",
+          "entry_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2420,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2421,
+              "value": 12
+            },
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 7
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 350,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 351,
+              "value": 4
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3554,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 4000,
+              "value": 0
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 5154,
+              "value": 1
+            }
+          ],
+          "seed_writes": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2417,
+              "value": 0
+            }
+          ],
+          "seed_basis": "tool_seeded",
+          "outcome": {
+            "offset": 38838,
+            "end": 38839,
+            "op": "command_00",
+            "status": "script_return"
+          },
+          "message_count": 18,
+          "expected_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2421,
+              "value": 13
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2417,
+              "value": 1
+            }
+          ],
+          "dispatches": []
+        },
+        {
+          "visit_id": "ladder-13",
+          "after": "ladder-12",
+          "entry_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2420,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2421,
+              "value": 13
+            },
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 7
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 350,
+              "value": 3
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 351,
+              "value": 2
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3554,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 4000,
+              "value": 0
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 5154,
+              "value": 1
+            }
+          ],
+          "seed_writes": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2417,
+              "value": 0
+            }
+          ],
+          "seed_basis": "tool_seeded",
+          "outcome": {
+            "offset": 38838,
+            "end": 38839,
+            "op": "command_00",
+            "status": "script_return"
+          },
+          "message_count": 17,
+          "expected_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2421,
+              "value": 14
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2417,
+              "value": 1
+            }
+          ],
+          "dispatches": []
+        },
+        {
+          "visit_id": "ladder-14",
+          "after": "ladder-13",
+          "entry_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2420,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2421,
+              "value": 14
+            },
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 7
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 350,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 351,
+              "value": 2
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3554,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 4000,
+              "value": 0
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 5154,
+              "value": 1
+            }
+          ],
+          "seed_writes": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2417,
+              "value": 0
+            }
+          ],
+          "seed_basis": "tool_seeded",
+          "outcome": {
+            "offset": 38838,
+            "end": 38839,
+            "op": "command_00",
+            "status": "script_return"
+          },
+          "message_count": 20,
+          "expected_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2421,
+              "value": 15
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2417,
+              "value": 1
+            }
+          ],
+          "dispatches": []
+        },
+        {
+          "visit_id": "ladder-15",
+          "after": "ladder-14",
+          "entry_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2420,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2421,
+              "value": 15
+            },
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 7
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 350,
+              "value": 3
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 351,
+              "value": 4
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3554,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 4000,
+              "value": 0
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 5154,
+              "value": 1
+            }
+          ],
+          "seed_writes": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2417,
+              "value": 0
+            }
+          ],
+          "seed_basis": "tool_seeded",
+          "outcome": {
+            "offset": 38838,
+            "end": 38839,
+            "op": "command_00",
+            "status": "script_return"
+          },
+          "message_count": 26,
+          "expected_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2421,
+              "value": 15
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2417,
+              "value": 1
+            }
+          ],
+          "dispatches": []
+        }
+      ]
+    },
+    {
+      "route_id": "44c-m03-after2504",
+      "origin_offset": 60364,
+      "caller": {
+        "entry": "44C.MES",
+        "offset": 61182,
+        "end": 61198,
+        "command": 15,
+        "record_sha256": "e93df200737a11190379d5b9e9b210fc2e5aa206ca0bd8b6c48c307213291ab2",
+        "source_binding": {
+          "kind": "typed_record"
+        }
+      },
+      "guard": {
+        "offset": 60364,
+        "end": 60461,
+        "false_target": 62617,
+        "record_sha256": "0e4479dc2c04600f85e5ecbcfbb0a8d8f47e53b38e50819ae5c3b84685eb63c2",
+        "prefix_sha256": "5ac0dff8dc437a1d99c0a060b493cbf95622de8b09b84e7054f293520240981d",
+        "source_binding": {
+          "kind": "typed_record"
+        }
+      },
+      "callee": {
+        "entry": "EVENTM03.MES",
+        "offset": 0
+      },
+      "qualification": "caller_continuation_observation",
+      "post_guard_expected": 1,
+      "caller_outcome": {
+        "kind": "dispatch"
+      },
+      "state_context": {
+        "kind": "original_calendar",
+        "entry": "START.MES",
+        "table_sha256": "f21ee0fcb09e960046878e35ad0410aed88680f849ace471b713ef7a12525b4a"
+      },
+      "choice_contracts": [],
+      "baseline": [
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 0,
+          "value": 0
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 1,
+          "value": 13
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 4,
+          "value": 0
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 7,
+          "value": 1001
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 19,
+          "value": 1900
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 21,
+          "value": 3
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2504,
+          "value": 1
+        }
+      ],
+      "guard_cases": [
+        {
+          "case_id": "baseline-weekday0-clock1900",
+          "writes": [],
+          "expected": 1
+        },
+        {
+          "case_id": "arm1-weekday6-clock1900-accept",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 4,
+              "storage": "state_u16",
+              "value": 6
+            },
+            {
+              "bank": 0,
+              "index": 19,
+              "storage": "state_u16",
+              "value": 1900
+            }
+          ],
+          "expected": 1
+        },
+        {
+          "case_id": "weekday6-clock1859-reject",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 4,
+              "storage": "state_u16",
+              "value": 6
+            },
+            {
+              "bank": 0,
+              "index": 19,
+              "storage": "state_u16",
+              "value": 1859
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "arm2-weekday0-clock900-accept",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 19,
+              "storage": "state_u16",
+              "value": 900
+            }
+          ],
+          "expected": 1
+        },
+        {
+          "case_id": "weekday0-clock901-reject",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 19,
+              "storage": "state_u16",
+              "value": 901
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "weekday0-clock1859-reject",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 19,
+              "storage": "state_u16",
+              "value": 1859
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "arm3-weekday0-clock1860-accept",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 19,
+              "storage": "state_u16",
+              "value": 1860
+            }
+          ],
+          "expected": 1
+        },
+        {
+          "case_id": "weekday3-clock1900-reject",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 4,
+              "storage": "state_u16",
+              "value": 3
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "weekday3-clock900-reject",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 4,
+              "storage": "state_u16",
+              "value": 3
+            },
+            {
+              "bank": 0,
+              "index": 19,
+              "storage": "state_u16",
+              "value": 900
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "arm4-date1223-weekday3-clock900-accept",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 4,
+              "storage": "state_u16",
+              "value": 3
+            },
+            {
+              "bank": 0,
+              "index": 7,
+              "storage": "state_u16",
+              "value": 1223
+            },
+            {
+              "bank": 0,
+              "index": 19,
+              "storage": "state_u16",
+              "value": 900
+            }
+          ],
+          "expected": 1
+        },
+        {
+          "case_id": "date1223-weekday3-clock901-reject",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 4,
+              "storage": "state_u16",
+              "value": 3
+            },
+            {
+              "bank": 0,
+              "index": 7,
+              "storage": "state_u16",
+              "value": 1223
+            },
+            {
+              "bank": 0,
+              "index": 19,
+              "storage": "state_u16",
+              "value": 901
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "date1223-weekday3-clock1859-reject",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 4,
+              "storage": "state_u16",
+              "value": 3
+            },
+            {
+              "bank": 0,
+              "index": 7,
+              "storage": "state_u16",
+              "value": 1223
+            },
+            {
+              "bank": 0,
+              "index": 19,
+              "storage": "state_u16",
+              "value": 1859
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "arm5-date1223-weekday3-clock1860-accept",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 4,
+              "storage": "state_u16",
+              "value": 3
+            },
+            {
+              "bank": 0,
+              "index": 7,
+              "storage": "state_u16",
+              "value": 1223
+            },
+            {
+              "bank": 0,
+              "index": 19,
+              "storage": "state_u16",
+              "value": 1860
+            }
+          ],
+          "expected": 1
+        },
+        {
+          "case_id": "arm6-date1224-weekday3-clock900-accept",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 4,
+              "storage": "state_u16",
+              "value": 3
+            },
+            {
+              "bank": 0,
+              "index": 7,
+              "storage": "state_u16",
+              "value": 1224
+            },
+            {
+              "bank": 0,
+              "index": 19,
+              "storage": "state_u16",
+              "value": 900
+            }
+          ],
+          "expected": 1
+        },
+        {
+          "case_id": "date1224-weekday3-clock1930-reject",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 4,
+              "storage": "state_u16",
+              "value": 3
+            },
+            {
+              "bank": 0,
+              "index": 7,
+              "storage": "state_u16",
+              "value": 1224
+            },
+            {
+              "bank": 0,
+              "index": 19,
+              "storage": "state_u16",
+              "value": 1930
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "arm7-date1224-weekday3-clock1931-accept",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 4,
+              "storage": "state_u16",
+              "value": 3
+            },
+            {
+              "bank": 0,
+              "index": 7,
+              "storage": "state_u16",
+              "value": 1224
+            },
+            {
+              "bank": 0,
+              "index": 19,
+              "storage": "state_u16",
+              "value": 1931
+            }
+          ],
+          "expected": 1
+        },
+        {
+          "case_id": "state_u16-21-2-gate_is_before_origin",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 21,
+              "storage": "state_u16",
+              "value": 2
+            }
+          ],
+          "expected": 1
+        }
+      ],
+      "outcome": {
+        "offset": 8491,
+        "end": 8492,
+        "op": "command_00",
+        "status": "script_return"
+      },
+      "expected_state": [
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 1,
+          "value": 7
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 350,
+          "value": 2
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 351,
+          "value": 3
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2417,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2420,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2507,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3005,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3554,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 4000,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 5154,
+          "value": 1
+        }
+      ],
+      "resume": {
+        "start": 61198,
+        "boundary_policy": "def_selection_boundary",
+        "outcome": {
+          "offset": 45952,
+          "end": 45957,
+          "op": "script_transfer",
+          "status": "def_selection_boundary",
+          "target": "",
+          "record_sha256": "92a059b1c678e8fb53ecf67b79ae4ebca133078412fe1db5110d9c8d41faabab",
+          "source_binding": {
+            "kind": "typed_record"
+          }
+        },
+        "message_count": 6,
+        "expected_state": [
+          {
+            "storage": "state_u16",
+            "bank": 0,
+            "index": 2,
+            "value": 1
+          }
+        ]
+      },
+      "reentry": {
+        "outcome": {
+          "offset": 13317,
+          "end": 13318,
+          "op": "command_00",
+          "status": "script_return"
+        },
+        "message_count": 24,
+        "expected_state": []
+      },
+      "variants": [
+        {
+          "variant_id": "route2-arm1-weekday6-clock1900",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 4,
+              "storage": "state_u16",
+              "value": 6
+            },
+            {
+              "bank": 0,
+              "index": 19,
+              "storage": "state_u16",
+              "value": 1900
+            },
+            {
+              "bank": 0,
+              "index": 2504,
+              "storage": "global_u8",
+              "value": 1
+            }
+          ],
+          "selections": [],
+          "message_count": 25,
+          "expected_state": [],
+          "expected_resume_state": []
+        },
+        {
+          "variant_id": "route2-arm2-weekday0-clock900",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 19,
+              "storage": "state_u16",
+              "value": 900
+            },
+            {
+              "bank": 0,
+              "index": 2504,
+              "storage": "global_u8",
+              "value": 1
+            }
+          ],
+          "selections": [],
+          "message_count": 25,
+          "expected_state": [
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 8,
+              "value": 46
+            }
+          ],
+          "expected_resume_state": [
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 19,
+              "value": 915
+            }
+          ],
+          "post_guard_expected": 0
+        },
+        {
+          "variant_id": "route2-arm3-weekday0-clock1900",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 4,
+              "storage": "state_u16",
+              "value": 0
+            },
+            {
+              "bank": 0,
+              "index": 19,
+              "storage": "state_u16",
+              "value": 1900
+            },
+            {
+              "bank": 0,
+              "index": 2504,
+              "storage": "global_u8",
+              "value": 1
+            }
+          ],
+          "selections": [],
+          "message_count": 25,
+          "expected_state": [],
+          "expected_resume_state": []
+        },
+        {
+          "variant_id": "route2-arm4-date1223-clock900",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 4,
+              "storage": "state_u16",
+              "value": 3
+            },
+            {
+              "bank": 0,
+              "index": 7,
+              "storage": "state_u16",
+              "value": 1223
+            },
+            {
+              "bank": 0,
+              "index": 19,
+              "storage": "state_u16",
+              "value": 900
+            },
+            {
+              "bank": 0,
+              "index": 2504,
+              "storage": "global_u8",
+              "value": 1
+            }
+          ],
+          "selections": [],
+          "message_count": 25,
+          "expected_state": [
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 8,
+              "value": 46
+            }
+          ],
+          "expected_resume_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 285,
+              "value": 1
+            },
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 0,
+              "value": 22
+            },
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 11
+            },
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 8,
+              "value": 11
+            },
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 10,
+              "value": 1223
+            },
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 19,
+              "value": 915
+            },
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 25,
+              "value": 9728
+            }
+          ],
+          "post_guard_expected": 0
+        },
+        {
+          "variant_id": "route2-arm5-date1223-clock1860",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 4,
+              "storage": "state_u16",
+              "value": 3
+            },
+            {
+              "bank": 0,
+              "index": 7,
+              "storage": "state_u16",
+              "value": 1223
+            },
+            {
+              "bank": 0,
+              "index": 19,
+              "storage": "state_u16",
+              "value": 1860
+            },
+            {
+              "bank": 0,
+              "index": 2504,
+              "storage": "global_u8",
+              "value": 1
+            }
+          ],
+          "selections": [],
+          "message_count": 25,
+          "expected_state": [],
+          "expected_resume_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 285,
+              "value": 1
+            },
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 0,
+              "value": 22
+            },
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 11
+            },
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 8,
+              "value": 11
+            },
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 10,
+              "value": 1223
+            },
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 25,
+              "value": 9728
+            }
+          ]
+        },
+        {
+          "variant_id": "route2-arm6-date1224-clock900",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 4,
+              "storage": "state_u16",
+              "value": 3
+            },
+            {
+              "bank": 0,
+              "index": 7,
+              "storage": "state_u16",
+              "value": 1224
+            },
+            {
+              "bank": 0,
+              "index": 19,
+              "storage": "state_u16",
+              "value": 900
+            },
+            {
+              "bank": 0,
+              "index": 2504,
+              "storage": "global_u8",
+              "value": 1
+            }
+          ],
+          "selections": [],
+          "message_count": 25,
+          "expected_state": [
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 8,
+              "value": 46
+            }
+          ],
+          "expected_resume_state": [
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 0,
+              "value": 23
+            },
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 11
+            },
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 8,
+              "value": 11
+            },
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 10,
+              "value": 1224
+            },
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 19,
+              "value": 915
+            },
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 25,
+              "value": 9728
+            }
+          ],
+          "post_guard_expected": 0
+        },
+        {
+          "variant_id": "route2-arm7-date1224-clock1931",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 4,
+              "storage": "state_u16",
+              "value": 3
+            },
+            {
+              "bank": 0,
+              "index": 7,
+              "storage": "state_u16",
+              "value": 1224
+            },
+            {
+              "bank": 0,
+              "index": 19,
+              "storage": "state_u16",
+              "value": 1931
+            },
+            {
+              "bank": 0,
+              "index": 2504,
+              "storage": "global_u8",
+              "value": 1
+            }
+          ],
+          "selections": [],
+          "message_count": 25,
+          "expected_state": [],
+          "expected_resume_state": [
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 0,
+              "value": 23
+            },
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 11
+            },
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 8,
+              "value": 11
+            },
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 10,
+              "value": 1224
+            },
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 19,
+              "value": 1946
+            },
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 25,
+              "value": 9728
+            }
+          ]
+        }
+      ],
+      "unresolved": [
+        "Natural scheduling into the typed origin 60364 is not established: it is the last guard of a shared 44C.MES ladder (analysis/44c_group_measure.json, entry EVENTM03.MES) behind the gate 51227..51237 (state_u16[21] == 3) and about twenty unrelated branches/guards (EVENTM17's and EVENTM10's own two), none of which are part of this route; state_u16[21] = 3 is seeded as a baseline cell instead.",
+        "The guard reads only the calendar (state_u16[4], [7], [19]); nothing on the caller's side closes it for most seeded scenarios (post_guard_expected = 1 at route level, Core 0.315.0). The callee's own global_u8[2417] is what sends every later pass to 45884..45885 on route 1, and that is declared as this route's reentry, not as completion of the guard. Measured directly: the resume's own +15-minute clock nudge (state_u16[19]) closes the guard (post_guard_expected = 0) only for the three arms whose clock sits at 900 (900 + 15 = 915, failing 'less_than 901') - arm2, arm4 and arm6, and their route-2 counterparts (six variants total, not the two clock=900 arms a prior pass through this material named - the seven-arm disjunction has three such arms, per route); every other declared arm (1900/1860/1931 variants) and every calendar-independent callee-branch variant leaves the guard accepting after continuation.",
+        "The caller resume stops at the dormitory's routine-40 registered-definition selection 44C.MES:45952 (the same coordinate EVENTI24's own resume stops at); its definitions are not in the stored form mes_routine40_choice_contract.gd supports, so nothing past that selection is qualified.",
+        "The resume advances the clock (state_u16[19]) by fifteen minutes (1900 -> 1915) inside a library routine; measured as a resume_effects_state cell, not attributed to a specific caller-side write site.",
+        "global_u8[2445] and global_u8[2447] (cross-guard flags EVENTM10's own guards read) and the caller's own global_u8[2419] if/elif/elif prelude (60466..60954) are not exercised beyond the first prelude arm (global_u8[2419] == 0): this route's measured seeds never flip global_u8[2419] or reach the 60715/60937 arms.",
+        "Native presentation records are omitted under the bounded runtime policy.",
+        "global_u8[2504] is EVENTM17's own clear flag (analysis/44c_group_measure.json, entry EVENTM17.MES guard[51257] conjunct 'global_u8[2504] equal 0'): this route is what M03 does once that flag has already been set to 1 by (or for) EVENTM17, not a state M03 itself ever writes going in.",
+        "This route's own completed reentry (13317..13318, 24 messages) reproduces route 1's FIRST-entry outcome, not route 1's reentry (45884..45885) or this route's own first entry (8491..8492): global_u8[2507] is now 1 (written on this route's first pass), so the offset-6010 gate that sends the first pass to 8491 no longer holds; whatever gate sends route 1's reentry to 45884 does not hold either, since global_u8[2504] is still 1 here (route 1's reentry has it at 0). This is the measured result; which cell(s) gate the 45884 exit is not established."
+      ]
+    }
+  ],
+  "payload_sha256": "ff7d81bf3e88cf61a25ab18658b568ee4bb34d793775c563b3b462b5acaa0cde"
+}

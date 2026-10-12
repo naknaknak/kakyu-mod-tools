@@ -1,0 +1,1549 @@
+{
+  "schema_version": "kakyu_event_definition/v3",
+  "contract_fingerprint": "7545e37e08d3dacac8eafb4757ec3ca68305af8afb9278001cce3932a272fb55",
+  "names_fingerprint": "b7ffcea3abac019a78f8ac19e98d5259fc778a0eb3c7123424f257b435163e1a",
+  "id": "reiko.school.floor5.01.1",
+  "kind": "choice_event",
+  "display": {
+    "title_ko": "학교 5층에서 레이코 (EVENTF01)",
+    "title_en": "Reiko at school floor 5 (EVENTF01)",
+    "heroine": "reiko",
+    "category": "school",
+    "place": "floor5"
+  },
+  "evidence": {
+    "kind": "analysis_group",
+    "archive_sha256": "31a95b31cb0f1051cf973a4dba4f4a5405671e4488240adfafb9b02290986aa6",
+    "groups": [
+      {
+        "group_id": "floor5-f01",
+        "profile_sha256": "6b1dd47b3342a86792d43dddd27294661f0c853d41ba618fd9f35db2b0793d48",
+        "route_ids": [
+          "floor5-f01"
+        ]
+      },
+      {
+        "group_id": "floor5-f01-arrival",
+        "profile_sha256": "722a0189cf6e8dd380f659134fce6837867b40f5f39d1c343e2840a00f3f377d",
+        "route_ids": [
+          "floor5-f01-arrival-result1",
+          "floor5-f01-arrival-result2",
+          "floor5-f01-arrival-result3"
+        ]
+      }
+    ],
+    "members": [
+      {
+        "entry": "FLOOR5.MES",
+        "entry_sha256": "d460ef7a3e58bb4f59b9a2da91afb1887eaef4ecb3c76c6c5c3d5231852fd15a"
+      },
+      {
+        "entry": "EVENTF01.MES",
+        "entry_sha256": "c2b863064bc1eb2fa4e3d1c634b201cae8e259a40b6bd7a1a6920555a82f1e7d"
+      },
+      {
+        "entry": "START.MES",
+        "entry_sha256": "ba57bf666fbd9db9b3110f2bf1c70e80e11a35de00e82256aaaf35921c77038f"
+      },
+      {
+        "entry": "DEF_MAIN.MES",
+        "entry_sha256": "f2012ce5d90f60a5d1ca8190e03571341c0384c2d3d96e9aec2b3ab949db0ef0"
+      },
+      {
+        "entry": "LIBLARY.LIB",
+        "entry_sha256": "d9aba6eb8dab51fe321e22c868ed0cf38416bba1f0cf2f5d7d719f48e89b8b4d"
+      }
+    ],
+    "document_refs": []
+  },
+  "package_binding": {
+    "schema": "kakyu_playback_package/v7",
+    "package_sha256": "bf3d1f6eeb3e0e3d5ae949597b3c273e91197f086e3627c27428a05413cc8fa1"
+  },
+  "trigger": {
+    "type": "caller_dispatch",
+    "caller": {
+      "entry": "FLOOR5.MES",
+      "entry_sha256": "d460ef7a3e58bb4f59b9a2da91afb1887eaef4ecb3c76c6c5c3d5231852fd15a",
+      "offset": 3052,
+      "end": 3068,
+      "command": 15,
+      "kind": "nested_call"
+    },
+    "callee": {
+      "entry": "EVENTF01.MES",
+      "entry_sha256": "c2b863064bc1eb2fa4e3d1c634b201cae8e259a40b6bd7a1a6920555a82f1e7d",
+      "start_coordinate": 0
+    },
+    "origin": {
+      "kind": "map_arrival",
+      "offset": 0,
+      "contracts": [
+        {
+          "map": "FLOOR5.MES",
+          "poll_offset": 2441,
+          "locations": [
+            0
+          ]
+        }
+      ]
+    }
+  },
+  "scenes": [
+    {
+      "kind": "school_floor",
+      "map": "FLOOR5.MES",
+      "poll_offset": 2441,
+      "locations": [
+        0
+      ],
+      "spent_by": [
+        "prefix",
+        "whole"
+      ]
+    }
+  ],
+  "guard": {
+    "offset": 2778,
+    "end": 2852,
+    "false_target": 3540,
+    "record_sha256": "12e4ba64d6224c680dc6561e6d2d4a868944ced5d29cbd93879516f6073ea861",
+    "conjuncts": [
+      {
+        "kind": "weekday",
+        "op": "equal",
+        "value": 6
+      },
+      {
+        "kind": "date",
+        "op": "greater_than",
+        "value": 400
+      },
+      {
+        "kind": "date",
+        "op": "less_than",
+        "value": 616
+      },
+      {
+        "kind": "clock",
+        "op": "greater_than",
+        "value": 1230
+      },
+      {
+        "kind": "clock",
+        "op": "less_than",
+        "value": 1601
+      },
+      {
+        "kind": "cell",
+        "storage": "global_u8",
+        "bank": 0,
+        "index": 100,
+        "op": "equal",
+        "value": 0
+      },
+      {
+        "kind": "cell",
+        "storage": "global_u8",
+        "bank": 0,
+        "index": 104,
+        "op": "equal",
+        "value": 0
+      },
+      {
+        "kind": "cell",
+        "storage": "global_u8",
+        "bank": 0,
+        "index": 107,
+        "op": "equal",
+        "value": 0
+      },
+      {
+        "kind": "cell",
+        "storage": "global_u8",
+        "bank": 0,
+        "index": 1620,
+        "op": "equal",
+        "value": 0
+      },
+      {
+        "kind": "cell",
+        "storage": "global_u8",
+        "bank": 0,
+        "index": 1545,
+        "op": "equal",
+        "value": 0
+      },
+      {
+        "kind": "cell",
+        "storage": "global_u8",
+        "bank": 0,
+        "index": 1619,
+        "op": "equal",
+        "value": 0
+      }
+    ],
+    "witnesses": [
+      {
+        "case_id": "baseline",
+        "writes": [],
+        "expected": 1
+      },
+      {
+        "case_id": "state_u16-4-0",
+        "writes": [
+          {
+            "storage": "state_u16",
+            "bank": 0,
+            "index": 4,
+            "value": 0
+          }
+        ],
+        "expected": 0
+      },
+      {
+        "case_id": "state_u16-7-400",
+        "writes": [
+          {
+            "storage": "state_u16",
+            "bank": 0,
+            "index": 7,
+            "value": 400
+          }
+        ],
+        "expected": 0
+      },
+      {
+        "case_id": "state_u16-7-616",
+        "writes": [
+          {
+            "storage": "state_u16",
+            "bank": 0,
+            "index": 7,
+            "value": 616
+          }
+        ],
+        "expected": 0
+      },
+      {
+        "case_id": "state_u16-19-1230",
+        "writes": [
+          {
+            "storage": "state_u16",
+            "bank": 0,
+            "index": 19,
+            "value": 1230
+          }
+        ],
+        "expected": 0
+      },
+      {
+        "case_id": "state_u16-19-1601",
+        "writes": [
+          {
+            "storage": "state_u16",
+            "bank": 0,
+            "index": 19,
+            "value": 1601
+          }
+        ],
+        "expected": 0
+      },
+      {
+        "case_id": "global_u8-100-1",
+        "writes": [
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 100,
+            "value": 1
+          }
+        ],
+        "expected": 0
+      },
+      {
+        "case_id": "global_u8-104-1",
+        "writes": [
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 104,
+            "value": 1
+          }
+        ],
+        "expected": 0
+      },
+      {
+        "case_id": "global_u8-107-1",
+        "writes": [
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 107,
+            "value": 1
+          }
+        ],
+        "expected": 0
+      },
+      {
+        "case_id": "global_u8-1620-1",
+        "writes": [
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 1620,
+            "value": 1
+          }
+        ],
+        "expected": 0
+      },
+      {
+        "case_id": "global_u8-1545-1",
+        "writes": [
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 1545,
+            "value": 1
+          }
+        ],
+        "expected": 0
+      },
+      {
+        "case_id": "global_u8-1619-1",
+        "writes": [
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 1619,
+            "value": 1
+          }
+        ],
+        "expected": 0
+      }
+    ]
+  },
+  "conditions": [
+    {
+      "type": "mes_expression",
+      "ast": {
+        "lhs": {
+          "lhs": {
+            "lhs": {
+              "lhs": {
+                "lhs": {
+                  "lhs": {
+                    "lhs": {
+                      "lhs": {
+                        "lhs": {
+                          "lhs": {
+                            "lhs": {
+                              "bank": 0,
+                              "index": {
+                                "type": "literal",
+                                "value": 4
+                              },
+                              "source": {
+                                "offset": 2779,
+                                "token": "0x80"
+                              },
+                              "storage": "state_u16",
+                              "type": "state_ref"
+                            },
+                            "op": "equal",
+                            "rhs": {
+                              "source": {
+                                "offset": 2781,
+                                "token": "0x06"
+                              },
+                              "type": "literal",
+                              "value": 6,
+                              "width": 8
+                            },
+                            "source": {
+                              "offset": 2782,
+                              "token": "0xef"
+                            },
+                            "type": "binary"
+                          },
+                          "op": "logical_and",
+                          "rhs": {
+                            "lhs": {
+                              "bank": 0,
+                              "index": {
+                                "type": "literal",
+                                "value": 7
+                              },
+                              "source": {
+                                "offset": 2783,
+                                "token": "0x80"
+                              },
+                              "storage": "state_u16",
+                              "type": "state_ref"
+                            },
+                            "op": "greater_than",
+                            "rhs": {
+                              "source": {
+                                "offset": 2785,
+                                "token": "0xf1"
+                              },
+                              "type": "literal",
+                              "value": 400,
+                              "width": 16
+                            },
+                            "source": {
+                              "offset": 2788,
+                              "token": "0xec"
+                            },
+                            "type": "binary"
+                          },
+                          "source": {
+                            "offset": 2789,
+                            "token": "0xe6"
+                          },
+                          "type": "binary"
+                        },
+                        "op": "logical_and",
+                        "rhs": {
+                          "lhs": {
+                            "bank": 0,
+                            "index": {
+                              "type": "literal",
+                              "value": 7
+                            },
+                            "source": {
+                              "offset": 2790,
+                              "token": "0x80"
+                            },
+                            "storage": "state_u16",
+                            "type": "state_ref"
+                          },
+                          "op": "less_than",
+                          "rhs": {
+                            "source": {
+                              "offset": 2792,
+                              "token": "0xf1"
+                            },
+                            "type": "literal",
+                            "value": 616,
+                            "width": 16
+                          },
+                          "source": {
+                            "offset": 2795,
+                            "token": "0xeb"
+                          },
+                          "type": "binary"
+                        },
+                        "source": {
+                          "offset": 2796,
+                          "token": "0xe6"
+                        },
+                        "type": "binary"
+                      },
+                      "op": "logical_and",
+                      "rhs": {
+                        "lhs": {
+                          "bank": 0,
+                          "index": {
+                            "type": "literal",
+                            "value": 19
+                          },
+                          "source": {
+                            "offset": 2797,
+                            "token": "0x80"
+                          },
+                          "storage": "state_u16",
+                          "type": "state_ref"
+                        },
+                        "op": "greater_than",
+                        "rhs": {
+                          "source": {
+                            "offset": 2799,
+                            "token": "0xf1"
+                          },
+                          "type": "literal",
+                          "value": 1230,
+                          "width": 16
+                        },
+                        "source": {
+                          "offset": 2802,
+                          "token": "0xec"
+                        },
+                        "type": "binary"
+                      },
+                      "source": {
+                        "offset": 2803,
+                        "token": "0xe6"
+                      },
+                      "type": "binary"
+                    },
+                    "op": "logical_and",
+                    "rhs": {
+                      "lhs": {
+                        "bank": 0,
+                        "index": {
+                          "type": "literal",
+                          "value": 19
+                        },
+                        "source": {
+                          "offset": 2804,
+                          "token": "0x80"
+                        },
+                        "storage": "state_u16",
+                        "type": "state_ref"
+                      },
+                      "op": "less_than",
+                      "rhs": {
+                        "source": {
+                          "offset": 2806,
+                          "token": "0xf1"
+                        },
+                        "type": "literal",
+                        "value": 1601,
+                        "width": 16
+                      },
+                      "source": {
+                        "offset": 2809,
+                        "token": "0xeb"
+                      },
+                      "type": "binary"
+                    },
+                    "source": {
+                      "offset": 2810,
+                      "token": "0xe6"
+                    },
+                    "type": "binary"
+                  },
+                  "op": "logical_and",
+                  "rhs": {
+                    "lhs": {
+                      "bank": 0,
+                      "index": {
+                        "type": "literal",
+                        "value": 100
+                      },
+                      "source": {
+                        "offset": 2811,
+                        "token": "0xf3"
+                      },
+                      "storage": "global_u8",
+                      "type": "state_ref"
+                    },
+                    "op": "equal",
+                    "rhs": {
+                      "source": {
+                        "offset": 2814,
+                        "token": "0x00"
+                      },
+                      "type": "literal",
+                      "value": 0,
+                      "width": 8
+                    },
+                    "source": {
+                      "offset": 2815,
+                      "token": "0xef"
+                    },
+                    "type": "binary"
+                  },
+                  "source": {
+                    "offset": 2816,
+                    "token": "0xe6"
+                  },
+                  "type": "binary"
+                },
+                "op": "logical_and",
+                "rhs": {
+                  "lhs": {
+                    "bank": 0,
+                    "index": {
+                      "type": "literal",
+                      "value": 104
+                    },
+                    "source": {
+                      "offset": 2817,
+                      "token": "0xf3"
+                    },
+                    "storage": "global_u8",
+                    "type": "state_ref"
+                  },
+                  "op": "equal",
+                  "rhs": {
+                    "source": {
+                      "offset": 2820,
+                      "token": "0x00"
+                    },
+                    "type": "literal",
+                    "value": 0,
+                    "width": 8
+                  },
+                  "source": {
+                    "offset": 2821,
+                    "token": "0xef"
+                  },
+                  "type": "binary"
+                },
+                "source": {
+                  "offset": 2822,
+                  "token": "0xe6"
+                },
+                "type": "binary"
+              },
+              "op": "logical_and",
+              "rhs": {
+                "lhs": {
+                  "bank": 0,
+                  "index": {
+                    "type": "literal",
+                    "value": 107
+                  },
+                  "source": {
+                    "offset": 2823,
+                    "token": "0xf3"
+                  },
+                  "storage": "global_u8",
+                  "type": "state_ref"
+                },
+                "op": "equal",
+                "rhs": {
+                  "source": {
+                    "offset": 2826,
+                    "token": "0x00"
+                  },
+                  "type": "literal",
+                  "value": 0,
+                  "width": 8
+                },
+                "source": {
+                  "offset": 2827,
+                  "token": "0xef"
+                },
+                "type": "binary"
+              },
+              "source": {
+                "offset": 2828,
+                "token": "0xe6"
+              },
+              "type": "binary"
+            },
+            "op": "logical_and",
+            "rhs": {
+              "lhs": {
+                "bank": 0,
+                "index": {
+                  "type": "literal",
+                  "value": 1620
+                },
+                "source": {
+                  "offset": 2829,
+                  "token": "0xf3"
+                },
+                "storage": "global_u8",
+                "type": "state_ref"
+              },
+              "op": "equal",
+              "rhs": {
+                "source": {
+                  "offset": 2832,
+                  "token": "0x00"
+                },
+                "type": "literal",
+                "value": 0,
+                "width": 8
+              },
+              "source": {
+                "offset": 2833,
+                "token": "0xef"
+              },
+              "type": "binary"
+            },
+            "source": {
+              "offset": 2834,
+              "token": "0xe6"
+            },
+            "type": "binary"
+          },
+          "op": "logical_and",
+          "rhs": {
+            "lhs": {
+              "bank": 0,
+              "index": {
+                "type": "literal",
+                "value": 1545
+              },
+              "source": {
+                "offset": 2835,
+                "token": "0xf3"
+              },
+              "storage": "global_u8",
+              "type": "state_ref"
+            },
+            "op": "equal",
+            "rhs": {
+              "source": {
+                "offset": 2838,
+                "token": "0x00"
+              },
+              "type": "literal",
+              "value": 0,
+              "width": 8
+            },
+            "source": {
+              "offset": 2839,
+              "token": "0xef"
+            },
+            "type": "binary"
+          },
+          "source": {
+            "offset": 2840,
+            "token": "0xe6"
+          },
+          "type": "binary"
+        },
+        "op": "logical_and",
+        "rhs": {
+          "lhs": {
+            "bank": 0,
+            "index": {
+              "type": "literal",
+              "value": 1619
+            },
+            "source": {
+              "offset": 2841,
+              "token": "0xf3"
+            },
+            "storage": "global_u8",
+            "type": "state_ref"
+          },
+          "op": "equal",
+          "rhs": {
+            "source": {
+              "offset": 2844,
+              "token": "0x00"
+            },
+            "type": "literal",
+            "value": 0,
+            "width": 8
+          },
+          "source": {
+            "offset": 2845,
+            "token": "0xef"
+          },
+          "type": "binary"
+        },
+        "source": {
+          "offset": 2846,
+          "token": "0xe6"
+        },
+        "type": "binary"
+      },
+      "source_offset": 2778,
+      "failure_reason": "guard_rejected"
+    }
+  ],
+  "presets": [
+    {
+      "preset_id": "baseline",
+      "label": "baseline",
+      "writes": [
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 2,
+          "value": 0
+        },
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 200,
+          "value": 0
+        },
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 242,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 100,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 104,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 107,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 1545,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 1619,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 1620,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 1915,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2847,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3001,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3006,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3009,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 4000,
+          "value": 0
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 0,
+          "value": 0
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 1,
+          "value": 13
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 4,
+          "value": 6
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 5,
+          "value": 0
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 7,
+          "value": 501
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 16,
+          "value": 5
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 17,
+          "value": 65535
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 18,
+          "value": 65535
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 19,
+          "value": 1300
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 21,
+          "value": 0
+        }
+      ]
+    },
+    {
+      "preset_id": "floor5-f01-arrival-result1/global_u8_2847-1",
+      "label": "global_u8_2847-1",
+      "writes": [
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2847,
+          "value": 1
+        }
+      ]
+    },
+    {
+      "preset_id": "floor5-f01-arrival-result1/global_u8_3006-1",
+      "label": "global_u8_3006-1",
+      "writes": [
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3006,
+          "value": 1
+        }
+      ]
+    },
+    {
+      "preset_id": "floor5-f01-arrival-result1/callee-state_u16_8-1",
+      "label": "callee-state_u16_8-1",
+      "writes": [
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 8,
+          "value": 1
+        }
+      ]
+    },
+    {
+      "preset_id": "floor5-f01-arrival-result1/callee-global_u8_4000-1",
+      "label": "callee-global_u8_4000-1",
+      "writes": [
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 4000,
+          "value": 1
+        }
+      ]
+    },
+    {
+      "preset_id": "floor5-f01-arrival-result1/word200-2",
+      "label": "word200-2",
+      "writes": [
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 200,
+          "value": 2
+        }
+      ]
+    },
+    {
+      "preset_id": "floor5-f01-arrival-result1/word200-3",
+      "label": "word200-3",
+      "writes": [
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 200,
+          "value": 3
+        }
+      ]
+    },
+    {
+      "preset_id": "floor5-f01-arrival-result1/clock-1230",
+      "label": "clock-1230",
+      "writes": [
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 19,
+          "value": 1230
+        }
+      ]
+    },
+    {
+      "preset_id": "floor5-f01-arrival-result1/clock-1500",
+      "label": "clock-1500",
+      "writes": [
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 19,
+          "value": 1500
+        }
+      ]
+    },
+    {
+      "preset_id": "floor5-f01-arrival-result1/banked200-1",
+      "label": "banked200-1",
+      "writes": [
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 200,
+          "value": 1
+        }
+      ]
+    }
+  ],
+  "dialogue": [
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTF01.MES",
+        "at": 1216,
+        "s": 0,
+        "raw_sha256": "a1438818c9da84d190b77e26b3b7c5f02911b5201e06fb3694bd5eb0a79f0a86"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTF01.MES",
+        "at": 1290,
+        "s": 1,
+        "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "EVENTF01.MES",
+      "at": 1294,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTF01.MES",
+        "at": 1311,
+        "s": 2,
+        "raw_sha256": "08885e0136d912e97404d93f1c1dcc6e73bc798bd900cd5bcc2918ea9dfc30f4"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTF01.MES",
+        "at": 1431,
+        "s": 3,
+        "raw_sha256": "fc57808cb976e746d029750d361896906bf487b4f56a5a991d4a6cdf30758803"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTF01.MES",
+        "at": 1517,
+        "s": 1,
+        "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "EVENTF01.MES",
+      "at": 1521,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTF01.MES",
+        "at": 1538,
+        "s": 4,
+        "raw_sha256": "6e6d30c07f1766b04d00530454967ad94a247e488156edaf00d19485e4a62aeb"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTF01.MES",
+        "at": 1670,
+        "s": 5,
+        "raw_sha256": "bc5a81304b174aa5b03517ea4ba6df987c31221a701202182c2e1fa45e195b48"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTF01.MES",
+        "at": 1768,
+        "s": 1,
+        "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "EVENTF01.MES",
+      "at": 1772,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTF01.MES",
+        "at": 1789,
+        "s": 6,
+        "raw_sha256": "efda5ab79fd4c41557ffbe94fcebe8887a348eed7dc9e14e05a8d974bb3e9050"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTF01.MES",
+        "at": 1869,
+        "s": 7,
+        "raw_sha256": "11d7bd804a9190aef0c3f9f95d1985a1207560194f50bd355cded964ef709fb4"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTF01.MES",
+        "at": 1917,
+        "s": 1,
+        "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "EVENTF01.MES",
+      "at": 1921,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTF01.MES",
+        "at": 1938,
+        "s": 8,
+        "raw_sha256": "cdcc3c789420a9568ac5f4424908b6bab4f9d388e1e3917413e16d564c6985a2"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTF01.MES",
+        "at": 2032,
+        "s": 9,
+        "raw_sha256": "2df681e4ff643155df58d776ff48e2e55f37b1d420749cd10941d983e44020a2"
+      }
+    }
+  ],
+  "after": [
+    {
+      "type": "write_legacy_value",
+      "storage": "global_u8",
+      "bank": 0,
+      "index": 1619,
+      "value": 0
+    },
+    {
+      "type": "write_legacy_value",
+      "storage": "global_u8",
+      "bank": 0,
+      "index": 1620,
+      "value": 0
+    },
+    {
+      "type": "write_legacy_value",
+      "storage": "global_u8",
+      "bank": 0,
+      "index": 3009,
+      "value": 0
+    },
+    {
+      "type": "write_legacy_value",
+      "storage": "global_u8",
+      "bank": 0,
+      "index": 3245,
+      "value": 1
+    },
+    {
+      "type": "write_legacy_value",
+      "storage": "global_u8",
+      "bank": 0,
+      "index": 3400,
+      "value": 1
+    },
+    {
+      "type": "write_legacy_value",
+      "storage": "global_u8",
+      "bank": 0,
+      "index": 4001,
+      "value": 1
+    },
+    {
+      "type": "write_legacy_value",
+      "storage": "global_u8",
+      "bank": 0,
+      "index": 5000,
+      "value": 1
+    },
+    {
+      "type": "write_legacy_value",
+      "storage": "state_u16",
+      "bank": 0,
+      "index": 8,
+      "value": 0
+    },
+    {
+      "type": "write_legacy_value",
+      "storage": "state_u16",
+      "bank": 0,
+      "index": 16,
+      "value": 5
+    }
+  ],
+  "results": {
+    "answer1": {
+      "selected_by": {
+        "kind": "choice",
+        "value": 1
+      },
+      "event_played": true,
+      "dialogue": [
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTF01.MES",
+            "at": 2356,
+            "s": 1,
+            "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+          }
+        },
+        {
+          "kind": "name_insert",
+          "entry": "EVENTF01.MES",
+          "at": 2360,
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTF01.MES",
+            "at": 2377,
+            "s": 13,
+            "raw_sha256": "7821ecc4f63d1866b0c102e9ae429abcd8fb6c05e5d41e94eb5443e1ab747dc7"
+          }
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTF01.MES",
+            "at": 2503,
+            "s": 14,
+            "raw_sha256": "c611d6569541b424b7dfc96d55db5497bb41a8984d9ee2f9958f9bb69214fcf3"
+          }
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTF01.MES",
+            "at": 2565,
+            "s": 1,
+            "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+          }
+        },
+        {
+          "kind": "name_insert",
+          "entry": "EVENTF01.MES",
+          "at": 2569,
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTF01.MES",
+            "at": 2586,
+            "s": 15,
+            "raw_sha256": "c612c4a0dc27299efce2967a31ebb7f05e8c8a80de47aad4ed5885d915d245e4"
+          }
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTF01.MES",
+            "at": 2722,
+            "s": 16,
+            "raw_sha256": "906e5c8f6c116167531c19b1446bc4ad96f1151fa1d8353b0926b166478ccc8d"
+          }
+        }
+      ],
+      "after": [],
+      "terminal": "floor5-f01-arrival-result1.resume",
+      "reentry": {
+        "outcome": "other",
+        "message_count": 0,
+        "after": []
+      }
+    },
+    "answer2": {
+      "selected_by": {
+        "kind": "choice",
+        "value": 2
+      },
+      "event_played": true,
+      "dialogue": [
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTF01.MES",
+            "at": 2897,
+            "s": 1,
+            "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+          }
+        },
+        {
+          "kind": "name_insert",
+          "entry": "EVENTF01.MES",
+          "at": 2901,
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTF01.MES",
+            "at": 2918,
+            "s": 17,
+            "raw_sha256": "1e4345dc75badf5c20d8d9321d098d690de61168018f1caaf4755ca5dea0ff6b"
+          }
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTF01.MES",
+            "at": 3050,
+            "s": 7,
+            "raw_sha256": "11d7bd804a9190aef0c3f9f95d1985a1207560194f50bd355cded964ef709fb4"
+          }
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTF01.MES",
+            "at": 3098,
+            "s": 1,
+            "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+          }
+        },
+        {
+          "kind": "name_insert",
+          "entry": "EVENTF01.MES",
+          "at": 3102,
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTF01.MES",
+            "at": 3119,
+            "s": 18,
+            "raw_sha256": "4ac1cbefaeadab2ace9043ade21baa4e0a0ba2235a0d6a136dde7e7b173389cd"
+          }
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTF01.MES",
+            "at": 3317,
+            "s": 19,
+            "raw_sha256": "053e85dda17832b6de26919150a9ad7ecf5b0cf1862b44fd04f25ca366127fd0"
+          }
+        }
+      ],
+      "after": [],
+      "terminal": "floor5-f01-arrival-result1.resume",
+      "reentry": {
+        "outcome": "other",
+        "message_count": 0,
+        "after": []
+      }
+    },
+    "answer3": {
+      "selected_by": {
+        "kind": "choice",
+        "value": 3
+      },
+      "event_played": true,
+      "dialogue": [
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTF01.MES",
+            "at": 3519,
+            "s": 1,
+            "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+          }
+        },
+        {
+          "kind": "name_insert",
+          "entry": "EVENTF01.MES",
+          "at": 3523,
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTF01.MES",
+            "at": 3540,
+            "s": 20,
+            "raw_sha256": "985d296f31928a3c99e6466bcf81b6979986ce54eaac24d15be469a4cd9eb760"
+          }
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTF01.MES",
+            "at": 3666,
+            "s": 21,
+            "raw_sha256": "75433389a96bc91ca5890bf39d7bbf78933be22b671266723a42705aa2f52899"
+          }
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTF01.MES",
+            "at": 3748,
+            "s": 1,
+            "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+          }
+        },
+        {
+          "kind": "name_insert",
+          "entry": "EVENTF01.MES",
+          "at": 3752,
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTF01.MES",
+            "at": 3769,
+            "s": 22,
+            "raw_sha256": "28f873d2f5909fabf27c8d5656254aa3a5f946e0d6d96f58a496f1d4a309d194"
+          }
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTF01.MES",
+            "at": 3897,
+            "s": 7,
+            "raw_sha256": "11d7bd804a9190aef0c3f9f95d1985a1207560194f50bd355cded964ef709fb4"
+          }
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTF01.MES",
+            "at": 3945,
+            "s": 1,
+            "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+          }
+        },
+        {
+          "kind": "name_insert",
+          "entry": "EVENTF01.MES",
+          "at": 3949,
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTF01.MES",
+            "at": 3966,
+            "s": 8,
+            "raw_sha256": "cdcc3c789420a9568ac5f4424908b6bab4f9d388e1e3917413e16d564c6985a2"
+          }
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTF01.MES",
+            "at": 4060,
+            "s": 23,
+            "raw_sha256": "90e9ec61f1d01e187caf4f39a76e897ebe9852fb891864fecd0165d50bbcf6d3"
+          }
+        }
+      ],
+      "after": [],
+      "terminal": "floor5-f01-arrival-result1.resume",
+      "reentry": {
+        "outcome": "other",
+        "message_count": 0,
+        "after": []
+      }
+    }
+  },
+  "terminals": {
+    "floor5-f01-arrival-result1.outcome": {
+      "kind": "callee_return",
+      "owner_entry": "EVENTF01.MES",
+      "offset": 4220,
+      "end": 4221,
+      "required_state": []
+    },
+    "floor5-f01-arrival-result1.resume": {
+      "kind": "natural_handoff",
+      "owner_entry": "FLOOR5.MES",
+      "offset": 4846,
+      "end": 4860,
+      "next_target": "FLOOR4.MES",
+      "required_state": []
+    }
+  },
+  "dependencies": [],
+  "presentation": {
+    "status": "deferred",
+    "resources": []
+  },
+  "unresolved": [
+    "Measured and not declared: date-916 did not reach the dispatch (guard {'condition_value': 0, 'next_offset': 3540})",
+    "Measured and not declared: date-1201 did not reach the dispatch (guard {'condition_value': 0, 'next_offset': 3540})",
+    "Measured and not declared: state19-600 did not reach the dispatch (guard {'condition_value': 0, 'next_offset': 3540})",
+    "resume emits 6 caller messages after the event; not projected (v3 carries callee dialogue only)",
+    "no done flag identified in the guard; the reentry is gated inside the callee (reentry emits 0 messages)",
+    "site declared by 2 profiles; trigger and results from floor5_f01_arrival_v12",
+    "effect on banked_u16[200] depends on the entry state (observed final values [0, 1]); v3 has no delta effect",
+    "effect on global_u8[3005] depends on the entry state (observed final values [0, 15]); v3 has no delta effect"
+  ],
+  "choice": {
+    "owner": "callee",
+    "boundary": 2331,
+    "position": "in_event",
+    "options": [
+      {
+        "value": 1,
+        "result": "answer1"
+      },
+      {
+        "value": 2,
+        "result": "answer2"
+      },
+      {
+        "value": 3,
+        "result": "answer3"
+      }
+    ]
+  }
+}

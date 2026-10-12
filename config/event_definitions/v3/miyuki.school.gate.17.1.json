@@ -1,0 +1,2223 @@
+{
+  "schema_version": "kakyu_event_definition/v3",
+  "contract_fingerprint": "7545e37e08d3dacac8eafb4757ec3ca68305af8afb9278001cce3932a272fb55",
+  "names_fingerprint": "b7ffcea3abac019a78f8ac19e98d5259fc778a0eb3c7123424f257b435163e1a",
+  "id": "miyuki.school.gate.17.1",
+  "kind": "event",
+  "display": {
+    "title_ko": "교문에서 미유키 (EVENTH17)",
+    "title_en": "Miyuki at the school gate (EVENTH17)",
+    "heroine": "miyuki",
+    "category": "school",
+    "place": "gate"
+  },
+  "evidence": {
+    "kind": "analysis_group",
+    "archive_sha256": "31a95b31cb0f1051cf973a4dba4f4a5405671e4488240adfafb9b02290986aa6",
+    "groups": [
+      {
+        "group_id": "ground-h17-arrival",
+        "profile_sha256": "dec091f97848052edd5f1f14bd84485e83c4ad32017627ce7c294502ee2aaf47",
+        "route_ids": [
+          "ground-h17-arrival"
+        ]
+      },
+      {
+        "group_id": "ground-h17-k09",
+        "profile_sha256": "d5c7214a0567383ab9c1f605d101e1b3f590f3ddea1116893e87b6b809b98c48",
+        "route_ids": [
+          "eventh17"
+        ]
+      },
+      {
+        "group_id": "ground-h17-k09",
+        "profile_sha256": "d632822c0026b9a0dc745a576e1eb67a13a4cfbd4f2a9e8246eb18f7ea5194ba",
+        "route_ids": [
+          "eventh17"
+        ]
+      },
+      {
+        "group_id": "ground-h17-k09-branches",
+        "profile_sha256": "216d3db54e770b5bd87e1be1f1147f8b5063c6426384ac8302a5554b2ea044e2",
+        "route_ids": [
+          "eventh17"
+        ]
+      }
+    ],
+    "members": [
+      {
+        "entry": "GROUND.MES",
+        "entry_sha256": "b5dd1b444d1dbb4327e46a853e881c5ff46890a0b01b7ed7e9b92f2fdbc8b282"
+      },
+      {
+        "entry": "EVENTH17.MES",
+        "entry_sha256": "c9f8d43454eba2bf94036021b9ca02be4fc99433b1c9f5178d25970a0195f03c"
+      },
+      {
+        "entry": "START.MES",
+        "entry_sha256": "ba57bf666fbd9db9b3110f2bf1c70e80e11a35de00e82256aaaf35921c77038f"
+      },
+      {
+        "entry": "DEF_MAIN.MES",
+        "entry_sha256": "f2012ce5d90f60a5d1ca8190e03571341c0384c2d3d96e9aec2b3ab949db0ef0"
+      },
+      {
+        "entry": "LIBLARY.LIB",
+        "entry_sha256": "d9aba6eb8dab51fe321e22c868ed0cf38416bba1f0cf2f5d7d719f48e89b8b4d"
+      }
+    ],
+    "document_refs": []
+  },
+  "package_binding": {
+    "schema": "kakyu_playback_package/v7",
+    "package_sha256": "bf3d1f6eeb3e0e3d5ae949597b3c273e91197f086e3627c27428a05413cc8fa1"
+  },
+  "trigger": {
+    "type": "caller_dispatch",
+    "caller": {
+      "entry": "GROUND.MES",
+      "entry_sha256": "b5dd1b444d1dbb4327e46a853e881c5ff46890a0b01b7ed7e9b92f2fdbc8b282",
+      "offset": 31600,
+      "end": 31616,
+      "command": 15,
+      "kind": "nested_call"
+    },
+    "callee": {
+      "entry": "EVENTH17.MES",
+      "entry_sha256": "c9f8d43454eba2bf94036021b9ca02be4fc99433b1c9f5178d25970a0195f03c",
+      "start_coordinate": 0
+    },
+    "origin": {
+      "kind": "map_arrival",
+      "offset": 0,
+      "contracts": [
+        {
+          "map": "GROUND.MES",
+          "poll_offset": 5969,
+          "locations": [
+            0
+          ]
+        }
+      ]
+    }
+  },
+  "scenes": [
+    {
+      "kind": "school_gate",
+      "map": "GROUND.MES",
+      "poll_offset": 5969,
+      "locations": [
+        0
+      ],
+      "spent_by": [
+        "prefix",
+        "whole"
+      ]
+    }
+  ],
+  "guard": {
+    "offset": 31450,
+    "end": 31570,
+    "false_target": 32520,
+    "record_sha256": "f223bd4628071bbc139099b53263088d2000fb68d841b3d4f0ea5be0a6344e1c",
+    "conjuncts": [
+      {
+        "kind": "choice",
+        "op": "equal",
+        "value": 0
+      },
+      {
+        "kind": "date",
+        "op": "greater_than",
+        "value": 1115
+      },
+      {
+        "kind": "date",
+        "op": "less_than",
+        "value": 1511
+      },
+      {
+        "kind": "clock",
+        "op": "greater_than",
+        "value": 1229
+      },
+      {
+        "kind": "clock",
+        "op": "less_than",
+        "value": 1501
+      },
+      {
+        "kind": "cell",
+        "storage": "banked_u16",
+        "bank": 0,
+        "index": 207,
+        "op": "greater_than",
+        "value": 80
+      },
+      {
+        "kind": "cell",
+        "storage": "banked_u16",
+        "bank": 0,
+        "index": 208,
+        "op": "greater_than",
+        "value": 80
+      },
+      {
+        "kind": "cell",
+        "storage": "global_u8",
+        "bank": 0,
+        "index": 2284,
+        "op": "equal",
+        "value": 1
+      },
+      {
+        "kind": "cell",
+        "storage": "global_u8",
+        "bank": 0,
+        "index": 170,
+        "op": "equal",
+        "value": 0
+      },
+      {
+        "kind": "cell",
+        "storage": "global_u8",
+        "bank": 0,
+        "index": 174,
+        "op": "equal",
+        "value": 0
+      },
+      {
+        "kind": "cell",
+        "storage": "global_u8",
+        "bank": 0,
+        "index": 180,
+        "op": "equal",
+        "value": 0
+      },
+      {
+        "kind": "cell",
+        "storage": "global_u8",
+        "bank": 0,
+        "index": 184,
+        "op": "equal",
+        "value": 0
+      },
+      {
+        "kind": "cell",
+        "storage": "global_u8",
+        "bank": 0,
+        "index": 2098,
+        "op": "equal",
+        "value": 1
+      },
+      {
+        "kind": "cell",
+        "storage": "global_u8",
+        "bank": 0,
+        "index": 2278,
+        "op": "equal",
+        "value": 0
+      },
+      {
+        "kind": "cell",
+        "storage": "global_u8",
+        "bank": 0,
+        "index": 2332,
+        "op": "equal",
+        "value": 0
+      },
+      {
+        "kind": "cell",
+        "storage": "global_u8",
+        "bank": 0,
+        "index": 2225,
+        "op": "equal",
+        "value": 0
+      },
+      {
+        "kind": "cell",
+        "storage": "global_u8",
+        "bank": 0,
+        "index": 2124,
+        "op": "equal",
+        "value": 0
+      },
+      {
+        "kind": "cell",
+        "storage": "global_u8",
+        "bank": 0,
+        "index": 2333,
+        "op": "equal",
+        "value": 0
+      }
+    ],
+    "witnesses": [
+      {
+        "case_id": "baseline",
+        "writes": [],
+        "expected": 1
+      },
+      {
+        "case_id": "state_u16-21-1",
+        "writes": [
+          {
+            "storage": "state_u16",
+            "bank": 0,
+            "index": 21,
+            "value": 1
+          }
+        ],
+        "expected": 0
+      },
+      {
+        "case_id": "state_u16-7-1115",
+        "writes": [
+          {
+            "storage": "state_u16",
+            "bank": 0,
+            "index": 7,
+            "value": 1115
+          }
+        ],
+        "expected": 0
+      },
+      {
+        "case_id": "state_u16-7-1511",
+        "writes": [
+          {
+            "storage": "state_u16",
+            "bank": 0,
+            "index": 7,
+            "value": 1511
+          }
+        ],
+        "expected": 0
+      },
+      {
+        "case_id": "state_u16-19-1229",
+        "writes": [
+          {
+            "storage": "state_u16",
+            "bank": 0,
+            "index": 19,
+            "value": 1229
+          }
+        ],
+        "expected": 0
+      },
+      {
+        "case_id": "state_u16-19-1501",
+        "writes": [
+          {
+            "storage": "state_u16",
+            "bank": 0,
+            "index": 19,
+            "value": 1501
+          }
+        ],
+        "expected": 0
+      },
+      {
+        "case_id": "banked_u16-207-80",
+        "writes": [
+          {
+            "storage": "banked_u16",
+            "bank": 0,
+            "index": 207,
+            "value": 80
+          }
+        ],
+        "expected": 0
+      },
+      {
+        "case_id": "banked_u16-208-80",
+        "writes": [
+          {
+            "storage": "banked_u16",
+            "bank": 0,
+            "index": 208,
+            "value": 80
+          }
+        ],
+        "expected": 0
+      },
+      {
+        "case_id": "global_u8-2284-0",
+        "writes": [
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 2284,
+            "value": 0
+          }
+        ],
+        "expected": 0
+      },
+      {
+        "case_id": "global_u8-170-1",
+        "writes": [
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 170,
+            "value": 1
+          }
+        ],
+        "expected": 0
+      },
+      {
+        "case_id": "global_u8-174-1",
+        "writes": [
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 174,
+            "value": 1
+          }
+        ],
+        "expected": 0
+      },
+      {
+        "case_id": "global_u8-180-1",
+        "writes": [
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 180,
+            "value": 1
+          }
+        ],
+        "expected": 0
+      },
+      {
+        "case_id": "global_u8-184-1",
+        "writes": [
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 184,
+            "value": 1
+          }
+        ],
+        "expected": 0
+      },
+      {
+        "case_id": "global_u8-2098-0",
+        "writes": [
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 2098,
+            "value": 0
+          }
+        ],
+        "expected": 0
+      },
+      {
+        "case_id": "global_u8-2278-1",
+        "writes": [
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 2278,
+            "value": 1
+          }
+        ],
+        "expected": 0
+      },
+      {
+        "case_id": "global_u8-2332-1",
+        "writes": [
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 2332,
+            "value": 1
+          }
+        ],
+        "expected": 0
+      },
+      {
+        "case_id": "global_u8-2225-1",
+        "writes": [
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 2225,
+            "value": 1
+          }
+        ],
+        "expected": 0
+      },
+      {
+        "case_id": "global_u8-2124-1",
+        "writes": [
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 2124,
+            "value": 1
+          }
+        ],
+        "expected": 0
+      },
+      {
+        "case_id": "global_u8-2333-1",
+        "writes": [
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 2333,
+            "value": 1
+          }
+        ],
+        "expected": 0
+      }
+    ]
+  },
+  "conditions": [
+    {
+      "type": "mes_expression",
+      "ast": {
+        "lhs": {
+          "lhs": {
+            "lhs": {
+              "lhs": {
+                "lhs": {
+                  "lhs": {
+                    "lhs": {
+                      "lhs": {
+                        "lhs": {
+                          "lhs": {
+                            "lhs": {
+                              "lhs": {
+                                "lhs": {
+                                  "lhs": {
+                                    "lhs": {
+                                      "lhs": {
+                                        "lhs": {
+                                          "lhs": {
+                                            "bank": 0,
+                                            "index": {
+                                              "type": "literal",
+                                              "value": 21
+                                            },
+                                            "source": {
+                                              "offset": 31451,
+                                              "token": "0x80"
+                                            },
+                                            "storage": "state_u16",
+                                            "type": "state_ref"
+                                          },
+                                          "op": "equal",
+                                          "rhs": {
+                                            "source": {
+                                              "offset": 31453,
+                                              "token": "0x00"
+                                            },
+                                            "type": "literal",
+                                            "value": 0,
+                                            "width": 8
+                                          },
+                                          "source": {
+                                            "offset": 31454,
+                                            "token": "0xef"
+                                          },
+                                          "type": "binary"
+                                        },
+                                        "op": "logical_and",
+                                        "rhs": {
+                                          "lhs": {
+                                            "bank": 0,
+                                            "index": {
+                                              "type": "literal",
+                                              "value": 7
+                                            },
+                                            "source": {
+                                              "offset": 31455,
+                                              "token": "0x80"
+                                            },
+                                            "storage": "state_u16",
+                                            "type": "state_ref"
+                                          },
+                                          "op": "greater_than",
+                                          "rhs": {
+                                            "source": {
+                                              "offset": 31457,
+                                              "token": "0xf1"
+                                            },
+                                            "type": "literal",
+                                            "value": 1115,
+                                            "width": 16
+                                          },
+                                          "source": {
+                                            "offset": 31460,
+                                            "token": "0xec"
+                                          },
+                                          "type": "binary"
+                                        },
+                                        "source": {
+                                          "offset": 31461,
+                                          "token": "0xe6"
+                                        },
+                                        "type": "binary"
+                                      },
+                                      "op": "logical_and",
+                                      "rhs": {
+                                        "lhs": {
+                                          "bank": 0,
+                                          "index": {
+                                            "type": "literal",
+                                            "value": 7
+                                          },
+                                          "source": {
+                                            "offset": 31462,
+                                            "token": "0x80"
+                                          },
+                                          "storage": "state_u16",
+                                          "type": "state_ref"
+                                        },
+                                        "op": "less_than",
+                                        "rhs": {
+                                          "source": {
+                                            "offset": 31464,
+                                            "token": "0xf1"
+                                          },
+                                          "type": "literal",
+                                          "value": 1511,
+                                          "width": 16
+                                        },
+                                        "source": {
+                                          "offset": 31467,
+                                          "token": "0xeb"
+                                        },
+                                        "type": "binary"
+                                      },
+                                      "source": {
+                                        "offset": 31468,
+                                        "token": "0xe6"
+                                      },
+                                      "type": "binary"
+                                    },
+                                    "op": "logical_and",
+                                    "rhs": {
+                                      "lhs": {
+                                        "bank": 0,
+                                        "index": {
+                                          "type": "literal",
+                                          "value": 19
+                                        },
+                                        "source": {
+                                          "offset": 31469,
+                                          "token": "0x80"
+                                        },
+                                        "storage": "state_u16",
+                                        "type": "state_ref"
+                                      },
+                                      "op": "greater_than",
+                                      "rhs": {
+                                        "source": {
+                                          "offset": 31471,
+                                          "token": "0xf1"
+                                        },
+                                        "type": "literal",
+                                        "value": 1229,
+                                        "width": 16
+                                      },
+                                      "source": {
+                                        "offset": 31474,
+                                        "token": "0xec"
+                                      },
+                                      "type": "binary"
+                                    },
+                                    "source": {
+                                      "offset": 31475,
+                                      "token": "0xe6"
+                                    },
+                                    "type": "binary"
+                                  },
+                                  "op": "logical_and",
+                                  "rhs": {
+                                    "lhs": {
+                                      "bank": 0,
+                                      "index": {
+                                        "type": "literal",
+                                        "value": 19
+                                      },
+                                      "source": {
+                                        "offset": 31476,
+                                        "token": "0x80"
+                                      },
+                                      "storage": "state_u16",
+                                      "type": "state_ref"
+                                    },
+                                    "op": "less_than",
+                                    "rhs": {
+                                      "source": {
+                                        "offset": 31478,
+                                        "token": "0xf1"
+                                      },
+                                      "type": "literal",
+                                      "value": 1501,
+                                      "width": 16
+                                    },
+                                    "source": {
+                                      "offset": 31481,
+                                      "token": "0xeb"
+                                    },
+                                    "type": "binary"
+                                  },
+                                  "source": {
+                                    "offset": 31482,
+                                    "token": "0xe6"
+                                  },
+                                  "type": "binary"
+                                },
+                                "op": "logical_and",
+                                "rhs": {
+                                  "lhs": {
+                                    "bank": 0,
+                                    "index": {
+                                      "source": {
+                                        "offset": 31483,
+                                        "token": "0xf1"
+                                      },
+                                      "type": "literal",
+                                      "value": 207,
+                                      "width": 16
+                                    },
+                                    "source": {
+                                      "offset": 31486,
+                                      "token": "0xa0"
+                                    },
+                                    "storage": "banked_u16",
+                                    "type": "state_ref"
+                                  },
+                                  "op": "greater_than",
+                                  "rhs": {
+                                    "source": {
+                                      "offset": 31488,
+                                      "token": "0x50"
+                                    },
+                                    "type": "literal",
+                                    "value": 80,
+                                    "width": 8
+                                  },
+                                  "source": {
+                                    "offset": 31489,
+                                    "token": "0xec"
+                                  },
+                                  "type": "binary"
+                                },
+                                "source": {
+                                  "offset": 31490,
+                                  "token": "0xe6"
+                                },
+                                "type": "binary"
+                              },
+                              "op": "logical_and",
+                              "rhs": {
+                                "lhs": {
+                                  "bank": 0,
+                                  "index": {
+                                    "source": {
+                                      "offset": 31491,
+                                      "token": "0xf1"
+                                    },
+                                    "type": "literal",
+                                    "value": 208,
+                                    "width": 16
+                                  },
+                                  "source": {
+                                    "offset": 31494,
+                                    "token": "0xa0"
+                                  },
+                                  "storage": "banked_u16",
+                                  "type": "state_ref"
+                                },
+                                "op": "greater_than",
+                                "rhs": {
+                                  "source": {
+                                    "offset": 31496,
+                                    "token": "0x50"
+                                  },
+                                  "type": "literal",
+                                  "value": 80,
+                                  "width": 8
+                                },
+                                "source": {
+                                  "offset": 31497,
+                                  "token": "0xec"
+                                },
+                                "type": "binary"
+                              },
+                              "source": {
+                                "offset": 31498,
+                                "token": "0xe6"
+                              },
+                              "type": "binary"
+                            },
+                            "op": "logical_and",
+                            "rhs": {
+                              "lhs": {
+                                "bank": 0,
+                                "index": {
+                                  "type": "literal",
+                                  "value": 2284
+                                },
+                                "source": {
+                                  "offset": 31499,
+                                  "token": "0xf3"
+                                },
+                                "storage": "global_u8",
+                                "type": "state_ref"
+                              },
+                              "op": "equal",
+                              "rhs": {
+                                "source": {
+                                  "offset": 31502,
+                                  "token": "0x01"
+                                },
+                                "type": "literal",
+                                "value": 1,
+                                "width": 8
+                              },
+                              "source": {
+                                "offset": 31503,
+                                "token": "0xef"
+                              },
+                              "type": "binary"
+                            },
+                            "source": {
+                              "offset": 31504,
+                              "token": "0xe6"
+                            },
+                            "type": "binary"
+                          },
+                          "op": "logical_and",
+                          "rhs": {
+                            "lhs": {
+                              "bank": 0,
+                              "index": {
+                                "type": "literal",
+                                "value": 170
+                              },
+                              "source": {
+                                "offset": 31505,
+                                "token": "0xf3"
+                              },
+                              "storage": "global_u8",
+                              "type": "state_ref"
+                            },
+                            "op": "equal",
+                            "rhs": {
+                              "source": {
+                                "offset": 31508,
+                                "token": "0x00"
+                              },
+                              "type": "literal",
+                              "value": 0,
+                              "width": 8
+                            },
+                            "source": {
+                              "offset": 31509,
+                              "token": "0xef"
+                            },
+                            "type": "binary"
+                          },
+                          "source": {
+                            "offset": 31510,
+                            "token": "0xe6"
+                          },
+                          "type": "binary"
+                        },
+                        "op": "logical_and",
+                        "rhs": {
+                          "lhs": {
+                            "bank": 0,
+                            "index": {
+                              "type": "literal",
+                              "value": 174
+                            },
+                            "source": {
+                              "offset": 31511,
+                              "token": "0xf3"
+                            },
+                            "storage": "global_u8",
+                            "type": "state_ref"
+                          },
+                          "op": "equal",
+                          "rhs": {
+                            "source": {
+                              "offset": 31514,
+                              "token": "0x00"
+                            },
+                            "type": "literal",
+                            "value": 0,
+                            "width": 8
+                          },
+                          "source": {
+                            "offset": 31515,
+                            "token": "0xef"
+                          },
+                          "type": "binary"
+                        },
+                        "source": {
+                          "offset": 31516,
+                          "token": "0xe6"
+                        },
+                        "type": "binary"
+                      },
+                      "op": "logical_and",
+                      "rhs": {
+                        "lhs": {
+                          "bank": 0,
+                          "index": {
+                            "type": "literal",
+                            "value": 180
+                          },
+                          "source": {
+                            "offset": 31517,
+                            "token": "0xf3"
+                          },
+                          "storage": "global_u8",
+                          "type": "state_ref"
+                        },
+                        "op": "equal",
+                        "rhs": {
+                          "source": {
+                            "offset": 31520,
+                            "token": "0x00"
+                          },
+                          "type": "literal",
+                          "value": 0,
+                          "width": 8
+                        },
+                        "source": {
+                          "offset": 31521,
+                          "token": "0xef"
+                        },
+                        "type": "binary"
+                      },
+                      "source": {
+                        "offset": 31522,
+                        "token": "0xe6"
+                      },
+                      "type": "binary"
+                    },
+                    "op": "logical_and",
+                    "rhs": {
+                      "lhs": {
+                        "bank": 0,
+                        "index": {
+                          "type": "literal",
+                          "value": 184
+                        },
+                        "source": {
+                          "offset": 31523,
+                          "token": "0xf3"
+                        },
+                        "storage": "global_u8",
+                        "type": "state_ref"
+                      },
+                      "op": "equal",
+                      "rhs": {
+                        "source": {
+                          "offset": 31526,
+                          "token": "0x00"
+                        },
+                        "type": "literal",
+                        "value": 0,
+                        "width": 8
+                      },
+                      "source": {
+                        "offset": 31527,
+                        "token": "0xef"
+                      },
+                      "type": "binary"
+                    },
+                    "source": {
+                      "offset": 31528,
+                      "token": "0xe6"
+                    },
+                    "type": "binary"
+                  },
+                  "op": "logical_and",
+                  "rhs": {
+                    "lhs": {
+                      "bank": 0,
+                      "index": {
+                        "type": "literal",
+                        "value": 2098
+                      },
+                      "source": {
+                        "offset": 31529,
+                        "token": "0xf3"
+                      },
+                      "storage": "global_u8",
+                      "type": "state_ref"
+                    },
+                    "op": "equal",
+                    "rhs": {
+                      "source": {
+                        "offset": 31532,
+                        "token": "0x01"
+                      },
+                      "type": "literal",
+                      "value": 1,
+                      "width": 8
+                    },
+                    "source": {
+                      "offset": 31533,
+                      "token": "0xef"
+                    },
+                    "type": "binary"
+                  },
+                  "source": {
+                    "offset": 31534,
+                    "token": "0xe6"
+                  },
+                  "type": "binary"
+                },
+                "op": "logical_and",
+                "rhs": {
+                  "lhs": {
+                    "bank": 0,
+                    "index": {
+                      "type": "literal",
+                      "value": 2278
+                    },
+                    "source": {
+                      "offset": 31535,
+                      "token": "0xf3"
+                    },
+                    "storage": "global_u8",
+                    "type": "state_ref"
+                  },
+                  "op": "equal",
+                  "rhs": {
+                    "source": {
+                      "offset": 31538,
+                      "token": "0x00"
+                    },
+                    "type": "literal",
+                    "value": 0,
+                    "width": 8
+                  },
+                  "source": {
+                    "offset": 31539,
+                    "token": "0xef"
+                  },
+                  "type": "binary"
+                },
+                "source": {
+                  "offset": 31540,
+                  "token": "0xe6"
+                },
+                "type": "binary"
+              },
+              "op": "logical_and",
+              "rhs": {
+                "lhs": {
+                  "bank": 0,
+                  "index": {
+                    "type": "literal",
+                    "value": 2332
+                  },
+                  "source": {
+                    "offset": 31541,
+                    "token": "0xf3"
+                  },
+                  "storage": "global_u8",
+                  "type": "state_ref"
+                },
+                "op": "equal",
+                "rhs": {
+                  "source": {
+                    "offset": 31544,
+                    "token": "0x00"
+                  },
+                  "type": "literal",
+                  "value": 0,
+                  "width": 8
+                },
+                "source": {
+                  "offset": 31545,
+                  "token": "0xef"
+                },
+                "type": "binary"
+              },
+              "source": {
+                "offset": 31546,
+                "token": "0xe6"
+              },
+              "type": "binary"
+            },
+            "op": "logical_and",
+            "rhs": {
+              "lhs": {
+                "bank": 0,
+                "index": {
+                  "type": "literal",
+                  "value": 2225
+                },
+                "source": {
+                  "offset": 31547,
+                  "token": "0xf3"
+                },
+                "storage": "global_u8",
+                "type": "state_ref"
+              },
+              "op": "equal",
+              "rhs": {
+                "source": {
+                  "offset": 31550,
+                  "token": "0x00"
+                },
+                "type": "literal",
+                "value": 0,
+                "width": 8
+              },
+              "source": {
+                "offset": 31551,
+                "token": "0xef"
+              },
+              "type": "binary"
+            },
+            "source": {
+              "offset": 31552,
+              "token": "0xe6"
+            },
+            "type": "binary"
+          },
+          "op": "logical_and",
+          "rhs": {
+            "lhs": {
+              "bank": 0,
+              "index": {
+                "type": "literal",
+                "value": 2124
+              },
+              "source": {
+                "offset": 31553,
+                "token": "0xf3"
+              },
+              "storage": "global_u8",
+              "type": "state_ref"
+            },
+            "op": "equal",
+            "rhs": {
+              "source": {
+                "offset": 31556,
+                "token": "0x00"
+              },
+              "type": "literal",
+              "value": 0,
+              "width": 8
+            },
+            "source": {
+              "offset": 31557,
+              "token": "0xef"
+            },
+            "type": "binary"
+          },
+          "source": {
+            "offset": 31558,
+            "token": "0xe6"
+          },
+          "type": "binary"
+        },
+        "op": "logical_and",
+        "rhs": {
+          "lhs": {
+            "bank": 0,
+            "index": {
+              "type": "literal",
+              "value": 2333
+            },
+            "source": {
+              "offset": 31559,
+              "token": "0xf3"
+            },
+            "storage": "global_u8",
+            "type": "state_ref"
+          },
+          "op": "equal",
+          "rhs": {
+            "source": {
+              "offset": 31562,
+              "token": "0x00"
+            },
+            "type": "literal",
+            "value": 0,
+            "width": 8
+          },
+          "source": {
+            "offset": 31563,
+            "token": "0xef"
+          },
+          "type": "binary"
+        },
+        "source": {
+          "offset": 31564,
+          "token": "0xe6"
+        },
+        "type": "binary"
+      },
+      "source_offset": 31450,
+      "failure_reason": "guard_rejected"
+    }
+  ],
+  "presets": [
+    {
+      "preset_id": "baseline",
+      "label": "baseline",
+      "writes": [
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 2,
+          "value": 0
+        },
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 207,
+          "value": 81
+        },
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 208,
+          "value": 81
+        },
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 242,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 170,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 174,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 180,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 184,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2098,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2124,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2225,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2278,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2284,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2332,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2333,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2847,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3001,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3006,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3009,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 4000,
+          "value": 0
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 0,
+          "value": 0
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 1,
+          "value": 13
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 4,
+          "value": 1
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 5,
+          "value": 0
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 7,
+          "value": 1201
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 16,
+          "value": 0
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 17,
+          "value": 65535
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 18,
+          "value": 65535
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 19,
+          "value": 1300
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 21,
+          "value": 0
+        }
+      ]
+    },
+    {
+      "preset_id": "ground-h17-arrival/global_u8_2847-1",
+      "label": "global_u8_2847-1",
+      "writes": [
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2847,
+          "value": 1
+        }
+      ]
+    },
+    {
+      "preset_id": "ground-h17-arrival/global_u8_3006-1",
+      "label": "global_u8_3006-1",
+      "writes": [
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3006,
+          "value": 1
+        }
+      ]
+    },
+    {
+      "preset_id": "ground-h17-arrival/callee-state_u16_8-1",
+      "label": "callee-state_u16_8-1",
+      "writes": [
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 8,
+          "value": 1
+        }
+      ]
+    },
+    {
+      "preset_id": "ground-h17-arrival/callee-global_u8_4000-1",
+      "label": "callee-global_u8_4000-1",
+      "writes": [
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 4000,
+          "value": 1
+        }
+      ]
+    },
+    {
+      "preset_id": "ground-h17-arrival/state8-0-flag4000-0-flag3006-0",
+      "label": "state8-0-flag4000-0-flag3006-0",
+      "writes": [
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 8,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 4000,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3006,
+          "value": 0
+        }
+      ]
+    },
+    {
+      "preset_id": "ground-h17-arrival/state8-0-flag4000-0-flag3006-1",
+      "label": "state8-0-flag4000-0-flag3006-1",
+      "writes": [
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 8,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 4000,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3006,
+          "value": 1
+        }
+      ]
+    },
+    {
+      "preset_id": "ground-h17-arrival/state8-0-flag4000-1-flag3006-0",
+      "label": "state8-0-flag4000-1-flag3006-0",
+      "writes": [
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 8,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 4000,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3006,
+          "value": 0
+        }
+      ]
+    },
+    {
+      "preset_id": "ground-h17-arrival/state8-0-flag4000-1-flag3006-1",
+      "label": "state8-0-flag4000-1-flag3006-1",
+      "writes": [
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 8,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 4000,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3006,
+          "value": 1
+        }
+      ]
+    },
+    {
+      "preset_id": "ground-h17-arrival/state8-1-flag4000-0-flag3006-0",
+      "label": "state8-1-flag4000-0-flag3006-0",
+      "writes": [
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 8,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 4000,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3006,
+          "value": 0
+        }
+      ]
+    },
+    {
+      "preset_id": "ground-h17-arrival/state8-1-flag4000-0-flag3006-1",
+      "label": "state8-1-flag4000-0-flag3006-1",
+      "writes": [
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 8,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 4000,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3006,
+          "value": 1
+        }
+      ]
+    },
+    {
+      "preset_id": "ground-h17-arrival/state8-1-flag4000-1-flag3006-0",
+      "label": "state8-1-flag4000-1-flag3006-0",
+      "writes": [
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 8,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 4000,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3006,
+          "value": 0
+        }
+      ]
+    },
+    {
+      "preset_id": "ground-h17-arrival/state8-1-flag4000-1-flag3006-1",
+      "label": "state8-1-flag4000-1-flag3006-1",
+      "writes": [
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 8,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 4000,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3006,
+          "value": 1
+        }
+      ]
+    },
+    {
+      "preset_id": "ground-h17-arrival/state8-2-flag4000-0-flag3006-0",
+      "label": "state8-2-flag4000-0-flag3006-0",
+      "writes": [
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 8,
+          "value": 2
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 4000,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3006,
+          "value": 0
+        }
+      ]
+    },
+    {
+      "preset_id": "ground-h17-arrival/state8-2-flag4000-0-flag3006-1",
+      "label": "state8-2-flag4000-0-flag3006-1",
+      "writes": [
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 8,
+          "value": 2
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 4000,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3006,
+          "value": 1
+        }
+      ]
+    },
+    {
+      "preset_id": "ground-h17-arrival/state8-2-flag4000-1-flag3006-0",
+      "label": "state8-2-flag4000-1-flag3006-0",
+      "writes": [
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 8,
+          "value": 2
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 4000,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3006,
+          "value": 0
+        }
+      ]
+    },
+    {
+      "preset_id": "ground-h17-arrival/state8-2-flag4000-1-flag3006-1",
+      "label": "state8-2-flag4000-1-flag3006-1",
+      "writes": [
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 8,
+          "value": 2
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 4000,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3006,
+          "value": 1
+        }
+      ]
+    },
+    {
+      "preset_id": "ground-h17-arrival/state8-3-flag4000-0-flag3006-0",
+      "label": "state8-3-flag4000-0-flag3006-0",
+      "writes": [
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 8,
+          "value": 3
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 4000,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3006,
+          "value": 0
+        }
+      ]
+    },
+    {
+      "preset_id": "ground-h17-arrival/state8-3-flag4000-0-flag3006-1",
+      "label": "state8-3-flag4000-0-flag3006-1",
+      "writes": [
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 8,
+          "value": 3
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 4000,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3006,
+          "value": 1
+        }
+      ]
+    },
+    {
+      "preset_id": "ground-h17-arrival/state8-3-flag4000-1-flag3006-0",
+      "label": "state8-3-flag4000-1-flag3006-0",
+      "writes": [
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 8,
+          "value": 3
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 4000,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3006,
+          "value": 0
+        }
+      ]
+    },
+    {
+      "preset_id": "ground-h17-arrival/state8-3-flag4000-1-flag3006-1",
+      "label": "state8-3-flag4000-1-flag3006-1",
+      "writes": [
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 8,
+          "value": 3
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 4000,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3006,
+          "value": 1
+        }
+      ]
+    }
+  ],
+  "dialogue": [
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTH17.MES",
+        "at": 769,
+        "s": 0,
+        "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "EVENTH17.MES",
+      "at": 773,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTH17.MES",
+        "at": 790,
+        "s": 1,
+        "raw_sha256": "929f5823efd3dedcb395dd08772eaf0b3952823c0c9d04718c545bd609657219"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTH17.MES",
+        "at": 904,
+        "s": 2,
+        "raw_sha256": "b4e23e5146eb5dbc3ed3df298aeea69d914bc884d58c274edd907a2d5b0165f8"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTH17.MES",
+        "at": 1030,
+        "s": 3,
+        "raw_sha256": "4a04dd71220a0db7fe0b5050138014b24ee6c442af814e4a73cc0e4d626cc5bb"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTH17.MES",
+        "at": 1178,
+        "s": 4,
+        "raw_sha256": "be412093ea846b02c25f630b6ac7a43168cddf901012de6e36f4c8035f852e3d"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTH17.MES",
+        "at": 1298,
+        "s": 5,
+        "raw_sha256": "5ef3f5ea29db28ff92a6b3122426f4f4cc8f28a570f6853356973504e9a02d59"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTH17.MES",
+        "at": 1494,
+        "s": 6,
+        "raw_sha256": "600aeabcf397260be35ae951e5882d13c1eaf86b5496cd40688b018fc4762b03"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTH17.MES",
+        "at": 1598,
+        "s": 7,
+        "raw_sha256": "7c244ff09472570eb27acb79748bc26e8393de6b0f22c5634c3c023c5c75a946"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTH17.MES",
+        "at": 1738,
+        "s": 8,
+        "raw_sha256": "344c3cb3d75d8f3907b45b0f09e4c72cd713fab7367b7fe458356eea8a4d3bee"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTH17.MES",
+        "at": 1844,
+        "s": 9,
+        "raw_sha256": "f44a069f111ac0674513186f4620afec9b7feaac95a65c39b38b2ff1e791967a"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTH17.MES",
+        "at": 1890,
+        "s": 10,
+        "raw_sha256": "d5ebd886c65bf2403122152b03116808e3f38c9c2075496c31092343988afdf5"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTH17.MES",
+        "at": 1988,
+        "s": 11,
+        "raw_sha256": "e86321960e6b426aca1ea96013bc951d307135edc08eafcdcc6168c78081e4a8"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTH17.MES",
+        "at": 2102,
+        "s": 12,
+        "raw_sha256": "141af7dd86e7db1775c9a2c9485d1694bf432f64674ef9742b6965990c8eb1a6"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTH17.MES",
+        "at": 2168,
+        "s": 13,
+        "raw_sha256": "9dcf9df62a4f5d7fbe4b720652482cbe1ac865cae1d8e17e9f3f8cab9a71671d"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTH17.MES",
+        "at": 2216,
+        "s": 10,
+        "raw_sha256": "d5ebd886c65bf2403122152b03116808e3f38c9c2075496c31092343988afdf5"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTH17.MES",
+        "at": 2314,
+        "s": 14,
+        "raw_sha256": "8850fe80f9cac996f99ebf91111f5567b3acc1ce04baf513d8944d7f1049adca"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTH17.MES",
+        "at": 2454,
+        "s": 15,
+        "raw_sha256": "baf6508179bea03f708c8f482d6efe2a606c71aa6874f4960f98d444fa51277d"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTH17.MES",
+        "at": 2560,
+        "s": 16,
+        "raw_sha256": "5bd7c9515bf9e47de28efa1e02c8464bca8d39841c68bbf297b17c13e4c454c8"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTH17.MES",
+        "at": 2646,
+        "s": 0,
+        "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "EVENTH17.MES",
+      "at": 2650,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTH17.MES",
+        "at": 2667,
+        "s": 17,
+        "raw_sha256": "593bb5c44a04a74f824974d513bb58ae88536c6b6226d5b76c4558f3d359b61f"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTH17.MES",
+        "at": 2767,
+        "s": 18,
+        "raw_sha256": "cfb87efe6482f2eb4d0e10e505f1057ed0d176357f6e1f5588089eb5491cf593"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTH17.MES",
+        "at": 2885,
+        "s": 19,
+        "raw_sha256": "eba1df7c6db60d069890cdfa65a9f93292a3e2a10e445a1755e05a76ef8d7a38"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTH17.MES",
+        "at": 2985,
+        "s": 10,
+        "raw_sha256": "d5ebd886c65bf2403122152b03116808e3f38c9c2075496c31092343988afdf5"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTH17.MES",
+        "at": 3083,
+        "s": 20,
+        "raw_sha256": "b08f033f8bd30acf3d27d0a3cfd1419d2c8eeaae7534443241b862a990cf2114"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTH17.MES",
+        "at": 3201,
+        "s": 21,
+        "raw_sha256": "fb681cef4e5abb3646fc159827e9315e680aa945a5c33f90ab99bce2b1343ca1"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTH17.MES",
+        "at": 3305,
+        "s": 22,
+        "raw_sha256": "b6d37c5f3dab12f5eb3c714fd14b44b81c5ccfe3beb63f4e426dead7553bd5a6"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTH17.MES",
+        "at": 3355,
+        "s": 10,
+        "raw_sha256": "d5ebd886c65bf2403122152b03116808e3f38c9c2075496c31092343988afdf5"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTH17.MES",
+        "at": 3453,
+        "s": 23,
+        "raw_sha256": "8556edb1e6a8d18f1686f098cb1196306632c3f6f650fe5cf88eb3303c2eb194"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTH17.MES",
+        "at": 3587,
+        "s": 24,
+        "raw_sha256": "e1a71a1ab13d543e517e16dd5134c25d7f4232d95c71ff759c9109f15efdf997"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTH17.MES",
+        "at": 3655,
+        "s": 13,
+        "raw_sha256": "9dcf9df62a4f5d7fbe4b720652482cbe1ac865cae1d8e17e9f3f8cab9a71671d"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTH17.MES",
+        "at": 3755,
+        "s": 25,
+        "raw_sha256": "df0af75b40b0f4935aea8de3016a36787106a4ee77082d49f5f05417530aac35"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTH17.MES",
+        "at": 3881,
+        "s": 26,
+        "raw_sha256": "b6cf835fc488006d389cbedd26eb4d7fa231902d09aa1f70a728ab78c5ef83a5"
+      }
+    }
+  ],
+  "after": [
+    {
+      "type": "write_legacy_value",
+      "storage": "banked_u16",
+      "bank": 0,
+      "index": 1,
+      "value": 7
+    },
+    {
+      "type": "write_legacy_value",
+      "storage": "global_u8",
+      "bank": 0,
+      "index": 2167,
+      "value": 0
+    },
+    {
+      "type": "write_legacy_value",
+      "storage": "global_u8",
+      "bank": 0,
+      "index": 2278,
+      "value": 0
+    },
+    {
+      "type": "write_legacy_value",
+      "storage": "global_u8",
+      "bank": 0,
+      "index": 2332,
+      "value": 0
+    },
+    {
+      "type": "write_legacy_value",
+      "storage": "global_u8",
+      "bank": 0,
+      "index": 2333,
+      "value": 0
+    },
+    {
+      "type": "write_legacy_value",
+      "storage": "global_u8",
+      "bank": 0,
+      "index": 3000,
+      "value": 0
+    },
+    {
+      "type": "write_legacy_value",
+      "storage": "global_u8",
+      "bank": 0,
+      "index": 3608,
+      "value": 1
+    },
+    {
+      "type": "write_legacy_value",
+      "storage": "global_u8",
+      "bank": 0,
+      "index": 3635,
+      "value": 1
+    },
+    {
+      "type": "write_legacy_value",
+      "storage": "global_u8",
+      "bank": 0,
+      "index": 5225,
+      "value": 1
+    },
+    {
+      "type": "write_legacy_value",
+      "storage": "global_u8",
+      "bank": 0,
+      "index": 5256,
+      "value": 1
+    },
+    {
+      "type": "write_legacy_value",
+      "storage": "state_u16",
+      "bank": 0,
+      "index": 8,
+      "value": 0
+    },
+    {
+      "type": "write_legacy_value",
+      "storage": "state_u16",
+      "bank": 0,
+      "index": 16,
+      "value": 0
+    }
+  ],
+  "results": {
+    "result_default": {
+      "selected_by": {
+        "kind": "default"
+      },
+      "event_played": true,
+      "dialogue": [],
+      "after": [],
+      "terminal": "ground-h17-arrival.resume",
+      "reentry": {
+        "outcome": "other",
+        "message_count": 0,
+        "after": []
+      }
+    }
+  },
+  "terminals": {
+    "ground-h17-arrival.outcome": {
+      "kind": "callee_return",
+      "owner_entry": "EVENTH17.MES",
+      "offset": 4042,
+      "end": 4043,
+      "required_state": []
+    },
+    "ground-h17-arrival.resume": {
+      "kind": "natural_handoff",
+      "owner_entry": "GROUND.MES",
+      "offset": 32497,
+      "end": 32510,
+      "next_target": "MACHI.MES",
+      "required_state": []
+    }
+  },
+  "dependencies": [],
+  "presentation": {
+    "status": "deferred",
+    "resources": []
+  },
+  "unresolved": [
+    "resume emits 12 caller messages after the event; not projected (v3 carries callee dialogue only)",
+    "no done flag identified in the guard; the reentry is gated inside the callee (reentry emits 0 messages)",
+    "site declared by 4 profiles; trigger and results from ground_h17_arrival_v12",
+    "effect on global_u8[3005] depends on the entry state (observed final values [0, 15]); v3 has no delta effect"
+  ]
+}

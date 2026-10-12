@@ -1,0 +1,733 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://tools/content_suite/apps/image_arc_editor.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://tools/content_suite/apps/tool_game_preview.tscn" id="2_preview"]
+
+[node name="ImageArcEditor" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Layout" type="VBoxContainer" parent="Margin"]
+layout_mode = 2
+
+[node name="Toolbar" type="HBoxContainer" parent="Margin/Layout"]
+layout_mode = 2
+
+[node name="Open" type="Button" parent="Margin/Layout/Toolbar"]
+layout_mode = 2
+text = "Open ARC…"
+
+[node name="Export" type="Button" parent="Margin/Layout/Toolbar"]
+layout_mode = 2
+text = "Export PNG…"
+
+[node name="LoadOverlay" type="Button" parent="Margin/Layout/Toolbar"]
+layout_mode = 2
+text = "Load overlay…"
+
+[node name="HotReloadOverlay" type="Button" parent="Margin/Layout/Toolbar"]
+layout_mode = 2
+text = "Hot Reload"
+
+[node name="ClearOverlay" type="Button" parent="Margin/Layout/Toolbar"]
+layout_mode = 2
+text = "Clear overlay"
+
+[node name="ArchiveLabel" type="Label" parent="Margin/Layout/Toolbar"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "No archive open"
+text_overrun_behavior = 3
+
+[node name="SessionToolbar" type="HBoxContainer" parent="Margin/Layout"]
+layout_mode = 2
+
+[node name="Import" type="Button" parent="Margin/Layout/SessionToolbar"]
+layout_mode = 2
+text = "Import PNG…"
+
+[node name="Remove" type="Button" parent="Margin/Layout/SessionToolbar"]
+layout_mode = 2
+text = "Remove pending"
+
+[node name="SaveOverlay" type="Button" parent="Margin/Layout/SessionToolbar"]
+layout_mode = 2
+text = "Save overlay…"
+
+[node name="ExportArc" type="Button" parent="Margin/Layout/SessionToolbar"]
+layout_mode = 2
+text = "Export ARC copy…"
+
+[node name="FilterEdit" type="LineEdit" parent="Margin/Layout"]
+unique_name_in_owner = true
+layout_mode = 2
+placeholder_text = "Filter MMO, DAT, AX, or A6 entry names…"
+
+[node name="Split" type="HSplitContainer" parent="Margin/Layout"]
+layout_mode = 2
+size_flags_vertical = 3
+split_offset = 230
+
+[node name="EntryTree" type="Tree" parent="Margin/Layout/Split"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+columns = 3
+column_titles_visible = true
+hide_root = true
+
+[node name="Right" type="VBoxContainer" parent="Margin/Layout/Split"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PreviewTabs" type="TabContainer" parent="Margin/Layout/Split/Right"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="AssetView" type="MarginContainer" parent="Margin/Layout/Split/Right/PreviewTabs"]
+layout_mode = 2
+
+[node name="Preview" type="TextureRect" parent="Margin/Layout/Split/Right/PreviewTabs/AssetView"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+texture_filter = 1
+expand_mode = 1
+stretch_mode = 5
+
+[node name="GameFrame" type="VBoxContainer" parent="Margin/Layout/Split/Right/PreviewTabs"]
+layout_mode = 2
+
+[node name="Placement" type="HBoxContainer" parent="Margin/Layout/Split/Right/PreviewTabs/GameFrame"]
+layout_mode = 2
+
+[node name="PlacementLabel" type="Label" parent="Margin/Layout/Split/Right/PreviewTabs/GameFrame/Placement"]
+layout_mode = 2
+text = "Native pixels at"
+
+[node name="XLabel" type="Label" parent="Margin/Layout/Split/Right/PreviewTabs/GameFrame/Placement"]
+layout_mode = 2
+text = "X"
+
+[node name="FrameX" type="SpinBox" parent="Margin/Layout/Split/Right/PreviewTabs/GameFrame/Placement"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+min_value = -4096.0
+max_value = 4096.0
+allow_greater = true
+allow_lesser = true
+
+[node name="YLabel" type="Label" parent="Margin/Layout/Split/Right/PreviewTabs/GameFrame/Placement"]
+layout_mode = 2
+text = "Y"
+
+[node name="FrameY" type="SpinBox" parent="Margin/Layout/Split/Right/PreviewTabs/GameFrame/Placement"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+min_value = -4096.0
+max_value = 4096.0
+allow_greater = true
+allow_lesser = true
+
+[node name="CenterFrame" type="Button" parent="Margin/Layout/Split/Right/PreviewTabs/GameFrame/Placement"]
+layout_mode = 2
+text = "Center"
+
+[node name="FrameFootprint" type="Label" parent="Margin/Layout/Split/Right/PreviewTabs/GameFrame/Placement"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Preview-only placement"
+horizontal_alignment = 2
+text_overrun_behavior = 3
+
+[node name="GamePreview" parent="Margin/Layout/Split/Right/PreviewTabs/GameFrame" instance=ExtResource("2_preview")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="PreviewSurface" parent="Margin/Layout/Split/Right/PreviewTabs/GameFrame/GamePreview" index="1"]
+custom_minimum_size = Vector2(170, 106)
+
+[node name="Details" type="RichTextLabel" parent="Margin/Layout/Split/Right"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+bbcode_enabled = true
+fit_content = false
+text = "Select an MMO or paired DAT/PAL entry for preview, inspect A6 input regions, or inspect AX structure read-only."
+
+[node name="PaletteEditor" type="HFlowContainer" parent="Margin/Layout/Split/Right"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="PaletteLabel" type="Label" parent="Margin/Layout/Split/Right/PaletteEditor"]
+layout_mode = 2
+text = "Palette entry"
+
+[node name="PaletteEntrySelect" type="OptionButton" parent="Margin/Layout/Split/Right/PaletteEditor"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+
+[node name="PaletteColor" type="ColorPickerButton" parent="Margin/Layout/Split/Right/PaletteEditor"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+edit_alpha = false
+
+[node name="StagePalette" type="Button" parent="Margin/Layout/Split/Right/PaletteEditor"]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+text = "Stage palette color"
+
+[node name="PaletteSummary" type="Label" parent="Margin/Layout/Split/Right/PaletteEditor"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Select a DAT/PAL image"
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="A6Editor" type="VBoxContainer" parent="Margin/Layout/Split/Right"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="RecordRow" type="HFlowContainer" parent="Margin/Layout/Split/Right/A6Editor"]
+layout_mode = 2
+
+[node name="RecordLabel" type="Label" parent="Margin/Layout/Split/Right/A6Editor/RecordRow"]
+layout_mode = 2
+text = "A6 record"
+
+[node name="A6RecordSelect" type="OptionButton" parent="Margin/Layout/Split/Right/A6Editor/RecordRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(260, 0)
+layout_mode = 2
+
+[node name="IdLabel" type="Label" parent="Margin/Layout/Split/Right/A6Editor/RecordRow"]
+layout_mode = 2
+text = "ID"
+
+[node name="A6Id" type="SpinBox" parent="Margin/Layout/Split/Right/A6Editor/RecordRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+max_value = 65535.0
+rounded = true
+
+[node name="StageA6" type="Button" parent="Margin/Layout/Split/Right/A6Editor/RecordRow"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Stage A6 rectangle"
+
+[node name="CoordinateRow" type="HFlowContainer" parent="Margin/Layout/Split/Right/A6Editor"]
+layout_mode = 2
+
+[node name="LeftLabel" type="Label" parent="Margin/Layout/Split/Right/A6Editor/CoordinateRow"]
+layout_mode = 2
+text = "Left"
+
+[node name="A6Left" type="SpinBox" parent="Margin/Layout/Split/Right/A6Editor/CoordinateRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+max_value = 65535.0
+rounded = true
+
+[node name="TopLabel" type="Label" parent="Margin/Layout/Split/Right/A6Editor/CoordinateRow"]
+layout_mode = 2
+text = "Top"
+
+[node name="A6Top" type="SpinBox" parent="Margin/Layout/Split/Right/A6Editor/CoordinateRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+max_value = 65535.0
+rounded = true
+
+[node name="RightLabel" type="Label" parent="Margin/Layout/Split/Right/A6Editor/CoordinateRow"]
+layout_mode = 2
+text = "Right"
+
+[node name="A6Right" type="SpinBox" parent="Margin/Layout/Split/Right/A6Editor/CoordinateRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+max_value = 65535.0
+rounded = true
+
+[node name="BottomLabel" type="Label" parent="Margin/Layout/Split/Right/A6Editor/CoordinateRow"]
+layout_mode = 2
+text = "Bottom"
+
+[node name="A6Bottom" type="SpinBox" parent="Margin/Layout/Split/Right/A6Editor/CoordinateRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+max_value = 65535.0
+rounded = true
+
+[node name="Operations" type="HFlowContainer" parent="Margin/Layout/Split/Right/A6Editor"]
+layout_mode = 2
+
+[node name="A6Add" type="Button" parent="Margin/Layout/Split/Right/A6Editor/Operations"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Add after"
+
+[node name="A6Duplicate" type="Button" parent="Margin/Layout/Split/Right/A6Editor/Operations"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Duplicate"
+
+[node name="A6Remove" type="Button" parent="Margin/Layout/Split/Right/A6Editor/Operations"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Remove"
+
+[node name="A6MoveUp" type="Button" parent="Margin/Layout/Split/Right/A6Editor/Operations"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Move up"
+
+[node name="A6MoveDown" type="Button" parent="Margin/Layout/Split/Right/A6Editor/Operations"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Move down"
+
+[node name="A6Diagnostics" type="Label" parent="Margin/Layout/Split/Right/A6Editor/Operations"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(260, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "No A6 diagnostics"
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="AXInspector" type="HFlowContainer" parent="Margin/Layout/Split/Right"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="CellLabel" type="Label" parent="Margin/Layout/Split/Right/AXInspector"]
+layout_mode = 2
+text = "AX cell"
+
+[node name="AXCellSelect" type="OptionButton" parent="Margin/Layout/Split/Right/AXInspector"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+clip_text = true
+layout_mode = 2
+
+[node name="AXPlayPause" type="Button" parent="Margin/Layout/Split/Right/AXInspector"]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+text = "Play"
+
+[node name="AXRestart" type="Button" parent="Margin/Layout/Split/Right/AXInspector"]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+text = "Restart"
+
+[node name="AXClockSummary" type="Label" parent="Margin/Layout/Split/Right/AXInspector"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Tool clock unavailable"
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="AXCellSummary" type="Label" parent="Margin/Layout/Split/Right/AXInspector"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Stored command references only; timing is not executed"
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="AXEditor" type="VBoxContainer" parent="Margin/Layout/Split/Right"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="CommandRow" type="HFlowContainer" parent="Margin/Layout/Split/Right/AXEditor"]
+layout_mode = 2
+
+[node name="CommandLabel" type="Label" parent="Margin/Layout/Split/Right/AXEditor/CommandRow"]
+layout_mode = 2
+text = "Command"
+
+[node name="AXCommandSelect" type="OptionButton" parent="Margin/Layout/Split/Right/AXEditor/CommandRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+clip_text = true
+
+[node name="AXOpcodeSelect" type="OptionButton" parent="Margin/Layout/Split/Right/AXEditor/CommandRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+clip_text = true
+
+[node name="AXOperand" type="SpinBox" parent="Margin/Layout/Split/Right/AXEditor/CommandRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(72, 0)
+layout_mode = 2
+max_value = 4294967295.0
+rounded = true
+
+[node name="AXCommandApply" type="Button" parent="Margin/Layout/Split/Right/AXEditor/CommandRow"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Apply command"
+
+[node name="AXCommandInsert" type="Button" parent="Margin/Layout/Split/Right/AXEditor/CommandRow"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Insert after"
+
+[node name="AXCommandRemove" type="Button" parent="Margin/Layout/Split/Right/AXEditor/CommandRow"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Remove"
+
+[node name="AXCommandUp" type="Button" parent="Margin/Layout/Split/Right/AXEditor/CommandRow"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Move up"
+
+[node name="AXCommandDown" type="Button" parent="Margin/Layout/Split/Right/AXEditor/CommandRow"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Move down"
+
+[node name="RecordRow" type="HFlowContainer" parent="Margin/Layout/Split/Right/AXEditor"]
+layout_mode = 2
+
+[node name="RecordLabel" type="Label" parent="Margin/Layout/Split/Right/AXEditor/RecordRow"]
+layout_mode = 2
+text = "Shared record"
+
+[node name="AXRecordSelect" type="OptionButton" parent="Margin/Layout/Split/Right/AXEditor/RecordRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+clip_text = true
+
+[node name="TypeLabel" type="Label" parent="Margin/Layout/Split/Right/AXEditor/RecordRow"]
+layout_mode = 2
+text = "Type"
+
+[node name="AXRecordType" type="SpinBox" parent="Margin/Layout/Split/Right/AXEditor/RecordRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(56, 0)
+layout_mode = 2
+max_value = 2.0
+rounded = true
+
+[node name="SourceXLabel" type="Label" parent="Margin/Layout/Split/Right/AXEditor/RecordRow"]
+layout_mode = 2
+text = "Src X"
+
+[node name="AXSourceX" type="SpinBox" parent="Margin/Layout/Split/Right/AXEditor/RecordRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(58, 0)
+layout_mode = 2
+max_value = 2688.0
+rounded = true
+
+[node name="SourceYLabel" type="Label" parent="Margin/Layout/Split/Right/AXEditor/RecordRow"]
+layout_mode = 2
+text = "Src Y"
+
+[node name="AXSourceY" type="SpinBox" parent="Margin/Layout/Split/Right/AXEditor/RecordRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(58, 0)
+layout_mode = 2
+max_value = 864.0
+rounded = true
+
+[node name="WidthLabel" type="Label" parent="Margin/Layout/Split/Right/AXEditor/RecordRow"]
+layout_mode = 2
+text = "Width"
+
+[node name="AXWidth" type="SpinBox" parent="Margin/Layout/Split/Right/AXEditor/RecordRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(58, 0)
+layout_mode = 2
+min_value = 1.0
+max_value = 2688.0
+rounded = true
+
+[node name="HeightLabel" type="Label" parent="Margin/Layout/Split/Right/AXEditor/RecordRow"]
+layout_mode = 2
+text = "Height"
+
+[node name="AXHeight" type="SpinBox" parent="Margin/Layout/Split/Right/AXEditor/RecordRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(58, 0)
+layout_mode = 2
+min_value = 1.0
+max_value = 864.0
+rounded = true
+
+[node name="DestinationXLabel" type="Label" parent="Margin/Layout/Split/Right/AXEditor/RecordRow"]
+layout_mode = 2
+text = "Dst X"
+
+[node name="AXDestinationX" type="SpinBox" parent="Margin/Layout/Split/Right/AXEditor/RecordRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(58, 0)
+layout_mode = 2
+max_value = 640.0
+rounded = true
+
+[node name="DestinationYLabel" type="Label" parent="Margin/Layout/Split/Right/AXEditor/RecordRow"]
+layout_mode = 2
+text = "Dst Y"
+
+[node name="AXDestinationY" type="SpinBox" parent="Margin/Layout/Split/Right/AXEditor/RecordRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(58, 0)
+layout_mode = 2
+max_value = 400.0
+rounded = true
+
+[node name="AXRecordApply" type="Button" parent="Margin/Layout/Split/Right/AXEditor/RecordRow"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Apply record"
+
+[node name="StageRow" type="HFlowContainer" parent="Margin/Layout/Split/Right/AXEditor"]
+layout_mode = 2
+
+[node name="AXStage" type="Button" parent="Margin/Layout/Split/Right/AXEditor/StageRow"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Stage AX"
+
+[node name="AXRevert" type="Button" parent="Margin/Layout/Split/Right/AXEditor/StageRow"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Revert edits"
+
+[node name="AXDiagnostics" type="Label" parent="Margin/Layout/Split/Right/AXEditor/StageRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "No AX edits"
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="StatusLabel" type="Label" parent="Margin/Layout"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "MMO/DAT-PAL PNG imports and A6 rectangle edits use a verified cache; AX streams have a read-only shared-clock preview; the source ARC remains unchanged."
+text_overrun_behavior = 3
+
+[node name="OpenDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+title = "Open read-only image ARC"
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.arc ; Kakyu ARC archives")
+
+[node name="ExportDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+title = "Export decoded preview as PNG"
+file_mode = 4
+access = 2
+filters = PackedStringArray("*.png ; PNG images")
+
+[node name="ReplacementDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+title = "Import same-dimension PNG replacement for MMO or DAT/PAL"
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.png ; PNG images")
+
+[node name="OverlayDirectoryDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+title = "Select overlay package directory"
+file_mode = 2
+access = 2
+
+[node name="LoadOverlayDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+title = "Load existing overlay package"
+file_mode = 2
+access = 2
+
+[node name="ExportArcDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+title = "Export verified ARC copy"
+file_mode = 4
+access = 2
+filters = PackedStringArray("*.arc ; Kakyu ARC archives")
+
+[node name="QuantizationComparison" type="Window" parent="."]
+unique_name_in_owner = true
+title = "DAT/PAL Quantization Comparison"
+initial_position = 1
+size = Vector2i(900, 560)
+min_size = Vector2i(720, 480)
+transient = true
+exclusive = true
+
+[node name="Margin" type="MarginContainer" parent="QuantizationComparison"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Layout" type="VBoxContainer" parent="QuantizationComparison/Margin"]
+layout_mode = 2
+
+[node name="Heading" type="Label" parent="QuantizationComparison/Margin/Layout"]
+layout_mode = 2
+text = "Review the imported PNG beside its deterministic 256-color result. Nothing is staged until Accept."
+autowrap_mode = 2
+
+[node name="Images" type="HBoxContainer" parent="QuantizationComparison/Margin/Layout"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Before" type="VBoxContainer" parent="QuantizationComparison/Margin/Layout/Images"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="QuantizationComparison/Margin/Layout/Images/Before"]
+layout_mode = 2
+text = "Imported PNG"
+horizontal_alignment = 1
+
+[node name="BeforeTexture" type="TextureRect" parent="QuantizationComparison/Margin/Layout/Images/Before"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 260)
+layout_mode = 2
+size_flags_vertical = 3
+texture_filter = 1
+expand_mode = 1
+stretch_mode = 5
+
+[node name="After" type="VBoxContainer" parent="QuantizationComparison/Margin/Layout/Images"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="QuantizationComparison/Margin/Layout/Images/After"]
+layout_mode = 2
+text = "Encoded DAT/PAL"
+horizontal_alignment = 1
+
+[node name="AfterTexture" type="TextureRect" parent="QuantizationComparison/Margin/Layout/Images/After"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 260)
+layout_mode = 2
+size_flags_vertical = 3
+texture_filter = 1
+expand_mode = 1
+stretch_mode = 5
+
+[node name="QuantizationSummary" type="Label" parent="QuantizationComparison/Margin/Layout"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "No comparison candidate"
+autowrap_mode = 2
+
+[node name="Actions" type="HBoxContainer" parent="QuantizationComparison/Margin/Layout"]
+layout_mode = 2
+alignment = 2
+
+[node name="RejectQuantization" type="Button" parent="QuantizationComparison/Margin/Layout/Actions"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Reject"
+
+[node name="AcceptQuantization" type="Button" parent="QuantizationComparison/Margin/Layout/Actions"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Accept and stage DAT/PAL"
+
+[connection signal="pressed" from="Margin/Layout/Toolbar/Open" to="." method="_on_open_pressed"]
+[connection signal="pressed" from="Margin/Layout/Toolbar/Export" to="." method="_on_export_pressed"]
+[connection signal="pressed" from="Margin/Layout/Toolbar/LoadOverlay" to="." method="_on_load_overlay_pressed"]
+[connection signal="pressed" from="Margin/Layout/Toolbar/HotReloadOverlay" to="." method="_on_hot_reload_overlay_pressed"]
+[connection signal="pressed" from="Margin/Layout/Toolbar/ClearOverlay" to="." method="_on_clear_overlay_pressed"]
+[connection signal="pressed" from="Margin/Layout/SessionToolbar/Import" to="." method="_on_import_pressed"]
+[connection signal="pressed" from="Margin/Layout/SessionToolbar/Remove" to="." method="_on_remove_replacement_pressed"]
+[connection signal="pressed" from="Margin/Layout/SessionToolbar/SaveOverlay" to="." method="_on_save_overlay_pressed"]
+[connection signal="pressed" from="Margin/Layout/SessionToolbar/ExportArc" to="." method="_on_export_arc_pressed"]
+[connection signal="text_changed" from="Margin/Layout/FilterEdit" to="." method="_on_filter_changed"]
+[connection signal="item_selected" from="Margin/Layout/Split/EntryTree" to="." method="_on_entry_selected"]
+[connection signal="value_changed" from="Margin/Layout/Split/Right/PreviewTabs/GameFrame/Placement/FrameX" to="." method="_on_frame_position_changed"]
+[connection signal="value_changed" from="Margin/Layout/Split/Right/PreviewTabs/GameFrame/Placement/FrameY" to="." method="_on_frame_position_changed"]
+[connection signal="pressed" from="Margin/Layout/Split/Right/PreviewTabs/GameFrame/Placement/CenterFrame" to="." method="_on_center_frame_pressed"]
+[connection signal="item_selected" from="Margin/Layout/Split/Right/PaletteEditor/PaletteEntrySelect" to="." method="_on_palette_entry_selected"]
+[connection signal="pressed" from="Margin/Layout/Split/Right/PaletteEditor/StagePalette" to="." method="_on_stage_palette_pressed"]
+[connection signal="item_selected" from="Margin/Layout/Split/Right/A6Editor/RecordRow/A6RecordSelect" to="." method="_on_a6_record_selected"]
+[connection signal="pressed" from="Margin/Layout/Split/Right/A6Editor/RecordRow/StageA6" to="." method="_on_stage_a6_record_pressed"]
+[connection signal="pressed" from="Margin/Layout/Split/Right/A6Editor/Operations/A6Add" to="." method="_on_add_a6_record_pressed"]
+[connection signal="pressed" from="Margin/Layout/Split/Right/A6Editor/Operations/A6Duplicate" to="." method="_on_duplicate_a6_record_pressed"]
+[connection signal="pressed" from="Margin/Layout/Split/Right/A6Editor/Operations/A6Remove" to="." method="_on_remove_a6_record_pressed"]
+[connection signal="pressed" from="Margin/Layout/Split/Right/A6Editor/Operations/A6MoveUp" to="." method="_on_move_a6_record_up_pressed"]
+[connection signal="pressed" from="Margin/Layout/Split/Right/A6Editor/Operations/A6MoveDown" to="." method="_on_move_a6_record_down_pressed"]
+[connection signal="item_selected" from="Margin/Layout/Split/Right/AXInspector/AXCellSelect" to="." method="_on_ax_cell_selected"]
+[connection signal="pressed" from="Margin/Layout/Split/Right/AXInspector/AXPlayPause" to="." method="_on_ax_play_pause_pressed"]
+[connection signal="pressed" from="Margin/Layout/Split/Right/AXInspector/AXRestart" to="." method="_on_ax_restart_pressed"]
+[connection signal="item_selected" from="Margin/Layout/Split/Right/AXEditor/CommandRow/AXCommandSelect" to="." method="_on_ax_command_selected"]
+[connection signal="pressed" from="Margin/Layout/Split/Right/AXEditor/CommandRow/AXCommandApply" to="." method="_on_ax_command_apply_pressed"]
+[connection signal="pressed" from="Margin/Layout/Split/Right/AXEditor/CommandRow/AXCommandInsert" to="." method="_on_ax_command_insert_pressed"]
+[connection signal="pressed" from="Margin/Layout/Split/Right/AXEditor/CommandRow/AXCommandRemove" to="." method="_on_ax_command_remove_pressed"]
+[connection signal="pressed" from="Margin/Layout/Split/Right/AXEditor/CommandRow/AXCommandUp" to="." method="_on_ax_command_up_pressed"]
+[connection signal="pressed" from="Margin/Layout/Split/Right/AXEditor/CommandRow/AXCommandDown" to="." method="_on_ax_command_down_pressed"]
+[connection signal="item_selected" from="Margin/Layout/Split/Right/AXEditor/RecordRow/AXRecordSelect" to="." method="_on_ax_record_selected"]
+[connection signal="pressed" from="Margin/Layout/Split/Right/AXEditor/RecordRow/AXRecordApply" to="." method="_on_ax_record_apply_pressed"]
+[connection signal="pressed" from="Margin/Layout/Split/Right/AXEditor/StageRow/AXStage" to="." method="_on_stage_ax_pressed"]
+[connection signal="pressed" from="Margin/Layout/Split/Right/AXEditor/StageRow/AXRevert" to="." method="_on_revert_ax_pressed"]
+[connection signal="file_selected" from="OpenDialog" to="." method="_on_archive_selected"]
+[connection signal="file_selected" from="ExportDialog" to="." method="_on_export_path_selected"]
+[connection signal="file_selected" from="ReplacementDialog" to="." method="_on_replacement_path_selected"]
+[connection signal="dir_selected" from="OverlayDirectoryDialog" to="." method="_on_overlay_directory_selected"]
+[connection signal="dir_selected" from="LoadOverlayDialog" to="." method="_on_load_overlay_directory_selected"]
+[connection signal="file_selected" from="ExportArcDialog" to="." method="_on_export_arc_path_selected"]
+[connection signal="close_requested" from="QuantizationComparison" to="." method="_on_reject_quantization_pressed"]
+[connection signal="pressed" from="QuantizationComparison/Margin/Layout/Actions/RejectQuantization" to="." method="_on_reject_quantization_pressed"]
+[connection signal="pressed" from="QuantizationComparison/Margin/Layout/Actions/AcceptQuantization" to="." method="_on_accept_quantization_pressed"]

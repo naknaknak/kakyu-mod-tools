@@ -1,0 +1,223 @@
+{
+  "schema": "kakyu_event_analysis_group/v14",
+  "group_id": "01m-q-talk",
+  "archive_sha256": "31a95b31cb0f1051cf973a4dba4f4a5405671e4488240adfafb9b02290986aa6",
+  "source_members": [
+    {
+      "entry": "01M.MES",
+      "entry_sha256": "a50511b0ad0ad446b7988c3cfb36736424bf6617e9eb952e20b505f745607cc5"
+    },
+    {
+      "entry": "Q_TALK.MES",
+      "entry_sha256": "55448c06fbc9fe328ae2fa1a8322ce81822430c38f867691d464318bfa3d74cc"
+    },
+    {
+      "entry": "Q_PIC.MES",
+      "entry_sha256": "8c2e6a60891e1a807fb6e587084b797d7da47bf4725cff840d1791ef7813a522"
+    },
+    {
+      "entry": "LIBLARY.LIB",
+      "entry_sha256": "d9aba6eb8dab51fe321e22c868ed0cf38416bba1f0cf2f5d7d719f48e89b8b4d"
+    },
+    {
+      "entry": "DEF_MAIN.MES",
+      "entry_sha256": "f2012ce5d90f60a5d1ca8190e03571341c0384c2d3d96e9aec2b3ab949db0ef0"
+    },
+    {
+      "entry": "START.MES",
+      "entry_sha256": "ba57bf666fbd9db9b3110f2bf1c70e80e11a35de00e82256aaaf35921c77038f"
+    }
+  ],
+  "routes": [
+    {
+      "route_id": "q-talk-plain",
+      "state_context": {
+        "kind": "fresh"
+      },
+      "origin": {
+        "entry": "01M.MES",
+        "offset": 48455,
+        "guard": {
+          "offset": 48455,
+          "end": 48491,
+          "false_target": 48896,
+          "prefix_sha256": "5fb2843991805662467f03c6052b1d8ad27ff363b99b7b4bbb51a427db6cb2be",
+          "record_sha256": "829f3969cf884f4947bc447c22ee1d362b780b0950784fff1aeec2190ca58d92",
+          "source_binding": {
+            "kind": "typed_record"
+          }
+        },
+        "guard_cases": [
+          {
+            "case_id": "accepted",
+            "expected": 1,
+            "writes": []
+          },
+          {
+            "case_id": "rejected",
+            "expected": 0,
+            "writes": [
+              {
+                "bank": 0,
+                "index": 250,
+                "storage": "global_u8",
+                "value": 1
+              }
+            ]
+          }
+        ]
+      },
+      "baseline": [
+        {
+          "bank": 0,
+          "index": 7,
+          "storage": "state_u16",
+          "value": 910
+        },
+        {
+          "bank": 0,
+          "index": 250,
+          "storage": "global_u8",
+          "value": 0
+        },
+        {
+          "bank": 0,
+          "index": 2032,
+          "storage": "global_u8",
+          "value": 1
+        },
+        {
+          "bank": 0,
+          "index": 2033,
+          "storage": "global_u8",
+          "value": 0
+        },
+        {
+          "bank": 0,
+          "index": 2031,
+          "storage": "global_u8",
+          "value": 15
+        }
+      ],
+      "choice_contracts": [],
+      "hops": [
+        {
+          "hop_id": "h1_caller_dispatch",
+          "entry": "01M.MES",
+          "entered_by": {
+            "kind": "origin"
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 0,
+            "outcome": {
+              "offset": 48530,
+              "end": 48544,
+              "op": "script_dispatch",
+              "status": "script_dispatch_boundary",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "bfe83991bc4d71cd2e86d18310c49bac249703b964e353f33b5d96d23583552e",
+              "target": "Q_TALK.MES"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h2_talk",
+          "entry": "Q_TALK.MES",
+          "entered_by": {
+            "kind": "nested_call",
+            "offset": 48530,
+            "end": 48544,
+            "op": "script_dispatch",
+            "record_sha256": "bfe83991bc4d71cd2e86d18310c49bac249703b964e353f33b5d96d23583552e",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 11,
+            "outcome": {
+              "offset": 20749,
+              "end": 20750,
+              "op": "command_00",
+              "status": "script_return",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h3_caller_resume",
+          "entry": "01M.MES",
+          "entered_by": {
+            "kind": "resume",
+            "offset": 20749,
+            "end": 20750,
+            "op": "command_00",
+            "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 6,
+            "outcome": {
+              "offset": 89476,
+              "end": 89489,
+              "op": "script_handoff_marker",
+              "status": "script_handoff_boundary",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "496ee6fc5e929a0d78f596b742cf256b0651842fc13c717c182cd217879ac047",
+              "target": "MACHI.MES"
+            },
+            "expected_state": []
+          }
+        }
+      ],
+      "terminal": {
+        "entry": "01M.MES",
+        "offset": 89476,
+        "end": 89489,
+        "op": "script_handoff_marker",
+        "status": "script_handoff_boundary",
+        "source_binding": {
+          "kind": "typed_record"
+        },
+        "record_sha256": "496ee6fc5e929a0d78f596b742cf256b0651842fc13c717c182cd217879ac047",
+        "target": "MACHI.MES"
+      },
+      "variants": [
+        {
+          "variant_id": "default",
+          "writes": [],
+          "expected_state": []
+        }
+      ],
+      "unresolved": [
+        "The state at the anchor is seeded, a tool decision: state_u16[7] = 910, global_u8[250] = 0, global_u8[2032] = 1, global_u8[2033] = 0, global_u8[2031] = 15. The origin is the caller's block guard at 48455; the cells are the guard's own conjuncts alone, solved by the smallest round value that satisfies them. The script is a chain of bodies each selected by flags and dates, and every cell the guard does not fix is 0 (the natural state), so the body that state selects is the one that plays.",
+        "The script asks no question on the default path; it plays the body the seeded state selects (1 answer path(s) measured).",
+        "Hop 3 resumes the caller after the call and runs to its natural end, the handoff to MACHI.MES (the probe reached it without a stop); it plays 6 message(s) on the default path."
+      ]
+    }
+  ],
+  "payload_sha256": "1355d0ba918fd44abc1ecc1410cc2b6d519e846583e00314410afbc305e971c6"
+}

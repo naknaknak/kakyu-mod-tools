@@ -1,0 +1,101 @@
+{
+  "schema_version": "kakyu_mod_event_definition/v1",
+  "contract_fingerprint": "self",
+  "cells_fingerprint": "self",
+  "kind": "override",
+  "mod": {
+    "id": "samplemod",
+    "revision": 1
+  },
+  "id": "mod.samplemod.override_results",
+  "target": {
+    "id": "ai.school.gate.pic.1",
+    "contract": "kakyu_event_definition/v4",
+    "document_sha256": "51cfb5a0154a363032c345f65a636499f3526f6dcbf4fa0d0490549adba02c84"
+  },
+  "operations": [
+    {
+      "op": "replace_after",
+      "scope": "body",
+      "after": [
+        {
+          "type": "write_legacy_value",
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 55,
+          "value": 2,
+          "cell_class": "unnamed"
+        }
+      ]
+    },
+    {
+      "op": "replace_after",
+      "scope": "result_yes",
+      "after": [
+        {
+          "type": "set_flag",
+          "name": "mod.samplemod.saw_yes",
+          "value": true
+        }
+      ]
+    },
+    {
+      "op": "replace_result",
+      "result": "result_yes",
+      "result_document": {
+        "selected_by": {
+          "kind": "choice",
+          "value": 0
+        },
+        "event_played": true,
+        "dialogue": [
+          {
+            "kind": "line",
+            "text": "Replaced line."
+          },
+          {
+            "kind": "choice_point",
+            "choice": "top"
+          },
+          {
+            "kind": "scene_end"
+          }
+        ],
+        "after": [],
+        "terminal": "return_to_map"
+      }
+    },
+    {
+      "op": "append_result",
+      "result": "result_extra",
+      "result_document": {
+        "selected_by": {
+          "kind": "condition",
+          "conditions": [
+            {
+              "type": "legacy_cell",
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 204,
+              "operator": "equal",
+              "value": 10,
+              "cell_class": "affection"
+            }
+          ]
+        },
+        "event_played": true,
+        "dialogue": [
+          {
+            "kind": "line",
+            "text": "Extra path."
+          },
+          {
+            "kind": "scene_end"
+          }
+        ],
+        "after": [],
+        "terminal": "return_to_map"
+      }
+    }
+  ]
+}

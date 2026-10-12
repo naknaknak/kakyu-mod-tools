@@ -1,0 +1,211 @@
+{
+  "schema": "kakyu_event_analysis_group/v14",
+  "group_id": "27c-ev-l-talk",
+  "archive_sha256": "31a95b31cb0f1051cf973a4dba4f4a5405671e4488240adfafb9b02290986aa6",
+  "source_members": [
+    {
+      "entry": "27C_EV.MES",
+      "entry_sha256": "2af24ef7a0bf66a3006c66da133ec7f653f79bf5904fad7ff2f39f42302ccec3"
+    },
+    {
+      "entry": "L_TALK.MES",
+      "entry_sha256": "74f3a10b6525dfc23ca93321024a0881ee67d04ac5f924151abcb82d4492ff65"
+    },
+    {
+      "entry": "L_PIC.MES",
+      "entry_sha256": "fd7d661d8ca7e27188e898363e815506135a9cebe297677bcd635942242f7e06"
+    },
+    {
+      "entry": "P_PIC.MES",
+      "entry_sha256": "c2190062fd0b5119e9f8e43c543642b2b2fc014ba43ef733087ee7b91d00d4e9"
+    },
+    {
+      "entry": "LIBLARY.LIB",
+      "entry_sha256": "d9aba6eb8dab51fe321e22c868ed0cf38416bba1f0cf2f5d7d719f48e89b8b4d"
+    },
+    {
+      "entry": "DEF_MAIN.MES",
+      "entry_sha256": "f2012ce5d90f60a5d1ca8190e03571341c0384c2d3d96e9aec2b3ab949db0ef0"
+    },
+    {
+      "entry": "START.MES",
+      "entry_sha256": "ba57bf666fbd9db9b3110f2bf1c70e80e11a35de00e82256aaaf35921c77038f"
+    }
+  ],
+  "routes": [
+    {
+      "route_id": "l-talk-plain",
+      "state_context": {
+        "kind": "fresh"
+      },
+      "origin": {
+        "entry": "27C_EV.MES",
+        "offset": 31804,
+        "guard": {
+          "offset": 31804,
+          "end": 31847,
+          "false_target": 35644,
+          "prefix_sha256": "5214fe6f086334ee673c87ac16452c37f3c6c87eadc548ecd69a95d63b41f6e5",
+          "record_sha256": "67ac4fc94e883e5a06ec90efef6c333f1c1f83c41ca1e11ab3b45a2d7b4ca7c5",
+          "source_binding": {
+            "kind": "typed_record"
+          }
+        },
+        "guard_cases": [
+          {
+            "case_id": "accepted",
+            "expected": 1,
+            "writes": []
+          },
+          {
+            "case_id": "rejected",
+            "expected": 0,
+            "writes": [
+              {
+                "bank": 0,
+                "index": 190,
+                "storage": "global_u8",
+                "value": 1
+              }
+            ]
+          }
+        ]
+      },
+      "baseline": [
+        {
+          "bank": 0,
+          "index": 190,
+          "storage": "global_u8",
+          "value": 0
+        },
+        {
+          "bank": 0,
+          "index": 198,
+          "storage": "global_u8",
+          "value": 1
+        },
+        {
+          "bank": 0,
+          "index": 194,
+          "storage": "global_u8",
+          "value": 0
+        },
+        {
+          "bank": 0,
+          "index": 195,
+          "storage": "global_u8",
+          "value": 0
+        },
+        {
+          "bank": 0,
+          "index": 1966,
+          "storage": "global_u8",
+          "value": 0
+        },
+        {
+          "bank": 0,
+          "index": 209,
+          "storage": "banked_u16",
+          "value": 50
+        },
+        {
+          "bank": 0,
+          "index": 7,
+          "storage": "state_u16",
+          "value": 1510
+        },
+        {
+          "bank": 0,
+          "index": 2532,
+          "storage": "global_u8",
+          "value": 0
+        }
+      ],
+      "choice_contracts": [],
+      "hops": [
+        {
+          "hop_id": "h1_caller_dispatch",
+          "entry": "27C_EV.MES",
+          "entered_by": {
+            "kind": "origin"
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 0,
+            "outcome": {
+              "offset": 31922,
+              "end": 31936,
+              "op": "script_dispatch",
+              "status": "script_dispatch_boundary",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "1b724c28c993b21de32668e3b4342eb38316fe10d6e742e81e15b614d4940963",
+              "target": "L_TALK.MES"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h2_talk",
+          "entry": "L_TALK.MES",
+          "entered_by": {
+            "kind": "nested_call",
+            "offset": 31922,
+            "end": 31936,
+            "op": "script_dispatch",
+            "record_sha256": "1b724c28c993b21de32668e3b4342eb38316fe10d6e742e81e15b614d4940963",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 40,
+            "outcome": {
+              "offset": 3582,
+              "end": 3583,
+              "op": "command_00",
+              "status": "script_return",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+            },
+            "expected_state": []
+          }
+        }
+      ],
+      "terminal": {
+        "entry": "L_TALK.MES",
+        "offset": 3582,
+        "end": 3583,
+        "op": "command_00",
+        "status": "script_return",
+        "source_binding": {
+          "kind": "typed_record"
+        },
+        "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+      },
+      "variants": [
+        {
+          "variant_id": "default",
+          "writes": [],
+          "expected_state": []
+        }
+      ],
+      "unresolved": [
+        "The state at the anchor is seeded, a tool decision: global_u8[190] = 0, global_u8[198] = 1, global_u8[194] = 0, global_u8[195] = 0, global_u8[1966] = 0, banked_u16[209] = 50, state_u16[7] = 1510, global_u8[2532] = 0. The origin is the caller's block guard at 31804; the cells are the guard's own conjuncts and the script's own gate (its date, affection word and once-only flag), solved by the smallest round value that satisfies them.",
+        "The script asks no question; its own gate (date, affection word and once-only flag) is seeded satisfied, so the default path plays it whole (1 answer path(s) measured).",
+        "The caller resumes into the place's day loop after the call, which runs on day after day (its own definition steps stop at the probe's limit, and under the original calendar the loop plays on to the game's ending): there is no natural end to measure, so the flow ends at the script's own return."
+      ]
+    }
+  ],
+  "payload_sha256": "efebe95fa6aa184cda5ea85ed56c6212e52e64c8efeccfffe807e4c34dd3da02"
+}

@@ -1,0 +1,435 @@
+{
+  "schema": "kakyu_event_analysis_group/v4",
+  "group_id": "ground-kpic-continuation",
+  "archive_sha256": "31a95b31cb0f1051cf973a4dba4f4a5405671e4488240adfafb9b02290986aa6",
+  "source_members": [
+    {"entry": "GROUND.MES", "entry_sha256": "b5dd1b444d1dbb4327e46a853e881c5ff46890a0b01b7ed7e9b92f2fdbc8b282"},
+    {"entry": "EVENTH01.MES", "entry_sha256": "030f9857181f0fe0865abf56c25c18e80e9d3bc5f97232d39aa82bf09b0aa9f8"},
+    {"entry": "EVENTH02.MES", "entry_sha256": "328a6a9d76b8935237be5993a46c05938753aca409bf70584fd9b37bbd97f04b"},
+    {"entry": "DEF_MAIN.MES", "entry_sha256": "f2012ce5d90f60a5d1ca8190e03571341c0384c2d3d96e9aec2b3ab949db0ef0"},
+    {"entry": "LIBLARY.LIB", "entry_sha256": "d9aba6eb8dab51fe321e22c868ed0cf38416bba1f0cf2f5d7d719f48e89b8b4d"},
+    {"entry": "START.MES", "entry_sha256": "ba57bf666fbd9db9b3110f2bf1c70e80e11a35de00e82256aaaf35921c77038f"},
+    {"entry": "K_PIC.MES", "entry_sha256": "99b2cb3612de31c5817c03834bfa56db80e647bd8120c01b9352896e2d240ea2"}
+  ],
+  "routes": [
+    {
+      "route_id": "h02-first-kpic-continuation",
+      "qualification": "caller_continuation_observation",
+      "caller": {
+        "entry": "GROUND.MES",
+        "offset": 7227,
+        "end": 7240,
+        "command": 15,
+        "record_sha256": "4f92a07c31c2af500af09f4124fffe2813868f88d9f8ad02d2ab8d23d003070d",
+        "source_binding": {
+          "kind": "typed_record"
+        }
+      },
+      "callee": {"entry": "K_PIC.MES", "offset": 0},
+      "guard": {"offset": 4092, "end": 4145, "false_target": 4888, "prefix_sha256": "63bb26644ab55a0654efa92856d1261e8d6bbf35867f8baff6a0a15a7373c038"},
+      "baseline": [
+        {"storage": "state_u16", "bank": 0, "index": 0, "value": 30},
+        {"storage": "state_u16", "bank": 0, "index": 1, "value": 15},
+        {"storage": "state_u16", "bank": 0, "index": 7, "value": 501},
+        {"storage": "state_u16", "bank": 0, "index": 4, "value": 6},
+        {"storage": "state_u16", "bank": 0, "index": 16, "value": 1},
+        {"storage": "state_u16", "bank": 0, "index": 19, "value": 1530},
+        {"storage": "global_u8", "bank": 0, "index": 397, "value": 1},
+        {"storage": "global_u8", "bank": 0, "index": 2278, "value": 0},
+        {"storage": "global_u8", "bank": 0, "index": 2282, "value": 1},
+        {"storage": "global_u8", "bank": 0, "index": 2283, "value": 0}
+      ],
+      "guard_cases": [
+        {"case_id": "baseline", "writes": [], "expected": 1},
+        {"case_id": "state_u16-16-0", "writes": [{"storage": "state_u16", "bank": 0, "index": 16, "value": 0}], "expected": 0},
+        {"case_id": "state_u16-16-2", "writes": [{"storage": "state_u16", "bank": 0, "index": 16, "value": 2}], "expected": 0},
+        {"case_id": "state_u16-7-418", "writes": [{"storage": "state_u16", "bank": 0, "index": 7, "value": 418}], "expected": 0},
+        {"case_id": "state_u16-7-419", "writes": [{"storage": "state_u16", "bank": 0, "index": 7, "value": 419}], "expected": 0},
+        {"case_id": "state_u16-7-420", "writes": [{"storage": "state_u16", "bank": 0, "index": 7, "value": 420}], "expected": 1},
+        {"case_id": "state_u16-4-5", "writes": [{"storage": "state_u16", "bank": 0, "index": 4, "value": 5}], "expected": 0},
+        {"case_id": "state_u16-4-7", "writes": [{"storage": "state_u16", "bank": 0, "index": 4, "value": 7}], "expected": 0},
+        {"case_id": "state_u16-19-1699", "writes": [{"storage": "state_u16", "bank": 0, "index": 19, "value": 1699}], "expected": 1},
+        {"case_id": "state_u16-19-1700", "writes": [{"storage": "state_u16", "bank": 0, "index": 19, "value": 1700}], "expected": 0},
+        {"case_id": "state_u16-19-1701", "writes": [{"storage": "state_u16", "bank": 0, "index": 19, "value": 1701}], "expected": 0},
+        {"case_id": "global_u8-397-0", "writes": [{"storage": "global_u8", "bank": 0, "index": 397, "value": 0}], "expected": 0},
+        {"case_id": "global_u8-397-2", "writes": [{"storage": "global_u8", "bank": 0, "index": 397, "value": 2}], "expected": 0},
+        {"case_id": "global_u8-2278-1", "writes": [{"storage": "global_u8", "bank": 0, "index": 2278, "value": 1}], "expected": 0},
+        {"case_id": "global_u8-2282-0", "writes": [{"storage": "global_u8", "bank": 0, "index": 2282, "value": 0}], "expected": 0},
+        {"case_id": "global_u8-2282-2", "writes": [{"storage": "global_u8", "bank": 0, "index": 2282, "value": 2}], "expected": 0},
+        {"case_id": "global_u8-2283-1", "writes": [{"storage": "global_u8", "bank": 0, "index": 2283, "value": 1}], "expected": 0}
+      ],
+      "variants": [
+        {
+          "variant_id": "word208-0-global3006-0-global2633-0",
+          "writes": [
+            {"bank": 0, "index": 208, "storage": "banked_u16", "value": 0},
+            {"bank": 0, "index": 3006, "storage": "global_u8", "value": 0},
+            {"bank": 0, "index": 2633, "storage": "global_u8", "value": 0}
+          ],
+          "selections": [],
+          "message_count": 0,
+          "expected_state": [{"storage": "global_u8", "bank": 0, "index": 3005, "value": 1}, {"storage": "banked_u16", "bank": 0, "index": 208, "value": 0}],
+          "expected_resume_state": [{"storage": "global_u8", "bank": 0, "index": 3005, "value": 1}, {"storage": "banked_u16", "bank": 0, "index": 208, "value": 0}],
+          "reentry": {
+            "outcome": {"offset": 2411, "end": 2412, "op": "command_00", "status": "script_return"},
+            "message_count": 0,
+            "expected_state": [{"storage": "global_u8", "bank": 0, "index": 3005, "value": 1}, {"storage": "banked_u16", "bank": 0, "index": 208, "value": 0}]
+          }
+        },
+        {
+          "variant_id": "word208-0-global3006-0-global2633-1",
+          "writes": [
+            {"bank": 0, "index": 208, "storage": "banked_u16", "value": 0},
+            {"bank": 0, "index": 3006, "storage": "global_u8", "value": 0},
+            {"bank": 0, "index": 2633, "storage": "global_u8", "value": 1}
+          ],
+          "selections": [],
+          "message_count": 0,
+          "expected_state": [{"storage": "global_u8", "bank": 0, "index": 3005, "value": 2}, {"storage": "banked_u16", "bank": 0, "index": 208, "value": 0}],
+          "expected_resume_state": [{"storage": "global_u8", "bank": 0, "index": 3005, "value": 2}, {"storage": "banked_u16", "bank": 0, "index": 208, "value": 0}],
+          "reentry": {
+            "outcome": {"offset": 2411, "end": 2412, "op": "command_00", "status": "script_return"},
+            "message_count": 0,
+            "expected_state": [{"storage": "global_u8", "bank": 0, "index": 3005, "value": 2}, {"storage": "banked_u16", "bank": 0, "index": 208, "value": 0}]
+          }
+        },
+        {
+          "variant_id": "word208-0-global3006-1-global2633-0",
+          "writes": [
+            {"bank": 0, "index": 208, "storage": "banked_u16", "value": 0},
+            {"bank": 0, "index": 3006, "storage": "global_u8", "value": 1},
+            {"bank": 0, "index": 2633, "storage": "global_u8", "value": 0}
+          ],
+          "selections": [],
+          "message_count": 0,
+          "expected_state": [{"storage": "global_u8", "bank": 0, "index": 3005, "value": 15}, {"storage": "banked_u16", "bank": 0, "index": 208, "value": 0}],
+          "expected_resume_state": [{"storage": "global_u8", "bank": 0, "index": 3005, "value": 15}, {"storage": "banked_u16", "bank": 0, "index": 208, "value": 0}],
+          "reentry": {
+            "outcome": {"offset": 2411, "end": 2412, "op": "command_00", "status": "script_return"},
+            "message_count": 0,
+            "expected_state": [{"storage": "global_u8", "bank": 0, "index": 3005, "value": 15}, {"storage": "banked_u16", "bank": 0, "index": 208, "value": 0}]
+          }
+        },
+        {
+          "variant_id": "word208-0-global3006-1-global2633-1",
+          "writes": [
+            {"bank": 0, "index": 208, "storage": "banked_u16", "value": 0},
+            {"bank": 0, "index": 3006, "storage": "global_u8", "value": 1},
+            {"bank": 0, "index": 2633, "storage": "global_u8", "value": 1}
+          ],
+          "selections": [],
+          "message_count": 0,
+          "expected_state": [{"storage": "global_u8", "bank": 0, "index": 3005, "value": 15}, {"storage": "banked_u16", "bank": 0, "index": 208, "value": 0}],
+          "expected_resume_state": [{"storage": "global_u8", "bank": 0, "index": 3005, "value": 15}, {"storage": "banked_u16", "bank": 0, "index": 208, "value": 0}],
+          "reentry": {
+            "outcome": {"offset": 2411, "end": 2412, "op": "command_00", "status": "script_return"},
+            "message_count": 0,
+            "expected_state": [{"storage": "global_u8", "bank": 0, "index": 3005, "value": 15}, {"storage": "banked_u16", "bank": 0, "index": 208, "value": 0}]
+          }
+        },
+        {
+          "variant_id": "word208-20-global3006-0-global2633-0",
+          "writes": [
+            {"bank": 0, "index": 208, "storage": "banked_u16", "value": 20},
+            {"bank": 0, "index": 3006, "storage": "global_u8", "value": 0},
+            {"bank": 0, "index": 2633, "storage": "global_u8", "value": 0}
+          ],
+          "selections": [],
+          "message_count": 0,
+          "expected_state": [{"storage": "global_u8", "bank": 0, "index": 3005, "value": 1}, {"storage": "banked_u16", "bank": 0, "index": 208, "value": 20}],
+          "expected_resume_state": [{"storage": "global_u8", "bank": 0, "index": 3005, "value": 1}, {"storage": "banked_u16", "bank": 0, "index": 208, "value": 20}],
+          "reentry": {
+            "outcome": {"offset": 2411, "end": 2412, "op": "command_00", "status": "script_return"},
+            "message_count": 0,
+            "expected_state": [{"storage": "global_u8", "bank": 0, "index": 3005, "value": 1}, {"storage": "banked_u16", "bank": 0, "index": 208, "value": 20}]
+          }
+        },
+        {
+          "variant_id": "word208-20-global3006-0-global2633-1",
+          "writes": [
+            {"bank": 0, "index": 208, "storage": "banked_u16", "value": 20},
+            {"bank": 0, "index": 3006, "storage": "global_u8", "value": 0},
+            {"bank": 0, "index": 2633, "storage": "global_u8", "value": 1}
+          ],
+          "selections": [],
+          "message_count": 0,
+          "expected_state": [{"storage": "global_u8", "bank": 0, "index": 3005, "value": 2}, {"storage": "banked_u16", "bank": 0, "index": 208, "value": 20}],
+          "expected_resume_state": [{"storage": "global_u8", "bank": 0, "index": 3005, "value": 2}, {"storage": "banked_u16", "bank": 0, "index": 208, "value": 20}],
+          "reentry": {
+            "outcome": {"offset": 2411, "end": 2412, "op": "command_00", "status": "script_return"},
+            "message_count": 0,
+            "expected_state": [{"storage": "global_u8", "bank": 0, "index": 3005, "value": 2}, {"storage": "banked_u16", "bank": 0, "index": 208, "value": 20}]
+          }
+        },
+        {
+          "variant_id": "word208-20-global3006-1-global2633-0",
+          "writes": [
+            {"bank": 0, "index": 208, "storage": "banked_u16", "value": 20},
+            {"bank": 0, "index": 3006, "storage": "global_u8", "value": 1},
+            {"bank": 0, "index": 2633, "storage": "global_u8", "value": 0}
+          ],
+          "selections": [],
+          "message_count": 0,
+          "expected_state": [{"storage": "global_u8", "bank": 0, "index": 3005, "value": 15}, {"storage": "banked_u16", "bank": 0, "index": 208, "value": 20}],
+          "expected_resume_state": [{"storage": "global_u8", "bank": 0, "index": 3005, "value": 15}, {"storage": "banked_u16", "bank": 0, "index": 208, "value": 20}],
+          "reentry": {
+            "outcome": {"offset": 2411, "end": 2412, "op": "command_00", "status": "script_return"},
+            "message_count": 0,
+            "expected_state": [{"storage": "global_u8", "bank": 0, "index": 3005, "value": 15}, {"storage": "banked_u16", "bank": 0, "index": 208, "value": 20}]
+          }
+        },
+        {
+          "variant_id": "word208-20-global3006-1-global2633-1",
+          "writes": [
+            {"bank": 0, "index": 208, "storage": "banked_u16", "value": 20},
+            {"bank": 0, "index": 3006, "storage": "global_u8", "value": 1},
+            {"bank": 0, "index": 2633, "storage": "global_u8", "value": 1}
+          ],
+          "selections": [],
+          "message_count": 0,
+          "expected_state": [{"storage": "global_u8", "bank": 0, "index": 3005, "value": 15}, {"storage": "banked_u16", "bank": 0, "index": 208, "value": 20}],
+          "expected_resume_state": [{"storage": "global_u8", "bank": 0, "index": 3005, "value": 15}, {"storage": "banked_u16", "bank": 0, "index": 208, "value": 20}],
+          "reentry": {
+            "outcome": {"offset": 2411, "end": 2412, "op": "command_00", "status": "script_return"},
+            "message_count": 0,
+            "expected_state": [{"storage": "global_u8", "bank": 0, "index": 3005, "value": 15}, {"storage": "banked_u16", "bank": 0, "index": 208, "value": 20}]
+          }
+        },
+        {
+          "variant_id": "word208-21-global3006-0-global2633-0",
+          "writes": [
+            {"bank": 0, "index": 208, "storage": "banked_u16", "value": 21},
+            {"bank": 0, "index": 3006, "storage": "global_u8", "value": 0},
+            {"bank": 0, "index": 2633, "storage": "global_u8", "value": 0}
+          ],
+          "selections": [],
+          "message_count": 0,
+          "expected_state": [{"storage": "global_u8", "bank": 0, "index": 3005, "value": 0}, {"storage": "banked_u16", "bank": 0, "index": 208, "value": 21}],
+          "expected_resume_state": [{"storage": "global_u8", "bank": 0, "index": 3005, "value": 0}, {"storage": "banked_u16", "bank": 0, "index": 208, "value": 21}],
+          "reentry": {
+            "outcome": {"offset": 2411, "end": 2412, "op": "command_00", "status": "script_return"},
+            "message_count": 0,
+            "expected_state": [{"storage": "global_u8", "bank": 0, "index": 3005, "value": 0}, {"storage": "banked_u16", "bank": 0, "index": 208, "value": 21}]
+          }
+        },
+        {
+          "variant_id": "word208-21-global3006-0-global2633-1",
+          "writes": [
+            {"bank": 0, "index": 208, "storage": "banked_u16", "value": 21},
+            {"bank": 0, "index": 3006, "storage": "global_u8", "value": 0},
+            {"bank": 0, "index": 2633, "storage": "global_u8", "value": 1}
+          ],
+          "selections": [],
+          "message_count": 0,
+          "expected_state": [{"storage": "global_u8", "bank": 0, "index": 3005, "value": 2}, {"storage": "banked_u16", "bank": 0, "index": 208, "value": 21}],
+          "expected_resume_state": [{"storage": "global_u8", "bank": 0, "index": 3005, "value": 2}, {"storage": "banked_u16", "bank": 0, "index": 208, "value": 21}],
+          "reentry": {
+            "outcome": {"offset": 2411, "end": 2412, "op": "command_00", "status": "script_return"},
+            "message_count": 0,
+            "expected_state": [{"storage": "global_u8", "bank": 0, "index": 3005, "value": 2}, {"storage": "banked_u16", "bank": 0, "index": 208, "value": 21}]
+          }
+        },
+        {
+          "variant_id": "word208-21-global3006-1-global2633-0",
+          "writes": [
+            {"bank": 0, "index": 208, "storage": "banked_u16", "value": 21},
+            {"bank": 0, "index": 3006, "storage": "global_u8", "value": 1},
+            {"bank": 0, "index": 2633, "storage": "global_u8", "value": 0}
+          ],
+          "selections": [],
+          "message_count": 0,
+          "expected_state": [{"storage": "global_u8", "bank": 0, "index": 3005, "value": 15}, {"storage": "banked_u16", "bank": 0, "index": 208, "value": 21}],
+          "expected_resume_state": [{"storage": "global_u8", "bank": 0, "index": 3005, "value": 15}, {"storage": "banked_u16", "bank": 0, "index": 208, "value": 21}],
+          "reentry": {
+            "outcome": {"offset": 2411, "end": 2412, "op": "command_00", "status": "script_return"},
+            "message_count": 0,
+            "expected_state": [{"storage": "global_u8", "bank": 0, "index": 3005, "value": 15}, {"storage": "banked_u16", "bank": 0, "index": 208, "value": 21}]
+          }
+        },
+        {
+          "variant_id": "word208-21-global3006-1-global2633-1",
+          "writes": [
+            {"bank": 0, "index": 208, "storage": "banked_u16", "value": 21},
+            {"bank": 0, "index": 3006, "storage": "global_u8", "value": 1},
+            {"bank": 0, "index": 2633, "storage": "global_u8", "value": 1}
+          ],
+          "selections": [],
+          "message_count": 0,
+          "expected_state": [{"storage": "global_u8", "bank": 0, "index": 3005, "value": 15}, {"storage": "banked_u16", "bank": 0, "index": 208, "value": 21}],
+          "expected_resume_state": [{"storage": "global_u8", "bank": 0, "index": 3005, "value": 15}, {"storage": "banked_u16", "bank": 0, "index": 208, "value": 21}],
+          "reentry": {
+            "outcome": {"offset": 2411, "end": 2412, "op": "command_00", "status": "script_return"},
+            "message_count": 0,
+            "expected_state": [{"storage": "global_u8", "bank": 0, "index": 3005, "value": 15}, {"storage": "banked_u16", "bank": 0, "index": 208, "value": 21}]
+          }
+        },
+        {
+          "variant_id": "word208-80-global3006-0-global2633-0",
+          "writes": [
+            {"bank": 0, "index": 208, "storage": "banked_u16", "value": 80},
+            {"bank": 0, "index": 3006, "storage": "global_u8", "value": 0},
+            {"bank": 0, "index": 2633, "storage": "global_u8", "value": 0}
+          ],
+          "selections": [],
+          "message_count": 0,
+          "expected_state": [{"storage": "global_u8", "bank": 0, "index": 3005, "value": 0}, {"storage": "banked_u16", "bank": 0, "index": 208, "value": 80}],
+          "expected_resume_state": [{"storage": "global_u8", "bank": 0, "index": 3005, "value": 0}, {"storage": "banked_u16", "bank": 0, "index": 208, "value": 80}],
+          "reentry": {
+            "outcome": {"offset": 2411, "end": 2412, "op": "command_00", "status": "script_return"},
+            "message_count": 0,
+            "expected_state": [{"storage": "global_u8", "bank": 0, "index": 3005, "value": 0}, {"storage": "banked_u16", "bank": 0, "index": 208, "value": 80}]
+          }
+        },
+        {
+          "variant_id": "word208-80-global3006-0-global2633-1",
+          "writes": [
+            {"bank": 0, "index": 208, "storage": "banked_u16", "value": 80},
+            {"bank": 0, "index": 3006, "storage": "global_u8", "value": 0},
+            {"bank": 0, "index": 2633, "storage": "global_u8", "value": 1}
+          ],
+          "selections": [],
+          "message_count": 0,
+          "expected_state": [{"storage": "global_u8", "bank": 0, "index": 3005, "value": 2}, {"storage": "banked_u16", "bank": 0, "index": 208, "value": 80}],
+          "expected_resume_state": [{"storage": "global_u8", "bank": 0, "index": 3005, "value": 2}, {"storage": "banked_u16", "bank": 0, "index": 208, "value": 80}],
+          "reentry": {
+            "outcome": {"offset": 2411, "end": 2412, "op": "command_00", "status": "script_return"},
+            "message_count": 0,
+            "expected_state": [{"storage": "global_u8", "bank": 0, "index": 3005, "value": 2}, {"storage": "banked_u16", "bank": 0, "index": 208, "value": 80}]
+          }
+        },
+        {
+          "variant_id": "word208-80-global3006-1-global2633-0",
+          "writes": [
+            {"bank": 0, "index": 208, "storage": "banked_u16", "value": 80},
+            {"bank": 0, "index": 3006, "storage": "global_u8", "value": 1},
+            {"bank": 0, "index": 2633, "storage": "global_u8", "value": 0}
+          ],
+          "selections": [],
+          "message_count": 0,
+          "expected_state": [{"storage": "global_u8", "bank": 0, "index": 3005, "value": 15}, {"storage": "banked_u16", "bank": 0, "index": 208, "value": 80}],
+          "expected_resume_state": [{"storage": "global_u8", "bank": 0, "index": 3005, "value": 15}, {"storage": "banked_u16", "bank": 0, "index": 208, "value": 80}],
+          "reentry": {
+            "outcome": {"offset": 2411, "end": 2412, "op": "command_00", "status": "script_return"},
+            "message_count": 0,
+            "expected_state": [{"storage": "global_u8", "bank": 0, "index": 3005, "value": 15}, {"storage": "banked_u16", "bank": 0, "index": 208, "value": 80}]
+          }
+        },
+        {
+          "variant_id": "word208-80-global3006-1-global2633-1",
+          "writes": [
+            {"bank": 0, "index": 208, "storage": "banked_u16", "value": 80},
+            {"bank": 0, "index": 3006, "storage": "global_u8", "value": 1},
+            {"bank": 0, "index": 2633, "storage": "global_u8", "value": 1}
+          ],
+          "selections": [],
+          "message_count": 0,
+          "expected_state": [{"storage": "global_u8", "bank": 0, "index": 3005, "value": 15}, {"storage": "banked_u16", "bank": 0, "index": 208, "value": 80}],
+          "expected_resume_state": [{"storage": "global_u8", "bank": 0, "index": 3005, "value": 15}, {"storage": "banked_u16", "bank": 0, "index": 208, "value": 80}],
+          "reentry": {
+            "outcome": {"offset": 2411, "end": 2412, "op": "command_00", "status": "script_return"},
+            "message_count": 0,
+            "expected_state": [{"storage": "global_u8", "bank": 0, "index": 3005, "value": 15}, {"storage": "banked_u16", "bank": 0, "index": 208, "value": 80}]
+          }
+        },
+        {
+          "variant_id": "word208-81-global3006-0-global2633-0",
+          "writes": [
+            {"bank": 0, "index": 208, "storage": "banked_u16", "value": 81},
+            {"bank": 0, "index": 3006, "storage": "global_u8", "value": 0},
+            {"bank": 0, "index": 2633, "storage": "global_u8", "value": 0}
+          ],
+          "selections": [],
+          "message_count": 0,
+          "expected_state": [{"storage": "global_u8", "bank": 0, "index": 3005, "value": 2}, {"storage": "banked_u16", "bank": 0, "index": 208, "value": 81}],
+          "expected_resume_state": [{"storage": "global_u8", "bank": 0, "index": 3005, "value": 2}, {"storage": "banked_u16", "bank": 0, "index": 208, "value": 81}],
+          "reentry": {
+            "outcome": {"offset": 2411, "end": 2412, "op": "command_00", "status": "script_return"},
+            "message_count": 0,
+            "expected_state": [{"storage": "global_u8", "bank": 0, "index": 3005, "value": 2}, {"storage": "banked_u16", "bank": 0, "index": 208, "value": 81}]
+          }
+        },
+        {
+          "variant_id": "word208-81-global3006-0-global2633-1",
+          "writes": [
+            {"bank": 0, "index": 208, "storage": "banked_u16", "value": 81},
+            {"bank": 0, "index": 3006, "storage": "global_u8", "value": 0},
+            {"bank": 0, "index": 2633, "storage": "global_u8", "value": 1}
+          ],
+          "selections": [],
+          "message_count": 0,
+          "expected_state": [{"storage": "global_u8", "bank": 0, "index": 3005, "value": 2}, {"storage": "banked_u16", "bank": 0, "index": 208, "value": 81}],
+          "expected_resume_state": [{"storage": "global_u8", "bank": 0, "index": 3005, "value": 2}, {"storage": "banked_u16", "bank": 0, "index": 208, "value": 81}],
+          "reentry": {
+            "outcome": {"offset": 2411, "end": 2412, "op": "command_00", "status": "script_return"},
+            "message_count": 0,
+            "expected_state": [{"storage": "global_u8", "bank": 0, "index": 3005, "value": 2}, {"storage": "banked_u16", "bank": 0, "index": 208, "value": 81}]
+          }
+        },
+        {
+          "variant_id": "word208-81-global3006-1-global2633-0",
+          "writes": [
+            {"bank": 0, "index": 208, "storage": "banked_u16", "value": 81},
+            {"bank": 0, "index": 3006, "storage": "global_u8", "value": 1},
+            {"bank": 0, "index": 2633, "storage": "global_u8", "value": 0}
+          ],
+          "selections": [],
+          "message_count": 0,
+          "expected_state": [{"storage": "global_u8", "bank": 0, "index": 3005, "value": 15}, {"storage": "banked_u16", "bank": 0, "index": 208, "value": 81}],
+          "expected_resume_state": [{"storage": "global_u8", "bank": 0, "index": 3005, "value": 15}, {"storage": "banked_u16", "bank": 0, "index": 208, "value": 81}],
+          "reentry": {
+            "outcome": {"offset": 2411, "end": 2412, "op": "command_00", "status": "script_return"},
+            "message_count": 0,
+            "expected_state": [{"storage": "global_u8", "bank": 0, "index": 3005, "value": 15}, {"storage": "banked_u16", "bank": 0, "index": 208, "value": 81}]
+          }
+        },
+        {
+          "variant_id": "word208-81-global3006-1-global2633-1",
+          "writes": [
+            {"bank": 0, "index": 208, "storage": "banked_u16", "value": 81},
+            {"bank": 0, "index": 3006, "storage": "global_u8", "value": 1},
+            {"bank": 0, "index": 2633, "storage": "global_u8", "value": 1}
+          ],
+          "selections": [],
+          "message_count": 0,
+          "expected_state": [{"storage": "global_u8", "bank": 0, "index": 3005, "value": 15}, {"storage": "banked_u16", "bank": 0, "index": 208, "value": 81}],
+          "expected_resume_state": [{"storage": "global_u8", "bank": 0, "index": 3005, "value": 15}, {"storage": "banked_u16", "bank": 0, "index": 208, "value": 81}],
+          "reentry": {
+            "outcome": {"offset": 2411, "end": 2412, "op": "command_00", "status": "script_return"},
+            "message_count": 0,
+            "expected_state": [{"storage": "global_u8", "bank": 0, "index": 3005, "value": 15}, {"storage": "banked_u16", "bank": 0, "index": 208, "value": 81}]
+          }
+        }
+      ],
+      "outcome": {"offset": 2411, "end": 2412, "op": "command_00", "status": "script_return"},
+      "caller_outcome": {"kind": "dispatch"},
+      "expected_state": [{"storage": "banked_u16", "bank": 0, "index": 1, "value": 7}],
+      "state_context": {"kind": "original_calendar", "entry": "START.MES", "table_sha256": "f21ee0fcb09e960046878e35ad0410aed88680f849ace471b713ef7a12525b4a"},
+      "choice_contracts": [],
+      "resume": {
+        "start": 7240,
+        "boundary_policy": "natural_handoff",
+        "outcome": {
+          "offset": 9604,
+          "end": 9617,
+          "op": "script_handoff_marker",
+          "status": "script_handoff_boundary",
+          "target": "MACHI.MES",
+          "record_sha256": "496ee6fc5e929a0d78f596b742cf256b0651842fc13c717c182cd217879ac047",
+          "source_binding": {
+            "kind": "typed_record"
+          }
+        },
+        "message_count": 37,
+        "expected_state": [
+          {"storage": "global_u8", "bank": 0, "index": 2286, "value": 1},
+          {"storage": "state_u16", "bank": 0, "index": 16, "value": 13},
+          {"storage": "state_u16", "bank": 0, "index": 8, "value": 46}
+        ]
+      },
+      "reentry": {"outcome": {"offset": 2411, "end": 2412, "op": "command_00", "status": "script_return"}, "message_count": 0, "expected_state": []},
+      "unresolved": ["outer_scheduler", "unvisited_branch_states", "native_presentation"],
+      "origin_offset": 4092
+    }
+  ],
+  "payload_sha256": "8c9645eedd80c4996e9f252aa76b5b59c72fab411d3bd0cb05686f313f6b57c0"
+}

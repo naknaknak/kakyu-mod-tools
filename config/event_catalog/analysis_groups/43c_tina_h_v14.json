@@ -1,0 +1,412 @@
+{
+  "schema": "kakyu_event_analysis_group/v14",
+  "group_id": "43c-tina-h",
+  "archive_sha256": "31a95b31cb0f1051cf973a4dba4f4a5405671e4488240adfafb9b02290986aa6",
+  "source_members": [
+    {
+      "entry": "43C.MES",
+      "entry_sha256": "446259e1c34b15de0dbab97c815d83b654fbeb7cca5cd29d4e2498a86706391b"
+    },
+    {
+      "entry": "TINA_H.MES",
+      "entry_sha256": "bb4b201e369ed06993b62f2c5e766660731d71d498443fd54db4fad2bef022e7"
+    },
+    {
+      "entry": "LIBLARY.LIB",
+      "entry_sha256": "d9aba6eb8dab51fe321e22c868ed0cf38416bba1f0cf2f5d7d719f48e89b8b4d"
+    },
+    {
+      "entry": "DEF_MAIN.MES",
+      "entry_sha256": "f2012ce5d90f60a5d1ca8190e03571341c0384c2d3d96e9aec2b3ab949db0ef0"
+    },
+    {
+      "entry": "START.MES",
+      "entry_sha256": "ba57bf666fbd9db9b3110f2bf1c70e80e11a35de00e82256aaaf35921c77038f"
+    }
+  ],
+  "routes": [
+    {
+      "route_id": "m-h",
+      "state_context": {
+        "kind": "fresh"
+      },
+      "origin": {
+        "entry": "43C.MES",
+        "offset": 36938,
+        "guard": {
+          "offset": 37115,
+          "end": 37125,
+          "false_target": 37144,
+          "prefix_sha256": "c2cc11a66ece5fbdc9989eaeaf1f0ed7a79445e6b9ed8ff45cf89ffd76bf3aa8",
+          "record_sha256": "25dc2629aa2c2a13ab9533459733770b87a562e13bac494fee66ec5902ceb3f2",
+          "source_binding": {
+            "kind": "typed_record"
+          }
+        },
+        "guard_cases": [
+          {
+            "case_id": "accepted",
+            "expected": 1,
+            "writes": []
+          },
+          {
+            "case_id": "rejected",
+            "expected": 0,
+            "writes": [
+              {
+                "bank": 0,
+                "index": 13,
+                "storage": "state_u16",
+                "value": 7
+              }
+            ]
+          }
+        ]
+      },
+      "baseline": [
+        {
+          "bank": 0,
+          "index": 19,
+          "storage": "state_u16",
+          "value": 2015
+        },
+        {
+          "bank": 0,
+          "index": 8,
+          "storage": "state_u16",
+          "value": 0
+        },
+        {
+          "bank": 0,
+          "index": 2573,
+          "storage": "global_u8",
+          "value": 0
+        },
+        {
+          "bank": 0,
+          "index": 13,
+          "storage": "state_u16",
+          "value": 6
+        },
+        {
+          "bank": 0,
+          "index": 21,
+          "storage": "state_u16",
+          "value": 3
+        },
+        {
+          "bank": 0,
+          "index": 2405,
+          "storage": "global_u8",
+          "value": 1
+        },
+        {
+          "bank": 0,
+          "index": 2406,
+          "storage": "global_u8",
+          "value": 1
+        },
+        {
+          "bank": 0,
+          "index": 2420,
+          "storage": "global_u8",
+          "value": 1
+        },
+        {
+          "bank": 0,
+          "index": 2422,
+          "storage": "global_u8",
+          "value": 1
+        },
+        {
+          "bank": 0,
+          "index": 2424,
+          "storage": "global_u8",
+          "value": 1
+        },
+        {
+          "bank": 0,
+          "index": 2438,
+          "storage": "global_u8",
+          "value": 1
+        },
+        {
+          "bank": 0,
+          "index": 2441,
+          "storage": "global_u8",
+          "value": 1
+        },
+        {
+          "bank": 0,
+          "index": 2443,
+          "storage": "global_u8",
+          "value": 1
+        },
+        {
+          "bank": 0,
+          "index": 2456,
+          "storage": "global_u8",
+          "value": 1
+        },
+        {
+          "bank": 0,
+          "index": 2501,
+          "storage": "global_u8",
+          "value": 1
+        },
+        {
+          "bank": 0,
+          "index": 2503,
+          "storage": "global_u8",
+          "value": 1
+        },
+        {
+          "bank": 0,
+          "index": 2504,
+          "storage": "global_u8",
+          "value": 1
+        },
+        {
+          "bank": 0,
+          "index": 2515,
+          "storage": "global_u8",
+          "value": 1
+        },
+        {
+          "bank": 0,
+          "index": 2556,
+          "storage": "global_u8",
+          "value": 1
+        },
+        {
+          "bank": 0,
+          "index": 2572,
+          "storage": "global_u8",
+          "value": 1
+        },
+        {
+          "bank": 0,
+          "index": 2587,
+          "storage": "global_u8",
+          "value": 1
+        },
+        {
+          "bank": 0,
+          "index": 2640,
+          "storage": "global_u8",
+          "value": 1
+        },
+        {
+          "bank": 0,
+          "index": 2641,
+          "storage": "global_u8",
+          "value": 1
+        }
+      ],
+      "choice_contracts": [],
+      "hops": [
+        {
+          "hop_id": "h1_room_dispatch",
+          "entry": "43C.MES",
+          "entered_by": {
+            "kind": "origin"
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 0,
+            "outcome": {
+              "offset": 37125,
+              "end": 37139,
+              "op": "script_dispatch",
+              "status": "script_dispatch_boundary",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "65f0e29518043186f67f1bd468193484003c820881b603663c1c36cdccde423c",
+              "target": "TINA_H.MES"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h2_ladder",
+          "entry": "TINA_H.MES",
+          "entered_by": {
+            "kind": "nested_call",
+            "offset": 37125,
+            "end": 37139,
+            "op": "script_dispatch",
+            "record_sha256": "65f0e29518043186f67f1bd468193484003c820881b603663c1c36cdccde423c",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 902,
+            "outcome": {
+              "offset": 67276,
+              "end": 67277,
+              "op": "command_00",
+              "status": "script_return",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+            },
+            "expected_state": []
+          },
+          "segment_budget": 1024
+        }
+      ],
+      "terminal": {
+        "entry": "TINA_H.MES",
+        "offset": 67276,
+        "end": 67277,
+        "op": "command_00",
+        "status": "script_return",
+        "source_binding": {
+          "kind": "typed_record"
+        },
+        "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+      },
+      "variants": [
+        {
+          "expected_state": [],
+          "variant_id": "default",
+          "writes": []
+        },
+        {
+          "expected_state": [],
+          "message_counts": {
+            "h2_ladder": 18
+          },
+          "variant_id": "no-recollection",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 2405,
+              "storage": "global_u8",
+              "value": 0
+            },
+            {
+              "bank": 0,
+              "index": 2406,
+              "storage": "global_u8",
+              "value": 0
+            },
+            {
+              "bank": 0,
+              "index": 2420,
+              "storage": "global_u8",
+              "value": 0
+            },
+            {
+              "bank": 0,
+              "index": 2422,
+              "storage": "global_u8",
+              "value": 0
+            },
+            {
+              "bank": 0,
+              "index": 2424,
+              "storage": "global_u8",
+              "value": 0
+            },
+            {
+              "bank": 0,
+              "index": 2438,
+              "storage": "global_u8",
+              "value": 0
+            },
+            {
+              "bank": 0,
+              "index": 2441,
+              "storage": "global_u8",
+              "value": 0
+            },
+            {
+              "bank": 0,
+              "index": 2443,
+              "storage": "global_u8",
+              "value": 0
+            },
+            {
+              "bank": 0,
+              "index": 2456,
+              "storage": "global_u8",
+              "value": 0
+            },
+            {
+              "bank": 0,
+              "index": 2501,
+              "storage": "global_u8",
+              "value": 0
+            },
+            {
+              "bank": 0,
+              "index": 2503,
+              "storage": "global_u8",
+              "value": 0
+            },
+            {
+              "bank": 0,
+              "index": 2504,
+              "storage": "global_u8",
+              "value": 0
+            },
+            {
+              "bank": 0,
+              "index": 2515,
+              "storage": "global_u8",
+              "value": 0
+            },
+            {
+              "bank": 0,
+              "index": 2556,
+              "storage": "global_u8",
+              "value": 0
+            },
+            {
+              "bank": 0,
+              "index": 2572,
+              "storage": "global_u8",
+              "value": 0
+            },
+            {
+              "bank": 0,
+              "index": 2587,
+              "storage": "global_u8",
+              "value": 0
+            },
+            {
+              "bank": 0,
+              "index": 2640,
+              "storage": "global_u8",
+              "value": 0
+            },
+            {
+              "bank": 0,
+              "index": 2641,
+              "storage": "global_u8",
+              "value": 0
+            }
+          ]
+        }
+      ],
+      "unresolved": [
+        "The room-action menu's selection (the routine-40 question at 20161, answer 3) is a shape the choice-contract tool cannot name, and the picked girl's id is the native secondary selection's result, which 43C.MES never writes: state_u16[13] = 6 (the picker id) and state_u16[21] = 3 are seeded state, a tool decision.",
+        "The room's evening ambient cells (state_u16[19] = 2015, state_u16[8] = 0, global_u8[2573] = 0) are tool decisions; the origin is the clock save at 36938, after the answer-3 test.",
+        "The ladder's 18 gate flags (18 cells) are set by ordinary events; the default variant sets every one (the full recollection), no-recollection none. Per-segment combinations are not walked.",
+        "Branch cells left at their ambient value 0: selector cells [2517.0, 3296.0, 3297.0, 3305.0, 3306.0], flag tests inside conditional arms [], guard-only cells [], presentation cells [2847.0, 3006.0, 4000.0]."
+      ]
+    }
+  ],
+  "payload_sha256": "efdd09401f6d6ef8ad9eccdbaf4c866cae689a56f7131559e7333f2d3c419eca"
+}

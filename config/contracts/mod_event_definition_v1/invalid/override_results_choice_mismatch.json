@@ -1,0 +1,40 @@
+{
+  "schema_version": "kakyu_mod_event_definition/v1",
+  "contract_fingerprint": "self",
+  "cells_fingerprint": "self",
+  "kind": "override",
+  "mod": {
+    "id": "samplemod",
+    "revision": 1
+  },
+  "id": "mod.samplemod.override_disable",
+  "target": {
+    "id": "ai.school.gate.pic.1",
+    "contract": "kakyu_event_definition/v4",
+    "document_sha256": "51cfb5a0154a363032c345f65a636499f3526f6dcbf4fa0d0490549adba02c84"
+  },
+  "operations": [
+    {
+      "op": "append_result",
+      "result": "result_extra",
+      "result_document": {
+        "selected_by": {
+          "kind": "choice",
+          "value": 99
+        },
+        "event_played": true,
+        "dialogue": [
+          {
+            "kind": "line",
+            "text": "Extra."
+          },
+          {
+            "kind": "scene_end"
+          }
+        ],
+        "after": [],
+        "terminal": "return_to_map"
+      }
+    }
+  ]
+}

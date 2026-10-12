@@ -1,0 +1,649 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://tools/content_suite/apps/event_player.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://tools/content_suite/apps/tool_game_preview.tscn" id="2_preview"]
+
+[node name="EventPlayer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = 12.0
+offset_right = -12.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Layout" type="VBoxContainer" parent="Margin"]
+layout_mode = 2
+
+[node name="Toolbar" type="HFlowContainer" parent="Margin/Layout"]
+layout_mode = 2
+
+[node name="OpenContentSet" type="Button" parent="Margin/Layout/Toolbar"]
+layout_mode = 2
+text = "Open ELFIMAGE..."
+
+[node name="Open" type="Button" parent="Margin/Layout/Toolbar"]
+layout_mode = 2
+text = "Open mes.arc..."
+
+[node name="TextCache" type="Button" parent="Margin/Layout/Toolbar"]
+layout_mode = 2
+text = "UTF-8 Cache..."
+
+[node name="Catalog" type="Button" parent="Margin/Layout/Toolbar"]
+layout_mode = 2
+text = "Event Catalog..."
+
+[node name="ViewMode" type="OptionButton" parent="Margin/Layout/Toolbar"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(112, 0)
+layout_mode = 2
+tooltip_text = "Playback hides source evidence and debug controls. Analysis restores the same runtime session with its trace and sandbox controls."
+
+[node name="FullscreenToggle" type="CheckButton" parent="Margin/Layout/Toolbar"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Borderless fullscreen (F11 or Alt+Enter). The window content stretches to the screen; windowed keeps the 16:10 aspect."
+text = "Fullscreen"
+
+[node name="ArchiveLabel" type="Label" parent="Margin/Layout/Toolbar"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "No archive open"
+text_overrun_behavior = 3
+
+[node name="MainSplit" type="HSplitContainer" parent="Margin/Layout"]
+layout_mode = 2
+size_flags_vertical = 3
+split_offset = 220
+
+[node name="Sources" type="VBoxContainer" parent="Margin/Layout/MainSplit"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(205, 0)
+layout_mode = 2
+
+[node name="FilterEdit" type="LineEdit" parent="Margin/Layout/MainSplit/Sources"]
+unique_name_in_owner = true
+layout_mode = 2
+placeholder_text = "Filter MES entries..."
+
+[node name="EntryTree" type="Tree" parent="Margin/Layout/MainSplit/Sources"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+size_flags_vertical = 3
+columns = 2
+column_titles_visible = true
+hide_root = true
+
+[node name="AddressTree" type="Tree" parent="Margin/Layout/MainSplit/Sources"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+size_flags_vertical = 3
+columns = 3
+column_titles_visible = true
+hide_root = true
+
+[node name="FragmentNavigation" type="HBoxContainer" parent="Margin/Layout/MainSplit/Sources"]
+layout_mode = 2
+
+[node name="FragmentNavigationLabel" type="Label" parent="Margin/Layout/MainSplit/Sources/FragmentNavigation"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Source table"
+text_overrun_behavior = 3
+
+[node name="PreviousFragment" type="Button" parent="Margin/Layout/MainSplit/Sources/FragmentNavigation"]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+text = "Prev row"
+tooltip_text = "Preview the previous source-table row. This is not a confirmed native event order."
+
+[node name="NextFragment" type="Button" parent="Margin/Layout/MainSplit/Sources/FragmentNavigation"]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+text = "Next row"
+tooltip_text = "Preview the next source-table row. This is not a confirmed native event order."
+
+[node name="MeaningfulNavigation" type="HBoxContainer" parent="Margin/Layout/MainSplit/Sources"]
+layout_mode = 2
+
+[node name="MeaningfulNavigationLabel" type="Label" parent="Margin/Layout/MainSplit/Sources/MeaningfulNavigation"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Content stops"
+text_overrun_behavior = 3
+
+[node name="PreviousMeaningful" type="Button" parent="Margin/Layout/MainSplit/Sources/MeaningfulNavigation"]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+text = "Prev hit"
+tooltip_text = "Find and preview the previous dialogue, DEF, or native-FX source-table row. Scans up to 16 rows per click; this is not native event order."
+
+[node name="NextMeaningful" type="Button" parent="Margin/Layout/MainSplit/Sources/MeaningfulNavigation"]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+text = "Next hit"
+tooltip_text = "Find and preview the next dialogue, DEF, or native-FX source-table row. Scans up to 16 rows per click; this is not native event order."
+
+[node name="Right" type="VBoxContainer" parent="Margin/Layout/MainSplit"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RunBar" type="HBoxContainer" parent="Margin/Layout/MainSplit/Right"]
+layout_mode = 2
+
+[node name="IntroLabel" type="Label" parent="Margin/Layout/MainSplit/Right/RunBar"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Intro offset:"
+
+[node name="IntroEdit" type="LineEdit" parent="Margin/Layout/MainSplit/Right/RunBar"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+placeholder_text = "0x0"
+
+[node name="Run" type="Button" parent="Margin/Layout/MainSplit/Right/RunBar"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Run Until Boundary"
+
+[node name="PreviewFragment" type="Button" parent="Margin/Layout/MainSplit/Right/RunBar"]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+text = "Preview Fragment"
+tooltip_text = "Select a verified catalog Fragment row to preview it without claiming the native host order."
+
+[node name="StartEvent" type="Button" parent="Margin/Layout/MainSplit/Right/RunBar"]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+text = "Start Event"
+tooltip_text = "Start the selected hash-bound event at its confirmed dialogue or choice anchor."
+
+[node name="Continue" type="Button" parent="Margin/Layout/MainSplit/Right/RunBar"]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+text = "Continue"
+
+[node name="BgmToggle" type="Button" parent="Margin/Layout/MainSplit/Right/RunBar"]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+text = "BGM: —"
+tooltip_text = "Play or stop the BGM resolved from the traced original event route."
+
+[node name="PreviewDiagnostics" type="HBoxContainer" parent="Margin/Layout/MainSplit/Right"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="PreviewEntryLabel" type="Label" parent="Margin/Layout/MainSplit/Right/PreviewDiagnostics"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+text = "No MES entry selected"
+text_overrun_behavior = 3
+
+[node name="PreviewResourceLabel" type="Label" parent="Margin/Layout/MainSplit/Right/PreviewDiagnostics"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "MMO presentation not reached | AX metadata not reached | BGM request not reached | MES voice marker not reached"
+text_overrun_behavior = 3
+tooltip_text = "Resolved source and media diagnostics are kept outside the logical 640x400 game frame."
+
+[node name="GamePreview" parent="Margin/Layout/MainSplit/Right" instance=ExtResource("2_preview")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(320, 260)
+layout_mode = 2
+size_flags_stretch_ratio = 1.25
+
+[node name="PreviewAudio" type="AudioStreamPlayer" parent="Margin/Layout/MainSplit/Right"]
+unique_name_in_owner = true
+
+[node name="PreviewEffectAudio" type="AudioStreamPlayer" parent="Margin/Layout/MainSplit/Right"]
+unique_name_in_owner = true
+
+[node name="PreviewVoice" type="AudioStreamPlayer" parent="Margin/Layout/MainSplit/Right"]
+unique_name_in_owner = true
+
+[node name="WorkTabs" type="TabContainer" parent="Margin/Layout/MainSplit/Right"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Sandbox" type="VBoxContainer" parent="Margin/Layout/MainSplit/Right/WorkTabs"]
+layout_mode = 2
+
+[node name="QuickStateLabel" type="Label" parent="Margin/Layout/MainSplit/Right/WorkTabs/Sandbox"]
+layout_mode = 2
+text = "Confirmed sandbox slots (source-backed numeric storage; never a gameplay save)"
+
+[node name="KnownStateFields" type="HFlowContainer" parent="Margin/Layout/MainSplit/Right/WorkTabs/Sandbox"]
+layout_mode = 2
+
+[node name="LegacyDateLabel" type="Label" parent="Margin/Layout/MainSplit/Right/WorkTabs/Sandbox/KnownStateFields"]
+layout_mode = 2
+text = "Date u16[7]"
+
+[node name="LegacyDateEdit" type="SpinBox" parent="Margin/Layout/MainSplit/Right/WorkTabs/Sandbox/KnownStateFields"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(78, 0)
+layout_mode = 2
+max_value = 65535.0
+tooltip_text = "Original extended MMDD date code in state_u16[7]"
+
+[node name="WeekdayLabel" type="Label" parent="Margin/Layout/MainSplit/Right/WorkTabs/Sandbox/KnownStateFields"]
+layout_mode = 2
+text = "Weekday [4]"
+
+[node name="WeekdayEdit" type="SpinBox" parent="Margin/Layout/MainSplit/Right/WorkTabs/Sandbox/KnownStateFields"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+max_value = 6.0
+tooltip_text = "Original weekday number in state_u16[4]"
+
+[node name="HhmmLabel" type="Label" parent="Margin/Layout/MainSplit/Right/WorkTabs/Sandbox/KnownStateFields"]
+layout_mode = 2
+text = "HHMM [19]"
+
+[node name="HhmmEdit" type="SpinBox" parent="Margin/Layout/MainSplit/Right/WorkTabs/Sandbox/KnownStateFields"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(78, 0)
+layout_mode = 2
+max_value = 2359.0
+tooltip_text = "Original four-digit time in state_u16[19]"
+
+[node name="MahokoAffectionLabel" type="Label" parent="Margin/Layout/MainSplit/Right/WorkTabs/Sandbox/KnownStateFields"]
+layout_mode = 2
+text = "Mahoko b0[210]"
+
+[node name="MahokoAffectionEdit" type="SpinBox" parent="Margin/Layout/MainSplit/Right/WorkTabs/Sandbox/KnownStateFields"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(78, 0)
+layout_mode = 2
+max_value = 65535.0
+tooltip_text = "Source-confirmed Mahoko affection in banked_u16[0][210]"
+
+[node name="MakiAffectionLabel" type="Label" parent="Margin/Layout/MainSplit/Right/WorkTabs/Sandbox/KnownStateFields"]
+layout_mode = 2
+text = "Maki b0[212]"
+
+[node name="MakiAffectionEdit" type="SpinBox" parent="Margin/Layout/MainSplit/Right/WorkTabs/Sandbox/KnownStateFields"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(78, 0)
+layout_mode = 2
+max_value = 65535.0
+tooltip_text = "Source-confirmed Maki affection in banked_u16[0][212]"
+
+[node name="ApplyQuickState" type="Button" parent="Margin/Layout/MainSplit/Right/WorkTabs/Sandbox/KnownStateFields"]
+layout_mode = 2
+text = "Apply slots"
+
+[node name="FlagStateFields" type="HFlowContainer" parent="Margin/Layout/MainSplit/Right/WorkTabs/Sandbox"]
+layout_mode = 2
+
+[node name="FlagStorageLabel" type="Label" parent="Margin/Layout/MainSplit/Right/WorkTabs/Sandbox/FlagStateFields"]
+layout_mode = 2
+text = "Raw global_u8 flag"
+
+[node name="FlagIndexLabel" type="Label" parent="Margin/Layout/MainSplit/Right/WorkTabs/Sandbox/FlagStateFields"]
+layout_mode = 2
+text = "index"
+
+[node name="FlagIndexEdit" type="SpinBox" parent="Margin/Layout/MainSplit/Right/WorkTabs/Sandbox/FlagStateFields"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(92, 0)
+layout_mode = 2
+max_value = 65535.0
+tooltip_text = "Raw global_u8 index; symbolic meaning is not inferred"
+
+[node name="FlagValueLabel" type="Label" parent="Margin/Layout/MainSplit/Right/WorkTabs/Sandbox/FlagStateFields"]
+layout_mode = 2
+text = "value"
+
+[node name="FlagValueEdit" type="SpinBox" parent="Margin/Layout/MainSplit/Right/WorkTabs/Sandbox/FlagStateFields"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(72, 0)
+layout_mode = 2
+max_value = 255.0
+tooltip_text = "Raw 8-bit flag value"
+
+[node name="SetQuickFlag" type="Button" parent="Margin/Layout/MainSplit/Right/WorkTabs/Sandbox/FlagStateFields"]
+layout_mode = 2
+text = "Set flag"
+
+[node name="StateLabel" type="Label" parent="Margin/Layout/MainSplit/Right/WorkTabs/Sandbox"]
+layout_mode = 2
+text = "Isolated sandbox records (state_u16/global_u8/etc.)"
+
+[node name="StateJson" type="TextEdit" parent="Margin/Layout/MainSplit/Right/WorkTabs/Sandbox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+placeholder_text = "JSON array of storage/index/bank/value records"
+
+[node name="StateButtons" type="HBoxContainer" parent="Margin/Layout/MainSplit/Right/WorkTabs/Sandbox"]
+layout_mode = 2
+
+[node name="PromiseLocationLabel" type="Label" parent="Margin/Layout/MainSplit/Right/WorkTabs/Sandbox/StateButtons"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "PROMIS location"
+
+[node name="PromiseLocationEdit" type="SpinBox" parent="Margin/Layout/MainSplit/Right/WorkTabs/Sandbox/StateButtons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+max_value = 14.0
+editable = false
+tooltip_text = "Available only for a hash-bound original PROMIS scheduling entry."
+
+[node name="ApplyPromiseLocation" type="Button" parent="Margin/Layout/MainSplit/Right/WorkTabs/Sandbox/StateButtons"]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+text = "Set location"
+
+[node name="LoadState" type="Button" parent="Margin/Layout/MainSplit/Right/WorkTabs/Sandbox/StateButtons"]
+layout_mode = 2
+text = "Load State"
+
+[node name="ResetState" type="Button" parent="Margin/Layout/MainSplit/Right/WorkTabs/Sandbox/StateButtons"]
+layout_mode = 2
+text = "Reset"
+
+[node name="ProtagonistNameLabel" type="Label" parent="Margin/Layout/MainSplit/Right/WorkTabs/Sandbox/StateButtons"]
+layout_mode = 2
+text = "Preview name:"
+
+[node name="ProtagonistNameEdit" type="LineEdit" parent="Margin/Layout/MainSplit/Right/WorkTabs/Sandbox/StateButtons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Protagonist name (tool only)"
+
+[node name="ResultTabs" type="TabContainer" parent="Margin/Layout/MainSplit/Right/WorkTabs"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="TraceTree" type="Tree" parent="Margin/Layout/MainSplit/Right/WorkTabs/ResultTabs"]
+unique_name_in_owner = true
+layout_mode = 2
+columns = 4
+column_titles_visible = true
+hide_root = true
+
+[node name="MessageTree" type="Tree" parent="Margin/Layout/MainSplit/Right/WorkTabs/ResultTabs"]
+unique_name_in_owner = true
+layout_mode = 2
+columns = 3
+column_titles_visible = true
+hide_root = true
+
+[node name="StateDiffTree" type="Tree" parent="Margin/Layout/MainSplit/Right/WorkTabs/ResultTabs"]
+unique_name_in_owner = true
+layout_mode = 2
+columns = 4
+column_titles_visible = true
+hide_root = true
+
+[node name="ScriptCallTree" type="Tree" parent="Margin/Layout/MainSplit/Right/WorkTabs/ResultTabs"]
+unique_name_in_owner = true
+layout_mode = 2
+columns = 4
+column_titles_visible = true
+hide_root = true
+
+[node name="SharedRoutineTree" type="Tree" parent="Margin/Layout/MainSplit/Right/WorkTabs/ResultTabs"]
+unique_name_in_owner = true
+layout_mode = 2
+columns = 4
+column_titles_visible = true
+hide_root = true
+
+[node name="Output" type="RichTextLabel" parent="Margin/Layout/MainSplit/Right/WorkTabs/ResultTabs"]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+scroll_active = true
+selection_enabled = true
+context_menu_enabled = true
+text = "Select an ARC/MES entry and a code-relative intro coordinate."
+
+[node name="StatusLabel" type="Label" parent="Margin/Layout"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Read-only source; isolated state; unsupported opcodes stop execution."
+
+[node name="OpenDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+title = "Open read-only mes.arc"
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.arc ; Kakyu ARC archives")
+
+[node name="ContentSetDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+title = "Choose user-owned ELFIMAGE directory"
+file_mode = 2
+access = 2
+
+[node name="TextCacheDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+title = "Choose generated MES UTF-8 cache directory"
+file_mode = 2
+access = 2
+
+[node name="CatalogWindow" type="Window" parent="."]
+unique_name_in_owner = true
+title = "Event Catalog and Playback Support"
+initial_position = 1
+size = Vector2i(1050, 700)
+min_size = Vector2i(800, 560)
+transient = true
+
+[node name="Margin" type="MarginContainer" parent="CatalogWindow"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = 12.0
+offset_right = -12.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Layout" type="VBoxContainer" parent="CatalogWindow/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="CatalogTextFilter" type="LineEdit" parent="CatalogWindow/Margin/Layout"]
+unique_name_in_owner = true
+layout_mode = 2
+placeholder_text = "Search title, event ID, character, type, status, or blocker..."
+
+[node name="Filters" type="HFlowContainer" parent="CatalogWindow/Margin/Layout"]
+layout_mode = 2
+
+[node name="CatalogCharacterFilter" type="LineEdit" parent="CatalogWindow/Margin/Layout/Filters"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(145, 0)
+layout_mode = 2
+placeholder_text = "Character ID"
+
+[node name="CatalogDateFilter" type="LineEdit" parent="CatalogWindow/Margin/Layout/Filters"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+placeholder_text = "Date tag"
+
+[node name="CatalogPlaceFilter" type="LineEdit" parent="CatalogWindow/Margin/Layout/Filters"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+placeholder_text = "Place ID"
+
+[node name="CatalogTypeFilter" type="LineEdit" parent="CatalogWindow/Margin/Layout/Filters"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(145, 0)
+layout_mode = 2
+placeholder_text = "Event type"
+
+[node name="CatalogStatusFilter" type="OptionButton" parent="CatalogWindow/Margin/Layout/Filters"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(145, 0)
+layout_mode = 2
+
+[node name="CatalogCountLabel" type="Label" parent="CatalogWindow/Margin/Layout"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Catalog not loaded"
+
+[node name="Split" type="HSplitContainer" parent="CatalogWindow/Margin/Layout"]
+layout_mode = 2
+size_flags_vertical = 3
+split_offset = 650
+
+[node name="CatalogTree" type="Tree" parent="CatalogWindow/Margin/Layout/Split"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(380, 0)
+layout_mode = 2
+columns = 4
+column_titles_visible = true
+hide_root = true
+
+[node name="Right" type="VBoxContainer" parent="CatalogWindow/Margin/Layout/Split"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="Settings" type="ScrollContainer" parent="CatalogWindow/Margin/Layout/Split/Right"]
+layout_mode = 2
+size_flags_vertical = 3
+follow_focus = true
+horizontal_scroll_mode = 0
+
+[node name="SettingsBody" type="VBoxContainer" parent="CatalogWindow/Margin/Layout/Split/Right/Settings"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CatalogPresetLabel" type="Label" parent="CatalogWindow/Margin/Layout/Split/Right/Settings/SettingsBody"]
+layout_mode = 2
+text = "Preset"
+
+[node name="CatalogPresetSelect" type="OptionButton" parent="CatalogWindow/Margin/Layout/Split/Right/Settings/SettingsBody"]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+text = "Select preset"
+clip_text = true
+fit_to_longest_item = false
+
+[node name="CatalogResultLabel" type="Label" parent="CatalogWindow/Margin/Layout/Split/Right/Settings/SettingsBody"]
+layout_mode = 2
+text = "Result"
+
+[node name="CatalogResultSelect" type="OptionButton" parent="CatalogWindow/Margin/Layout/Split/Right/Settings/SettingsBody"]
+unique_name_in_owner = true
+layout_mode = 2
+visible = false
+disabled = true
+text = "Select result"
+clip_text = true
+fit_to_longest_item = false
+
+[node name="CatalogStateForm" type="VBoxContainer" parent="CatalogWindow/Margin/Layout/Split/Right/Settings/SettingsBody"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="CatalogUseFormState" type="CheckButton" parent="CatalogWindow/Margin/Layout/Split/Right/Settings/SettingsBody"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+disabled = true
+text = "Use this state"
+
+[node name="CatalogDetails" type="RichTextLabel" parent="CatalogWindow/Margin/Layout/Split/Right/Settings/SettingsBody"]
+unique_name_in_owner = true
+layout_mode = 2
+fit_content = true
+selection_enabled = true
+context_menu_enabled = true
+text = "Select a catalog event."
+
+[node name="CatalogPlay" type="Button" parent="CatalogWindow/Margin/Layout/Split/Right"]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+text = "Play catalog preset"
+
+[node name="CatalogSelectSource" type="Button" parent="CatalogWindow/Margin/Layout/Split/Right"]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+text = "Select MES source in Analysis"
+
+[connection signal="pressed" from="Margin/Layout/Toolbar/OpenContentSet" to="." method="_on_content_set_pressed"]
+[connection signal="pressed" from="Margin/Layout/Toolbar/Open" to="." method="_on_open_pressed"]
+[connection signal="pressed" from="Margin/Layout/Toolbar/TextCache" to="." method="_on_text_cache_pressed"]
+[connection signal="pressed" from="Margin/Layout/Toolbar/Catalog" to="." method="_on_catalog_pressed"]
+[connection signal="item_selected" from="Margin/Layout/Toolbar/ViewMode" to="." method="_on_view_mode_selected"]
+[connection signal="toggled" from="Margin/Layout/Toolbar/FullscreenToggle" to="." method="_on_fullscreen_toggle_toggled"]
+[connection signal="text_changed" from="Margin/Layout/MainSplit/Sources/FilterEdit" to="." method="_on_filter_changed"]
+[connection signal="item_selected" from="Margin/Layout/MainSplit/Sources/EntryTree" to="." method="_on_entry_selected"]
+[connection signal="item_selected" from="Margin/Layout/MainSplit/Sources/AddressTree" to="." method="_on_address_selected"]
+[connection signal="item_activated" from="Margin/Layout/MainSplit/Sources/AddressTree" to="." method="_on_address_activated"]
+[connection signal="pressed" from="Margin/Layout/MainSplit/Right/RunBar/Run" to="." method="_on_run_pressed"]
+[connection signal="pressed" from="Margin/Layout/MainSplit/Right/RunBar/PreviewFragment" to="." method="_on_preview_catalog_fragment_pressed"]
+[connection signal="pressed" from="Margin/Layout/MainSplit/Sources/FragmentNavigation/PreviousFragment" to="." method="_on_previous_catalog_fragment_pressed"]
+[connection signal="pressed" from="Margin/Layout/MainSplit/Sources/FragmentNavigation/NextFragment" to="." method="_on_next_catalog_fragment_pressed"]
+[connection signal="pressed" from="Margin/Layout/MainSplit/Sources/MeaningfulNavigation/PreviousMeaningful" to="." method="_on_previous_meaningful_row_pressed"]
+[connection signal="pressed" from="Margin/Layout/MainSplit/Sources/MeaningfulNavigation/NextMeaningful" to="." method="_on_next_meaningful_row_pressed"]
+[connection signal="pressed" from="Margin/Layout/MainSplit/Right/RunBar/StartEvent" to="." method="_on_start_event_pressed"]
+[connection signal="pressed" from="Margin/Layout/MainSplit/Right/RunBar/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="Margin/Layout/MainSplit/Right/RunBar/BgmToggle" to="." method="_on_bgm_toggle_pressed"]
+[connection signal="pressed" from="Margin/Layout/MainSplit/Right/WorkTabs/Sandbox/StateButtons/LoadState" to="." method="_on_load_state_pressed"]
+[connection signal="pressed" from="Margin/Layout/MainSplit/Right/WorkTabs/Sandbox/StateButtons/ResetState" to="." method="_on_reset_state_pressed"]
+[connection signal="pressed" from="Margin/Layout/MainSplit/Right/WorkTabs/Sandbox/KnownStateFields/ApplyQuickState" to="." method="_on_apply_quick_state_pressed"]
+[connection signal="pressed" from="Margin/Layout/MainSplit/Right/WorkTabs/Sandbox/StateButtons/ApplyPromiseLocation" to="." method="_on_apply_promise_location_pressed"]
+[connection signal="pressed" from="Margin/Layout/MainSplit/Right/WorkTabs/Sandbox/FlagStateFields/SetQuickFlag" to="." method="_on_set_quick_flag_pressed"]
+[connection signal="value_changed" from="Margin/Layout/MainSplit/Right/WorkTabs/Sandbox/FlagStateFields/FlagIndexEdit" to="." method="_on_flag_index_changed"]
+[connection signal="file_selected" from="OpenDialog" to="." method="_on_archive_selected"]
+[connection signal="dir_selected" from="ContentSetDialog" to="." method="_on_content_set_selected"]
+[connection signal="dir_selected" from="TextCacheDialog" to="." method="_on_text_cache_selected"]
+[connection signal="text_changed" from="CatalogWindow/Margin/Layout/CatalogTextFilter" to="." method="_on_catalog_filter_changed"]
+[connection signal="text_changed" from="CatalogWindow/Margin/Layout/Filters/CatalogCharacterFilter" to="." method="_on_catalog_filter_changed"]
+[connection signal="text_changed" from="CatalogWindow/Margin/Layout/Filters/CatalogDateFilter" to="." method="_on_catalog_filter_changed"]
+[connection signal="text_changed" from="CatalogWindow/Margin/Layout/Filters/CatalogPlaceFilter" to="." method="_on_catalog_filter_changed"]
+[connection signal="text_changed" from="CatalogWindow/Margin/Layout/Filters/CatalogTypeFilter" to="." method="_on_catalog_filter_changed"]
+[connection signal="item_selected" from="CatalogWindow/Margin/Layout/Filters/CatalogStatusFilter" to="." method="_on_catalog_filter_changed"]
+[connection signal="item_selected" from="CatalogWindow/Margin/Layout/Split/CatalogTree" to="." method="_on_catalog_event_selected"]
+[connection signal="item_selected" from="CatalogWindow/Margin/Layout/Split/Right/Settings/SettingsBody/CatalogPresetSelect" to="." method="_on_catalog_preset_selected"]
+[connection signal="item_selected" from="CatalogWindow/Margin/Layout/Split/Right/Settings/SettingsBody/CatalogResultSelect" to="." method="_on_catalog_result_selected"]
+[connection signal="toggled" from="CatalogWindow/Margin/Layout/Split/Right/Settings/SettingsBody/CatalogUseFormState" to="." method="_on_catalog_use_form_state_toggled"]
+[connection signal="pressed" from="CatalogWindow/Margin/Layout/Split/Right/CatalogPlay" to="." method="_on_catalog_play_pressed"]
+[connection signal="pressed" from="CatalogWindow/Margin/Layout/Split/Right/CatalogSelectSource" to="." method="_on_catalog_select_source_pressed"]

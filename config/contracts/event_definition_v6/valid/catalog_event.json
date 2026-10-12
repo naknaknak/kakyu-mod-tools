@@ -1,0 +1,225 @@
+{
+  "schema_version": "kakyu_event_definition/v6",
+  "contract_fingerprint": "self",
+  "names_fingerprint": "self",
+  "id": "maki.town.12c.03.1",
+  "kind": "event",
+  "display": {
+    "title_ko": "maki 12c 사건",
+    "title_en": "maki at 12c",
+    "heroine": "maki",
+    "category": "town",
+    "place": "12c"
+  },
+  "evidence": {
+    "kind": "catalog_event",
+    "archive_sha256": "74c5bfb9fd84896866207a70581aa1b0c022f7afb26af936f131ce47a43ec7c2",
+    "catalog_id": "EVENTD03",
+    "catalog_revision": 23,
+    "members": [
+      {
+        "entry": "CALLER",
+        "entry_sha256": "67d193fff22981b46cd8ece1b12fc42ae86919f4a9e9f49bab47cb862dc3cc0f"
+      },
+      {
+        "entry": "CALLEE",
+        "entry_sha256": "5f4b6ccbd0d0b32a9f5d7018713b916b2d0adc0c45a4c5340c49c2f83d42dcd7"
+      }
+    ],
+    "document_refs": []
+  },
+  "package_binding": {
+    "schema": "kakyu_playback_package/v7",
+    "package_sha256": "f0122dd9bf9771d868391f4659fdbcb3321cb80b8490453b36f8ef68882cb864"
+  },
+  "trigger": {
+    "type": "caller_dispatch",
+    "caller": {
+      "entry": "CALLER",
+      "entry_sha256": "e791d663256073681f6e4566f6e3c2d04639ce0e702ec859c1f0b752990d83ed",
+      "offset": 100,
+      "end": 140,
+      "command": 15,
+      "kind": "nested_call"
+    },
+    "callee": {
+      "entry": "CALLEE",
+      "entry_sha256": "b0d6fe13eca1553322796b98904cc2502f6b9272a29be458ee5602ccb2a1ac52",
+      "start_coordinate": 0
+    },
+    "origin": {
+      "kind": "caller_prefix",
+      "offset": 100
+    }
+  },
+  "conditions": [
+    {
+      "type": "event_not_completed",
+      "event_id": "original/eventd03/12c-00000dde",
+      "failure_reason": "already_completed",
+      "done_cell": {
+        "storage": "global_u8",
+        "bank": 0,
+        "index": 905,
+        "value": 1
+      },
+      "source": "reentry_probe"
+    }
+  ],
+  "presets": [
+    {
+      "preset_id": "baseline",
+      "label": "baseline",
+      "writes": [
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 5,
+          "value": 1
+        }
+      ]
+    }
+  ],
+  "dialogue": [
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "CALLEE",
+        "at": 10,
+        "s": 0,
+        "raw_sha256": "0d00fed1d4769fad5d56a09422bdb82b204da19c6cd6e4fd1f7669ed47aca7f9"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "CALLEE",
+        "at": 20,
+        "s": 1,
+        "raw_sha256": "b657c119b344569d89d55b31f680b866277626b721431ea3e492b4553ff66bdd"
+      }
+    }
+  ],
+  "after": [
+    {
+      "type": "write_legacy_value",
+      "storage": "state_u16",
+      "bank": 0,
+      "index": 6,
+      "value": 1,
+      "cell_class": "unnamed"
+    }
+  ],
+  "results": {
+    "result_a": {
+      "selected_by": {
+        "kind": "condition",
+        "conditions": [
+          {
+            "storage": "state_u16",
+            "bank": 0,
+            "index": 21,
+            "operator": "equals",
+            "value": 0
+          }
+        ]
+      },
+      "event_played": true,
+      "dialogue": [
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "CALLEE",
+            "at": 270,
+            "s": 12,
+            "raw_sha256": "c4493f03c70b8e44f3dcdb69a8e165b4dda7b6030960b0ff7767748620eeb00f"
+          }
+        },
+        {
+          "kind": "scene_end"
+        }
+      ],
+      "after": [
+        {
+          "type": "write_legacy_value",
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 20,
+          "value": 1,
+          "cell_class": "unnamed"
+        }
+      ],
+      "terminal": "term_root"
+    },
+    "result_b": {
+      "selected_by": {
+        "kind": "condition",
+        "conditions": [
+          {
+            "storage": "state_u16",
+            "bank": 0,
+            "index": 21,
+            "operator": "equals",
+            "value": 1
+          }
+        ]
+      },
+      "event_played": true,
+      "dialogue": [
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "CALLEE",
+            "at": 280,
+            "s": 13,
+            "raw_sha256": "684a014dbd6ff11cae1188158a6230deb2448fef29a7d2b130c42a33c9421a89"
+          }
+        },
+        {
+          "kind": "scene_end"
+        }
+      ],
+      "after": [
+        {
+          "type": "write_legacy_value",
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 20,
+          "value": 1,
+          "cell_class": "unnamed"
+        }
+      ],
+      "terminal": "term_root"
+    }
+  },
+  "terminals": {
+    "term_root": {
+      "kind": "root_handoff",
+      "owner_entry": "CALLEE",
+      "offset": 700,
+      "end": 704,
+      "next_target": "MACHI.MES",
+      "required_state": [
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 20,
+          "value": 1
+        }
+      ]
+    },
+    "term_dependency": {
+      "kind": "dependency_stop",
+      "owner_entry": "CALLEE",
+      "offset": 710,
+      "end": 714,
+      "required_state": []
+    }
+  },
+  "dependencies": [],
+  "presentation": {
+    "status": "deferred",
+    "resources": []
+  },
+  "unresolved": []
+}

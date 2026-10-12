@@ -1,0 +1,465 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://tools/content_suite/apps/mes_editor.gd" id="1_script"]
+
+[sub_resource type="Theme" id="Theme_mes_editor"]
+default_font_size = 11
+
+[node name="MesEditor" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_mes_editor")
+script = ExtResource("1_script")
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Layout" type="VBoxContainer" parent="Margin"]
+layout_mode = 2
+
+[node name="Toolbar" type="HBoxContainer" parent="Margin/Layout"]
+layout_mode = 2
+
+[node name="Open" type="Button" parent="Margin/Layout/Toolbar"]
+layout_mode = 2
+text = "Open mes.arc..."
+
+[node name="TextCache" type="Button" parent="Margin/Layout/Toolbar"]
+layout_mode = 2
+text = "Load text cache..."
+
+[node name="LoadOverlay" type="Button" parent="Margin/Layout/Toolbar"]
+layout_mode = 2
+text = "Load overlay..."
+
+[node name="HotReloadOverlay" type="Button" parent="Margin/Layout/Toolbar"]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+tooltip_text = "Revalidate the loaded manifest and reopen the selected MES entry."
+text = "Hot Reload"
+
+[node name="ClearOverlay" type="Button" parent="Margin/Layout/Toolbar"]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+tooltip_text = "Detach the overlay read layer and reopen the selected entry from the original ARC."
+text = "Clear"
+
+[node name="RunEventPlayer" type="Button" parent="Margin/Layout/Toolbar"]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+tooltip_text = "Publish a validated immutable Run request and open this entry in Event Player Analysis."
+text = "Run"
+
+[node name="ArchiveLabel" type="Label" parent="Margin/Layout/Toolbar"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "No archive open"
+text_overrun_behavior = 3
+
+[node name="FilterEdit" type="LineEdit" parent="Margin/Layout"]
+unique_name_in_owner = true
+layout_mode = 2
+placeholder_text = "Filter entry names..."
+
+[node name="MainSplit" type="HSplitContainer" parent="Margin/Layout"]
+layout_mode = 2
+size_flags_vertical = 3
+split_offset = 210
+
+[node name="EntryTree" type="Tree" parent="Margin/Layout/MainSplit"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(190, 0)
+layout_mode = 2
+columns = 2
+column_titles_visible = true
+hide_root = true
+
+[node name="Right" type="VBoxContainer" parent="Margin/Layout/MainSplit"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Details" type="RichTextLabel" parent="Margin/Layout/MainSplit/Right"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 74)
+layout_mode = 2
+bbcode_enabled = true
+scroll_active = true
+selection_enabled = true
+text = "Select an entry to inspect its lossless MES container and strict structural projections."
+
+[node name="AnalysisTabs" type="TabContainer" parent="Margin/Layout/MainSplit/Right"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Disassembly" type="VSplitContainer" parent="Margin/Layout/MainSplit/Right/AnalysisTabs"]
+layout_mode = 2
+split_offset = 88
+
+[node name="AddressTree" type="Tree" parent="Margin/Layout/MainSplit/Right/AnalysisTabs/Disassembly"]
+unique_name_in_owner = true
+layout_mode = 2
+columns = 3
+column_titles_visible = true
+hide_root = true
+
+[node name="HexPreview" type="RichTextLabel" parent="Margin/Layout/MainSplit/Right/AnalysisTabs/Disassembly"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+scroll_active = true
+selection_enabled = true
+context_menu_enabled = true
+
+[node name="Messages" type="VBoxContainer" parent="Margin/Layout/MainSplit/Right/AnalysisTabs"]
+layout_mode = 2
+
+[node name="MessageSearchEdit" type="LineEdit" parent="Margin/Layout/MainSplit/Right/AnalysisTabs/Messages"]
+unique_name_in_owner = true
+layout_mode = 2
+placeholder_text = "Search Japanese text, UTF-8 edits, or hex:..."
+
+[node name="CatalogBar" type="HFlowContainer" parent="Margin/Layout/MainSplit/Right/AnalysisTabs/Messages"]
+layout_mode = 2
+
+[node name="CatalogLabel" type="Label" parent="Margin/Layout/MainSplit/Right/AnalysisTabs/Messages/CatalogBar"]
+layout_mode = 2
+text = "Translation catalog"
+
+[node name="CatalogTargetLocale" type="LineEdit" parent="Margin/Layout/MainSplit/Right/AnalysisTabs/Messages/CatalogBar"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+tooltip_text = "Target locale stored in a new selected-entry catalog."
+text = "ko-KR"
+placeholder_text = "Target locale"
+
+[node name="CatalogTranslatorId" type="LineEdit" parent="Margin/Layout/MainSplit/Right/AnalysisTabs/Messages/CatalogBar"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+tooltip_text = "Lowercase path-free translator ID used when updating staged rows."
+placeholder_text = "translator.id"
+
+[node name="CatalogExportButton" type="Button" parent="Margin/Layout/MainSplit/Right/AnalysisTabs/Messages/CatalogBar"]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+text = "Export..."
+
+[node name="CatalogUpdateButton" type="Button" parent="Margin/Layout/MainSplit/Right/AnalysisTabs/Messages/CatalogBar"]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+text = "Update..."
+
+[node name="CatalogImportButton" type="Button" parent="Margin/Layout/MainSplit/Right/AnalysisTabs/Messages/CatalogBar"]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+text = "Import..."
+
+[node name="MessageTree" type="Tree" parent="Margin/Layout/MainSplit/Right/AnalysisTabs/Messages"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+columns = 3
+column_titles_visible = true
+hide_root = true
+
+[node name="MessageAuthoring" type="HBoxContainer" parent="Margin/Layout/MainSplit/Right/AnalysisTabs/Messages"]
+layout_mode = 2
+
+[node name="PendingLabel" type="Label" parent="Margin/Layout/MainSplit/Right/AnalysisTabs/Messages/MessageAuthoring"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0 here / 0 total"
+
+[node name="MessageEdit" type="LineEdit" parent="Margin/Layout/MainSplit/Right/AnalysisTabs/Messages/MessageAuthoring"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+editable = false
+placeholder_text = "Select an indexed message to author a UTF-8 overlay edit."
+
+[node name="MessageStageButton" type="Button" parent="Margin/Layout/MainSplit/Right/AnalysisTabs/Messages/MessageAuthoring"]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+text = "Stage"
+
+[node name="MessageRevertButton" type="Button" parent="Margin/Layout/MainSplit/Right/AnalysisTabs/Messages/MessageAuthoring"]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+text = "Revert"
+
+[node name="OverlayDetachButton" type="Button" parent="Margin/Layout/MainSplit/Right/AnalysisTabs/Messages/MessageAuthoring"]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+text = "Detach entry"
+
+[node name="OverlaySaveButton" type="Button" parent="Margin/Layout/MainSplit/Right/AnalysisTabs/Messages/MessageAuthoring"]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+text = "Save all..."
+
+[node name="BinaryPatchBar" type="HBoxContainer" parent="Margin/Layout/MainSplit/Right/AnalysisTabs/Messages"]
+layout_mode = 2
+
+[node name="BinaryPatchLabel" type="Label" parent="Margin/Layout/MainSplit/Right/AnalysisTabs/Messages/BinaryPatchBar"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "CP932: 0 pending · exact length · engine unverified"
+
+[node name="BinaryOverlaySaveButton" type="Button" parent="Margin/Layout/MainSplit/Right/AnalysisTabs/Messages/BinaryPatchBar"]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+text = "Save CP932..."
+
+[node name="BinaryArcExportButton" type="Button" parent="Margin/Layout/MainSplit/Right/AnalysisTabs/Messages/BinaryPatchBar"]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+text = "Export ARC..."
+
+[node name="References" type="TabContainer" parent="Margin/Layout/MainSplit/Right/AnalysisTabs"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="CodeReferenceTree" type="Tree" parent="Margin/Layout/MainSplit/Right/AnalysisTabs/References"]
+unique_name_in_owner = true
+layout_mode = 2
+columns = 4
+column_titles_visible = true
+hide_root = true
+
+[node name="StateReferenceTree" type="Tree" parent="Margin/Layout/MainSplit/Right/AnalysisTabs/References"]
+unique_name_in_owner = true
+layout_mode = 2
+columns = 4
+column_titles_visible = true
+hide_root = true
+
+[node name="ResourceReferenceTree" type="Tree" parent="Margin/Layout/MainSplit/Right/AnalysisTabs/References"]
+unique_name_in_owner = true
+layout_mode = 2
+columns = 4
+column_titles_visible = true
+hide_root = true
+
+[node name="CFG" type="VBoxContainer" parent="Margin/Layout/MainSplit/Right/AnalysisTabs"]
+layout_mode = 2
+
+[node name="CfgToolbar" type="HBoxContainer" parent="Margin/Layout/MainSplit/Right/AnalysisTabs/CFG"]
+layout_mode = 2
+
+[node name="CfgBackButton" type="Button" parent="Margin/Layout/MainSplit/Right/AnalysisTabs/CFG/CfgToolbar"]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+text = "Back"
+
+[node name="CfgForwardButton" type="Button" parent="Margin/Layout/MainSplit/Right/AnalysisTabs/CFG/CfgToolbar"]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+text = "Forward"
+
+[node name="CfgSummary" type="Label" parent="Margin/Layout/MainSplit/Right/AnalysisTabs/CFG/CfgToolbar"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Select an address range to build a bounded partial graph."
+autowrap_mode = 2
+
+[node name="CfgFilters" type="HBoxContainer" parent="Margin/Layout/MainSplit/Right/AnalysisTabs/CFG"]
+layout_mode = 2
+
+[node name="CfgShowConfirmed" type="CheckButton" parent="Margin/Layout/MainSplit/Right/AnalysisTabs/CFG/CfgFilters"]
+unique_name_in_owner = true
+layout_mode = 2
+button_pressed = true
+text = "Flow"
+
+[node name="CfgShowStructural" type="CheckButton" parent="Margin/Layout/MainSplit/Right/AnalysisTabs/CFG/CfgFilters"]
+unique_name_in_owner = true
+layout_mode = 2
+button_pressed = true
+text = "Structural"
+
+[node name="CfgShowStops" type="CheckButton" parent="Margin/Layout/MainSplit/Right/AnalysisTabs/CFG/CfgFilters"]
+unique_name_in_owner = true
+layout_mode = 2
+button_pressed = true
+text = "Stops"
+
+[node name="CfgFilterSpacer" type="Control" parent="Margin/Layout/MainSplit/Right/AnalysisTabs/CFG/CfgFilters"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CfgFocusButton" type="Button" parent="Margin/Layout/MainSplit/Right/AnalysisTabs/CFG/CfgFilters"]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+text = "Focus"
+
+[node name="CfgExportButton" type="Button" parent="Margin/Layout/MainSplit/Right/AnalysisTabs/CFG/CfgFilters"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Export..."
+
+[node name="CfgGraph" type="GraphEdit" parent="Margin/Layout/MainSplit/Right/AnalysisTabs/CFG"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+show_grid = true
+minimap_enabled = true
+show_arrange_button = false
+show_minimap_button = true
+
+[node name="StatusLabel" type="Label" parent="Margin/Layout"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+text = "Read-only strict analysis; invalid or unresolved boundaries stop indexing."
+autowrap_mode = 2
+
+[node name="OpenDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+title = "Open read-only mes.arc"
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.arc ; Kakyu ARC archives")
+
+[node name="TextCacheDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+title = "Choose a hash-bound MES UTF-8 text cache"
+file_mode = 2
+access = 2
+
+[node name="OverlayLoadDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+title = "Choose a validated content overlay package"
+file_mode = 2
+access = 2
+
+[node name="OverlaySaveDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+title = "Choose or create an overlay package directory"
+file_mode = 2
+access = 2
+
+[node name="BinaryOverlaySaveDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+title = "Choose or create an equal-length CP932 binary overlay directory"
+file_mode = 2
+access = 2
+
+[node name="BinaryArcExportDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+title = "Export a new equal-length CP932 MES ARC copy (engine unverified)"
+file_mode = 4
+access = 2
+filters = PackedStringArray("*.arc ; Kakyu ARC copy")
+
+[node name="CfgExportDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+title = "Export visible CFG projection to a new file"
+file_mode = 4
+access = 2
+filters = PackedStringArray("*.json ; Versioned CFG JSON", "*.dot ; Graphviz DOT")
+
+[node name="CatalogExportDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+title = "Export a new selected-entry translation catalog"
+file_mode = 4
+access = 2
+filters = PackedStringArray("*.json ; MES translation catalog")
+
+[node name="CatalogUpdateSourceDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+title = "Choose the translation catalog to update"
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.json ; MES translation catalog")
+
+[node name="CatalogUpdateOutputDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+title = "Publish the updated translation catalog as a new revision"
+file_mode = 4
+access = 2
+filters = PackedStringArray("*.json ; MES translation catalog")
+
+[node name="CatalogImportDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+title = "Import an exact-source selected-entry translation catalog"
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.json ; MES translation catalog")
+
+[connection signal="pressed" from="Margin/Layout/Toolbar/Open" to="." method="_on_open_pressed"]
+[connection signal="pressed" from="Margin/Layout/Toolbar/TextCache" to="." method="_on_text_cache_pressed"]
+[connection signal="pressed" from="Margin/Layout/Toolbar/LoadOverlay" to="." method="_on_overlay_load_pressed"]
+[connection signal="pressed" from="Margin/Layout/Toolbar/HotReloadOverlay" to="." method="_on_hot_reload_overlay_pressed"]
+[connection signal="pressed" from="Margin/Layout/Toolbar/ClearOverlay" to="." method="_on_clear_overlay_pressed"]
+[connection signal="pressed" from="Margin/Layout/Toolbar/RunEventPlayer" to="." method="_on_run_event_player_pressed"]
+[connection signal="text_changed" from="Margin/Layout/FilterEdit" to="." method="_on_filter_changed"]
+[connection signal="item_selected" from="Margin/Layout/MainSplit/EntryTree" to="." method="_on_entry_selected"]
+[connection signal="item_selected" from="Margin/Layout/MainSplit/Right/AnalysisTabs/Disassembly/AddressTree" to="." method="_on_address_selected"]
+[connection signal="text_changed" from="Margin/Layout/MainSplit/Right/AnalysisTabs/Messages/MessageSearchEdit" to="." method="_on_message_search_changed"]
+[connection signal="pressed" from="Margin/Layout/MainSplit/Right/AnalysisTabs/Messages/CatalogBar/CatalogExportButton" to="." method="_on_catalog_export_pressed"]
+[connection signal="pressed" from="Margin/Layout/MainSplit/Right/AnalysisTabs/Messages/CatalogBar/CatalogUpdateButton" to="." method="_on_catalog_update_pressed"]
+[connection signal="pressed" from="Margin/Layout/MainSplit/Right/AnalysisTabs/Messages/CatalogBar/CatalogImportButton" to="." method="_on_catalog_import_pressed"]
+[connection signal="item_selected" from="Margin/Layout/MainSplit/Right/AnalysisTabs/Messages/MessageTree" to="." method="_on_message_selected"]
+[connection signal="text_submitted" from="Margin/Layout/MainSplit/Right/AnalysisTabs/Messages/MessageAuthoring/MessageEdit" to="." method="_on_message_text_submitted"]
+[connection signal="text_changed" from="Margin/Layout/MainSplit/Right/AnalysisTabs/Messages/MessageAuthoring/MessageEdit" to="." method="_on_message_text_changed"]
+[connection signal="pressed" from="Margin/Layout/MainSplit/Right/AnalysisTabs/Messages/MessageAuthoring/MessageStageButton" to="." method="_on_stage_text_pressed"]
+[connection signal="pressed" from="Margin/Layout/MainSplit/Right/AnalysisTabs/Messages/MessageAuthoring/MessageRevertButton" to="." method="_on_revert_text_pressed"]
+[connection signal="pressed" from="Margin/Layout/MainSplit/Right/AnalysisTabs/Messages/MessageAuthoring/OverlayDetachButton" to="." method="_on_overlay_detach_pressed"]
+[connection signal="pressed" from="Margin/Layout/MainSplit/Right/AnalysisTabs/Messages/MessageAuthoring/OverlaySaveButton" to="." method="_on_overlay_save_pressed"]
+[connection signal="pressed" from="Margin/Layout/MainSplit/Right/AnalysisTabs/Messages/BinaryPatchBar/BinaryOverlaySaveButton" to="." method="_on_binary_overlay_save_pressed"]
+[connection signal="pressed" from="Margin/Layout/MainSplit/Right/AnalysisTabs/Messages/BinaryPatchBar/BinaryArcExportButton" to="." method="_on_binary_arc_export_pressed"]
+[connection signal="item_selected" from="Margin/Layout/MainSplit/Right/AnalysisTabs/References/CodeReferenceTree" to="." method="_on_code_reference_selected"]
+[connection signal="item_selected" from="Margin/Layout/MainSplit/Right/AnalysisTabs/References/StateReferenceTree" to="." method="_on_state_reference_selected"]
+[connection signal="item_selected" from="Margin/Layout/MainSplit/Right/AnalysisTabs/References/ResourceReferenceTree" to="." method="_on_resource_reference_selected"]
+[connection signal="pressed" from="Margin/Layout/MainSplit/Right/AnalysisTabs/CFG/CfgToolbar/CfgBackButton" to="." method="_on_cfg_back_pressed"]
+[connection signal="pressed" from="Margin/Layout/MainSplit/Right/AnalysisTabs/CFG/CfgToolbar/CfgForwardButton" to="." method="_on_cfg_forward_pressed"]
+[connection signal="toggled" from="Margin/Layout/MainSplit/Right/AnalysisTabs/CFG/CfgFilters/CfgShowConfirmed" to="." method="_on_cfg_filter_toggled"]
+[connection signal="toggled" from="Margin/Layout/MainSplit/Right/AnalysisTabs/CFG/CfgFilters/CfgShowStructural" to="." method="_on_cfg_filter_toggled"]
+[connection signal="toggled" from="Margin/Layout/MainSplit/Right/AnalysisTabs/CFG/CfgFilters/CfgShowStops" to="." method="_on_cfg_filter_toggled"]
+[connection signal="pressed" from="Margin/Layout/MainSplit/Right/AnalysisTabs/CFG/CfgFilters/CfgFocusButton" to="." method="_on_cfg_focus_pressed"]
+[connection signal="pressed" from="Margin/Layout/MainSplit/Right/AnalysisTabs/CFG/CfgFilters/CfgExportButton" to="." method="_on_cfg_export_pressed"]
+[connection signal="node_selected" from="Margin/Layout/MainSplit/Right/AnalysisTabs/CFG/CfgGraph" to="." method="_on_cfg_node_selected"]
+[connection signal="file_selected" from="OpenDialog" to="." method="_on_archive_selected"]
+[connection signal="dir_selected" from="TextCacheDialog" to="." method="_on_text_cache_selected"]
+[connection signal="dir_selected" from="OverlayLoadDialog" to="." method="_on_overlay_load_selected"]
+[connection signal="dir_selected" from="OverlaySaveDialog" to="." method="_on_overlay_save_selected"]
+[connection signal="dir_selected" from="BinaryOverlaySaveDialog" to="." method="_on_binary_overlay_save_selected"]
+[connection signal="file_selected" from="BinaryArcExportDialog" to="." method="_on_binary_arc_export_path_selected"]
+[connection signal="file_selected" from="CfgExportDialog" to="." method="_on_cfg_export_path_selected"]
+[connection signal="file_selected" from="CatalogExportDialog" to="." method="_on_catalog_export_path_selected"]
+[connection signal="file_selected" from="CatalogUpdateSourceDialog" to="." method="_on_catalog_update_source_selected"]
+[connection signal="file_selected" from="CatalogUpdateOutputDialog" to="." method="_on_catalog_update_output_selected"]
+[connection signal="file_selected" from="CatalogImportDialog" to="." method="_on_catalog_import_selected"]

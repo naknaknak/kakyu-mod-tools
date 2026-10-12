@@ -1,0 +1,937 @@
+{
+  "schema_version": "kakyu_event_definition/v3",
+  "contract_fingerprint": "7545e37e08d3dacac8eafb4757ec3ca68305af8afb9278001cce3932a272fb55",
+  "names_fingerprint": "b7ffcea3abac019a78f8ac19e98d5259fc778a0eb3c7123424f257b435163e1a",
+  "id": "miko.town.17m.20.2",
+  "kind": "choice_event",
+  "display": {
+    "title_ko": "17m에서 미코 (EVENTA20)",
+    "title_en": "Miko at 17m (EVENTA20)",
+    "heroine": "miko",
+    "category": "town",
+    "place": "17m"
+  },
+  "evidence": {
+    "kind": "analysis_group",
+    "archive_sha256": "31a95b31cb0f1051cf973a4dba4f4a5405671e4488240adfafb9b02290986aa6",
+    "groups": [
+      {
+        "group_id": "17m-a20b",
+        "profile_sha256": "ce8b6ec88c65de4287bbc102d227c8ac6156f07526505c6f8389dce70e56f67a",
+        "route_ids": [
+          "17m-a20b-result1",
+          "17m-a20b-result2"
+        ]
+      }
+    ],
+    "members": [
+      {
+        "entry": "17M.MES",
+        "entry_sha256": "785645b1d127d1b21ce7fd0f66f431e15b7f10a34b1a5edfcefc452e61a4293f"
+      },
+      {
+        "entry": "EVENTA20.MES",
+        "entry_sha256": "fdeda1f72d07f872782744489674ebdcf67dfcf386a20e0017fcb1d11dce3905"
+      },
+      {
+        "entry": "MACHI.MES",
+        "entry_sha256": "56b0f4243f3c0944624ea0ef11b369391761ff394816775264c144bb76391488"
+      },
+      {
+        "entry": "START.MES",
+        "entry_sha256": "ba57bf666fbd9db9b3110f2bf1c70e80e11a35de00e82256aaaf35921c77038f"
+      },
+      {
+        "entry": "DEF_MAIN.MES",
+        "entry_sha256": "f2012ce5d90f60a5d1ca8190e03571341c0384c2d3d96e9aec2b3ab949db0ef0"
+      },
+      {
+        "entry": "LIBLARY.LIB",
+        "entry_sha256": "d9aba6eb8dab51fe321e22c868ed0cf38416bba1f0cf2f5d7d719f48e89b8b4d"
+      }
+    ],
+    "document_refs": []
+  },
+  "package_binding": {
+    "schema": "kakyu_playback_package/v7",
+    "package_sha256": "bf3d1f6eeb3e0e3d5ae949597b3c273e91197f086e3627c27428a05413cc8fa1"
+  },
+  "trigger": {
+    "type": "caller_dispatch",
+    "caller": {
+      "entry": "17M.MES",
+      "entry_sha256": "785645b1d127d1b21ce7fd0f66f431e15b7f10a34b1a5edfcefc452e61a4293f",
+      "offset": 43891,
+      "end": 43907,
+      "command": 14,
+      "kind": "root_handoff"
+    },
+    "callee": {
+      "entry": "EVENTA20.MES",
+      "entry_sha256": "fdeda1f72d07f872782744489674ebdcf67dfcf386a20e0017fcb1d11dce3905",
+      "start_coordinate": 0
+    },
+    "origin": {
+      "kind": "typed_guard",
+      "offset": 43689
+    }
+  },
+  "scenes": [],
+  "guard": {
+    "offset": 43689,
+    "end": 43700,
+    "false_target": 43912,
+    "record_sha256": "7fd6779100a985ed8a51af41aeccec888f1d20b07ce43eaec661875156ff32ef",
+    "conjuncts": [
+      {
+        "kind": "cell",
+        "storage": "global_u8",
+        "bank": 0,
+        "index": 1127,
+        "op": "equal",
+        "value": 1
+      }
+    ],
+    "witnesses": [
+      {
+        "case_id": "baseline",
+        "writes": [],
+        "expected": 1
+      },
+      {
+        "case_id": "global_u8-1127-0",
+        "writes": [
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 1127,
+            "value": 0
+          }
+        ],
+        "expected": 0
+      }
+    ]
+  },
+  "conditions": [
+    {
+      "type": "mes_expression",
+      "ast": {
+        "lhs": {
+          "bank": 0,
+          "index": {
+            "type": "literal",
+            "value": 1127
+          },
+          "source": {
+            "offset": 43690,
+            "token": "0xf3"
+          },
+          "storage": "global_u8",
+          "type": "state_ref"
+        },
+        "op": "equal",
+        "rhs": {
+          "source": {
+            "offset": 43693,
+            "token": "0x01"
+          },
+          "type": "literal",
+          "value": 1,
+          "width": 8
+        },
+        "source": {
+          "offset": 43694,
+          "token": "0xef"
+        },
+        "type": "binary"
+      },
+      "source_offset": 43689,
+      "failure_reason": "guard_rejected"
+    }
+  ],
+  "presets": [
+    {
+      "preset_id": "baseline",
+      "label": "baseline",
+      "writes": [
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 0,
+          "value": 0
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 1,
+          "value": 13
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 4,
+          "value": 0
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 7,
+          "value": 1301
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 19,
+          "value": 1000
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 21,
+          "value": 1
+        },
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 242,
+          "value": 0
+        },
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 201,
+          "value": 50
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 1035,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 350,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 1130,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 1131,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 994,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 114,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 112,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 117,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 1034,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 1059,
+          "value": 0
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 12,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 1127,
+          "value": 1
+        }
+      ]
+    },
+    {
+      "preset_id": "17m-a20b-result1/clock-801",
+      "label": "clock-801",
+      "writes": [
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 19,
+          "value": 801
+        }
+      ]
+    },
+    {
+      "preset_id": "17m-a20b-result1/clock-859",
+      "label": "clock-859",
+      "writes": [
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 19,
+          "value": 859
+        }
+      ]
+    },
+    {
+      "preset_id": "17m-a20b-result1/clock-900",
+      "label": "clock-900",
+      "writes": [
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 19,
+          "value": 900
+        }
+      ]
+    },
+    {
+      "preset_id": "17m-a20b-result1/clock-1599",
+      "label": "clock-1599",
+      "writes": [
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 19,
+          "value": 1599
+        }
+      ]
+    },
+    {
+      "preset_id": "17m-a20b-result1/clock-1600",
+      "label": "clock-1600",
+      "writes": [
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 19,
+          "value": 1600
+        }
+      ]
+    },
+    {
+      "preset_id": "17m-a20b-result1/clock-1700",
+      "label": "clock-1700",
+      "writes": [
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 19,
+          "value": 1700
+        }
+      ]
+    },
+    {
+      "preset_id": "17m-a20b-result1/global_u8_350-1",
+      "label": "global_u8_350-1",
+      "writes": [
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 350,
+          "value": 1
+        }
+      ]
+    },
+    {
+      "preset_id": "17m-a20b-result1/global_u8_350-2",
+      "label": "global_u8_350-2",
+      "writes": [
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 350,
+          "value": 2
+        }
+      ]
+    },
+    {
+      "preset_id": "17m-a20b-result1/global_u8_350-3",
+      "label": "global_u8_350-3",
+      "writes": [
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 350,
+          "value": 3
+        }
+      ]
+    },
+    {
+      "preset_id": "17m-a20b-result1/banked_u16_201-100",
+      "label": "banked_u16_201-100",
+      "writes": [
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 201,
+          "value": 100
+        }
+      ]
+    },
+    {
+      "preset_id": "17m-a20b-result1/banked_u16_201-101",
+      "label": "banked_u16_201-101",
+      "writes": [
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 201,
+          "value": 101
+        }
+      ]
+    },
+    {
+      "preset_id": "17m-a20b-result1/callee-global_u8_4000-1",
+      "label": "callee-global_u8_4000-1",
+      "writes": [
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 4000,
+          "value": 1
+        }
+      ]
+    },
+    {
+      "preset_id": "17m-a20b-result1/callee-state_u16_8-1",
+      "label": "callee-state_u16_8-1",
+      "writes": [
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 8,
+          "value": 1
+        }
+      ]
+    },
+    {
+      "preset_id": "17m-a20b-result1/callee-global_u8_3006-1",
+      "label": "callee-global_u8_3006-1",
+      "writes": [
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3006,
+          "value": 1
+        }
+      ]
+    },
+    {
+      "preset_id": "17m-a20b-result1/global_u8_1131-1",
+      "label": "global_u8_1131-1",
+      "writes": [
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 1131,
+          "value": 1
+        }
+      ]
+    },
+    {
+      "preset_id": "17m-a20b-result1/global_u8_1131-2",
+      "label": "global_u8_1131-2",
+      "writes": [
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 1131,
+          "value": 2
+        }
+      ]
+    },
+    {
+      "preset_id": "17m-a20b-result2/state_u16_12-1",
+      "label": "state_u16_12-1",
+      "writes": [
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 12,
+          "value": 1
+        }
+      ]
+    }
+  ],
+  "dialogue": [
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTA20.MES",
+        "at": 8441,
+        "s": 52,
+        "raw_sha256": "00ab9e3b6d473403d96a70b967a0a3564841401dfe486340df07e7c1e741ae3e"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTA20.MES",
+        "at": 8513,
+        "s": 2,
+        "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "EVENTA20.MES",
+      "at": 8517,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTA20.MES",
+        "at": 8534,
+        "s": 53,
+        "raw_sha256": "07b0ed23e32c55dbd052d1375c83bae488176b1fbe920b628a1d12df94174872"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTA20.MES",
+        "at": 8650,
+        "s": 54,
+        "raw_sha256": "5c286d7ca056daadf286ae43cb0e4315f252019fcbb1ca3a04b0482065382464"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTA20.MES",
+        "at": 8732,
+        "s": 2,
+        "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "EVENTA20.MES",
+      "at": 8736,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTA20.MES",
+        "at": 8753,
+        "s": 55,
+        "raw_sha256": "ca93fbb4be58ad27e7c2c4b18b03ed3c52be5f11c9ca3b6ab4c5849bfc6413a5"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "EVENTA20.MES",
+        "at": 8885,
+        "s": 56,
+        "raw_sha256": "e5b48ffc3129c32c8ccfe70c176ebb03f012c28bec68b5cfb8799c7d17194e7b"
+      }
+    }
+  ],
+  "after": [
+    {
+      "type": "write_legacy_value",
+      "storage": "banked_u16",
+      "bank": 0,
+      "index": 1,
+      "value": 7
+    },
+    {
+      "type": "write_legacy_value",
+      "storage": "global_u8",
+      "bank": 0,
+      "index": 5044,
+      "value": 1
+    },
+    {
+      "type": "write_legacy_value",
+      "storage": "global_u8",
+      "bank": 0,
+      "index": 3443,
+      "value": 1
+    },
+    {
+      "type": "write_legacy_value",
+      "storage": "global_u8",
+      "bank": 0,
+      "index": 286,
+      "value": 1
+    }
+  ],
+  "results": {
+    "answer1": {
+      "selected_by": {
+        "kind": "choice",
+        "value": 1
+      },
+      "event_played": true,
+      "dialogue": [
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTA20.MES",
+            "at": 9117,
+            "s": 2,
+            "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+          }
+        },
+        {
+          "kind": "name_insert",
+          "entry": "EVENTA20.MES",
+          "at": 9121,
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTA20.MES",
+            "at": 9138,
+            "s": 14,
+            "raw_sha256": "574e1be80bfb40ac2f812fa111fda8964d1a48b066c7d892b8c1ffa1a8822c7a"
+          }
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTA20.MES",
+            "at": 9258,
+            "s": 15,
+            "raw_sha256": "0fabf7dbb28c09a760b149b62e5e116162146536e3c107537a46aeff1115fd0a"
+          }
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTA20.MES",
+            "at": 9463,
+            "s": 2,
+            "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+          }
+        },
+        {
+          "kind": "name_insert",
+          "entry": "EVENTA20.MES",
+          "at": 9467,
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTA20.MES",
+            "at": 9484,
+            "s": 17,
+            "raw_sha256": "cdcc3c789420a9568ac5f4424908b6bab4f9d388e1e3917413e16d564c6985a2"
+          }
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTA20.MES",
+            "at": 9526,
+            "s": 18,
+            "raw_sha256": "9fbf7aa5c6aba6b42d0ad459d1929e7e0e0f8a8f8340aae006ef4a74e7b5c8c9"
+          }
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTA20.MES",
+            "at": 9574,
+            "s": 2,
+            "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+          }
+        },
+        {
+          "kind": "name_insert",
+          "entry": "EVENTA20.MES",
+          "at": 9578,
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTA20.MES",
+            "at": 9595,
+            "s": 19,
+            "raw_sha256": "09fd8cbd92cda6f438f4cf336e5d1f793c1cfea0a3a59e0292f49807186f7820"
+          }
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTA20.MES",
+            "at": 9719,
+            "s": 57,
+            "raw_sha256": "e1284db3bf31f2fb6b9b0b19090f86f774b5e0d7586efa5b350b09ec113a8ac5"
+          }
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTA20.MES",
+            "at": 9785,
+            "s": 2,
+            "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+          }
+        },
+        {
+          "kind": "name_insert",
+          "entry": "EVENTA20.MES",
+          "at": 9789,
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTA20.MES",
+            "at": 9806,
+            "s": 58,
+            "raw_sha256": "df51495973d6e7178b37469f0f23fb230962c322a97c761cb16862862a5359a9"
+          }
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTA20.MES",
+            "at": 9882,
+            "s": 59,
+            "raw_sha256": "9047bf83d52bedb8e5da06759858b938cec0c44ef33ef5d27a2ef3aad6adfe36"
+          }
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTA20.MES",
+            "at": 10028,
+            "s": 23,
+            "raw_sha256": "a27a5a0efc184ef9c9038e1556a9c3fb69426c0edd803a4510cfebe1e893d809"
+          }
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTA20.MES",
+            "at": 10098,
+            "s": 2,
+            "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+          }
+        },
+        {
+          "kind": "name_insert",
+          "entry": "EVENTA20.MES",
+          "at": 10102,
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTA20.MES",
+            "at": 10119,
+            "s": 24,
+            "raw_sha256": "d584f729da5981f763f072104800e8dde840e929e734e7495b9a1ada7a4a6a82"
+          }
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTA20.MES",
+            "at": 10241,
+            "s": 25,
+            "raw_sha256": "fa3c2d3698decaa431c0136746b3823fc6693b783bc7b597616e59d0112504d4"
+          }
+        }
+      ],
+      "after": [],
+      "terminal": "17m-a20b-result1.outcome",
+      "reentry": {
+        "outcome": "same",
+        "message_count": 30,
+        "after": []
+      }
+    },
+    "answer2": {
+      "selected_by": {
+        "kind": "choice",
+        "value": 2
+      },
+      "event_played": true,
+      "dialogue": [
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTA20.MES",
+            "at": 13771,
+            "s": 2,
+            "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+          }
+        },
+        {
+          "kind": "name_insert",
+          "entry": "EVENTA20.MES",
+          "at": 13775,
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTA20.MES",
+            "at": 13792,
+            "s": 62,
+            "raw_sha256": "c2ae46d5345526f39b4593b6b4061336c2352e9c59c558f8c610e9930d071a95"
+          }
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTA20.MES",
+            "at": 13920,
+            "s": 63,
+            "raw_sha256": "a35970f88ba70229e60cffe3080532111bd95b45e7b8c607f8a009eeae1fb84b"
+          }
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTA20.MES",
+            "at": 14012,
+            "s": 64,
+            "raw_sha256": "2a8766622ce67570181505b5b91ebc41ab9793ae5076fe5e9e189d3bbc88499a"
+          }
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTA20.MES",
+            "at": 14162,
+            "s": 48,
+            "raw_sha256": "b800a1355ce5984ef63a4f06d1e0c1d2f01427c717d1ece62500f047962715a4"
+          }
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTA20.MES",
+            "at": 14228,
+            "s": 2,
+            "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+          }
+        },
+        {
+          "kind": "name_insert",
+          "entry": "EVENTA20.MES",
+          "at": 14232,
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTA20.MES",
+            "at": 14249,
+            "s": 49,
+            "raw_sha256": "aac8477fcb8124e097ba98e7e4ca9f76f231571076b21969e7161935122638e2"
+          }
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTA20.MES",
+            "at": 14369,
+            "s": 25,
+            "raw_sha256": "fa3c2d3698decaa431c0136746b3823fc6693b783bc7b597616e59d0112504d4"
+          }
+        }
+      ],
+      "after": [],
+      "terminal": "17m-a20b-result2.outcome",
+      "reentry": {
+        "outcome": "same",
+        "message_count": 19,
+        "after": []
+      }
+    }
+  },
+  "terminals": {
+    "17m-a20b-result1.outcome": {
+      "kind": "root_handoff",
+      "owner_entry": "EVENTA20.MES",
+      "offset": 10408,
+      "end": 10421,
+      "next_target": "MACHI.MES",
+      "required_state": []
+    },
+    "17m-a20b-result2.outcome": {
+      "kind": "root_handoff",
+      "owner_entry": "EVENTA20.MES",
+      "offset": 14536,
+      "end": 14549,
+      "next_target": "MACHI.MES",
+      "required_state": []
+    }
+  },
+  "dependencies": [
+    {
+      "entry": "MACHI.MES",
+      "entry_sha256": "56b0f4243f3c0944624ea0ef11b369391761ff394816775264c144bb76391488",
+      "role": "nested_presentation"
+    }
+  ],
+  "presentation": {
+    "status": "deferred",
+    "resources": []
+  },
+  "unresolved": [
+    "Natural scheduling into the typed origin (43689) is not established, as site A's (a): the tree above it is seeded, not run, including global_u8[1127] = 1 at 42723's false edge.",
+    "The thirteen-arm global_u8[1035] prelude ladder is not on this site's path (42723's false edge is taken before the ladder).",
+    "state_u16[12] = 1 sends result 1 to a different handoff (13728..13741), and global_u8[1130] = 1 sends either result to a different handoff (17937..17950) - measured (analysis/17m_a20_measure.json), not declared.",
+    "The question at 9087 is supplied explicitly in every variant's selections, including the reentry. Native input, option rendering and cadence are omitted under the bounded runtime policy.",
+    "The callee rewrites global_u8[1127] = 1 itself and nothing measured here closes this site's own guard from the outside: the event repeats on every visit unless something outside this callee sets global_u8[1130].",
+    "What sets global_u8[1127], global_u8[1130] and global_u8[1131] elsewhere is not established.",
+    "The MACHI.MES continuations past each terminal and native presentation are not measured.",
+    "no done flag identified in the guard; the reentry is gated inside the callee (reentry emits 30 messages)"
+  ],
+  "choice": {
+    "owner": "callee",
+    "boundary": 9087,
+    "position": "in_event",
+    "options": [
+      {
+        "value": 1,
+        "result": "answer1"
+      },
+      {
+        "value": 2,
+        "result": "answer2"
+      }
+    ]
+  }
+}

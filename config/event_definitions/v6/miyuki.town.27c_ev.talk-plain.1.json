@@ -1,0 +1,996 @@
+{
+  "schema_version": "kakyu_event_definition/v6",
+  "contract_fingerprint": "74556e6406beed5fc82a51c14e2d7569e3ec748ec45c7dd595ae32ec7eefd2c9",
+  "names_fingerprint": "94223afe79303bd54eaa4bcdfd7b1e22a806191a749f80bea31d0068568fb29e",
+  "id": "miyuki.town.27c_ev.talk-plain.1",
+  "kind": "event",
+  "display": {
+    "title_ko": "27c_ev에서 미유키 (H_TALK)",
+    "title_en": "Miyuki at 27c_ev (H_TALK)",
+    "heroine": "miyuki",
+    "category": "town",
+    "place": "27c_ev"
+  },
+  "evidence": {
+    "kind": "analysis_group",
+    "archive_sha256": "31a95b31cb0f1051cf973a4dba4f4a5405671e4488240adfafb9b02290986aa6",
+    "groups": [
+      {
+        "group_id": "27c-ev-h-talk",
+        "profile_sha256": "607fce43ec9a7b335263b0bc23ed0f152d660b503770d6a251d631e2b4284a17",
+        "route_ids": [
+          "h-talk-plain"
+        ]
+      }
+    ],
+    "members": [
+      {
+        "entry": "27C_EV.MES",
+        "entry_sha256": "2af24ef7a0bf66a3006c66da133ec7f653f79bf5904fad7ff2f39f42302ccec3"
+      },
+      {
+        "entry": "H_TALK.MES",
+        "entry_sha256": "0ea4aeae46b357b1136b6f1ff2e696937524bfb8e947e4c48022beb4c4e1787a"
+      },
+      {
+        "entry": "H_PIC.MES",
+        "entry_sha256": "466f9f654079d6c0b6999817de6ad84e7e03c67584176cae7429cd01c2651687"
+      },
+      {
+        "entry": "LIBLARY.LIB",
+        "entry_sha256": "d9aba6eb8dab51fe321e22c868ed0cf38416bba1f0cf2f5d7d719f48e89b8b4d"
+      },
+      {
+        "entry": "DEF_MAIN.MES",
+        "entry_sha256": "f2012ce5d90f60a5d1ca8190e03571341c0384c2d3d96e9aec2b3ab949db0ef0"
+      },
+      {
+        "entry": "START.MES",
+        "entry_sha256": "ba57bf666fbd9db9b3110f2bf1c70e80e11a35de00e82256aaaf35921c77038f"
+      }
+    ],
+    "document_refs": [],
+    "effect_witnesses": [
+      {
+        "result": "body",
+        "cell": {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 10
+        },
+        "basis": "flag_pattern",
+        "entry": 0,
+        "final": 1,
+        "declared": false
+      },
+      {
+        "result": "body",
+        "cell": {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2539
+        },
+        "basis": "flag_pattern",
+        "entry": 0,
+        "final": 1,
+        "declared": false
+      },
+      {
+        "result": "h2_talk",
+        "cell": {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 10
+        },
+        "basis": "flag_pattern",
+        "entry": 0,
+        "final": 1,
+        "declared": false
+      },
+      {
+        "result": "h2_talk",
+        "cell": {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2539
+        },
+        "basis": "flag_pattern",
+        "entry": 0,
+        "final": 1,
+        "declared": false
+      }
+    ]
+  },
+  "package_binding": {
+    "schema": "kakyu_playback_package/v7",
+    "package_sha256": "b638bd7d135b408d748dd45a2bbb74486e2b7cb71a4eb8e920de2e092f6589ad"
+  },
+  "trigger": {
+    "type": "caller_dispatch",
+    "caller": {
+      "entry": "27C_EV.MES",
+      "entry_sha256": "2af24ef7a0bf66a3006c66da133ec7f653f79bf5904fad7ff2f39f42302ccec3",
+      "offset": 30778,
+      "end": 30792,
+      "command": 15,
+      "kind": "nested_call"
+    },
+    "callee": {
+      "entry": "H_TALK.MES",
+      "entry_sha256": "0ea4aeae46b357b1136b6f1ff2e696937524bfb8e947e4c48022beb4c4e1787a",
+      "start_coordinate": 0
+    },
+    "origin": {
+      "kind": "typed_guard",
+      "offset": 30660
+    },
+    "order_hint": {
+      "scope": "27C_EV.MES",
+      "rank": 3,
+      "of": 3,
+      "basis": "guard_offset",
+      "chain_confirmed": false
+    }
+  },
+  "scenes": [],
+  "guard": {
+    "offset": 30660,
+    "end": 30703,
+    "false_target": 31225,
+    "record_sha256": "9ed9117e743b1a70fa3bd051d2a1779690df042010a3511989a146ba12818775",
+    "conjuncts": [
+      {
+        "kind": "cell",
+        "storage": "global_u8",
+        "bank": 0,
+        "index": 170,
+        "op": "equal",
+        "value": 0
+      },
+      {
+        "kind": "cell",
+        "storage": "global_u8",
+        "bank": 0,
+        "index": 178,
+        "op": "not_equal",
+        "value": 0
+      },
+      {
+        "kind": "cell",
+        "storage": "global_u8",
+        "bank": 0,
+        "index": 174,
+        "op": "equal",
+        "value": 0
+      },
+      {
+        "kind": "cell",
+        "storage": "global_u8",
+        "bank": 0,
+        "index": 2124,
+        "op": "equal",
+        "value": 0
+      },
+      {
+        "kind": "cell",
+        "storage": "global_u8",
+        "bank": 0,
+        "index": 175,
+        "op": "equal",
+        "value": 0
+      },
+      {
+        "kind": "cell",
+        "storage": "banked_u16",
+        "bank": 0,
+        "index": 207,
+        "op": "greater_than",
+        "value": 30
+      }
+    ],
+    "witnesses": [
+      {
+        "case_id": "accepted",
+        "writes": [],
+        "expected": 1
+      },
+      {
+        "case_id": "rejected",
+        "writes": [
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 170,
+            "value": 1
+          }
+        ],
+        "expected": 0
+      }
+    ]
+  },
+  "conditions": [
+    {
+      "type": "mes_expression",
+      "ast": {
+        "lhs": {
+          "lhs": {
+            "lhs": {
+              "lhs": {
+                "lhs": {
+                  "lhs": {
+                    "bank": 0,
+                    "index": {
+                      "type": "literal",
+                      "value": 170
+                    },
+                    "source": {
+                      "offset": 30661,
+                      "token": "0xf3"
+                    },
+                    "storage": "global_u8",
+                    "type": "state_ref"
+                  },
+                  "op": "equal",
+                  "rhs": {
+                    "source": {
+                      "offset": 30664,
+                      "token": "0x00"
+                    },
+                    "type": "literal",
+                    "value": 0,
+                    "width": 8
+                  },
+                  "source": {
+                    "offset": 30665,
+                    "token": "0xef"
+                  },
+                  "type": "binary"
+                },
+                "op": "logical_and",
+                "rhs": {
+                  "lhs": {
+                    "bank": 0,
+                    "index": {
+                      "type": "literal",
+                      "value": 178
+                    },
+                    "source": {
+                      "offset": 30666,
+                      "token": "0xf3"
+                    },
+                    "storage": "global_u8",
+                    "type": "state_ref"
+                  },
+                  "op": "not_equal",
+                  "rhs": {
+                    "source": {
+                      "offset": 30669,
+                      "token": "0x00"
+                    },
+                    "type": "literal",
+                    "value": 0,
+                    "width": 8
+                  },
+                  "source": {
+                    "offset": 30670,
+                    "token": "0xf0"
+                  },
+                  "type": "binary"
+                },
+                "source": {
+                  "offset": 30671,
+                  "token": "0xe6"
+                },
+                "type": "binary"
+              },
+              "op": "logical_and",
+              "rhs": {
+                "lhs": {
+                  "bank": 0,
+                  "index": {
+                    "type": "literal",
+                    "value": 174
+                  },
+                  "source": {
+                    "offset": 30672,
+                    "token": "0xf3"
+                  },
+                  "storage": "global_u8",
+                  "type": "state_ref"
+                },
+                "op": "equal",
+                "rhs": {
+                  "source": {
+                    "offset": 30675,
+                    "token": "0x00"
+                  },
+                  "type": "literal",
+                  "value": 0,
+                  "width": 8
+                },
+                "source": {
+                  "offset": 30676,
+                  "token": "0xef"
+                },
+                "type": "binary"
+              },
+              "source": {
+                "offset": 30677,
+                "token": "0xe6"
+              },
+              "type": "binary"
+            },
+            "op": "logical_and",
+            "rhs": {
+              "lhs": {
+                "bank": 0,
+                "index": {
+                  "type": "literal",
+                  "value": 2124
+                },
+                "source": {
+                  "offset": 30678,
+                  "token": "0xf3"
+                },
+                "storage": "global_u8",
+                "type": "state_ref"
+              },
+              "op": "equal",
+              "rhs": {
+                "source": {
+                  "offset": 30681,
+                  "token": "0x00"
+                },
+                "type": "literal",
+                "value": 0,
+                "width": 8
+              },
+              "source": {
+                "offset": 30682,
+                "token": "0xef"
+              },
+              "type": "binary"
+            },
+            "source": {
+              "offset": 30683,
+              "token": "0xe6"
+            },
+            "type": "binary"
+          },
+          "op": "logical_and",
+          "rhs": {
+            "lhs": {
+              "bank": 0,
+              "index": {
+                "type": "literal",
+                "value": 175
+              },
+              "source": {
+                "offset": 30684,
+                "token": "0xf3"
+              },
+              "storage": "global_u8",
+              "type": "state_ref"
+            },
+            "op": "equal",
+            "rhs": {
+              "source": {
+                "offset": 30687,
+                "token": "0x00"
+              },
+              "type": "literal",
+              "value": 0,
+              "width": 8
+            },
+            "source": {
+              "offset": 30688,
+              "token": "0xef"
+            },
+            "type": "binary"
+          },
+          "source": {
+            "offset": 30689,
+            "token": "0xe6"
+          },
+          "type": "binary"
+        },
+        "op": "logical_and",
+        "rhs": {
+          "lhs": {
+            "bank": 0,
+            "index": {
+              "source": {
+                "offset": 30690,
+                "token": "0xf1"
+              },
+              "type": "literal",
+              "value": 207,
+              "width": 16
+            },
+            "source": {
+              "offset": 30693,
+              "token": "0xa0"
+            },
+            "storage": "banked_u16",
+            "type": "state_ref"
+          },
+          "op": "greater_than",
+          "rhs": {
+            "source": {
+              "offset": 30695,
+              "token": "0x1e"
+            },
+            "type": "literal",
+            "value": 30,
+            "width": 8
+          },
+          "source": {
+            "offset": 30696,
+            "token": "0xec"
+          },
+          "type": "binary"
+        },
+        "source": {
+          "offset": 30697,
+          "token": "0xe6"
+        },
+        "type": "binary"
+      },
+      "source_offset": 30660,
+      "failure_reason": "guard_rejected"
+    }
+  ],
+  "presets": [
+    {
+      "preset_id": "baseline",
+      "label": "baseline",
+      "writes": [
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 170,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 178,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 174,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2124,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 175,
+          "value": 0
+        },
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 207,
+          "value": 90
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 7,
+          "value": 1430
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2539,
+          "value": 0
+        }
+      ]
+    }
+  ],
+  "dialogue": [
+    {
+      "kind": "hop",
+      "hop_id": "h1_caller_dispatch"
+    },
+    {
+      "kind": "hop",
+      "hop_id": "h2_talk"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "H_TALK.MES",
+        "at": 270,
+        "s": 0,
+        "raw_sha256": "39bbe23c2c164639c696d6a3c55e4534d9b3d7d47fb9b2d41d7787e11f046494"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "H_TALK.MES",
+        "at": 330,
+        "s": 1,
+        "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "H_TALK.MES",
+      "at": 334,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "H_TALK.MES",
+        "at": 351,
+        "s": 2,
+        "raw_sha256": "b94328320daf427bc5b2b81ab87b92b44f36b3fe7ddd3baf811bd66a2e4f9698"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "H_TALK.MES",
+        "at": 427,
+        "s": 3,
+        "raw_sha256": "d2e6e68a88b5edf6ac51f8bc2073d85fd6af96b644cb18d400fb6d038e987c54"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "H_TALK.MES",
+        "at": 513,
+        "s": 1,
+        "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "H_TALK.MES",
+      "at": 517,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "H_TALK.MES",
+        "at": 534,
+        "s": 4,
+        "raw_sha256": "e3b4f59e61d5c65c0a1b3a5586e71aec56dd2467ea0de45533592fc77c6c79af"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "H_TALK.MES",
+        "at": 590,
+        "s": 5,
+        "raw_sha256": "42cee2ee0508dce6abe3af9e3243b19f7716f57d875fce73e8d2bff57a736e2a"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "H_TALK.MES",
+        "at": 668,
+        "s": 1,
+        "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "H_TALK.MES",
+      "at": 672,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "H_TALK.MES",
+        "at": 689,
+        "s": 6,
+        "raw_sha256": "feac6aafdf2f8a5118346adb3b19ee18eac15ea12599fd4ba19493bdd7978124"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "H_TALK.MES",
+        "at": 775,
+        "s": 7,
+        "raw_sha256": "00a4cf3656a7a94bec0eed73e93eb6ff0900c9f6a7ab17d80dd508dfffe3a043"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "H_TALK.MES",
+        "at": 857,
+        "s": 1,
+        "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "H_TALK.MES",
+      "at": 861,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "H_TALK.MES",
+        "at": 878,
+        "s": 8,
+        "raw_sha256": "f8d9e264dbe4070ea24a18846ce7613c3418dad365fc84c391d5ccfee9341374"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "H_TALK.MES",
+        "at": 1032,
+        "s": 9,
+        "raw_sha256": "49afdf691eb3db4b6cf03cd000bf099e0b4c42d21a7336ab2e47777471e0f93c"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "H_TALK.MES",
+        "at": 1106,
+        "s": 1,
+        "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "H_TALK.MES",
+      "at": 1110,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "H_TALK.MES",
+        "at": 1127,
+        "s": 10,
+        "raw_sha256": "b09071a669d221d9a93b3add5eda3f6f9b764931914047811ac3ac0b3f02860d"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "H_TALK.MES",
+        "at": 1171,
+        "s": 11,
+        "raw_sha256": "8b85428b850b41b76e762812a3d83d36de1b715e4686c16db3489f86d6971707"
+      }
+    },
+    {
+      "kind": "scene_end"
+    }
+  ],
+  "after": [
+    {
+      "type": "write_legacy_value",
+      "storage": "global_u8",
+      "bank": 0,
+      "index": 10,
+      "value": 1,
+      "cell_class": "flag"
+    },
+    {
+      "type": "write_legacy_value",
+      "storage": "global_u8",
+      "bank": 0,
+      "index": 2539,
+      "value": 1,
+      "cell_class": "flag"
+    }
+  ],
+  "results": {
+    "result_default": {
+      "selected_by": {
+        "kind": "default"
+      },
+      "event_played": true,
+      "dialogue": [],
+      "after": [],
+      "terminal": "flow"
+    }
+  },
+  "terminals": {
+    "flow": {
+      "kind": "callee_return",
+      "owner_entry": "H_TALK.MES",
+      "offset": 1296,
+      "end": 1297,
+      "next_target": "",
+      "required_state": []
+    }
+  },
+  "dependencies": [
+    {
+      "entry": "H_PIC.MES",
+      "entry_sha256": "466f9f654079d6c0b6999817de6ad84e7e03c67584176cae7429cd01c2651687",
+      "role": "nested_presentation"
+    }
+  ],
+  "presentation": {
+    "status": "deferred",
+    "resources": []
+  },
+  "unresolved": [
+    "no done flag identified in the guard: the flow's own origin guard ((global_u8[170] equal 0); (global_u8[178] not_equal 0); (global_u8[174] equal 0); (global_u8[2124] equal 0); (global_u8[175] equal 0); (banked_u16[207] greater_than 30)) names no cleared completion flag",
+    "The state at the anchor is seeded, a tool decision: global_u8[170] = 0, global_u8[178] = 1, global_u8[174] = 0, global_u8[2124] = 0, global_u8[175] = 0, banked_u16[207] = 90, state_u16[7] = 1430, global_u8[2539] = 0. The origin is the caller's block guard at 30660; the cells are the guard's own conjuncts and the script's own gate (its date, affection word and once-only flag), solved by the smallest round value that satisfies them.",
+    "The script asks no question; its own gate (date, affection word and once-only flag) is seeded satisfied, so the default path plays it whole (1 answer path(s) measured).",
+    "The caller resumes into the place's day loop after the call, which runs on day after day (its own definition steps stop at the probe's limit, and under the original calendar the loop plays on to the game's ending): there is no natural end to measure, so the flow ends at the script's own return.",
+    "effect on banked_u16[1] for result h1_caller_dispatch: no matching shift witness (entry=0 final=7)",
+    "effect on global_u8[3005] for result h1_caller_dispatch: no matching shift witness (entry=0 final=2)",
+    "effect on banked_u16[1] for result body: no matching shift witness (entry=0 final=7)",
+    "effect on global_u8[3005] for result body: no matching shift witness (entry=0 final=2)"
+  ],
+  "flow": {
+    "evidence": {
+      "group": "27c-ev-h-talk",
+      "profile_sha256": "607fce43ec9a7b335263b0bc23ed0f152d660b503770d6a251d631e2b4284a17",
+      "route": "h-talk-plain"
+    },
+    "origin": {
+      "entry": "27C_EV.MES",
+      "entry_sha256": "2af24ef7a0bf66a3006c66da133ec7f653f79bf5904fad7ff2f39f42302ccec3",
+      "offset": 30660,
+      "guard": {
+        "offset": 30660,
+        "end": 30703,
+        "false_target": 31225,
+        "record_sha256": "9ed9117e743b1a70fa3bd051d2a1779690df042010a3511989a146ba12818775"
+      }
+    },
+    "state_context": {
+      "kind": "fresh"
+    },
+    "hops": [
+      {
+        "hop_id": "h1_caller_dispatch",
+        "entry": "27C_EV.MES",
+        "entry_sha256": "2af24ef7a0bf66a3006c66da133ec7f653f79bf5904fad7ff2f39f42302ccec3",
+        "entered_by": {
+          "kind": "origin",
+          "offset": 30660,
+          "end": 30703
+        },
+        "answers": [],
+        "gates": [],
+        "map_locations": [],
+        "poll_supplies": [],
+        "dialogue": [],
+        "after": [],
+        "message_count": 0
+      },
+      {
+        "hop_id": "h2_talk",
+        "entry": "H_TALK.MES",
+        "entry_sha256": "0ea4aeae46b357b1136b6f1ff2e696937524bfb8e947e4c48022beb4c4e1787a",
+        "entered_by": {
+          "kind": "nested_call",
+          "offset": 30778,
+          "end": 30792
+        },
+        "answers": [],
+        "gates": [],
+        "map_locations": [],
+        "poll_supplies": [],
+        "dialogue": [
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "H_TALK.MES",
+              "at": 270,
+              "s": 0,
+              "raw_sha256": "39bbe23c2c164639c696d6a3c55e4534d9b3d7d47fb9b2d41d7787e11f046494"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "H_TALK.MES",
+              "at": 330,
+              "s": 1,
+              "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+            }
+          },
+          {
+            "kind": "name_insert",
+            "entry": "H_TALK.MES",
+            "at": 334,
+            "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "H_TALK.MES",
+              "at": 351,
+              "s": 2,
+              "raw_sha256": "b94328320daf427bc5b2b81ab87b92b44f36b3fe7ddd3baf811bd66a2e4f9698"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "H_TALK.MES",
+              "at": 427,
+              "s": 3,
+              "raw_sha256": "d2e6e68a88b5edf6ac51f8bc2073d85fd6af96b644cb18d400fb6d038e987c54"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "H_TALK.MES",
+              "at": 513,
+              "s": 1,
+              "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+            }
+          },
+          {
+            "kind": "name_insert",
+            "entry": "H_TALK.MES",
+            "at": 517,
+            "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "H_TALK.MES",
+              "at": 534,
+              "s": 4,
+              "raw_sha256": "e3b4f59e61d5c65c0a1b3a5586e71aec56dd2467ea0de45533592fc77c6c79af"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "H_TALK.MES",
+              "at": 590,
+              "s": 5,
+              "raw_sha256": "42cee2ee0508dce6abe3af9e3243b19f7716f57d875fce73e8d2bff57a736e2a"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "H_TALK.MES",
+              "at": 668,
+              "s": 1,
+              "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+            }
+          },
+          {
+            "kind": "name_insert",
+            "entry": "H_TALK.MES",
+            "at": 672,
+            "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "H_TALK.MES",
+              "at": 689,
+              "s": 6,
+              "raw_sha256": "feac6aafdf2f8a5118346adb3b19ee18eac15ea12599fd4ba19493bdd7978124"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "H_TALK.MES",
+              "at": 775,
+              "s": 7,
+              "raw_sha256": "00a4cf3656a7a94bec0eed73e93eb6ff0900c9f6a7ab17d80dd508dfffe3a043"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "H_TALK.MES",
+              "at": 857,
+              "s": 1,
+              "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+            }
+          },
+          {
+            "kind": "name_insert",
+            "entry": "H_TALK.MES",
+            "at": 861,
+            "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "H_TALK.MES",
+              "at": 878,
+              "s": 8,
+              "raw_sha256": "f8d9e264dbe4070ea24a18846ce7613c3418dad365fc84c391d5ccfee9341374"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "H_TALK.MES",
+              "at": 1032,
+              "s": 9,
+              "raw_sha256": "49afdf691eb3db4b6cf03cd000bf099e0b4c42d21a7336ab2e47777471e0f93c"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "H_TALK.MES",
+              "at": 1106,
+              "s": 1,
+              "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+            }
+          },
+          {
+            "kind": "name_insert",
+            "entry": "H_TALK.MES",
+            "at": 1110,
+            "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "H_TALK.MES",
+              "at": 1127,
+              "s": 10,
+              "raw_sha256": "b09071a669d221d9a93b3add5eda3f6f9b764931914047811ac3ac0b3f02860d"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "H_TALK.MES",
+              "at": 1171,
+              "s": 11,
+              "raw_sha256": "8b85428b850b41b76e762812a3d83d36de1b715e4686c16db3489f86d6971707"
+            }
+          }
+        ],
+        "after": [
+          {
+            "type": "write_legacy_value",
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 10,
+            "value": 1,
+            "cell_class": "flag"
+          },
+          {
+            "type": "write_legacy_value",
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 2539,
+            "value": 1,
+            "cell_class": "flag"
+          }
+        ],
+        "message_count": 21
+      }
+    ],
+    "terminal": "flow"
+  }
+}

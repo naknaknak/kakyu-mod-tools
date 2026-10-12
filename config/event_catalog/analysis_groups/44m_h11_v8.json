@@ -1,0 +1,2068 @@
+{
+  "schema": "kakyu_event_analysis_group/v8",
+  "group_id": "44m-h11",
+  "archive_sha256": "31a95b31cb0f1051cf973a4dba4f4a5405671e4488240adfafb9b02290986aa6",
+  "source_members": [
+    {
+      "entry": "44M.MES",
+      "entry_sha256": "730e98edcd7ee49d7076c45876f114d02aa98454f744e473fc03f14a5b410b75"
+    },
+    {
+      "entry": "EVENTH11.MES",
+      "entry_sha256": "ec7603ea8b2188a0ab6087007e2649fd6c9a6f3ecad9ee2812022d325bad191b"
+    },
+    {
+      "entry": "START.MES",
+      "entry_sha256": "ba57bf666fbd9db9b3110f2bf1c70e80e11a35de00e82256aaaf35921c77038f"
+    },
+    {
+      "entry": "DEF_MAIN.MES",
+      "entry_sha256": "f2012ce5d90f60a5d1ca8190e03571341c0384c2d3d96e9aec2b3ab949db0ef0"
+    },
+    {
+      "entry": "LIBLARY.LIB",
+      "entry_sha256": "d9aba6eb8dab51fe321e22c868ed0cf38416bba1f0cf2f5d7d719f48e89b8b4d"
+    }
+  ],
+  "routes": [
+    {
+      "route_id": "44m-h11",
+      "origin_offset": 8280,
+      "caller": {
+        "entry": "44M.MES",
+        "offset": 8627,
+        "end": 8643,
+        "command": 15,
+        "source_binding": {
+          "kind": "typed_record"
+        },
+        "record_sha256": "70932fa2758f46de335afac78dd82aac5e3bd635b2d354d5bf1ae5ba2dfaa53b"
+      },
+      "callee": {
+        "entry": "EVENTH11.MES",
+        "offset": 0
+      },
+      "guard": {
+        "offset": 8280,
+        "end": 8367,
+        "false_target": 9272,
+        "source_binding": {
+          "kind": "typed_record"
+        },
+        "record_sha256": "0b472898bbda4343071388fd4bbd0145ea59b1f9ddb30c49b0b636a3d5ed23d0",
+        "prefix_sha256": "0239720b47adc0b0bd36f75f812318d24bb28d5140380b75e7b26bb4b7c4caee"
+      },
+      "post_guard_expected": null,
+      "caller_outcome": {
+        "kind": "dispatch"
+      },
+      "outcome": {
+        "offset": 2322,
+        "end": 2323,
+        "op": "command_00",
+        "status": "script_return"
+      },
+      "state_context": {
+        "kind": "original_calendar",
+        "entry": "START.MES",
+        "table_sha256": "f21ee0fcb09e960046878e35ad0410aed88680f849ace471b713ef7a12525b4a"
+      },
+      "qualification": "caller_continuation_observation",
+      "choice_contracts": [],
+      "baseline": [
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 0,
+          "value": 0
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 1,
+          "value": 13
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 4,
+          "value": 0
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 7,
+          "value": 1001
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 19,
+          "value": 1800
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 21,
+          "value": 0
+        },
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 207,
+          "value": 80
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 170,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 174,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 177,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2284,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2124,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2127,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2325,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2083,
+          "value": 0
+        }
+      ],
+      "expected_state": [
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2325,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3605,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 5221,
+          "value": 1
+        },
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 1,
+          "value": 7
+        }
+      ],
+      "guard_cases": [
+        {
+          "case_id": "baseline",
+          "writes": [],
+          "expected": 1
+        },
+        {
+          "case_id": "state_u16-4-1",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 4,
+              "storage": "state_u16",
+              "value": 1
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "state_u16-7-915",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 7,
+              "storage": "state_u16",
+              "value": 915
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "state_u16-7-916",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 7,
+              "storage": "state_u16",
+              "value": 916
+            }
+          ],
+          "expected": 1
+        },
+        {
+          "case_id": "state_u16-7-1115",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 7,
+              "storage": "state_u16",
+              "value": 1115
+            }
+          ],
+          "expected": 1
+        },
+        {
+          "case_id": "state_u16-7-1116",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 7,
+              "storage": "state_u16",
+              "value": 1116
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "state_u16-7-1201",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 7,
+              "storage": "state_u16",
+              "value": 1201
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "state_u16-19-1759",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 19,
+              "storage": "state_u16",
+              "value": 1759
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "state_u16-19-1760",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 19,
+              "storage": "state_u16",
+              "value": 1760
+            }
+          ],
+          "expected": 1
+        },
+        {
+          "case_id": "state_u16-19-2359",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 19,
+              "storage": "state_u16",
+              "value": 2359
+            }
+          ],
+          "expected": 1
+        },
+        {
+          "case_id": "word207-0",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 207,
+              "storage": "banked_u16",
+              "value": 0
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "word207-70",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 207,
+              "storage": "banked_u16",
+              "value": 70
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "word207-71",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 207,
+              "storage": "banked_u16",
+              "value": 71
+            }
+          ],
+          "expected": 1
+        },
+        {
+          "case_id": "word207-255",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 207,
+              "storage": "banked_u16",
+              "value": 255
+            }
+          ],
+          "expected": 1
+        },
+        {
+          "case_id": "global_u8-2284-0",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 2284,
+              "storage": "global_u8",
+              "value": 0
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "global_u8-170-1",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 170,
+              "storage": "global_u8",
+              "value": 1
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "global_u8-174-1",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 174,
+              "storage": "global_u8",
+              "value": 1
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "global_u8-177-1",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 177,
+              "storage": "global_u8",
+              "value": 1
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "global_u8-2083-1",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 2083,
+              "storage": "global_u8",
+              "value": 1
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "global_u8-2124-1",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 2124,
+              "storage": "global_u8",
+              "value": 1
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "global_u8-2127-1",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 2127,
+              "storage": "global_u8",
+              "value": 1
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "global_u8-2325-1",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 2325,
+              "storage": "global_u8",
+              "value": 1
+            }
+          ],
+          "expected": 0
+        }
+      ],
+      "resume": {
+        "start": 8643,
+        "boundary_policy": "def_selection_boundary",
+        "message_count": 18,
+        "outcome": {
+          "offset": 65466,
+          "end": 65471,
+          "op": "script_transfer",
+          "status": "def_selection_boundary",
+          "target": "",
+          "source_binding": {
+            "kind": "typed_record"
+          },
+          "record_sha256": "92a059b1c678e8fb53ecf67b79ae4ebca133078412fe1db5110d9c8d41faabab"
+        },
+        "expected_state": [
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 2325,
+            "value": 1
+          },
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 3605,
+            "value": 1
+          },
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 5221,
+            "value": 1
+          },
+          {
+            "storage": "banked_u16",
+            "bank": 0,
+            "index": 1,
+            "value": 7
+          },
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 350,
+            "value": 1
+          }
+        ]
+      },
+      "reentry": {
+        "outcome": {
+          "offset": 2353,
+          "end": 2354,
+          "op": "command_00",
+          "status": "script_return"
+        },
+        "message_count": 0,
+        "expected_state": [
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 2325,
+            "value": 1
+          },
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 3605,
+            "value": 1
+          },
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 5221,
+            "value": 1
+          },
+          {
+            "storage": "banked_u16",
+            "bank": 0,
+            "index": 1,
+            "value": 7
+          },
+          {
+            "storage": "state_u16",
+            "bank": 0,
+            "index": 2,
+            "value": 1
+          }
+        ]
+      },
+      "variants": [
+        {
+          "variant_id": "clock-1760-word207-71",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 19,
+              "storage": "state_u16",
+              "value": 1760
+            },
+            {
+              "bank": 0,
+              "index": 207,
+              "storage": "banked_u16",
+              "value": 71
+            }
+          ],
+          "selections": [],
+          "message_count": 25,
+          "expected_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 264,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2325,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3605,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 5221,
+              "value": 1
+            },
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 7
+            }
+          ],
+          "expected_resume_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2325,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3605,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 5221,
+              "value": 1
+            },
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 7
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 350,
+              "value": 1
+            }
+          ]
+        },
+        {
+          "variant_id": "clock-1760-word207-80",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 19,
+              "storage": "state_u16",
+              "value": 1760
+            },
+            {
+              "bank": 0,
+              "index": 207,
+              "storage": "banked_u16",
+              "value": 80
+            }
+          ],
+          "selections": [],
+          "message_count": 25,
+          "expected_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 264,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2325,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3605,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 5221,
+              "value": 1
+            },
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 7
+            }
+          ],
+          "expected_resume_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2325,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3605,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 5221,
+              "value": 1
+            },
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 7
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 350,
+              "value": 1
+            }
+          ]
+        },
+        {
+          "variant_id": "clock-1760-word207-255",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 19,
+              "storage": "state_u16",
+              "value": 1760
+            },
+            {
+              "bank": 0,
+              "index": 207,
+              "storage": "banked_u16",
+              "value": 255
+            }
+          ],
+          "selections": [],
+          "message_count": 25,
+          "expected_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 264,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2325,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3605,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 5221,
+              "value": 1
+            },
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 7
+            }
+          ],
+          "expected_resume_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2325,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3605,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 5221,
+              "value": 1
+            },
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 7
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 350,
+              "value": 1
+            }
+          ]
+        },
+        {
+          "variant_id": "clock-1900-word207-71",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 19,
+              "storage": "state_u16",
+              "value": 1900
+            },
+            {
+              "bank": 0,
+              "index": 207,
+              "storage": "banked_u16",
+              "value": 71
+            }
+          ],
+          "selections": [],
+          "message_count": 25,
+          "expected_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 264,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2325,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3605,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 5221,
+              "value": 1
+            },
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 7
+            }
+          ],
+          "expected_resume_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2325,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3605,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 5221,
+              "value": 1
+            },
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 7
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 350,
+              "value": 1
+            }
+          ]
+        },
+        {
+          "variant_id": "clock-1900-word207-80",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 19,
+              "storage": "state_u16",
+              "value": 1900
+            },
+            {
+              "bank": 0,
+              "index": 207,
+              "storage": "banked_u16",
+              "value": 80
+            }
+          ],
+          "selections": [],
+          "message_count": 25,
+          "expected_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 264,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2325,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3605,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 5221,
+              "value": 1
+            },
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 7
+            }
+          ],
+          "expected_resume_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2325,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3605,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 5221,
+              "value": 1
+            },
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 7
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 350,
+              "value": 1
+            }
+          ]
+        },
+        {
+          "variant_id": "clock-1900-word207-255",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 19,
+              "storage": "state_u16",
+              "value": 1900
+            },
+            {
+              "bank": 0,
+              "index": 207,
+              "storage": "banked_u16",
+              "value": 255
+            }
+          ],
+          "selections": [],
+          "message_count": 25,
+          "expected_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 264,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2325,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3605,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 5221,
+              "value": 1
+            },
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 7
+            }
+          ],
+          "expected_resume_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2325,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3605,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 5221,
+              "value": 1
+            },
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 7
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 350,
+              "value": 1
+            }
+          ]
+        },
+        {
+          "variant_id": "clock-2300-word207-71",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 19,
+              "storage": "state_u16",
+              "value": 2300
+            },
+            {
+              "bank": 0,
+              "index": 207,
+              "storage": "banked_u16",
+              "value": 71
+            }
+          ],
+          "selections": [],
+          "message_count": 25,
+          "expected_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 264,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2325,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3605,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 5221,
+              "value": 1
+            },
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 7
+            }
+          ],
+          "expected_resume_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2325,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3605,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 5221,
+              "value": 1
+            },
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 7
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 350,
+              "value": 1
+            }
+          ]
+        },
+        {
+          "variant_id": "clock-2300-word207-80",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 19,
+              "storage": "state_u16",
+              "value": 2300
+            },
+            {
+              "bank": 0,
+              "index": 207,
+              "storage": "banked_u16",
+              "value": 80
+            }
+          ],
+          "selections": [],
+          "message_count": 25,
+          "expected_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 264,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2325,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3605,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 5221,
+              "value": 1
+            },
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 7
+            }
+          ],
+          "expected_resume_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2325,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3605,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 5221,
+              "value": 1
+            },
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 7
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 350,
+              "value": 1
+            }
+          ]
+        },
+        {
+          "variant_id": "clock-2300-word207-255",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 19,
+              "storage": "state_u16",
+              "value": 2300
+            },
+            {
+              "bank": 0,
+              "index": 207,
+              "storage": "banked_u16",
+              "value": 255
+            }
+          ],
+          "selections": [],
+          "message_count": 25,
+          "expected_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 264,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2325,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3605,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 5221,
+              "value": 1
+            },
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 7
+            }
+          ],
+          "expected_resume_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2325,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3605,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 5221,
+              "value": 1
+            },
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 7
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 350,
+              "value": 1
+            }
+          ]
+        },
+        {
+          "variant_id": "date-916",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 7,
+              "storage": "state_u16",
+              "value": 916
+            }
+          ],
+          "selections": [],
+          "message_count": 25,
+          "expected_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 264,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2325,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3605,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 5221,
+              "value": 1
+            },
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 7
+            }
+          ],
+          "expected_resume_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2325,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3605,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 5221,
+              "value": 1
+            },
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 7
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 350,
+              "value": 1
+            }
+          ]
+        },
+        {
+          "variant_id": "date-1001",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 7,
+              "storage": "state_u16",
+              "value": 1001
+            }
+          ],
+          "selections": [],
+          "message_count": 25,
+          "expected_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 264,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2325,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3605,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 5221,
+              "value": 1
+            },
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 7
+            }
+          ],
+          "expected_resume_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2325,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3605,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 5221,
+              "value": 1
+            },
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 7
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 350,
+              "value": 1
+            }
+          ]
+        },
+        {
+          "variant_id": "date-1115",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 7,
+              "storage": "state_u16",
+              "value": 1115
+            }
+          ],
+          "selections": [],
+          "message_count": 25,
+          "expected_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 264,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2325,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3605,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 5221,
+              "value": 1
+            },
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 7
+            }
+          ],
+          "expected_resume_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2325,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3605,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 5221,
+              "value": 1
+            },
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 7
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 350,
+              "value": 1
+            }
+          ]
+        },
+        {
+          "variant_id": "global3006-0",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 3006,
+              "storage": "global_u8",
+              "value": 0
+            }
+          ],
+          "selections": [],
+          "message_count": 25,
+          "expected_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 264,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2325,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3605,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 5221,
+              "value": 1
+            },
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 7
+            }
+          ],
+          "expected_resume_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2325,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3605,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 5221,
+              "value": 1
+            },
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 7
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 350,
+              "value": 1
+            }
+          ]
+        },
+        {
+          "variant_id": "global3006-1",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 3006,
+              "storage": "global_u8",
+              "value": 1
+            }
+          ],
+          "selections": [],
+          "message_count": 25,
+          "expected_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 264,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2325,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3605,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 5221,
+              "value": 1
+            },
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 7
+            }
+          ],
+          "expected_resume_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2325,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3605,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 5221,
+              "value": 1
+            },
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 7
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 350,
+              "value": 1
+            }
+          ]
+        },
+        {
+          "variant_id": "counter264-0",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 264,
+              "storage": "global_u8",
+              "value": 0
+            }
+          ],
+          "selections": [],
+          "message_count": 25,
+          "expected_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 264,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2325,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3605,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 5221,
+              "value": 1
+            },
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 7
+            }
+          ],
+          "expected_resume_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2325,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3605,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 5221,
+              "value": 1
+            },
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 7
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 350,
+              "value": 1
+            }
+          ]
+        },
+        {
+          "variant_id": "counter264-14",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 264,
+              "storage": "global_u8",
+              "value": 14
+            }
+          ],
+          "selections": [],
+          "message_count": 25,
+          "expected_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 264,
+              "value": 15
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2325,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3605,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 5221,
+              "value": 1
+            },
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 7
+            }
+          ],
+          "expected_resume_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2325,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3605,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 5221,
+              "value": 1
+            },
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 7
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 350,
+              "value": 1
+            }
+          ]
+        },
+        {
+          "variant_id": "counter264-15",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 264,
+              "storage": "global_u8",
+              "value": 15
+            }
+          ],
+          "selections": [],
+          "message_count": 25,
+          "expected_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 264,
+              "value": 15
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2325,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3605,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 5221,
+              "value": 1
+            },
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 7
+            }
+          ],
+          "expected_resume_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2325,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3605,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 5221,
+              "value": 1
+            },
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 7
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 350,
+              "value": 1
+            }
+          ]
+        },
+        {
+          "variant_id": "global2847-0",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 2847,
+              "storage": "global_u8",
+              "value": 0
+            }
+          ],
+          "selections": [],
+          "message_count": 25,
+          "expected_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 264,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2325,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3605,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 5221,
+              "value": 1
+            },
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 7
+            }
+          ],
+          "expected_resume_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2325,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3605,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 5221,
+              "value": 1
+            },
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 7
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 350,
+              "value": 1
+            }
+          ]
+        },
+        {
+          "variant_id": "global2847-1",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 2847,
+              "storage": "global_u8",
+              "value": 1
+            }
+          ],
+          "selections": [],
+          "message_count": 25,
+          "expected_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 264,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2325,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3605,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 5221,
+              "value": 1
+            },
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 7
+            }
+          ],
+          "expected_resume_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2325,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3605,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 5221,
+              "value": 1
+            },
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 7
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 350,
+              "value": 1
+            }
+          ]
+        }
+      ],
+      "unresolved": [
+        "Natural scheduling into the typed origin 8280 is not established; the thirteen-conjunct guard is a local eligibility condition only.",
+        "global_u8[2284] must already be 1 for this event; what sets it is not established here.",
+        "The caller stops at the routine-40 registered-definition selection 44M.MES:65466; nothing past that selection is qualified.",
+        "Callee branches 326 and 381 test state_u16[8] for 1 and 2 and are unreachable from a seeded value, because the callee writes state_u16 before the 271 test.",
+        "global_u8[350], global_u8[3605] and global_u8[5221] are recorded as measured writes; their meaning is not established.",
+        "Native presentation records are omitted under the bounded runtime policy."
+      ]
+    }
+  ],
+  "payload_sha256": "9d28cad2fe957b00e316f289096b55ca5ea7b2770a967f1b5b8b2a1a6fb6534e"
+}

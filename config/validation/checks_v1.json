@@ -1,0 +1,5730 @@
+{
+  "schema": "kakyu_validation_checks/v1",
+  "revision": 5,
+  "families": {
+    "analysis_group": {
+      "check": "original event analysis groups",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_groups.gd",
+      "process_timeout": 8000,
+      "process_shards": 2,
+      "groups": [
+        "original_corpus"
+      ],
+      "tier": "full"
+    }
+  },
+  "checks": [
+    {
+      "name": "python regression suite",
+      "kind": "python",
+      "script": "tools/content_suite/run_python_regression.py",
+      "arguments": [
+        "--jobs",
+        "{python_jobs}",
+        "--timeout",
+        "{python_child_timeout}"
+      ],
+      "timeout": "{python_timeout}",
+      "groups": [
+        "synthetic"
+      ],
+      "requires": [],
+      "tier": "local",
+      "optional_groups": [
+        [
+          "exe",
+          "native_executable"
+        ],
+        [
+          "elfimage",
+          "original_corpus"
+        ]
+      ],
+      "optional_arguments": [
+        [
+          "exe",
+          [
+            "--exe",
+            "{exe}"
+          ]
+        ],
+        [
+          "elfimage",
+          [
+            "--mes-arc",
+            "{mes_arc}",
+            "--data-arc",
+            "{data_arc}"
+          ]
+        ]
+      ]
+    },
+    {
+      "name": "Godot project parse check",
+      "kind": "godot_editor",
+      "script": "",
+      "arguments": [
+        "--editor",
+        "--quit-after",
+        "2"
+      ],
+      "timeout": 120,
+      "groups": [
+        "synthetic"
+      ],
+      "requires": [],
+      "tier": "local"
+    },
+    {
+      "name": "Godot {scene}",
+      "kind": "godot_scene",
+      "script": "res://tests/{scene}",
+      "arguments": [],
+      "timeout": 180,
+      "groups": [
+        "synthetic"
+      ],
+      "requires": [],
+      "tier": "local",
+      "family": "godot_scenes",
+      "exclusive_scenes": [
+        "test_overlay_publication_lock.tscn",
+        "test_process_liveness.tscn",
+        "test_workspace_multiprocess.tscn"
+      ]
+    },
+    {
+      "name": "original content set",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/cli/validate_content_set.gd",
+      "arguments": [
+        "{source_root}"
+      ],
+      "timeout": 180,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original ARC corpus",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/cli/validate_arc_corpus.gd",
+      "arguments": [
+        "{source_root}"
+      ],
+      "timeout": 1200,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full"
+    },
+    {
+      "name": "original audio corpus",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/cli/validate_audio_corpus.gd",
+      "arguments": [
+        "{source_root}"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original MES container corpus",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/cli/validate_mes_corpus.gd",
+      "arguments": [
+        "{mes_arc}"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original HOTEL menu routine-40 redirect contract",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/cli/validate_mes_routine40_redirect_contract.gd",
+      "arguments": [
+        "{mes_arc}"
+      ],
+      "timeout": 60,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original MES record-alignment corpus",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/cli/audit_mes_record_alignment_corpus.gd",
+      "arguments": [
+        "{mes_arc}"
+      ],
+      "timeout": 1200,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full"
+    },
+    {
+      "name": "original MES analysis corpus",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/cli/validate_mes_analysis_corpus.gd",
+      "arguments": [
+        "{mes_arc}"
+      ],
+      "timeout": 1200,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full"
+    },
+    {
+      "name": "original MES analyzer handoff corpus",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/cli/audit_mes_analyzer_handoff_corpus.gd",
+      "arguments": [
+        "{mes_arc}"
+      ],
+      "timeout": 3000,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full"
+    },
+    {
+      "name": "original Python Phase 1-4 full handoff equivalence",
+      "kind": "python",
+      "script": "tools/audit_mes_handoff_equivalence.py",
+      "arguments": [
+        "--digest",
+        "{frozen_handoff_digest}",
+        "--arc",
+        "{mes_arc}",
+        "--require-full-equivalent",
+        "--jobs",
+        "{python_jobs}"
+      ],
+      "timeout": "{python_handoff_timeout}",
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full"
+    },
+    {
+      "name": "original MES transfer-direction corpus",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/cli/audit_mes_transfer_direction_corpus.gd",
+      "arguments": [
+        "{mes_arc}"
+      ],
+      "timeout": 2400,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full"
+    },
+    {
+      "name": "original MES surface-operation core audit",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/cli/audit_mes_surface_operations.gd",
+      "arguments": [
+        "{mes_arc}"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original MES unresolved surface-dispatch reachability",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/cli/audit_mes_surface_dispatch_reachability.gd",
+      "arguments": [
+        "{mes_arc}"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original MES library index",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/cli/validate_mes_library_index.gd",
+      "arguments": [
+        "{mes_arc}"
+      ],
+      "timeout": 180,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original MES library routine-28 execution",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/cli/validate_mes_library_runner_routine28.gd",
+      "arguments": [
+        "{mes_arc}"
+      ],
+      "timeout": 180,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original MES library routine-40 native dispatch",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/cli/validate_mes_library_routine40_dispatch.gd",
+      "arguments": [
+        "{mes_arc}"
+      ],
+      "timeout": 180,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original MES routine-40 gated result contract",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/cli/validate_mes_routine40_gated_contract.gd",
+      "arguments": [
+        "{mes_arc}"
+      ],
+      "timeout": 180,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original MES routine-40 single-row result contract",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/cli/validate_mes_routine40_single_contract.gd",
+      "arguments": [
+        "{mes_arc}"
+      ],
+      "timeout": 180,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original MES routine-40 grouped registry",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/cli/validate_mes_routine40_group_registry.gd",
+      "arguments": [
+        "{mes_arc}"
+      ],
+      "timeout": 180,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original MES library DEF routes",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/cli/validate_mes_library_def_routes.gd",
+      "arguments": [
+        "{mes_arc}"
+      ],
+      "timeout": 180,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original MES DEF26 context",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/cli/validate_mes_def26_context.gd",
+      "arguments": [
+        "{mes_arc}"
+      ],
+      "timeout": 180,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original MES startup execution records",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/cli/validate_mes_startup_execution.gd",
+      "arguments": [
+        "{mes_arc}"
+      ],
+      "timeout": 180,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original MES calendar state",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/cli/audit_mes_calendar_state.gd",
+      "arguments": [
+        "{mes_arc}"
+      ],
+      "timeout": 180,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original MES DEF12 calendar execution",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/cli/audit_mes_def12_calendar_execution.gd",
+      "arguments": [
+        "{mes_arc}"
+      ],
+      "timeout": 180,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original MES DEF12 library-26 execution",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/cli/audit_mes_def12_library26_execution.gd",
+      "arguments": [
+        "{mes_arc}"
+      ],
+      "timeout": 180,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original MES library routine-26/24 execution",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/cli/audit_mes_library26_routine24_execution.gd",
+      "arguments": [
+        "{mes_arc}"
+      ],
+      "timeout": 180,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original MES PROMIS writer owner boundaries",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/cli/audit_mes_promise_writer_execution.gd",
+      "arguments": [
+        "{mes_arc}"
+      ],
+      "timeout": 180,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original MES PROMIS date library resumes",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/cli/audit_mes_promise_date_library_resume.gd",
+      "arguments": [
+        "{mes_arc}"
+      ],
+      "timeout": 180,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original MES PROMIS C/E/I date routes",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/cli/audit_mes_promise_cei_date_routes.gd",
+      "arguments": [
+        "{mes_arc}"
+      ],
+      "timeout": 180,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original MES PROMIS caller reachability",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/cli/audit_mes_promise_caller_reachability.gd",
+      "arguments": [
+        "{mes_arc}"
+      ],
+      "timeout": 180,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original MES PROMIS nested call routes",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/cli/audit_mes_promise_nested_calls.gd",
+      "arguments": [
+        "{mes_arc}"
+      ],
+      "timeout": 180,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original MES startup context path",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/cli/audit_mes_startup_context.gd",
+      "arguments": [
+        "{mes_arc}"
+      ],
+      "timeout": 180,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original MES startup definition calls",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/cli/audit_mes_startup_definition_calls.gd",
+      "arguments": [
+        "{mes_arc}"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original MES presentation state transfers",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/cli/audit_mes_presentation_state_transfers.gd",
+      "arguments": [
+        "{mes_arc}"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original MES active-surface AX chains",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/cli/audit_mes_active_surface_ax_chains.gd",
+      "arguments": [
+        "{mes_arc}"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original MES detached DEF previews",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/cli/audit_mes_detached_definition_previews.gd",
+      "arguments": [
+        "{mes_arc}"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original MES F_DATE2 nested DEF",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/cli/audit_mes_f_date2_nested_def.gd",
+      "arguments": [
+        "{mes_arc}"
+      ],
+      "timeout": 180,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original Event Player DEF26 isolated body",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_player_def26_body.gd",
+      "arguments": [
+        "{source_root}"
+      ],
+      "timeout": 180,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original Event Player F_DATE2 detached DEF",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_player_f_date2.gd",
+      "arguments": [
+        "{source_root}"
+      ],
+      "timeout": 180,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original Event Player PROMIS scheduling routes",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_player_promise_dates.gd",
+      "arguments": [
+        "{source_root}"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original EP-12 re-entry probes",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_ep12_reentry_probes.gd",
+      "arguments": [
+        "{source_root}"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original Event Player nested PROMIS callers",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_player_nested_promise.gd",
+      "arguments": [
+        "{source_root}"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original EVENTD08 composed choice routes",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/cli/validate_eventd08_choice_routes.gd",
+      "arguments": [
+        "{mes_arc}"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original MMO corpus",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/cli/validate_mmo_corpus.gd",
+      "arguments": [
+        "{mmo_arc}"
+      ],
+      "timeout": 600,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original DAT/PAL corpus",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/cli/validate_dat_pal_corpus.gd",
+      "arguments": [
+        "{data_arc}"
+      ],
+      "timeout": 600,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original A6 corpus",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/cli/validate_a6_corpus.gd",
+      "arguments": [
+        "{data_arc}"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original AX corpus",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/cli/validate_ax_corpus.gd",
+      "arguments": [
+        "{data_arc}"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original ARC Browser original integration",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_arc_browser_original.gd",
+      "arguments": [
+        "{source_root}"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original MES Editor original integration",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_mes_editor_original.gd",
+      "arguments": [
+        "{mes_arc}"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original Event Catalog source bindings",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/cli/validate_event_catalog_original.gd",
+      "arguments": [
+        "{source_root}"
+      ],
+      "timeout": 240,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original EVENTB03 state12 source branch matrix",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/cli/audit_eventb03_state12.gd",
+      "arguments": [
+        "{source_root}"
+      ],
+      "timeout": 120,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original EVENTB03 affection source branch matrix",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/cli/audit_eventb03_affection.gd",
+      "arguments": [
+        "{source_root}"
+      ],
+      "timeout": 120,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original EVENTB03 preset choices source matrix",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/cli/audit_eventb03_preset_choices.gd",
+      "arguments": [
+        "{source_root}"
+      ],
+      "timeout": 120,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original EVENTB03 face flags source matrix",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/cli/audit_eventb03_face_flags.gd",
+      "arguments": [
+        "{source_root}"
+      ],
+      "timeout": 120,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original station background selection source matrix",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/cli/validate_mes_station_background_plan.gd",
+      "arguments": [
+        "{source_root}"
+      ],
+      "timeout": 180,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original Mahoko standing selection source matrix",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/cli/validate_mes_mahoko_standing_plan.gd",
+      "arguments": [
+        "{source_root}"
+      ],
+      "timeout": 180,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original EVENTB03 station candidate source route",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/cli/validate_mes_eventb03_candidate_plan.gd",
+      "arguments": [
+        "{source_root}"
+      ],
+      "timeout": 180,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original station candidate priority source route",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/cli/validate_mes_station_candidate_priority_plan.gd",
+      "arguments": [
+        "{source_root}"
+      ],
+      "timeout": 180,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original station candidate prefix source route",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/cli/validate_mes_station_candidate_prefix_plan.gd",
+      "arguments": [
+        "{source_root}"
+      ],
+      "timeout": 180,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original station EVENTB03 frozen decision source route",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/cli/validate_mes_station_eventb03_decision_plan.gd",
+      "arguments": [
+        "{source_root}"
+      ],
+      "timeout": 180,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original event corpus literal dispatch inventory",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/cli/audit_mes_event_corpus_inventory.gd",
+      "arguments": [
+        "{source_root}"
+      ],
+      "timeout": 600,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original dispatch naming beyond the strict decode",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/cli/audit_mes_dispatch_naming.gd",
+      "arguments": [
+        "{source_root}"
+      ],
+      "timeout": 600,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original playback op profile",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/cli/audit_mes_playback_op_profile.gd",
+      "arguments": [
+        "{source_root}"
+      ],
+      "timeout": 600,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original catalog group routes",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_catalog_group_routes.gd",
+      "arguments": [
+        "{source_root}"
+      ],
+      "timeout": 3000,
+      "shards": 20,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full"
+    },
+    {
+      "name": "original event analysis GROUND historical v1",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/ground_h17_k09_v1.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/ground_h17_k09_v1.json"
+    },
+    {
+      "name": "original event analysis GROUND group",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/ground_h17_k09_v2.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/ground_h17_k09_v2.json"
+    },
+    {
+      "name": "original event analysis GROUND branch matrix",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/ground_h17_k09_branches_v2.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/ground_h17_k09_branches_v2.json"
+    },
+    {
+      "name": "original event analysis GROUND H01 H02",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/ground_h01_h02_v3.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/ground_h01_h02_v3.json"
+    },
+    {
+      "name": "original event analysis GROUND K01 continuation",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/ground_k01_continuation_v4.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/ground_k01_continuation_v4.json"
+    },
+    {
+      "name": "original event analysis GROUND K_PIC continuation",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/ground_kpic_continuation_v4.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/ground_kpic_continuation_v4.json"
+    },
+    {
+      "name": "original event analysis GROUND K09 outer choice",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/ground_k09_outer_v4.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/ground_k09_outer_v4.json"
+    },
+    {
+      "name": "original event analysis GROUND H17 arrival",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/ground_h17_arrival_v12.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/ground_h17_arrival_v12.json"
+    },
+    {
+      "name": "original event analysis GROUND K09 arrival",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/ground_k09_arrival_v12.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/ground_k09_arrival_v12.json"
+    },
+    {
+      "name": "original event analysis GROUND K01A arrival",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/ground_k01a_arrival_v12.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/ground_k01a_arrival_v12.json"
+    },
+    {
+      "name": "original event analysis GROUND K01B arrival",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/ground_k01b_arrival_v12.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/ground_k01b_arrival_v12.json"
+    },
+    {
+      "name": "original event analysis GROUND K_PIC arrival",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/ground_kpic_arrival_v12.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/ground_kpic_arrival_v12.json"
+    },
+    {
+      "name": "original event analysis GROUND C07",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/ground_c07_v12.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/ground_c07_v12.json"
+    },
+    {
+      "name": "original event analysis GROUND C12",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/ground_c12_v12.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/ground_c12_v12.json"
+    },
+    {
+      "name": "original event analysis GROUND C12 second call",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/ground_c12_second_v12.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/ground_c12_second_v12.json"
+    },
+    {
+      "name": "original event analysis GROUND K02",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/ground_k02_v12.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/ground_k02_v12.json"
+    },
+    {
+      "name": "original event analysis GROUND H15",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/ground_h15_v12.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/ground_h15_v12.json"
+    },
+    {
+      "name": "original event analysis GROUND A07",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/ground_a07_v6.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/ground_a07_v6.json"
+    },
+    {
+      "name": "original event analysis GROUND A07 arrival",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/ground_a07_arrival_v11.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/ground_a07_arrival_v11.json"
+    },
+    {
+      "name": "original event analysis GROUND F02",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/ground_f02_v11.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/ground_f02_v11.json"
+    },
+    {
+      "name": "original event analysis GROUND G08",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/ground_g08_v7.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/ground_g08_v7.json"
+    },
+    {
+      "name": "original event analysis GROUND G08 arrival",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/ground_g08_arrival_v11.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/ground_g08_arrival_v11.json"
+    },
+    {
+      "name": "original event analysis 44M C18",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/44m_c18_v8.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/44m_c18_v8.json"
+    },
+    {
+      "name": "original event analysis 44M H11",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/44m_h11_v8.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/44m_h11_v8.json"
+    },
+    {
+      "name": "original event analysis 44M F22",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/44m_f22_v8.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/44m_f22_v8.json"
+    },
+    {
+      "name": "original event analysis 44M F17",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/44m_f17_v8.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/44m_f17_v8.json"
+    },
+    {
+      "name": "original event analysis 44M F06",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/44m_f06_v8.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/44m_f06_v8.json"
+    },
+    {
+      "name": "original event analysis 44M L10",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/44m_l10_v6.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/44m_l10_v6.json"
+    },
+    {
+      "name": "original event analysis 01M I16",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/01m_i16_v6.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/01m_i16_v6.json"
+    },
+    {
+      "name": "original event analysis 01M G11",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/01m_g11_v6.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/01m_g11_v6.json"
+    },
+    {
+      "name": "original event analysis 01M D05",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/01m_d05_v6.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/01m_d05_v6.json"
+    },
+    {
+      "name": "original event analysis 01M L03",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/01m_l03_v5.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/01m_l03_v5.json"
+    },
+    {
+      "name": "original event analysis 01M H07",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/01m_h07_v11.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/01m_h07_v11.json"
+    },
+    {
+      "name": "original event analysis 01M M06",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/01m_m06_v12.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/01m_m06_v12.json"
+    },
+    {
+      "name": "original event analysis 01M M09",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/01m_m09_v12.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/01m_m09_v12.json"
+    },
+    {
+      "name": "original event analysis FLOOR5 M18",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/floor5_m18_v12.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/floor5_m18_v12.json"
+    },
+    {
+      "name": "original event analysis FLOOR5 H10",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/floor5_h10_v12.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/floor5_h10_v12.json"
+    },
+    {
+      "name": "original event analysis FLOOR5 H16",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/floor5_h16_v12.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/floor5_h16_v12.json"
+    },
+    {
+      "name": "original event analysis FLOOR5 G21",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/floor5_g21_v12.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/floor5_g21_v12.json"
+    },
+    {
+      "name": "original event analysis FLOOR5 F01",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/floor5_f01_v9.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/floor5_f01_v9.json"
+    },
+    {
+      "name": "original event analysis FLOOR5 F01 arrival",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/floor5_f01_arrival_v12.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/floor5_f01_arrival_v12.json"
+    },
+    {
+      "name": "original event analysis FLOOR5 E15A",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/floor5_e15a_v9.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/floor5_e15a_v9.json"
+    },
+    {
+      "name": "original event analysis FLOOR5 E15A arrival",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/floor5_e15a_arrival_v12.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/floor5_e15a_arrival_v12.json"
+    },
+    {
+      "name": "original event analysis FLOOR5 E15B",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/floor5_e15b_v12.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/floor5_e15b_v12.json"
+    },
+    {
+      "name": "original event analysis 18M C11",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/18m_c11_v6.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/18m_c11_v6.json"
+    },
+    {
+      "name": "original event analysis 18M I05",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/18m_i05_v6.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/18m_i05_v6.json"
+    },
+    {
+      "name": "original event analysis 18M K13",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/18m_k13_v5.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/18m_k13_v5.json"
+    },
+    {
+      "name": "original event analysis 18M L04",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/18m_l04_v5.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/18m_l04_v5.json"
+    },
+    {
+      "name": "original event analysis 18M I09",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/18m_i09_v6.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/18m_i09_v6.json"
+    },
+    {
+      "name": "original event analysis 18M M16",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/18m_m16_v5.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/18m_m16_v5.json"
+    },
+    {
+      "name": "original event analysis 44C I24",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/44c_i24_v8.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/44c_i24_v8.json"
+    },
+    {
+      "name": "original event analysis 44C L25",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/44c_l25_v8.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/44c_l25_v8.json"
+    },
+    {
+      "name": "original event analysis 44C M03",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/44c_m03_v13.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/44c_m03_v13.json"
+    },
+    {
+      "name": "original event analysis 44C M17",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/44c_m17_v8.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/44c_m17_v8.json"
+    },
+    {
+      "name": "original event analysis 44C M10A",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/44c_m10a_v13.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/44c_m10a_v13.json"
+    },
+    {
+      "name": "original event analysis 44C M10B",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/44c_m10b_v13.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/44c_m10b_v13.json"
+    },
+    {
+      "name": "original event analysis 17M C10",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/17m_c10_v5.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/17m_c10_v5.json"
+    },
+    {
+      "name": "original event analysis 17M A10",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/17m_a10_v6.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/17m_a10_v6.json"
+    },
+    {
+      "name": "original event analysis 17M A02",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/17m_a02_v6.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/17m_a02_v6.json"
+    },
+    {
+      "name": "original event analysis 17M A20A",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/17m_a20a_v6.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/17m_a20a_v6.json"
+    },
+    {
+      "name": "original event analysis 17M A20B",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/17m_a20b_v6.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/17m_a20b_v6.json"
+    },
+    {
+      "name": "original event analysis 23M C02",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/23m_c02_v6.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/23m_c02_v6.json"
+    },
+    {
+      "name": "original event analysis 23M E01",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/23m_e01_v6.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/23m_e01_v6.json"
+    },
+    {
+      "name": "original event analysis 23M C05",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/23m_c05_v6.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/23m_c05_v6.json"
+    },
+    {
+      "name": "original event analysis 23M C17",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/23m_c17_v6.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/23m_c17_v6.json"
+    },
+    {
+      "name": "original event analysis 23M E03",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/23m_e03_v6.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/23m_e03_v6.json"
+    },
+    {
+      "name": "original event analysis 21C A08",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/21c_a08_v6.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/21c_a08_v6.json"
+    },
+    {
+      "name": "original event analysis 21C C08",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/21c_c08_v6.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/21c_c08_v6.json"
+    },
+    {
+      "name": "original event analysis 21C L07",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/21c_l07_v5.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/21c_l07_v5.json"
+    },
+    {
+      "name": "original event analysis 26M C01",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/26m_c01_v6.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/26m_c01_v6.json"
+    },
+    {
+      "name": "original event analysis 26M C04",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/26m_c04_v6.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/26m_c04_v6.json"
+    },
+    {
+      "name": "original event analysis 26M H06",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/26m_h06_v6.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/26m_h06_v6.json"
+    },
+    {
+      "name": "original event analysis 26M C21",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/26m_c21_v6.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/26m_c21_v6.json"
+    },
+    {
+      "name": "original event analysis MACHI G04",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/machi_g04_v6.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/machi_g04_v6.json"
+    },
+    {
+      "name": "original event analysis MACHI E18",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/machi_e18_v11.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/machi_e18_v11.json"
+    },
+    {
+      "name": "original event analysis MACHI E04",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/machi_e04_v12.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/machi_e04_v12.json"
+    },
+    {
+      "name": "original event analysis MACHI E10",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/machi_e10_v12.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/machi_e10_v12.json"
+    },
+    {
+      "name": "original event analysis 03C J14A",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/03c_j14a_v6.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/03c_j14a_v6.json"
+    },
+    {
+      "name": "original event analysis 03C J14B",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/03c_j14b_v6.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/03c_j14b_v6.json"
+    },
+    {
+      "name": "original event analysis 03C J15",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/03c_j15_v6.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/03c_j15_v6.json"
+    },
+    {
+      "name": "original event analysis 07M A19",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/07m_a19_v6.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/07m_a19_v6.json"
+    },
+    {
+      "name": "original event analysis 07M G14",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/07m_g14_v6.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/07m_g14_v6.json"
+    },
+    {
+      "name": "original event analysis 07M J19",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/07m_j19_v6.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/07m_j19_v6.json"
+    },
+    {
+      "name": "original event analysis 11M H04",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/11m_h04_v6.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/11m_h04_v6.json"
+    },
+    {
+      "name": "original event analysis 11M K14",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/11m_k14_v8.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/11m_k14_v8.json"
+    },
+    {
+      "name": "original event analysis 11M J01",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/11m_j01_v8.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/11m_j01_v8.json"
+    },
+    {
+      "name": "original event analysis 15C I10",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/15c_i10_v6.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/15c_i10_v6.json"
+    },
+    {
+      "name": "original event analysis 15C C06",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/15c_c06_v10.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/15c_c06_v10.json"
+    },
+    {
+      "name": "original event analysis 15C E11",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/15c_e11_v10.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/15c_e11_v10.json"
+    },
+    {
+      "name": "original event analysis 25C A03",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/25c_a03_v6.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/25c_a03_v6.json"
+    },
+    {
+      "name": "original event analysis 25C F20",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/25c_f20_v6.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/25c_f20_v6.json"
+    },
+    {
+      "name": "original event analysis 25C E05",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/25c_e05_v5.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/25c_e05_v5.json"
+    },
+    {
+      "name": "original event analysis 30C G01A",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/30c_g01a_v6.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/30c_g01a_v6.json"
+    },
+    {
+      "name": "original event analysis 30C G01B",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/30c_g01b_v6.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/30c_g01b_v6.json"
+    },
+    {
+      "name": "original event analysis 30C G01C",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/30c_g01c_v6.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/30c_g01c_v6.json"
+    },
+    {
+      "name": "original event analysis 35M I13",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/35m_i13_v6.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/35m_i13_v6.json"
+    },
+    {
+      "name": "original event analysis 35M G02",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/35m_g02_v6.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/35m_g02_v6.json"
+    },
+    {
+      "name": "original event analysis 35M L02",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/35m_l02_v6.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/35m_l02_v6.json"
+    },
+    {
+      "name": "original event analysis 05M J07",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/05m_j07_v6.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/05m_j07_v6.json"
+    },
+    {
+      "name": "original event analysis 05M L06",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/05m_l06_v6.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/05m_l06_v6.json"
+    },
+    {
+      "name": "original event analysis 06C J18",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/06c_j18_v8.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/06c_j18_v8.json"
+    },
+    {
+      "name": "original event analysis 06C L08",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/06c_l08_v8.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/06c_l08_v8.json"
+    },
+    {
+      "name": "original event analysis 09M L11",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/09m_l11_v6.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/09m_l11_v6.json"
+    },
+    {
+      "name": "original event analysis 09M M20",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/09m_m20_v6.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/09m_m20_v6.json"
+    },
+    {
+      "name": "original event analysis 27C_EV M01",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/27c_ev_m01_v5.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/27c_ev_m01_v5.json"
+    },
+    {
+      "name": "original event analysis 27C_EV M14",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/27c_ev_m14_v5.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/27c_ev_m14_v5.json"
+    },
+    {
+      "name": "original event analysis FLOOR4 F03",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/floor4_f03_v12.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/floor4_f03_v12.json"
+    },
+    {
+      "name": "original event analysis FLOOR4 A13",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/floor4_a13_v11.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/floor4_a13_v11.json"
+    },
+    {
+      "name": "original event analysis FLOOR4 L18",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/floor4_l18_v11.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/floor4_l18_v11.json"
+    },
+    {
+      "name": "original event analysis FLOOR1 I04A",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/floor1_i04a_v11.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/floor1_i04a_v11.json"
+    },
+    {
+      "name": "original event analysis FLOOR1 I04B",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/floor1_i04b_v11.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/floor1_i04b_v11.json"
+    },
+    {
+      "name": "original event analysis FLOOR1 I04C",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/floor1_i04c_v11.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/floor1_i04c_v11.json"
+    },
+    {
+      "name": "original event analysis 19C L05",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/19c_l05_v6.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/19c_l05_v6.json"
+    },
+    {
+      "name": "original event analysis 27C1A C03",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/27c1a_c03_v6.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/27c1a_c03_v6.json"
+    },
+    {
+      "name": "original event analysis 29C A05",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/29c_a05_v6.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/29c_a05_v6.json"
+    },
+    {
+      "name": "original event analysis 34C L20",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/34c_l20_v6.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/34c_l20_v6.json"
+    },
+    {
+      "name": "original event analysis 33C A04",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/33c_a04_v6.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/33c_a04_v6.json"
+    },
+    {
+      "name": "original event analysis 32C I23",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/32c_i23_v6.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/32c_i23_v6.json"
+    },
+    {
+      "name": "original event analysis 10C D06",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/10c_d06_v6.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/10c_d06_v6.json"
+    },
+    {
+      "name": "original event analysis 20C L16",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/20c_l16_v6.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/20c_l16_v6.json"
+    },
+    {
+      "name": "original event analysis 28C L13",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/28c_l13_v6.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/28c_l13_v6.json"
+    },
+    {
+      "name": "original event analysis 05C I21",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/05c_i21_v6.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/05c_i21_v6.json"
+    },
+    {
+      "name": "original event analysis 27C3B A01",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/27c3b_a01_v6.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/27c3b_a01_v6.json"
+    },
+    {
+      "name": "original event analysis REIKO42 F07",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/reiko42_f07_v6.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/reiko42_f07_v6.json"
+    },
+    {
+      "name": "original event analysis 06M K06",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/06m_k06_v6.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/06m_k06_v6.json"
+    },
+    {
+      "name": "original event analysis 16M Q01",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/16m_q01_v6.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/16m_q01_v6.json"
+    },
+    {
+      "name": "original event analysis 10M M04",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/10m_m04_v5.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/10m_m04_v5.json"
+    },
+    {
+      "name": "original event analysis 19M M15",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/19m_m15_v5.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/19m_m15_v5.json"
+    },
+    {
+      "name": "original event analysis 21M M08",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/21m_m08_v5.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/21m_m08_v5.json"
+    },
+    {
+      "name": "original event analysis 43C M05",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/43c_m05_v8.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/43c_m05_v8.json"
+    },
+    {
+      "name": "original event analysis 46M J09",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/46m_j09_v5.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/46m_j09_v5.json"
+    },
+    {
+      "name": "original event analysis A_DATE5 A17",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/a_date5_a17_v5.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/a_date5_a17_v5.json"
+    },
+    {
+      "name": "original event analysis H_DATE3 H19",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/h_date3_h19_v5.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/h_date3_h19_v5.json"
+    },
+    {
+      "name": "original event analysis K_DATE3 K15",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/k_date3_k15_v5.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/k_date3_k15_v5.json"
+    },
+    {
+      "name": "original event analysis 44M J11",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/44m_j11_v6.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/44m_j11_v6.json"
+    },
+    {
+      "name": "original event analysis 44M H18",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/44m_h18_v8.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/44m_h18_v8.json"
+    },
+    {
+      "name": "original event analysis 44M I14",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/44m_i14_v8.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/44m_i14_v8.json"
+    },
+    {
+      "name": "original event analysis 44M A22",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/44m_a22_v8.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/44m_a22_v8.json"
+    },
+    {
+      "name": "original event analysis 44M B14",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/44m_b14_v8.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/44m_b14_v8.json"
+    },
+    {
+      "name": "original event analysis 13C B01",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/13c_b01_v5.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/13c_b01_v5.json"
+    },
+    {
+      "name": "original event analysis 13C B02",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/13c_b02_v5.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/13c_b02_v5.json"
+    },
+    {
+      "name": "original event analysis 12C D01",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/12c_d01_v5.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/12c_d01_v5.json"
+    },
+    {
+      "name": "original event analysis 12C D02",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/12c_d02_v5.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/12c_d02_v5.json"
+    },
+    {
+      "name": "original event analysis 12C D03",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/12c_d03_v5.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/12c_d03_v5.json"
+    },
+    {
+      "name": "original event analysis 12C D08",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/12c_d08_v5.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/12c_d08_v5.json"
+    },
+    {
+      "name": "original event analysis 12C D14",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/12c_d14_v5.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/12c_d14_v5.json"
+    },
+    {
+      "name": "original event analysis 11M B15",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/11m_b15_v5.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/11m_b15_v5.json"
+    },
+    {
+      "name": "original event analysis 01M B03",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/01m_b03_v6.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/01m_b03_v6.json"
+    },
+    {
+      "name": "original event analysis 01M J04",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/01m_j04_v6.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/01m_j04_v6.json"
+    },
+    {
+      "name": "original event analysis 01M A date",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/01m_a_date_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/01m_a_date_v14.json"
+    },
+    {
+      "name": "original event analysis 01M B date",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/01m_b_date_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/01m_b_date_v14.json"
+    },
+    {
+      "name": "original event analysis 01M C date",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/01m_c_date_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/01m_c_date_v14.json"
+    },
+    {
+      "name": "original event analysis 01M D date",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/01m_d_date_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/01m_d_date_v14.json"
+    },
+    {
+      "name": "original event analysis 01M E date",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/01m_e_date_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/01m_e_date_v14.json"
+    },
+    {
+      "name": "original event analysis 01M F date",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/01m_f_date_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/01m_f_date_v14.json"
+    },
+    {
+      "name": "original event analysis 01M G date",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/01m_g_date_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/01m_g_date_v14.json"
+    },
+    {
+      "name": "original event analysis 01M H date",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/01m_h_date_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/01m_h_date_v14.json"
+    },
+    {
+      "name": "original event analysis 01M I date",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/01m_i_date_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/01m_i_date_v14.json"
+    },
+    {
+      "name": "original event analysis 01M J date",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/01m_j_date_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/01m_j_date_v14.json"
+    },
+    {
+      "name": "original event analysis 01M K date",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/01m_k_date_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/01m_k_date_v14.json"
+    },
+    {
+      "name": "original event analysis 01M L date",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/01m_l_date_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/01m_l_date_v14.json"
+    },
+    {
+      "name": "original event analysis 01M A promise",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/01m_a_promis_v5.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/01m_a_promis_v5.json"
+    },
+    {
+      "name": "original event analysis 01M B promise",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/01m_b_promis_v5.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/01m_b_promis_v5.json"
+    },
+    {
+      "name": "original event analysis 01M C promise",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/01m_c_promis_v5.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/01m_c_promis_v5.json"
+    },
+    {
+      "name": "original event analysis 01M D promise",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/01m_d_promis_v5.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/01m_d_promis_v5.json"
+    },
+    {
+      "name": "original event analysis 01M E promise",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/01m_e_promis_v5.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/01m_e_promis_v5.json"
+    },
+    {
+      "name": "original event analysis 01M F promise",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/01m_f_promis_v5.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/01m_f_promis_v5.json"
+    },
+    {
+      "name": "original event analysis 01M G promise",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/01m_g_promis_v5.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/01m_g_promis_v5.json"
+    },
+    {
+      "name": "original event analysis 01M H promise",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/01m_h_promis_v5.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/01m_h_promis_v5.json"
+    },
+    {
+      "name": "original event analysis 01M I promise",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/01m_i_promis_v5.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/01m_i_promis_v5.json"
+    },
+    {
+      "name": "original event analysis 01M J promise",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/01m_j_promis_v5.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/01m_j_promis_v5.json"
+    },
+    {
+      "name": "original event analysis 01M K promise",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/01m_k_promis_v5.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/01m_k_promis_v5.json"
+    },
+    {
+      "name": "original event analysis 01M L promise",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/01m_l_promis_v5.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/01m_l_promis_v5.json"
+    },
+    {
+      "name": "original event analysis MINATU M scene",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/minatu_m_scene_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/minatu_m_scene_v14.json"
+    },
+    {
+      "name": "original event analysis MIKO M scene",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/miko_m_scene_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/miko_m_scene_v14.json"
+    },
+    {
+      "name": "original event analysis MAHOKO M scene",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/mahoko_m_scene_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/mahoko_m_scene_v14.json"
+    },
+    {
+      "name": "original event analysis NANA M scene",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/nana_m_scene_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/nana_m_scene_v14.json"
+    },
+    {
+      "name": "original event analysis MAKI M scene",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/maki_m_scene_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/maki_m_scene_v14.json"
+    },
+    {
+      "name": "original event analysis MIZUHO M scene",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/mizuho_m_scene_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/mizuho_m_scene_v14.json"
+    },
+    {
+      "name": "original event analysis REIKO M scene",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/reiko_m_scene_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/reiko_m_scene_v14.json"
+    },
+    {
+      "name": "original event analysis RYOKO M scene",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/ryoko_m_scene_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/ryoko_m_scene_v14.json"
+    },
+    {
+      "name": "original event analysis MIYUKI M scene",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/miyuki_m_scene_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/miyuki_m_scene_v14.json"
+    },
+    {
+      "name": "original event analysis MAYUMI M scene",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/mayumi_m_scene_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/mayumi_m_scene_v14.json"
+    },
+    {
+      "name": "original event analysis AI M scene",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/ai_m_scene_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/ai_m_scene_v14.json"
+    },
+    {
+      "name": "original event analysis SIZUKA M scene",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/sizuka_m_scene_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/sizuka_m_scene_v14.json"
+    },
+    {
+      "name": "original event analysis TINA M scene",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/tina_m_scene_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/tina_m_scene_v14.json"
+    },
+    {
+      "name": "original event analysis 43C MIKO H",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/43c_miko_h_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/43c_miko_h_v14.json"
+    },
+    {
+      "name": "original event analysis 43C MAHOKO H",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/43c_mahoko_h_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/43c_mahoko_h_v14.json"
+    },
+    {
+      "name": "original event analysis 43C NANA H",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/43c_nana_h_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/43c_nana_h_v14.json"
+    },
+    {
+      "name": "original event analysis 43C MAKI H",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/43c_maki_h_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/43c_maki_h_v14.json"
+    },
+    {
+      "name": "original event analysis 43C MIZUHO H",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/43c_mizuho_h_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/43c_mizuho_h_v14.json"
+    },
+    {
+      "name": "original event analysis 43C REIKO H",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/43c_reiko_h_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/43c_reiko_h_v14.json"
+    },
+    {
+      "name": "original event analysis 43C RYOKO H",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/43c_ryoko_h_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/43c_ryoko_h_v14.json"
+    },
+    {
+      "name": "original event analysis 43C MIYUKI H",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/43c_miyuki_h_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/43c_miyuki_h_v14.json"
+    },
+    {
+      "name": "original event analysis 43C MAYUMI H",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/43c_mayumi_h_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/43c_mayumi_h_v14.json"
+    },
+    {
+      "name": "original event analysis 43C MINATU H",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/43c_minatu_h_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/43c_minatu_h_v14.json"
+    },
+    {
+      "name": "original event analysis 43C AI H",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/43c_ai_h_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/43c_ai_h_v14.json"
+    },
+    {
+      "name": "original event analysis 43C SIZUKA H",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/43c_sizuka_h_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/43c_sizuka_h_v14.json"
+    },
+    {
+      "name": "original event analysis 43C TINA H",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/43c_tina_h_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/43c_tina_h_v14.json"
+    },
+    {
+      "name": "original event analysis 01M K talk",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/01m_k_talk_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/01m_k_talk_v14.json"
+    },
+    {
+      "name": "original event analysis 27C_EV K talk",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/27c_ev_k_talk_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/27c_ev_k_talk_v14.json"
+    },
+    {
+      "name": "original event analysis 01M A talk",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/01m_a_talk_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/01m_a_talk_v14.json"
+    },
+    {
+      "name": "original event analysis 27C_EV A talk",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/27c_ev_a_talk_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/27c_ev_a_talk_v14.json"
+    },
+    {
+      "name": "original event analysis 01M B talk",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/01m_b_talk_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/01m_b_talk_v14.json"
+    },
+    {
+      "name": "original event analysis 01M C talk",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/01m_c_talk_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/01m_c_talk_v14.json"
+    },
+    {
+      "name": "original event analysis 27C_EV C talk",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/27c_ev_c_talk_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/27c_ev_c_talk_v14.json"
+    },
+    {
+      "name": "original event analysis 01M D talk",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/01m_d_talk_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/01m_d_talk_v14.json"
+    },
+    {
+      "name": "original event analysis 01M E talk",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/01m_e_talk_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/01m_e_talk_v14.json"
+    },
+    {
+      "name": "original event analysis 27C_EV E talk",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/27c_ev_e_talk_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/27c_ev_e_talk_v14.json"
+    },
+    {
+      "name": "original event analysis 01M F talk",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/01m_f_talk_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/01m_f_talk_v14.json"
+    },
+    {
+      "name": "original event analysis 27C_EV F talk",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/27c_ev_f_talk_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/27c_ev_f_talk_v14.json"
+    },
+    {
+      "name": "original event analysis 01M G talk",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/01m_g_talk_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/01m_g_talk_v14.json"
+    },
+    {
+      "name": "original event analysis 27C_EV G talk",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/27c_ev_g_talk_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/27c_ev_g_talk_v14.json"
+    },
+    {
+      "name": "original event analysis 01M H talk",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/01m_h_talk_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/01m_h_talk_v14.json"
+    },
+    {
+      "name": "original event analysis 27C_EV H talk",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/27c_ev_h_talk_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/27c_ev_h_talk_v14.json"
+    },
+    {
+      "name": "original event analysis 01M I talk",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/01m_i_talk_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/01m_i_talk_v14.json"
+    },
+    {
+      "name": "original event analysis 27C_EV I talk",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/27c_ev_i_talk_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/27c_ev_i_talk_v14.json"
+    },
+    {
+      "name": "original event analysis 01M J talk",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/01m_j_talk_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/01m_j_talk_v14.json"
+    },
+    {
+      "name": "original event analysis 01M L talk",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/01m_l_talk_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/01m_l_talk_v14.json"
+    },
+    {
+      "name": "original event analysis 27C_EV L talk",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/27c_ev_l_talk_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/27c_ev_l_talk_v14.json"
+    },
+    {
+      "name": "original event analysis 01M M talk",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/01m_m_talk_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/01m_m_talk_v14.json"
+    },
+    {
+      "name": "original event analysis 27C_EV N talk",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/27c_ev_n_talk_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/27c_ev_n_talk_v14.json"
+    },
+    {
+      "name": "original event analysis 11M N talk",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/11m_n_talk_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/11m_n_talk_v14.json"
+    },
+    {
+      "name": "original event analysis 27C_EV O talk",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/27c_ev_o_talk_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/27c_ev_o_talk_v14.json"
+    },
+    {
+      "name": "original event analysis 27C_EV P talk",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/27c_ev_p_talk_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/27c_ev_p_talk_v14.json"
+    },
+    {
+      "name": "original event analysis 01M Q talk",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/01m_q_talk_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/01m_q_talk_v14.json"
+    },
+    {
+      "name": "original event analysis 27C_EV Q talk",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_analysis_group.gd",
+      "arguments": [
+        "{source_root}",
+        "config/event_catalog/analysis_groups/27c_ev_q_talk_v14.json"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full",
+      "family": "analysis_group",
+      "profile": "config/event_catalog/analysis_groups/27c_ev_q_talk_v14.json"
+    },
+    {
+      "name": "original playback package export",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/cli/export_playback_package.gd",
+      "arguments": [
+        "{source_root}"
+      ],
+      "timeout": 900,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full"
+    },
+    {
+      "name": "original playback package playback",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/cli/validate_playback_package_playback.gd",
+      "arguments": [
+        "{source_root}"
+      ],
+      "timeout": 1800,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full"
+    },
+    {
+      "name": "original edited event contextual authoring",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/cli/validate_mes_contextual_authoring.gd",
+      "arguments": [
+        "{source_root}"
+      ],
+      "timeout": 900,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full"
+    },
+    {
+      "name": "original relocated message contextual authoring",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/cli/validate_mes_contextual_authoring.gd",
+      "arguments": [
+        "{source_root}",
+        "--message-relocation"
+      ],
+      "timeout": 900,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full"
+    },
+    {
+      "name": "original resource contextual authoring",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/cli/validate_mes_contextual_authoring.gd",
+      "arguments": [
+        "{source_root}",
+        "--resource-name"
+      ],
+      "timeout": 900,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full"
+    },
+    {
+      "name": "original sequence contextual authoring",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/cli/validate_mes_contextual_authoring.gd",
+      "arguments": [
+        "{source_root}",
+        "--sequence"
+      ],
+      "timeout": 1200,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full"
+    },
+    {
+      "name": "original mod bundle round trip",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_mod_bundle_original.gd",
+      "arguments": [
+        "{source_root}"
+      ],
+      "timeout": 900,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "full"
+    },
+    {
+      "name": "original Event Player fragment catalogs",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_event_player_event_catalogs.gd",
+      "arguments": [
+        "{source_root}"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original Image Editor original integration",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_image_arc_editor_original.gd",
+      "arguments": [
+        "{mmo_arc}",
+        "{data_arc}"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original Audio Editor original integration",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_audio_arc_editor_original.gd",
+      "arguments": [
+        "{source_root}"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original selection handoff original integration",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/validators/validate_selection_handoff_original.gd",
+      "arguments": [
+        "{source_root}"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original MES Event Runner exhaustive corpus",
+      "kind": "godot_script",
+      "script": "res://tools/content_suite/cli/audit_mes_event_runner_corpus.gd",
+      "arguments": [
+        "{mes_arc}"
+      ],
+      "timeout": 1800,
+      "groups": [
+        "original_corpus",
+        "event_corpus"
+      ],
+      "requires": [
+        "elfimage",
+        "event_corpus"
+      ],
+      "tier": "full"
+    },
+    {
+      "name": "original event analysis frontier",
+      "kind": "python",
+      "script": "tools/build_event_analysis_inventory.py",
+      "arguments": [
+        "{source_root}",
+        "--summary"
+      ],
+      "timeout": 600,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original MES DEF registry audit",
+      "kind": "python",
+      "script": "tools/audit_mes_definition_registry.py",
+      "arguments": [
+        "{mes_arc}"
+      ],
+      "timeout": 300,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original MES startup bootstrap audit",
+      "kind": "python",
+      "script": "tools/audit_mes_startup_bootstrap.py",
+      "arguments": [
+        "{mes_arc}"
+      ],
+      "timeout": 180,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original MES surface-operation audit",
+      "kind": "python",
+      "script": "tools/audit_mes_surface_operations.py",
+      "arguments": [
+        "{mes_arc}",
+        "--limit",
+        "0"
+      ],
+      "timeout": 180,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "original duplicate archive entries",
+      "kind": "python",
+      "script": "tools/audit_duplicate_entries.py",
+      "arguments": [
+        "{mes_arc}",
+        "--check",
+        "config/event_catalog/duplicate_entries_v1.json"
+      ],
+      "timeout": 180,
+      "groups": [
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage"
+      ],
+      "tier": "archive_quick"
+    },
+    {
+      "name": "unreferenced archive entries",
+      "kind": "python",
+      "script": "tools/audit_unreferenced_entries.py",
+      "arguments": [
+        "{source_root}",
+        "--exe",
+        "{exe}",
+        "--check",
+        "config/event_catalog/unreferenced_entries_v1.json"
+      ],
+      "timeout": 600,
+      "groups": [
+        "native_executable",
+        "original_corpus"
+      ],
+      "requires": [
+        "elfimage",
+        "exe"
+      ],
+      "tier": "archive_quick"
+    }
+  ]
+}

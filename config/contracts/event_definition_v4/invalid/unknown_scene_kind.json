@@ -1,0 +1,203 @@
+{
+  "schema_version": "kakyu_event_definition/v4",
+  "contract_fingerprint": "self",
+  "names_fingerprint": "self",
+  "id": "miyuki.town.station.07.1",
+  "kind": "event",
+  "display": {
+    "title_ko": "miyuki station 사건",
+    "title_en": "miyuki at station",
+    "heroine": "miyuki",
+    "category": "town",
+    "place": "station"
+  },
+  "evidence": {
+    "kind": "analysis_group",
+    "archive_sha256": "02dee633bf3b215a267d33c8a7f55edb9369bdcc59b021eaad1c575caf435f51",
+    "groups": [
+      {
+        "group_id": "station_group",
+        "profile_sha256": "563fd3c296243ee39d6666873c1519d3689181f2a68777c858277de1868958a7",
+        "route_ids": [
+          "route_0"
+        ]
+      }
+    ],
+    "members": [
+      {
+        "entry": "CALLER",
+        "entry_sha256": "df3213090ca08d09ba7932cec543317a0891aa9b5c5979b80a666b8e2f534de2"
+      },
+      {
+        "entry": "CALLEE",
+        "entry_sha256": "e19bf83287adc2885b28a6d6e91e3b574696395c0f17308eaadac5e9678e8704"
+      }
+    ],
+    "document_refs": [],
+    "effect_witnesses": [
+      {
+        "result": "result_default",
+        "cell": {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 6
+        },
+        "basis": "variants",
+        "entry": 0,
+        "final": 1,
+        "declared": true
+      }
+    ]
+  },
+  "package_binding": {
+    "schema": "kakyu_playback_package/v7",
+    "package_sha256": "f0122dd9bf9771d868391f4659fdbcb3321cb80b8490453b36f8ef68882cb864"
+  },
+  "trigger": {
+    "type": "caller_dispatch",
+    "caller": {
+      "entry": "CALLER",
+      "entry_sha256": "aeb04c921aed2576d4a22ef04fa3c04a174f2b685a3c9fc618206cd079cf5cba",
+      "offset": 100,
+      "end": 140,
+      "command": 15,
+      "kind": "nested_call"
+    },
+    "callee": {
+      "entry": "CALLEE",
+      "entry_sha256": "c51da05bffb1f8546ba860255699e7b5a4be0444320f0bf3b4bbe194b0491afc",
+      "start_coordinate": 0
+    },
+    "origin": {
+      "kind": "map_arrival",
+      "offset": 100,
+      "contracts": [
+        {
+          "map": "TRAIN.MES",
+          "poll_offset": 886,
+          "locations": [
+            0,
+            1
+          ]
+        }
+      ]
+    }
+  },
+  "conditions": [
+    {
+      "type": "mes_expression",
+      "ast": {
+        "op": "and",
+        "args": []
+      },
+      "source_offset": 100,
+      "failure_reason": "guard_rejected"
+    }
+  ],
+  "presets": [
+    {
+      "preset_id": "baseline",
+      "label": "baseline",
+      "writes": [
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 5,
+          "value": 1
+        }
+      ]
+    }
+  ],
+  "dialogue": [
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "CALLEE",
+        "at": 10,
+        "s": 0,
+        "raw_sha256": "66679c1512634fc0b6293122517ee0a1d61694a9410ec950ecee9b4496afad8c"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "CALLEE",
+        "at": 20,
+        "s": 1,
+        "raw_sha256": "cd81acc967c6892c77fde174af441a9489dda665e66c37935e3da21f619c635d"
+      }
+    }
+  ],
+  "after": [
+    {
+      "type": "write_legacy_value",
+      "storage": "state_u16",
+      "bank": 0,
+      "index": 6,
+      "value": 1,
+      "cell_class": "unnamed"
+    }
+  ],
+  "results": {
+    "result_default": {
+      "selected_by": {
+        "kind": "default"
+      },
+      "event_played": true,
+      "dialogue": [
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "CALLEE",
+            "at": 260,
+            "s": 11,
+            "raw_sha256": "023ca8440c1653f59a8cba0fe3166ada53bac20828949e7909ac90841a726b72"
+          }
+        },
+        {
+          "kind": "scene_end"
+        }
+      ],
+      "after": [],
+      "terminal": "term_loop"
+    }
+  },
+  "terminals": {
+    "term_loop": {
+      "kind": "caller_menu_loop",
+      "owner_entry": "CALLER",
+      "offset": 500,
+      "end": 520,
+      "required_state": [],
+      "resume": {
+        "period": 4,
+        "cycle": 2
+      }
+    },
+    "term_boundary": {
+      "kind": "def_selection_boundary",
+      "owner_entry": "DEF_MAIN",
+      "offset": 600,
+      "end": 604,
+      "required_state": []
+    }
+  },
+  "dependencies": [],
+  "presentation": {
+    "status": "deferred",
+    "resources": []
+  },
+  "unresolved": [],
+  "scenes": [
+    {
+      "kind": "boat_ride",
+      "map": "TRAIN.MES",
+      "poll_offset": 886,
+      "locations": [
+        0,
+        1
+      ],
+      "spent_by": "callee"
+    }
+  ]
+}

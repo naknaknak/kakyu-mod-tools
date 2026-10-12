@@ -1,0 +1,1963 @@
+{
+  "schema": "kakyu_event_analysis_group/v5",
+  "group_id": "12c-d08",
+  "archive_sha256": "31a95b31cb0f1051cf973a4dba4f4a5405671e4488240adfafb9b02290986aa6",
+  "source_members": [
+    {
+      "entry": "12C.MES",
+      "entry_sha256": "c71563238cd4e14a06125b8cd139f7e6a304024dbd7c32ed5a3619ca425726eb"
+    },
+    {
+      "entry": "EVENTD08.MES",
+      "entry_sha256": "add5a481c407c863b646799d961033c5ce62da1b1874c227fd41d5685e7fd31c"
+    },
+    {
+      "entry": "D_PIC.MES",
+      "entry_sha256": "72473432ce3dd6e0fc1e994a737dbecd5494eaf4477efc24368d3b3160d7fecd"
+    },
+    {
+      "entry": "START.MES",
+      "entry_sha256": "ba57bf666fbd9db9b3110f2bf1c70e80e11a35de00e82256aaaf35921c77038f"
+    },
+    {
+      "entry": "DEF_MAIN.MES",
+      "entry_sha256": "f2012ce5d90f60a5d1ca8190e03571341c0384c2d3d96e9aec2b3ab949db0ef0"
+    },
+    {
+      "entry": "LIBLARY.LIB",
+      "entry_sha256": "d9aba6eb8dab51fe321e22c868ed0cf38416bba1f0cf2f5d7d719f48e89b8b4d"
+    }
+  ],
+  "routes": [
+    {
+      "route_id": "12c-d08-result1",
+      "qualification": "caller_continuation_observation",
+      "origin_offset": 3735,
+      "caller": {
+        "entry": "12C.MES",
+        "offset": 4006,
+        "end": 4022,
+        "command": 15,
+        "source_binding": {
+          "kind": "typed_record"
+        },
+        "record_sha256": "a84dd3493ef70688e4fa99be1b8c4db34b5e880e1a5b940cade8567a6956f6ad"
+      },
+      "callee": {
+        "entry": "EVENTD08.MES",
+        "offset": 0
+      },
+      "guard": {
+        "offset": 3735,
+        "end": 3810,
+        "false_target": 6708,
+        "source_binding": {
+          "kind": "typed_record"
+        },
+        "record_sha256": "0ea3f78aa27dfbd7733e2e4b5ffc33ee19f0af3dc9c3df9d9b4056e57ef9f837",
+        "prefix_sha256": "20724dd099e0f90b8e176f54f9532fc8dd4174446d640ef3cfc4977b24aa9221"
+      },
+      "post_guard_expected": 0,
+      "caller_outcome": {
+        "kind": "dispatch"
+      },
+      "outcome": {
+        "offset": 2790,
+        "end": 2791,
+        "op": "command_00",
+        "status": "script_return",
+        "source_binding": {
+          "kind": "typed_record"
+        },
+        "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+      },
+      "state_context": {
+        "kind": "original_calendar",
+        "entry": "START.MES",
+        "table_sha256": "f21ee0fcb09e960046878e35ad0410aed88680f849ace471b713ef7a12525b4a"
+      },
+      "choice_contracts": [
+        {
+          "boundary_offset": 1845,
+          "bytecode_sha256": "d8e371a37bb46b2134b792a1a95c7e2a18b15095c6c2a1bf7942686c4b97eeb0",
+          "code_size": 2807,
+          "comparisons": [
+            {
+              "fallthrough_offset": 1870,
+              "false_target_offset": 2045,
+              "result": 1,
+              "source_offset": 1855
+            },
+            {
+              "fallthrough_offset": 2060,
+              "false_target_offset": 2371,
+              "result": 2,
+              "source_offset": 2045
+            }
+          ],
+          "consumer_kind": "one_based_state_u16_21_branch_chain",
+          "definition_count": 3,
+          "definitions": [
+            {
+              "body_offset": 1680,
+              "body_sha256": "58a62435f6b22f779e4df0bf85d36c8b91901a18a8862c5e3e7250d11e680a23",
+              "body_size": 45,
+              "definition_id": 0,
+              "source_offset": 1671,
+              "target_offset": 1725
+            },
+            {
+              "body_offset": 1739,
+              "body_sha256": "8bf93ea6dae92db4dbd72ca6530a44239b040e99b44bfdc0ffd51845db879ace",
+              "body_size": 27,
+              "definition_id": 1,
+              "source_offset": 1730,
+              "target_offset": 1766
+            },
+            {
+              "body_offset": 1780,
+              "body_sha256": "93b3b341b098fcbe3e1ac6667296a01239031d4f7084728f602e23b57c893921",
+              "body_size": 55,
+              "definition_id": 2,
+              "source_offset": 1771,
+              "target_offset": 1835
+            }
+          ],
+          "fallback_offset": -1,
+          "gate": {},
+          "gate_policy": "not_applicable",
+          "input_policy": "explicit_remake_choice",
+          "native_input_semantics": "unresolved",
+          "omitted_native_effects": [
+            "state_u16_18_result",
+            "state_u16_13_output",
+            "routine20",
+            "native_vector_clear"
+          ],
+          "option_entry_offsets": [
+            1870,
+            2060,
+            2371
+          ],
+          "result_index": 21,
+          "result_storage": "state_u16",
+          "result_values": [
+            1,
+            2,
+            3
+          ],
+          "resume_offset": 1850,
+          "schema": "kakyu_mes_routine40_choice_contract/v3",
+          "source_identity": {
+            "archive": "mes.arc",
+            "entry": "EVENTD08.MES"
+          },
+          "variants": []
+        }
+      ],
+      "baseline": [
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 2,
+          "value": 0
+        },
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 212,
+          "value": 80
+        },
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 242,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 220,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 224,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 225,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 227,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 402,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 678,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 756,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 778,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2847,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3006,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 4000,
+          "value": 0
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 0,
+          "value": 0
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 1,
+          "value": 13
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 5,
+          "value": 0
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 7,
+          "value": 808
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 21,
+          "value": 0
+        }
+      ],
+      "expected_state": [
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 242,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 286,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 682,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 756,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3233,
+          "value": 4
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3742,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 5368,
+          "value": 1
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 8,
+          "value": 0
+        }
+      ],
+      "guard_cases": [
+        {
+          "case_id": "baseline",
+          "writes": [],
+          "expected": 1
+        },
+        {
+          "case_id": "global_u8-402-0",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 402,
+              "storage": "global_u8",
+              "value": 0
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "global_u8-220-1",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 220,
+              "storage": "global_u8",
+              "value": 1
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "global_u8-224-1",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 224,
+              "storage": "global_u8",
+              "value": 1
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "global_u8-225-1",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 225,
+              "storage": "global_u8",
+              "value": 1
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "global_u8-756-1",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 756,
+              "storage": "global_u8",
+              "value": 1
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "global_u8-778-1",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 778,
+              "storage": "global_u8",
+              "value": 1
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "global_u8-678-1",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 678,
+              "storage": "global_u8",
+              "value": 1
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "global_u8-227-1",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 227,
+              "storage": "global_u8",
+              "value": 1
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "date-700",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 7,
+              "storage": "state_u16",
+              "value": 700
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "date-701",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 7,
+              "storage": "state_u16",
+              "value": 701
+            }
+          ],
+          "expected": 1
+        },
+        {
+          "case_id": "date-915",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 7,
+              "storage": "state_u16",
+              "value": 915
+            }
+          ],
+          "expected": 1
+        },
+        {
+          "case_id": "date-916",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 7,
+              "storage": "state_u16",
+              "value": 916
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "word212-70",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 212,
+              "storage": "banked_u16",
+              "value": 70
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "word212-71",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 212,
+              "storage": "banked_u16",
+              "value": 71
+            }
+          ],
+          "expected": 1
+        }
+      ],
+      "reentry": {
+        "outcome": {
+          "offset": 1845,
+          "end": 1850,
+          "op": "script_transfer",
+          "status": "def_selection_boundary",
+          "source_binding": {
+            "kind": "typed_record"
+          },
+          "record_sha256": "92a059b1c678e8fb53ecf67b79ae4ebca133078412fe1db5110d9c8d41faabab"
+        },
+        "message_count": 17,
+        "expected_state": []
+      },
+      "variants": [
+        {
+          "variant_id": "baseline",
+          "writes": [],
+          "selections": [
+            {
+              "owner_entry": "EVENTD08.MES",
+              "boundary_offset": 1845,
+              "result_value": 1
+            }
+          ],
+          "message_count": 21,
+          "expected_state": [
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 212,
+              "value": 80
+            }
+          ],
+          "expected_resume_state": [
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 212,
+              "value": 82
+            }
+          ]
+        },
+        {
+          "variant_id": "date-701",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 7,
+              "storage": "state_u16",
+              "value": 701
+            }
+          ],
+          "selections": [
+            {
+              "owner_entry": "EVENTD08.MES",
+              "boundary_offset": 1845,
+              "result_value": 1
+            }
+          ],
+          "message_count": 21,
+          "expected_state": [
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 212,
+              "value": 80
+            }
+          ],
+          "expected_resume_state": [
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 212,
+              "value": 82
+            }
+          ]
+        },
+        {
+          "variant_id": "date-915",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 7,
+              "storage": "state_u16",
+              "value": 915
+            }
+          ],
+          "selections": [
+            {
+              "owner_entry": "EVENTD08.MES",
+              "boundary_offset": 1845,
+              "result_value": 1
+            }
+          ],
+          "message_count": 21,
+          "expected_state": [
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 212,
+              "value": 80
+            }
+          ],
+          "expected_resume_state": [
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 212,
+              "value": 82
+            }
+          ]
+        },
+        {
+          "variant_id": "word212-71",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 212,
+              "storage": "banked_u16",
+              "value": 71
+            }
+          ],
+          "selections": [
+            {
+              "owner_entry": "EVENTD08.MES",
+              "boundary_offset": 1845,
+              "result_value": 1
+            }
+          ],
+          "message_count": 21,
+          "expected_state": [
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 212,
+              "value": 71
+            }
+          ],
+          "expected_resume_state": [
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 212,
+              "value": 73
+            }
+          ]
+        },
+        {
+          "variant_id": "word212-200",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 212,
+              "storage": "banked_u16",
+              "value": 200
+            }
+          ],
+          "selections": [
+            {
+              "owner_entry": "EVENTD08.MES",
+              "boundary_offset": 1845,
+              "result_value": 1
+            }
+          ],
+          "message_count": 21,
+          "expected_state": [
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 212,
+              "value": 200
+            }
+          ],
+          "expected_resume_state": [
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 212,
+              "value": 202
+            }
+          ]
+        },
+        {
+          "variant_id": "global_u8_2847-1",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 2847,
+              "storage": "global_u8",
+              "value": 1
+            }
+          ],
+          "selections": [
+            {
+              "owner_entry": "EVENTD08.MES",
+              "boundary_offset": 1845,
+              "result_value": 1
+            }
+          ],
+          "message_count": 21,
+          "expected_state": [
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 212,
+              "value": 80
+            }
+          ],
+          "expected_resume_state": [
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 212,
+              "value": 82
+            }
+          ]
+        },
+        {
+          "variant_id": "global_u8_3006-1",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 3006,
+              "storage": "global_u8",
+              "value": 1
+            }
+          ],
+          "selections": [
+            {
+              "owner_entry": "EVENTD08.MES",
+              "boundary_offset": 1845,
+              "result_value": 1
+            }
+          ],
+          "message_count": 21,
+          "expected_state": [
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 212,
+              "value": 80
+            }
+          ],
+          "expected_resume_state": [
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 212,
+              "value": 82
+            }
+          ]
+        },
+        {
+          "variant_id": "callee-state_u16_8-1",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 8,
+              "storage": "state_u16",
+              "value": 1
+            }
+          ],
+          "selections": [
+            {
+              "owner_entry": "EVENTD08.MES",
+              "boundary_offset": 1845,
+              "result_value": 1
+            }
+          ],
+          "message_count": 21,
+          "expected_state": [
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 212,
+              "value": 80
+            }
+          ],
+          "expected_resume_state": [
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 212,
+              "value": 82
+            }
+          ]
+        },
+        {
+          "variant_id": "callee-global_u8_4000-1",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 4000,
+              "storage": "global_u8",
+              "value": 1
+            }
+          ],
+          "selections": [
+            {
+              "owner_entry": "EVENTD08.MES",
+              "boundary_offset": 1845,
+              "result_value": 1
+            }
+          ],
+          "message_count": 21,
+          "expected_state": [
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 212,
+              "value": 80
+            }
+          ],
+          "expected_resume_state": [
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 212,
+              "value": 82
+            }
+          ]
+        }
+      ],
+      "unresolved": [],
+      "resume": {
+        "start": 4022,
+        "boundary_policy": "natural_handoff",
+        "outcome": {
+          "offset": 6680,
+          "end": 6693,
+          "op": "script_handoff_marker",
+          "status": "script_handoff_boundary",
+          "source_binding": {
+            "kind": "typed_record"
+          },
+          "record_sha256": "496ee6fc5e929a0d78f596b742cf256b0651842fc13c717c182cd217879ac047",
+          "target": "MACHI.MES"
+        },
+        "message_count": 16,
+        "expected_state": [
+          {
+            "storage": "banked_u16",
+            "bank": 0,
+            "index": 242,
+            "value": 12
+          },
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 286,
+            "value": 1
+          },
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 682,
+            "value": 1
+          },
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 756,
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "route_id": "12c-d08-result2",
+      "qualification": "caller_continuation_observation",
+      "origin_offset": 3735,
+      "caller": {
+        "entry": "12C.MES",
+        "offset": 4006,
+        "end": 4022,
+        "command": 15,
+        "source_binding": {
+          "kind": "typed_record"
+        },
+        "record_sha256": "a84dd3493ef70688e4fa99be1b8c4db34b5e880e1a5b940cade8567a6956f6ad"
+      },
+      "callee": {
+        "entry": "EVENTD08.MES",
+        "offset": 0
+      },
+      "guard": {
+        "offset": 3735,
+        "end": 3810,
+        "false_target": 6708,
+        "source_binding": {
+          "kind": "typed_record"
+        },
+        "record_sha256": "0ea3f78aa27dfbd7733e2e4b5ffc33ee19f0af3dc9c3df9d9b4056e57ef9f837",
+        "prefix_sha256": "20724dd099e0f90b8e176f54f9532fc8dd4174446d640ef3cfc4977b24aa9221"
+      },
+      "post_guard_expected": 0,
+      "caller_outcome": {
+        "kind": "dispatch"
+      },
+      "outcome": {
+        "offset": 2790,
+        "end": 2791,
+        "op": "command_00",
+        "status": "script_return",
+        "source_binding": {
+          "kind": "typed_record"
+        },
+        "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+      },
+      "state_context": {
+        "kind": "original_calendar",
+        "entry": "START.MES",
+        "table_sha256": "f21ee0fcb09e960046878e35ad0410aed88680f849ace471b713ef7a12525b4a"
+      },
+      "choice_contracts": [
+        {
+          "boundary_offset": 1845,
+          "bytecode_sha256": "d8e371a37bb46b2134b792a1a95c7e2a18b15095c6c2a1bf7942686c4b97eeb0",
+          "code_size": 2807,
+          "comparisons": [
+            {
+              "fallthrough_offset": 1870,
+              "false_target_offset": 2045,
+              "result": 1,
+              "source_offset": 1855
+            },
+            {
+              "fallthrough_offset": 2060,
+              "false_target_offset": 2371,
+              "result": 2,
+              "source_offset": 2045
+            }
+          ],
+          "consumer_kind": "one_based_state_u16_21_branch_chain",
+          "definition_count": 3,
+          "definitions": [
+            {
+              "body_offset": 1680,
+              "body_sha256": "58a62435f6b22f779e4df0bf85d36c8b91901a18a8862c5e3e7250d11e680a23",
+              "body_size": 45,
+              "definition_id": 0,
+              "source_offset": 1671,
+              "target_offset": 1725
+            },
+            {
+              "body_offset": 1739,
+              "body_sha256": "8bf93ea6dae92db4dbd72ca6530a44239b040e99b44bfdc0ffd51845db879ace",
+              "body_size": 27,
+              "definition_id": 1,
+              "source_offset": 1730,
+              "target_offset": 1766
+            },
+            {
+              "body_offset": 1780,
+              "body_sha256": "93b3b341b098fcbe3e1ac6667296a01239031d4f7084728f602e23b57c893921",
+              "body_size": 55,
+              "definition_id": 2,
+              "source_offset": 1771,
+              "target_offset": 1835
+            }
+          ],
+          "fallback_offset": -1,
+          "gate": {},
+          "gate_policy": "not_applicable",
+          "input_policy": "explicit_remake_choice",
+          "native_input_semantics": "unresolved",
+          "omitted_native_effects": [
+            "state_u16_18_result",
+            "state_u16_13_output",
+            "routine20",
+            "native_vector_clear"
+          ],
+          "option_entry_offsets": [
+            1870,
+            2060,
+            2371
+          ],
+          "result_index": 21,
+          "result_storage": "state_u16",
+          "result_values": [
+            1,
+            2,
+            3
+          ],
+          "resume_offset": 1850,
+          "schema": "kakyu_mes_routine40_choice_contract/v3",
+          "source_identity": {
+            "archive": "mes.arc",
+            "entry": "EVENTD08.MES"
+          },
+          "variants": []
+        }
+      ],
+      "baseline": [
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 2,
+          "value": 0
+        },
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 212,
+          "value": 80
+        },
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 242,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 220,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 224,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 225,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 227,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 402,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 678,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 756,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 778,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2847,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3006,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 4000,
+          "value": 0
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 0,
+          "value": 0
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 1,
+          "value": 13
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 5,
+          "value": 0
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 7,
+          "value": 808
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 21,
+          "value": 0
+        }
+      ],
+      "expected_state": [
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 212,
+          "value": 80
+        },
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 242,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 286,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 682,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 756,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3233,
+          "value": 4
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3742,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 5368,
+          "value": 1
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 8,
+          "value": 0
+        }
+      ],
+      "guard_cases": [
+        {
+          "case_id": "baseline",
+          "writes": [],
+          "expected": 1
+        },
+        {
+          "case_id": "global_u8-402-0",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 402,
+              "storage": "global_u8",
+              "value": 0
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "global_u8-220-1",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 220,
+              "storage": "global_u8",
+              "value": 1
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "global_u8-224-1",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 224,
+              "storage": "global_u8",
+              "value": 1
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "global_u8-225-1",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 225,
+              "storage": "global_u8",
+              "value": 1
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "global_u8-756-1",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 756,
+              "storage": "global_u8",
+              "value": 1
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "global_u8-778-1",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 778,
+              "storage": "global_u8",
+              "value": 1
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "global_u8-678-1",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 678,
+              "storage": "global_u8",
+              "value": 1
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "global_u8-227-1",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 227,
+              "storage": "global_u8",
+              "value": 1
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "date-700",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 7,
+              "storage": "state_u16",
+              "value": 700
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "date-701",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 7,
+              "storage": "state_u16",
+              "value": 701
+            }
+          ],
+          "expected": 1
+        },
+        {
+          "case_id": "date-915",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 7,
+              "storage": "state_u16",
+              "value": 915
+            }
+          ],
+          "expected": 1
+        },
+        {
+          "case_id": "date-916",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 7,
+              "storage": "state_u16",
+              "value": 916
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "word212-70",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 212,
+              "storage": "banked_u16",
+              "value": 70
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "word212-71",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 212,
+              "storage": "banked_u16",
+              "value": 71
+            }
+          ],
+          "expected": 1
+        }
+      ],
+      "reentry": {
+        "outcome": {
+          "offset": 1845,
+          "end": 1850,
+          "op": "script_transfer",
+          "status": "def_selection_boundary",
+          "source_binding": {
+            "kind": "typed_record"
+          },
+          "record_sha256": "92a059b1c678e8fb53ecf67b79ae4ebca133078412fe1db5110d9c8d41faabab"
+        },
+        "message_count": 17,
+        "expected_state": []
+      },
+      "variants": [
+        {
+          "variant_id": "baseline",
+          "writes": [],
+          "selections": [
+            {
+              "owner_entry": "EVENTD08.MES",
+              "boundary_offset": 1845,
+              "result_value": 2
+            }
+          ],
+          "message_count": 25,
+          "expected_state": [],
+          "expected_resume_state": []
+        }
+      ],
+      "unresolved": [],
+      "resume": {
+        "start": 4022,
+        "boundary_policy": "natural_handoff",
+        "outcome": {
+          "offset": 6680,
+          "end": 6693,
+          "op": "script_handoff_marker",
+          "status": "script_handoff_boundary",
+          "source_binding": {
+            "kind": "typed_record"
+          },
+          "record_sha256": "496ee6fc5e929a0d78f596b742cf256b0651842fc13c717c182cd217879ac047",
+          "target": "MACHI.MES"
+        },
+        "message_count": 12,
+        "expected_state": [
+          {
+            "storage": "banked_u16",
+            "bank": 0,
+            "index": 242,
+            "value": 12
+          },
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 286,
+            "value": 1
+          },
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 682,
+            "value": 1
+          },
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 756,
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "route_id": "12c-d08-result3",
+      "qualification": "caller_continuation_observation",
+      "origin_offset": 3735,
+      "caller": {
+        "entry": "12C.MES",
+        "offset": 4006,
+        "end": 4022,
+        "command": 15,
+        "source_binding": {
+          "kind": "typed_record"
+        },
+        "record_sha256": "a84dd3493ef70688e4fa99be1b8c4db34b5e880e1a5b940cade8567a6956f6ad"
+      },
+      "callee": {
+        "entry": "EVENTD08.MES",
+        "offset": 0
+      },
+      "guard": {
+        "offset": 3735,
+        "end": 3810,
+        "false_target": 6708,
+        "source_binding": {
+          "kind": "typed_record"
+        },
+        "record_sha256": "0ea3f78aa27dfbd7733e2e4b5ffc33ee19f0af3dc9c3df9d9b4056e57ef9f837",
+        "prefix_sha256": "20724dd099e0f90b8e176f54f9532fc8dd4174446d640ef3cfc4977b24aa9221"
+      },
+      "post_guard_expected": 0,
+      "caller_outcome": {
+        "kind": "dispatch"
+      },
+      "outcome": {
+        "offset": 2790,
+        "end": 2791,
+        "op": "command_00",
+        "status": "script_return",
+        "source_binding": {
+          "kind": "typed_record"
+        },
+        "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+      },
+      "state_context": {
+        "kind": "original_calendar",
+        "entry": "START.MES",
+        "table_sha256": "f21ee0fcb09e960046878e35ad0410aed88680f849ace471b713ef7a12525b4a"
+      },
+      "choice_contracts": [
+        {
+          "boundary_offset": 1845,
+          "bytecode_sha256": "d8e371a37bb46b2134b792a1a95c7e2a18b15095c6c2a1bf7942686c4b97eeb0",
+          "code_size": 2807,
+          "comparisons": [
+            {
+              "fallthrough_offset": 1870,
+              "false_target_offset": 2045,
+              "result": 1,
+              "source_offset": 1855
+            },
+            {
+              "fallthrough_offset": 2060,
+              "false_target_offset": 2371,
+              "result": 2,
+              "source_offset": 2045
+            }
+          ],
+          "consumer_kind": "one_based_state_u16_21_branch_chain",
+          "definition_count": 3,
+          "definitions": [
+            {
+              "body_offset": 1680,
+              "body_sha256": "58a62435f6b22f779e4df0bf85d36c8b91901a18a8862c5e3e7250d11e680a23",
+              "body_size": 45,
+              "definition_id": 0,
+              "source_offset": 1671,
+              "target_offset": 1725
+            },
+            {
+              "body_offset": 1739,
+              "body_sha256": "8bf93ea6dae92db4dbd72ca6530a44239b040e99b44bfdc0ffd51845db879ace",
+              "body_size": 27,
+              "definition_id": 1,
+              "source_offset": 1730,
+              "target_offset": 1766
+            },
+            {
+              "body_offset": 1780,
+              "body_sha256": "93b3b341b098fcbe3e1ac6667296a01239031d4f7084728f602e23b57c893921",
+              "body_size": 55,
+              "definition_id": 2,
+              "source_offset": 1771,
+              "target_offset": 1835
+            }
+          ],
+          "fallback_offset": -1,
+          "gate": {},
+          "gate_policy": "not_applicable",
+          "input_policy": "explicit_remake_choice",
+          "native_input_semantics": "unresolved",
+          "omitted_native_effects": [
+            "state_u16_18_result",
+            "state_u16_13_output",
+            "routine20",
+            "native_vector_clear"
+          ],
+          "option_entry_offsets": [
+            1870,
+            2060,
+            2371
+          ],
+          "result_index": 21,
+          "result_storage": "state_u16",
+          "result_values": [
+            1,
+            2,
+            3
+          ],
+          "resume_offset": 1850,
+          "schema": "kakyu_mes_routine40_choice_contract/v3",
+          "source_identity": {
+            "archive": "mes.arc",
+            "entry": "EVENTD08.MES"
+          },
+          "variants": []
+        }
+      ],
+      "baseline": [
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 2,
+          "value": 0
+        },
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 212,
+          "value": 80
+        },
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 242,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 220,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 224,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 225,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 227,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 402,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 678,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 756,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 778,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2847,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3006,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 4000,
+          "value": 0
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 0,
+          "value": 0
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 1,
+          "value": 13
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 5,
+          "value": 0
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 7,
+          "value": 808
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 21,
+          "value": 0
+        }
+      ],
+      "expected_state": [
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 212,
+          "value": 80
+        },
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 242,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 286,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 682,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 756,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3233,
+          "value": 4
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3742,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 5368,
+          "value": 1
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 8,
+          "value": 0
+        }
+      ],
+      "guard_cases": [
+        {
+          "case_id": "baseline",
+          "writes": [],
+          "expected": 1
+        },
+        {
+          "case_id": "global_u8-402-0",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 402,
+              "storage": "global_u8",
+              "value": 0
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "global_u8-220-1",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 220,
+              "storage": "global_u8",
+              "value": 1
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "global_u8-224-1",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 224,
+              "storage": "global_u8",
+              "value": 1
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "global_u8-225-1",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 225,
+              "storage": "global_u8",
+              "value": 1
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "global_u8-756-1",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 756,
+              "storage": "global_u8",
+              "value": 1
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "global_u8-778-1",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 778,
+              "storage": "global_u8",
+              "value": 1
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "global_u8-678-1",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 678,
+              "storage": "global_u8",
+              "value": 1
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "global_u8-227-1",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 227,
+              "storage": "global_u8",
+              "value": 1
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "date-700",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 7,
+              "storage": "state_u16",
+              "value": 700
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "date-701",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 7,
+              "storage": "state_u16",
+              "value": 701
+            }
+          ],
+          "expected": 1
+        },
+        {
+          "case_id": "date-915",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 7,
+              "storage": "state_u16",
+              "value": 915
+            }
+          ],
+          "expected": 1
+        },
+        {
+          "case_id": "date-916",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 7,
+              "storage": "state_u16",
+              "value": 916
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "word212-70",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 212,
+              "storage": "banked_u16",
+              "value": 70
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "word212-71",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 212,
+              "storage": "banked_u16",
+              "value": 71
+            }
+          ],
+          "expected": 1
+        }
+      ],
+      "reentry": {
+        "outcome": {
+          "offset": 1845,
+          "end": 1850,
+          "op": "script_transfer",
+          "status": "def_selection_boundary",
+          "source_binding": {
+            "kind": "typed_record"
+          },
+          "record_sha256": "92a059b1c678e8fb53ecf67b79ae4ebca133078412fe1db5110d9c8d41faabab"
+        },
+        "message_count": 17,
+        "expected_state": []
+      },
+      "variants": [
+        {
+          "variant_id": "baseline",
+          "writes": [],
+          "selections": [
+            {
+              "owner_entry": "EVENTD08.MES",
+              "boundary_offset": 1845,
+              "result_value": 3
+            }
+          ],
+          "message_count": 21,
+          "expected_state": [],
+          "expected_resume_state": []
+        }
+      ],
+      "unresolved": [],
+      "resume": {
+        "start": 4022,
+        "boundary_policy": "natural_handoff",
+        "outcome": {
+          "offset": 6680,
+          "end": 6693,
+          "op": "script_handoff_marker",
+          "status": "script_handoff_boundary",
+          "source_binding": {
+            "kind": "typed_record"
+          },
+          "record_sha256": "496ee6fc5e929a0d78f596b742cf256b0651842fc13c717c182cd217879ac047",
+          "target": "MACHI.MES"
+        },
+        "message_count": 28,
+        "expected_state": [
+          {
+            "storage": "banked_u16",
+            "bank": 0,
+            "index": 242,
+            "value": 12
+          },
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 286,
+            "value": 1
+          },
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 682,
+            "value": 1
+          },
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 756,
+            "value": 1
+          }
+        ]
+      }
+    }
+  ],
+  "payload_sha256": "5a7bacd0c3e48ad0d888db9ab4f9b50de5c126f3e5272c3e6197f0e70d12c1cf"
+}

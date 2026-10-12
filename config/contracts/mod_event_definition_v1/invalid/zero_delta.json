@@ -1,0 +1,174 @@
+{
+  "schema_version": "kakyu_mod_event_definition/v1",
+  "contract_fingerprint": "self",
+  "cells_fingerprint": "self",
+  "kind": "new_event",
+  "mod": {
+    "id": "samplemod",
+    "revision": 1
+  },
+  "id": "mod.samplemod.new_event_choice",
+  "display": {
+    "title_ko": "새 이벤트",
+    "title_en": "A new event",
+    "heroine": "ryoko",
+    "category": "school",
+    "place": "gate"
+  },
+  "trigger": {
+    "type": "place",
+    "category": "school",
+    "place": "gate"
+  },
+  "conditions": [
+    {
+      "type": "flag_equals",
+      "name": "mod.samplemod.seen_intro",
+      "value": false
+    },
+    {
+      "type": "date_in_range",
+      "from_date_code": 401,
+      "to_date_code": 531
+    }
+  ],
+  "dialogue": [
+    {
+      "kind": "line",
+      "text": "Choose wisely."
+    },
+    {
+      "kind": "choice_point",
+      "choice": "top"
+    }
+  ],
+  "after": [],
+  "choice": {
+    "prompt": "What will you say?",
+    "options": [
+      {
+        "value": 0,
+        "label": "Yes",
+        "result": "result_a"
+      },
+      {
+        "value": 1,
+        "label": "No",
+        "result": "result_b"
+      }
+    ]
+  },
+  "results": {
+    "result_a": {
+      "selected_by": {
+        "kind": "choice",
+        "value": 0
+      },
+      "event_played": true,
+      "dialogue": [
+        {
+          "kind": "line",
+          "text": "Great choice, {name}."
+        },
+        {
+          "kind": "choice_point",
+          "choice": "result_a"
+        }
+      ],
+      "after": [
+        {
+          "type": "set_flag",
+          "name": "mod.samplemod.chose_yes",
+          "value": true
+        },
+        {
+          "type": "add_legacy_value",
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 204,
+          "delta": 0,
+          "cell_class": "affection",
+          "min": 0,
+          "max": 100
+        }
+      ],
+      "terminal": "term_return",
+      "choice": {
+        "prompt": "Continue?",
+        "options": [
+          {
+            "value": 0,
+            "label": "Sure",
+            "result": "result_a_yes"
+          },
+          {
+            "value": 1,
+            "label": "Nope",
+            "result": "result_a_no"
+          }
+        ]
+      },
+      "results": {
+        "result_a_yes": {
+          "selected_by": {
+            "kind": "choice",
+            "value": 0
+          },
+          "event_played": true,
+          "dialogue": [
+            {
+              "kind": "line",
+              "text": "Wonderful."
+            },
+            {
+              "kind": "scene_end"
+            }
+          ],
+          "after": [],
+          "terminal": "term_return"
+        },
+        "result_a_no": {
+          "selected_by": {
+            "kind": "choice",
+            "value": 1
+          },
+          "event_played": true,
+          "dialogue": [
+            {
+              "kind": "line",
+              "text": "Understood."
+            },
+            {
+              "kind": "scene_end"
+            }
+          ],
+          "after": [],
+          "terminal": "term_continue"
+        }
+      }
+    },
+    "result_b": {
+      "selected_by": {
+        "kind": "choice",
+        "value": 1
+      },
+      "event_played": false,
+      "dialogue": [
+        {
+          "kind": "line",
+          "text": "Never mind."
+        }
+      ],
+      "after": [],
+      "terminal": "term_return"
+    }
+  },
+  "terminals": {
+    "term_return": {
+      "kind": "return_to_map"
+    },
+    "term_continue": {
+      "kind": "continue_caller"
+    }
+  }
+}

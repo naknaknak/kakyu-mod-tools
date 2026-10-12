@@ -1,0 +1,380 @@
+{
+  "schema_version": "kakyu_event_definition/v7",
+  "contract_fingerprint": "self",
+  "names_fingerprint": "self",
+  "id": "miko.date.a_date5.17.1",
+  "kind": "event",
+  "display": {
+    "title_ko": "a_date5 사건 (미코)",
+    "title_en": "miko at a_date5",
+    "heroine": "miko",
+    "category": "date",
+    "place": "a_date5"
+  },
+  "evidence": {
+    "kind": "analysis_group",
+    "archive_sha256": "60d6b88cf31644ae02762247f9ebb10bd1e4114c6508e4095a021c25f946bd79",
+    "groups": [
+      {
+        "group_id": "fixture_flow_group",
+        "profile_sha256": "f22f859c49b5d17687b2044e9125502a9954032adff5118bc17ae14a7d3c20ef",
+        "route_ids": [
+          "route_0"
+        ]
+      }
+    ],
+    "members": [
+      {
+        "entry": "CALLER",
+        "entry_sha256": "51f67ee25bf640b459e96cd177d141f57fbca04a8f8de4718b56874ae3b53bd4"
+      },
+      {
+        "entry": "CALLEE",
+        "entry_sha256": "93392ef68974d699e5f13db9d7cfc5c1bbc2014ea3c46b0c625c5d83b38d45e0"
+      }
+    ],
+    "document_refs": []
+  },
+  "package_binding": {
+    "schema": "kakyu_playback_package/v7",
+    "package_sha256": "8d0a43aa7bb222f99ad300ff8de6c80eb61fcbfaefb3a74d4d55810ff852e88f"
+  },
+  "trigger": {
+    "type": "caller_dispatch",
+    "caller": {
+      "entry": "CALLER",
+      "entry_sha256": "51f67ee25bf640b459e96cd177d141f57fbca04a8f8de4718b56874ae3b53bd4",
+      "offset": 100,
+      "end": 140,
+      "command": 15,
+      "kind": "nested_call"
+    },
+    "callee": {
+      "entry": "CALLEE",
+      "entry_sha256": "93392ef68974d699e5f13db9d7cfc5c1bbc2014ea3c46b0c625c5d83b38d45e0",
+      "start_coordinate": 0
+    },
+    "origin": {
+      "kind": "caller_prefix",
+      "offset": 100
+    }
+  },
+  "conditions": [
+    {
+      "type": "mes_expression",
+      "ast": {
+        "op": "and",
+        "args": []
+      },
+      "source_offset": 100,
+      "failure_reason": "guard_rejected"
+    }
+  ],
+  "presets": [],
+  "dialogue": [
+    {
+      "kind": "hop",
+      "hop_id": "h1_origin"
+    },
+    {
+      "kind": "hop",
+      "hop_id": "h2_callee"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "CALLEE",
+        "at": 10,
+        "s": 0,
+        "raw_sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "CALLEE",
+        "at": 20,
+        "s": 1,
+        "raw_sha256": "2222222222222222222222222222222222222222222222222222222222222222"
+      }
+    },
+    {
+      "kind": "hop",
+      "hop_id": "h3_resume"
+    },
+    {
+      "kind": "scene_end"
+    }
+  ],
+  "after": [
+    {
+      "type": "add_legacy_value",
+      "storage": "global_u8",
+      "bank": 0,
+      "index": 900,
+      "delta": 1,
+      "cell_class": "counter"
+    }
+  ],
+  "results": {
+    "result_default": {
+      "selected_by": {
+        "kind": "default"
+      },
+      "event_played": true,
+      "dialogue": [],
+      "after": [],
+      "terminal": "term_natural"
+    }
+  },
+  "terminals": {
+    "term_natural": {
+      "kind": "natural_handoff",
+      "owner_entry": "CALLER",
+      "offset": 500,
+      "end": 520,
+      "next_target": "MACHI.MES",
+      "required_state": []
+    }
+  },
+  "dependencies": [],
+  "presentation": {
+    "status": "deferred",
+    "resources": [
+      {
+        "entry": "CALLEE",
+        "source_offset": 70,
+        "kind": "voice",
+        "name": "V0001.OGG"
+      },
+      {
+        "entry": "CALLEE",
+        "source_offset": 80,
+        "kind": "ax",
+        "name": "ANIM1.AX"
+      },
+      {
+        "entry": "CALLEE",
+        "source_offset": 80,
+        "kind": "mmo",
+        "name": "PIC1.MMO"
+      },
+      {
+        "entry": "CALLER",
+        "source_offset": 30,
+        "kind": "bgm",
+        "name": "THEME.WAV"
+      },
+      {
+        "entry": "LIBLARY.LIB",
+        "source_offset": 1481,
+        "kind": "unclassified",
+        "name": "IDOU.WAV"
+      },
+      {
+        "entry": "LIBLARY.LIB",
+        "source_offset": 2210,
+        "kind": "se",
+        "name": "BELL.WAV"
+      }
+    ]
+  },
+  "unresolved": [],
+  "guard": {
+    "offset": 100,
+    "end": 140,
+    "false_target": 500,
+    "record_sha256": "a875433f41d705bce4b69c11f813fd8ce12235aa1ec98d21eee38e529bc7c789",
+    "conjuncts": [
+      {
+        "kind": "weekday",
+        "op": "equal",
+        "value": 2
+      },
+      {
+        "kind": "date",
+        "op": "equal",
+        "value": 501
+      },
+      {
+        "kind": "cell",
+        "storage": "state_u16",
+        "bank": 0,
+        "index": 9,
+        "op": "not_equal",
+        "value": 0
+      }
+    ],
+    "witnesses": [
+      {
+        "case_id": "case_0",
+        "writes": [
+          {
+            "storage": "state_u16",
+            "bank": 0,
+            "index": 9,
+            "value": 0
+          }
+        ],
+        "expected": 1
+      },
+      {
+        "case_id": "case_1",
+        "writes": [
+          {
+            "storage": "state_u16",
+            "bank": 0,
+            "index": 9,
+            "value": 1
+          }
+        ],
+        "expected": 0
+      }
+    ]
+  },
+  "flow": {
+    "evidence": {
+      "group": "fixture_flow_group",
+      "profile_sha256": "f22f859c49b5d17687b2044e9125502a9954032adff5118bc17ae14a7d3c20ef",
+      "route": "route_0"
+    },
+    "origin": {
+      "entry": "CALLER",
+      "entry_sha256": "51f67ee25bf640b459e96cd177d141f57fbca04a8f8de4718b56874ae3b53bd4",
+      "offset": 100,
+      "guard": {
+        "offset": 100,
+        "end": 140,
+        "false_target": 500,
+        "record_sha256": "a875433f41d705bce4b69c11f813fd8ce12235aa1ec98d21eee38e529bc7c789"
+      }
+    },
+    "state_context": {
+      "kind": "original_calendar",
+      "entry": "START.MES",
+      "table_sha256": "7777777777777777777777777777777777777777777777777777777777777777"
+    },
+    "hops": [
+      {
+        "hop_id": "h1_origin",
+        "entry": "CALLER",
+        "entry_sha256": "51f67ee25bf640b459e96cd177d141f57fbca04a8f8de4718b56874ae3b53bd4",
+        "entered_by": {
+          "kind": "origin",
+          "offset": 100,
+          "end": 140
+        },
+        "answers": [],
+        "gates": [],
+        "map_locations": [],
+        "poll_supplies": [],
+        "dialogue": [],
+        "after": [],
+        "message_count": 0
+      },
+      {
+        "hop_id": "h2_callee",
+        "entry": "CALLEE",
+        "entry_sha256": "93392ef68974d699e5f13db9d7cfc5c1bbc2014ea3c46b0c625c5d83b38d45e0",
+        "entered_by": {
+          "kind": "nested_call",
+          "offset": 200,
+          "end": 210
+        },
+        "answers": [],
+        "gates": [],
+        "map_locations": [],
+        "poll_supplies": [],
+        "dialogue": [
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "CALLEE",
+              "at": 10,
+              "s": 0,
+              "raw_sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "CALLEE",
+              "at": 20,
+              "s": 1,
+              "raw_sha256": "2222222222222222222222222222222222222222222222222222222222222222"
+            }
+          }
+        ],
+        "after": [
+          {
+            "type": "add_legacy_value",
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 900,
+            "delta": 1,
+            "cell_class": "counter"
+          }
+        ],
+        "message_count": 2
+      },
+      {
+        "hop_id": "h3_resume",
+        "entry": "CALLER",
+        "entry_sha256": "51f67ee25bf640b459e96cd177d141f57fbca04a8f8de4718b56874ae3b53bd4",
+        "entered_by": {
+          "kind": "resume",
+          "offset": 210,
+          "end": 211
+        },
+        "answers": [
+          {
+            "boundary_offset": 300,
+            "result_value": 1
+          }
+        ],
+        "gates": [
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 901,
+            "value": 1,
+            "basis": "tool_seeded"
+          },
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 902,
+            "value": 1,
+            "basis": {
+              "written_by": "h2_callee"
+            }
+          }
+        ],
+        "map_locations": [
+          {
+            "entry": "CALLER",
+            "poll_offset": 400,
+            "values": [
+              0,
+              1
+            ]
+          }
+        ],
+        "poll_supplies": [
+          {
+            "definition": 5,
+            "entry": "CALLER",
+            "poll_offset": 410,
+            "result_storage": "state_u16",
+            "result_index": 18,
+            "value": 0
+          }
+        ],
+        "dialogue": [],
+        "after": [],
+        "message_count": 0
+      }
+    ],
+    "terminal": "term_natural"
+  }
+}

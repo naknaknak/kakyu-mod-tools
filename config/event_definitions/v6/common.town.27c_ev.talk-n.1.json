@@ -1,0 +1,654 @@
+{
+  "schema_version": "kakyu_event_definition/v6",
+  "contract_fingerprint": "74556e6406beed5fc82a51c14e2d7569e3ec748ec45c7dd595ae32ec7eefd2c9",
+  "names_fingerprint": "94223afe79303bd54eaa4bcdfd7b1e22a806191a749f80bea31d0068568fb29e",
+  "id": "common.town.27c_ev.talk-n.1",
+  "kind": "event",
+  "display": {
+    "title_ko": "27c_ev에서 공통 이벤트 (N_TALK)",
+    "title_en": "Common event at 27c_ev (N_TALK)",
+    "heroine": "common",
+    "category": "town",
+    "place": "27c_ev"
+  },
+  "evidence": {
+    "kind": "analysis_group",
+    "archive_sha256": "31a95b31cb0f1051cf973a4dba4f4a5405671e4488240adfafb9b02290986aa6",
+    "groups": [
+      {
+        "group_id": "27c-ev-n-talk",
+        "profile_sha256": "b4c4d18b8279565f3b7410be2ccaeafa80ef11b53c70257c59b2d896d2bc1ef6",
+        "route_ids": [
+          "n-talk-plain"
+        ]
+      }
+    ],
+    "members": [
+      {
+        "entry": "27C_EV.MES",
+        "entry_sha256": "2af24ef7a0bf66a3006c66da133ec7f653f79bf5904fad7ff2f39f42302ccec3"
+      },
+      {
+        "entry": "N_TALK.MES",
+        "entry_sha256": "1f9bed2649048db1cc7231cb14b0ae78f0af2d5076b0fdedcb77015e4f45305b"
+      },
+      {
+        "entry": "N_PIC.MES",
+        "entry_sha256": "b4fac3ca304f4784fbf6f96ff8ef6adc8f1c53dfbb4102bab48244cf28e750b4"
+      },
+      {
+        "entry": "LIBLARY.LIB",
+        "entry_sha256": "d9aba6eb8dab51fe321e22c868ed0cf38416bba1f0cf2f5d7d719f48e89b8b4d"
+      },
+      {
+        "entry": "DEF_MAIN.MES",
+        "entry_sha256": "f2012ce5d90f60a5d1ca8190e03571341c0384c2d3d96e9aec2b3ab949db0ef0"
+      },
+      {
+        "entry": "START.MES",
+        "entry_sha256": "ba57bf666fbd9db9b3110f2bf1c70e80e11a35de00e82256aaaf35921c77038f"
+      },
+      {
+        "entry": "N_TALK1.MES",
+        "entry_sha256": "d96bd36006cb6cb623a330821e94aef5450f68a287445cc7be5dbd97b7c948e4"
+      }
+    ],
+    "document_refs": [],
+    "effect_witnesses": []
+  },
+  "package_binding": {
+    "schema": "kakyu_playback_package/v7",
+    "package_sha256": "b638bd7d135b408d748dd45a2bbb74486e2b7cb71a4eb8e920de2e092f6589ad"
+  },
+  "trigger": {
+    "type": "caller_dispatch",
+    "caller": {
+      "entry": "27C_EV.MES",
+      "entry_sha256": "2af24ef7a0bf66a3006c66da133ec7f653f79bf5904fad7ff2f39f42302ccec3",
+      "offset": 1678,
+      "end": 1692,
+      "command": 15,
+      "kind": "nested_call"
+    },
+    "callee": {
+      "entry": "N_TALK.MES",
+      "entry_sha256": "1f9bed2649048db1cc7231cb14b0ae78f0af2d5076b0fdedcb77015e4f45305b",
+      "start_coordinate": 0
+    },
+    "origin": {
+      "kind": "typed_guard",
+      "offset": 1591
+    },
+    "order_hint": {
+      "scope": "27C_EV.MES",
+      "rank": 1,
+      "of": 3,
+      "basis": "guard_offset",
+      "chain_confirmed": true
+    }
+  },
+  "scenes": [],
+  "guard": {
+    "offset": 1591,
+    "end": 1608,
+    "false_target": 2090,
+    "record_sha256": "b1b7930b4588b9342e39c68a7b9f4d554eae2c0ae13df18698a4f3a49421b6db",
+    "conjuncts": [
+      {
+        "kind": "cell",
+        "storage": "global_u8",
+        "bank": 0,
+        "index": 352,
+        "op": "equal",
+        "value": 0
+      },
+      {
+        "kind": "cell",
+        "storage": "global_u8",
+        "bank": 0,
+        "index": 243,
+        "op": "equal",
+        "value": 0
+      }
+    ],
+    "witnesses": [
+      {
+        "case_id": "accepted",
+        "writes": [],
+        "expected": 1
+      },
+      {
+        "case_id": "rejected",
+        "writes": [
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 352,
+            "value": 1
+          }
+        ],
+        "expected": 0
+      }
+    ]
+  },
+  "conditions": [
+    {
+      "type": "mes_expression",
+      "ast": {
+        "lhs": {
+          "lhs": {
+            "bank": 0,
+            "index": {
+              "type": "literal",
+              "value": 352
+            },
+            "source": {
+              "offset": 1592,
+              "token": "0xf3"
+            },
+            "storage": "global_u8",
+            "type": "state_ref"
+          },
+          "op": "equal",
+          "rhs": {
+            "source": {
+              "offset": 1595,
+              "token": "0x00"
+            },
+            "type": "literal",
+            "value": 0,
+            "width": 8
+          },
+          "source": {
+            "offset": 1596,
+            "token": "0xef"
+          },
+          "type": "binary"
+        },
+        "op": "logical_and",
+        "rhs": {
+          "lhs": {
+            "bank": 0,
+            "index": {
+              "type": "literal",
+              "value": 243
+            },
+            "source": {
+              "offset": 1597,
+              "token": "0xf3"
+            },
+            "storage": "global_u8",
+            "type": "state_ref"
+          },
+          "op": "equal",
+          "rhs": {
+            "source": {
+              "offset": 1600,
+              "token": "0x00"
+            },
+            "type": "literal",
+            "value": 0,
+            "width": 8
+          },
+          "source": {
+            "offset": 1601,
+            "token": "0xef"
+          },
+          "type": "binary"
+        },
+        "source": {
+          "offset": 1602,
+          "token": "0xe6"
+        },
+        "type": "binary"
+      },
+      "source_offset": 1591,
+      "failure_reason": "guard_rejected"
+    }
+  ],
+  "presets": [
+    {
+      "preset_id": "baseline",
+      "label": "baseline",
+      "writes": [
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 352,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 243,
+          "value": 0
+        }
+      ]
+    }
+  ],
+  "dialogue": [
+    {
+      "kind": "hop",
+      "hop_id": "h1_caller_dispatch"
+    },
+    {
+      "kind": "hop",
+      "hop_id": "h2_talk"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "N_TALK.MES",
+        "at": 5971,
+        "s": 11,
+        "raw_sha256": "edf474af731074c7360548b14aca31747aa3153b131a1934770179b3525fe9b5"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "N_TALK.MES",
+      "at": 5981,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "N_TALK.MES",
+        "at": 5998,
+        "s": 63,
+        "raw_sha256": "2f8b39ae2dc57839b6ad68ba84161779bad403ce27798538069c732d71b6e951"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "N_TALK.MES",
+        "at": 6058,
+        "s": 1,
+        "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "N_TALK.MES",
+      "at": 6062,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "N_TALK.MES",
+        "at": 6079,
+        "s": 64,
+        "raw_sha256": "edb0a8672734d9f418d46f361b5c86b9cb315241d76f5a7267cd72ea7bb9fbfb"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "N_TALK.MES",
+        "at": 6159,
+        "s": 65,
+        "raw_sha256": "982cc270a17a67211123d93a769e5a3ba69ee27412045d65c949174250248f2b"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "N_TALK.MES",
+        "at": 6261,
+        "s": 1,
+        "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "N_TALK.MES",
+      "at": 6265,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "N_TALK.MES",
+        "at": 6282,
+        "s": 66,
+        "raw_sha256": "7f1a1157bbcd06f8fcd8903c809f864e1f8f8cb673d7c02ef3f446314880b6da"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "N_TALK.MES",
+        "at": 6366,
+        "s": 67,
+        "raw_sha256": "f5851a863176d334e7a01452e40d723c4317d48d36ff71937b215750dbd21428"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "N_TALK.MES",
+        "at": 6454,
+        "s": 1,
+        "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "N_TALK.MES",
+      "at": 6458,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "N_TALK.MES",
+        "at": 6475,
+        "s": 68,
+        "raw_sha256": "e62d6b6e0c7efb9b42b58d13ab1ca9e191bc50cde1fc4ee2d209a7f3e5ca3ff9"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "N_TALK.MES",
+        "at": 6569,
+        "s": 69,
+        "raw_sha256": "ee0be48edcbdfd4cc730fff04cbdf77a965adb8f535db41a453065254a9068fa"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "N_TALK.MES",
+        "at": 6709,
+        "s": 1,
+        "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "N_TALK.MES",
+      "at": 6713,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "N_TALK.MES",
+        "at": 6730,
+        "s": 70,
+        "raw_sha256": "6d8c35d4caab92a2a624c374f77c150d39c1960e2e3c75a2823b2e1ddc9afdbd"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "N_TALK.MES",
+        "at": 6810,
+        "s": 71,
+        "raw_sha256": "6e8a44b6064084fa7b69d1ba29b60f31391c9087f29c51f7b7d4a92305ad38de"
+      }
+    },
+    {
+      "kind": "scene_end"
+    }
+  ],
+  "after": [],
+  "results": {
+    "result_default": {
+      "selected_by": {
+        "kind": "default"
+      },
+      "event_played": true,
+      "dialogue": [],
+      "after": [],
+      "terminal": "flow"
+    }
+  },
+  "terminals": {
+    "flow": {
+      "kind": "callee_return",
+      "owner_entry": "N_TALK.MES",
+      "offset": 6879,
+      "end": 6880,
+      "next_target": "",
+      "required_state": []
+    }
+  },
+  "dependencies": [
+    {
+      "entry": "N_PIC.MES",
+      "entry_sha256": "b4fac3ca304f4784fbf6f96ff8ef6adc8f1c53dfbb4102bab48244cf28e750b4",
+      "role": "nested_presentation"
+    }
+  ],
+  "presentation": {
+    "status": "deferred",
+    "resources": []
+  },
+  "unresolved": [
+    "no done flag identified in the guard: the flow's own origin guard ((global_u8[352] equal 0); (global_u8[243] equal 0)) names no cleared completion flag",
+    "The state at the anchor is seeded, a tool decision: global_u8[352] = 0, global_u8[243] = 0. The origin is the caller's block guard at 1591; the cells are the guard's own conjuncts alone, solved by the smallest round value that satisfies them. The script is a chain of bodies each selected by flags and dates, and every cell the guard does not fix is 0 (the natural state), so the body that state selects is the one that plays.",
+    "The script asks no question on the default path; it plays the body the seeded state selects (1 answer path(s) measured).",
+    "The caller resumes after the call and does not reach a natural end the probe can measure (hop 3 stops: stop=no catalog choice at 0x114F in E_TALK.MES, terminal=@-1), so the flow ends at the script's own return.",
+    "effect on banked_u16[1] for result h1_caller_dispatch: no matching shift witness (entry=0 final=7)",
+    "effect on banked_u16[1] for result body: no matching shift witness (entry=0 final=7)"
+  ],
+  "flow": {
+    "evidence": {
+      "group": "27c-ev-n-talk",
+      "profile_sha256": "b4c4d18b8279565f3b7410be2ccaeafa80ef11b53c70257c59b2d896d2bc1ef6",
+      "route": "n-talk-plain"
+    },
+    "origin": {
+      "entry": "27C_EV.MES",
+      "entry_sha256": "2af24ef7a0bf66a3006c66da133ec7f653f79bf5904fad7ff2f39f42302ccec3",
+      "offset": 1591,
+      "guard": {
+        "offset": 1591,
+        "end": 1608,
+        "false_target": 2090,
+        "record_sha256": "b1b7930b4588b9342e39c68a7b9f4d554eae2c0ae13df18698a4f3a49421b6db"
+      }
+    },
+    "state_context": {
+      "kind": "fresh"
+    },
+    "hops": [
+      {
+        "hop_id": "h1_caller_dispatch",
+        "entry": "27C_EV.MES",
+        "entry_sha256": "2af24ef7a0bf66a3006c66da133ec7f653f79bf5904fad7ff2f39f42302ccec3",
+        "entered_by": {
+          "kind": "origin",
+          "offset": 1591,
+          "end": 1608
+        },
+        "answers": [],
+        "gates": [],
+        "map_locations": [],
+        "poll_supplies": [],
+        "dialogue": [],
+        "after": [],
+        "message_count": 0
+      },
+      {
+        "hop_id": "h2_talk",
+        "entry": "N_TALK.MES",
+        "entry_sha256": "1f9bed2649048db1cc7231cb14b0ae78f0af2d5076b0fdedcb77015e4f45305b",
+        "entered_by": {
+          "kind": "nested_call",
+          "offset": 1678,
+          "end": 1692
+        },
+        "answers": [],
+        "gates": [],
+        "map_locations": [],
+        "poll_supplies": [],
+        "dialogue": [
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "N_TALK.MES",
+              "at": 5971,
+              "s": 11,
+              "raw_sha256": "edf474af731074c7360548b14aca31747aa3153b131a1934770179b3525fe9b5"
+            }
+          },
+          {
+            "kind": "name_insert",
+            "entry": "N_TALK.MES",
+            "at": 5981,
+            "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "N_TALK.MES",
+              "at": 5998,
+              "s": 63,
+              "raw_sha256": "2f8b39ae2dc57839b6ad68ba84161779bad403ce27798538069c732d71b6e951"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "N_TALK.MES",
+              "at": 6058,
+              "s": 1,
+              "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+            }
+          },
+          {
+            "kind": "name_insert",
+            "entry": "N_TALK.MES",
+            "at": 6062,
+            "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "N_TALK.MES",
+              "at": 6079,
+              "s": 64,
+              "raw_sha256": "edb0a8672734d9f418d46f361b5c86b9cb315241d76f5a7267cd72ea7bb9fbfb"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "N_TALK.MES",
+              "at": 6159,
+              "s": 65,
+              "raw_sha256": "982cc270a17a67211123d93a769e5a3ba69ee27412045d65c949174250248f2b"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "N_TALK.MES",
+              "at": 6261,
+              "s": 1,
+              "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+            }
+          },
+          {
+            "kind": "name_insert",
+            "entry": "N_TALK.MES",
+            "at": 6265,
+            "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "N_TALK.MES",
+              "at": 6282,
+              "s": 66,
+              "raw_sha256": "7f1a1157bbcd06f8fcd8903c809f864e1f8f8cb673d7c02ef3f446314880b6da"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "N_TALK.MES",
+              "at": 6366,
+              "s": 67,
+              "raw_sha256": "f5851a863176d334e7a01452e40d723c4317d48d36ff71937b215750dbd21428"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "N_TALK.MES",
+              "at": 6454,
+              "s": 1,
+              "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+            }
+          },
+          {
+            "kind": "name_insert",
+            "entry": "N_TALK.MES",
+            "at": 6458,
+            "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "N_TALK.MES",
+              "at": 6475,
+              "s": 68,
+              "raw_sha256": "e62d6b6e0c7efb9b42b58d13ab1ca9e191bc50cde1fc4ee2d209a7f3e5ca3ff9"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "N_TALK.MES",
+              "at": 6569,
+              "s": 69,
+              "raw_sha256": "ee0be48edcbdfd4cc730fff04cbdf77a965adb8f535db41a453065254a9068fa"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "N_TALK.MES",
+              "at": 6709,
+              "s": 1,
+              "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+            }
+          },
+          {
+            "kind": "name_insert",
+            "entry": "N_TALK.MES",
+            "at": 6713,
+            "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "N_TALK.MES",
+              "at": 6730,
+              "s": 70,
+              "raw_sha256": "6d8c35d4caab92a2a624c374f77c150d39c1960e2e3c75a2823b2e1ddc9afdbd"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "N_TALK.MES",
+              "at": 6810,
+              "s": 71,
+              "raw_sha256": "6e8a44b6064084fa7b69d1ba29b60f31391c9087f29c51f7b7d4a92305ad38de"
+            }
+          }
+        ],
+        "after": [],
+        "message_count": 19
+      }
+    ],
+    "terminal": "flow"
+  }
+}

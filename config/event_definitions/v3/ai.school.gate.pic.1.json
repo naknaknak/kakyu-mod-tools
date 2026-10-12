@@ -1,0 +1,1105 @@
+{
+  "schema_version": "kakyu_event_definition/v3",
+  "contract_fingerprint": "7545e37e08d3dacac8eafb4757ec3ca68305af8afb9278001cce3932a272fb55",
+  "names_fingerprint": "b7ffcea3abac019a78f8ac19e98d5259fc778a0eb3c7123424f257b435163e1a",
+  "id": "ai.school.gate.pic.1",
+  "kind": "event",
+  "display": {
+    "title_ko": "교문에서 아이 (K_PIC)",
+    "title_en": "Ai at the school gate (K_PIC)",
+    "heroine": "ai",
+    "category": "school",
+    "place": "gate"
+  },
+  "evidence": {
+    "kind": "analysis_group",
+    "archive_sha256": "31a95b31cb0f1051cf973a4dba4f4a5405671e4488240adfafb9b02290986aa6",
+    "groups": [
+      {
+        "group_id": "ground-kpic-arrival",
+        "profile_sha256": "f6b00d08f1f2b879cc48cdfdeea67f85071d6502ef99aabb3737ca71cdfef85c",
+        "route_ids": [
+          "ground-kpic-arrival"
+        ]
+      },
+      {
+        "group_id": "ground-kpic-continuation",
+        "profile_sha256": "8c9645eedd80c4996e9f252aa76b5b59c72fab411d3bd0cb05686f313f6b57c0",
+        "route_ids": [
+          "h02-first-kpic-continuation"
+        ]
+      }
+    ],
+    "members": [
+      {
+        "entry": "GROUND.MES",
+        "entry_sha256": "b5dd1b444d1dbb4327e46a853e881c5ff46890a0b01b7ed7e9b92f2fdbc8b282"
+      },
+      {
+        "entry": "K_PIC.MES",
+        "entry_sha256": "99b2cb3612de31c5817c03834bfa56db80e647bd8120c01b9352896e2d240ea2"
+      },
+      {
+        "entry": "START.MES",
+        "entry_sha256": "ba57bf666fbd9db9b3110f2bf1c70e80e11a35de00e82256aaaf35921c77038f"
+      },
+      {
+        "entry": "DEF_MAIN.MES",
+        "entry_sha256": "f2012ce5d90f60a5d1ca8190e03571341c0384c2d3d96e9aec2b3ab949db0ef0"
+      },
+      {
+        "entry": "LIBLARY.LIB",
+        "entry_sha256": "d9aba6eb8dab51fe321e22c868ed0cf38416bba1f0cf2f5d7d719f48e89b8b4d"
+      }
+    ],
+    "document_refs": []
+  },
+  "package_binding": {
+    "schema": "kakyu_playback_package/v7",
+    "package_sha256": "bf3d1f6eeb3e0e3d5ae949597b3c273e91197f086e3627c27428a05413cc8fa1"
+  },
+  "trigger": {
+    "type": "caller_dispatch",
+    "caller": {
+      "entry": "GROUND.MES",
+      "entry_sha256": "b5dd1b444d1dbb4327e46a853e881c5ff46890a0b01b7ed7e9b92f2fdbc8b282",
+      "offset": 7227,
+      "end": 7240,
+      "command": 15,
+      "kind": "nested_call"
+    },
+    "callee": {
+      "entry": "K_PIC.MES",
+      "entry_sha256": "99b2cb3612de31c5817c03834bfa56db80e647bd8120c01b9352896e2d240ea2",
+      "start_coordinate": 0
+    },
+    "origin": {
+      "kind": "map_arrival",
+      "offset": 0,
+      "contracts": [
+        {
+          "map": "GROUND.MES",
+          "poll_offset": 5969,
+          "locations": [
+            0
+          ]
+        }
+      ]
+    }
+  },
+  "scenes": [
+    {
+      "kind": "school_gate",
+      "map": "GROUND.MES",
+      "poll_offset": 5969,
+      "locations": [
+        0
+      ],
+      "spent_by": [
+        "prefix",
+        "whole"
+      ]
+    }
+  ],
+  "guard": {
+    "offset": 7005,
+    "end": 7039,
+    "false_target": 9627,
+    "record_sha256": "ee48a152aae55c0000110749bad1d7fb8d3cd2b8288b940e674c9f4802f0dbe0",
+    "conjuncts": [
+      {
+        "kind": "choice",
+        "op": "equal",
+        "value": 0
+      },
+      {
+        "kind": "weekday",
+        "op": "equal",
+        "value": 6
+      },
+      {
+        "kind": "clock",
+        "op": "less_than",
+        "value": 1700
+      },
+      {
+        "kind": "cell",
+        "storage": "global_u8",
+        "bank": 0,
+        "index": 2283,
+        "op": "equal",
+        "value": 1
+      },
+      {
+        "kind": "cell",
+        "storage": "global_u8",
+        "bank": 0,
+        "index": 2286,
+        "op": "equal",
+        "value": 0
+      }
+    ],
+    "witnesses": [
+      {
+        "case_id": "baseline",
+        "writes": [],
+        "expected": 1
+      },
+      {
+        "case_id": "state_u16-21-1",
+        "writes": [
+          {
+            "storage": "state_u16",
+            "bank": 0,
+            "index": 21,
+            "value": 1
+          }
+        ],
+        "expected": 0
+      },
+      {
+        "case_id": "state_u16-4-5",
+        "writes": [
+          {
+            "storage": "state_u16",
+            "bank": 0,
+            "index": 4,
+            "value": 5
+          }
+        ],
+        "expected": 0
+      },
+      {
+        "case_id": "state_u16-19-1700",
+        "writes": [
+          {
+            "storage": "state_u16",
+            "bank": 0,
+            "index": 19,
+            "value": 1700
+          }
+        ],
+        "expected": 0
+      },
+      {
+        "case_id": "global_u8-2283-0",
+        "writes": [
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 2283,
+            "value": 0
+          }
+        ],
+        "expected": 0
+      },
+      {
+        "case_id": "global_u8-2286-1",
+        "writes": [
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 2286,
+            "value": 1
+          }
+        ],
+        "expected": 0
+      }
+    ]
+  },
+  "conditions": [
+    {
+      "type": "mes_expression",
+      "ast": {
+        "lhs": {
+          "lhs": {
+            "lhs": {
+              "lhs": {
+                "lhs": {
+                  "bank": 0,
+                  "index": {
+                    "type": "literal",
+                    "value": 21
+                  },
+                  "source": {
+                    "offset": 7006,
+                    "token": "0x80"
+                  },
+                  "storage": "state_u16",
+                  "type": "state_ref"
+                },
+                "op": "equal",
+                "rhs": {
+                  "source": {
+                    "offset": 7008,
+                    "token": "0x00"
+                  },
+                  "type": "literal",
+                  "value": 0,
+                  "width": 8
+                },
+                "source": {
+                  "offset": 7009,
+                  "token": "0xef"
+                },
+                "type": "binary"
+              },
+              "op": "logical_and",
+              "rhs": {
+                "lhs": {
+                  "bank": 0,
+                  "index": {
+                    "type": "literal",
+                    "value": 4
+                  },
+                  "source": {
+                    "offset": 7010,
+                    "token": "0x80"
+                  },
+                  "storage": "state_u16",
+                  "type": "state_ref"
+                },
+                "op": "equal",
+                "rhs": {
+                  "source": {
+                    "offset": 7012,
+                    "token": "0x06"
+                  },
+                  "type": "literal",
+                  "value": 6,
+                  "width": 8
+                },
+                "source": {
+                  "offset": 7013,
+                  "token": "0xef"
+                },
+                "type": "binary"
+              },
+              "source": {
+                "offset": 7014,
+                "token": "0xe6"
+              },
+              "type": "binary"
+            },
+            "op": "logical_and",
+            "rhs": {
+              "lhs": {
+                "bank": 0,
+                "index": {
+                  "type": "literal",
+                  "value": 19
+                },
+                "source": {
+                  "offset": 7015,
+                  "token": "0x80"
+                },
+                "storage": "state_u16",
+                "type": "state_ref"
+              },
+              "op": "less_than",
+              "rhs": {
+                "source": {
+                  "offset": 7017,
+                  "token": "0xf1"
+                },
+                "type": "literal",
+                "value": 1700,
+                "width": 16
+              },
+              "source": {
+                "offset": 7020,
+                "token": "0xeb"
+              },
+              "type": "binary"
+            },
+            "source": {
+              "offset": 7021,
+              "token": "0xe6"
+            },
+            "type": "binary"
+          },
+          "op": "logical_and",
+          "rhs": {
+            "lhs": {
+              "bank": 0,
+              "index": {
+                "type": "literal",
+                "value": 2283
+              },
+              "source": {
+                "offset": 7022,
+                "token": "0xf3"
+              },
+              "storage": "global_u8",
+              "type": "state_ref"
+            },
+            "op": "equal",
+            "rhs": {
+              "source": {
+                "offset": 7025,
+                "token": "0x01"
+              },
+              "type": "literal",
+              "value": 1,
+              "width": 8
+            },
+            "source": {
+              "offset": 7026,
+              "token": "0xef"
+            },
+            "type": "binary"
+          },
+          "source": {
+            "offset": 7027,
+            "token": "0xe6"
+          },
+          "type": "binary"
+        },
+        "op": "logical_and",
+        "rhs": {
+          "lhs": {
+            "bank": 0,
+            "index": {
+              "type": "literal",
+              "value": 2286
+            },
+            "source": {
+              "offset": 7028,
+              "token": "0xf3"
+            },
+            "storage": "global_u8",
+            "type": "state_ref"
+          },
+          "op": "equal",
+          "rhs": {
+            "source": {
+              "offset": 7031,
+              "token": "0x00"
+            },
+            "type": "literal",
+            "value": 0,
+            "width": 8
+          },
+          "source": {
+            "offset": 7032,
+            "token": "0xef"
+          },
+          "type": "binary"
+        },
+        "source": {
+          "offset": 7033,
+          "token": "0xe6"
+        },
+        "type": "binary"
+      },
+      "source_offset": 7005,
+      "failure_reason": "guard_rejected"
+    }
+  ],
+  "presets": [
+    {
+      "preset_id": "baseline",
+      "label": "baseline",
+      "writes": [
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 2,
+          "value": 0
+        },
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 242,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 397,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2276,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2277,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2279,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2283,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2286,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2847,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3001,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3006,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3009,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 4000,
+          "value": 0
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 0,
+          "value": 0
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 1,
+          "value": 13
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 4,
+          "value": 6
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 5,
+          "value": 0
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 7,
+          "value": 501
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 16,
+          "value": 0
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 17,
+          "value": 65535
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 18,
+          "value": 65535
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 19,
+          "value": 1530
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 21,
+          "value": 0
+        }
+      ]
+    },
+    {
+      "preset_id": "ground-kpic-arrival/word208-0-global3006-0-global2633-0",
+      "label": "word208-0-global3006-0-global2633-0",
+      "writes": [
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 208,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3006,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2633,
+          "value": 0
+        }
+      ]
+    },
+    {
+      "preset_id": "ground-kpic-arrival/word208-0-global3006-0-global2633-1",
+      "label": "word208-0-global3006-0-global2633-1",
+      "writes": [
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 208,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3006,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2633,
+          "value": 1
+        }
+      ]
+    },
+    {
+      "preset_id": "ground-kpic-arrival/word208-0-global3006-1-global2633-0",
+      "label": "word208-0-global3006-1-global2633-0",
+      "writes": [
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 208,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3006,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2633,
+          "value": 0
+        }
+      ]
+    },
+    {
+      "preset_id": "ground-kpic-arrival/word208-0-global3006-1-global2633-1",
+      "label": "word208-0-global3006-1-global2633-1",
+      "writes": [
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 208,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3006,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2633,
+          "value": 1
+        }
+      ]
+    },
+    {
+      "preset_id": "ground-kpic-arrival/word208-20-global3006-0-global2633-0",
+      "label": "word208-20-global3006-0-global2633-0",
+      "writes": [
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 208,
+          "value": 20
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3006,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2633,
+          "value": 0
+        }
+      ]
+    },
+    {
+      "preset_id": "ground-kpic-arrival/word208-20-global3006-0-global2633-1",
+      "label": "word208-20-global3006-0-global2633-1",
+      "writes": [
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 208,
+          "value": 20
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3006,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2633,
+          "value": 1
+        }
+      ]
+    },
+    {
+      "preset_id": "ground-kpic-arrival/word208-20-global3006-1-global2633-0",
+      "label": "word208-20-global3006-1-global2633-0",
+      "writes": [
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 208,
+          "value": 20
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3006,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2633,
+          "value": 0
+        }
+      ]
+    },
+    {
+      "preset_id": "ground-kpic-arrival/word208-20-global3006-1-global2633-1",
+      "label": "word208-20-global3006-1-global2633-1",
+      "writes": [
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 208,
+          "value": 20
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3006,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2633,
+          "value": 1
+        }
+      ]
+    },
+    {
+      "preset_id": "ground-kpic-arrival/word208-21-global3006-0-global2633-0",
+      "label": "word208-21-global3006-0-global2633-0",
+      "writes": [
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 208,
+          "value": 21
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3006,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2633,
+          "value": 0
+        }
+      ]
+    },
+    {
+      "preset_id": "ground-kpic-arrival/word208-21-global3006-0-global2633-1",
+      "label": "word208-21-global3006-0-global2633-1",
+      "writes": [
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 208,
+          "value": 21
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3006,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2633,
+          "value": 1
+        }
+      ]
+    },
+    {
+      "preset_id": "ground-kpic-arrival/word208-21-global3006-1-global2633-0",
+      "label": "word208-21-global3006-1-global2633-0",
+      "writes": [
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 208,
+          "value": 21
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3006,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2633,
+          "value": 0
+        }
+      ]
+    },
+    {
+      "preset_id": "ground-kpic-arrival/word208-21-global3006-1-global2633-1",
+      "label": "word208-21-global3006-1-global2633-1",
+      "writes": [
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 208,
+          "value": 21
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3006,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2633,
+          "value": 1
+        }
+      ]
+    },
+    {
+      "preset_id": "ground-kpic-arrival/word208-80-global3006-0-global2633-0",
+      "label": "word208-80-global3006-0-global2633-0",
+      "writes": [
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 208,
+          "value": 80
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3006,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2633,
+          "value": 0
+        }
+      ]
+    },
+    {
+      "preset_id": "ground-kpic-arrival/word208-80-global3006-0-global2633-1",
+      "label": "word208-80-global3006-0-global2633-1",
+      "writes": [
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 208,
+          "value": 80
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3006,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2633,
+          "value": 1
+        }
+      ]
+    },
+    {
+      "preset_id": "ground-kpic-arrival/word208-80-global3006-1-global2633-0",
+      "label": "word208-80-global3006-1-global2633-0",
+      "writes": [
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 208,
+          "value": 80
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3006,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2633,
+          "value": 0
+        }
+      ]
+    },
+    {
+      "preset_id": "ground-kpic-arrival/word208-80-global3006-1-global2633-1",
+      "label": "word208-80-global3006-1-global2633-1",
+      "writes": [
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 208,
+          "value": 80
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3006,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2633,
+          "value": 1
+        }
+      ]
+    },
+    {
+      "preset_id": "ground-kpic-arrival/word208-81-global3006-0-global2633-0",
+      "label": "word208-81-global3006-0-global2633-0",
+      "writes": [
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 208,
+          "value": 81
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3006,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2633,
+          "value": 0
+        }
+      ]
+    },
+    {
+      "preset_id": "ground-kpic-arrival/word208-81-global3006-0-global2633-1",
+      "label": "word208-81-global3006-0-global2633-1",
+      "writes": [
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 208,
+          "value": 81
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3006,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2633,
+          "value": 1
+        }
+      ]
+    },
+    {
+      "preset_id": "ground-kpic-arrival/word208-81-global3006-1-global2633-0",
+      "label": "word208-81-global3006-1-global2633-0",
+      "writes": [
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 208,
+          "value": 81
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3006,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2633,
+          "value": 0
+        }
+      ]
+    },
+    {
+      "preset_id": "ground-kpic-arrival/word208-81-global3006-1-global2633-1",
+      "label": "word208-81-global3006-1-global2633-1",
+      "writes": [
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 208,
+          "value": 81
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3006,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2633,
+          "value": 1
+        }
+      ]
+    },
+    {
+      "preset_id": "ground-kpic-arrival/clock-1699",
+      "label": "clock-1699",
+      "writes": [
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 19,
+          "value": 1699
+        }
+      ]
+    }
+  ],
+  "dialogue": [],
+  "after": [
+    {
+      "type": "write_legacy_value",
+      "storage": "global_u8",
+      "bank": 0,
+      "index": 2286,
+      "value": 0
+    },
+    {
+      "type": "write_legacy_value",
+      "storage": "state_u16",
+      "bank": 0,
+      "index": 8,
+      "value": 4
+    },
+    {
+      "type": "write_legacy_value",
+      "storage": "state_u16",
+      "bank": 0,
+      "index": 16,
+      "value": 0
+    }
+  ],
+  "results": {
+    "result_default": {
+      "selected_by": {
+        "kind": "default"
+      },
+      "event_played": true,
+      "dialogue": [],
+      "after": [],
+      "terminal": "ground-kpic-arrival.resume",
+      "reentry": {
+        "outcome": "same",
+        "message_count": 0,
+        "after": []
+      }
+    }
+  },
+  "terminals": {
+    "ground-kpic-arrival.outcome": {
+      "kind": "callee_return",
+      "owner_entry": "K_PIC.MES",
+      "offset": 2411,
+      "end": 2412,
+      "required_state": []
+    },
+    "ground-kpic-arrival.resume": {
+      "kind": "natural_handoff",
+      "owner_entry": "GROUND.MES",
+      "offset": 9604,
+      "end": 9617,
+      "next_target": "MACHI.MES",
+      "required_state": []
+    }
+  },
+  "dependencies": [],
+  "presentation": {
+    "status": "deferred",
+    "resources": []
+  },
+  "unresolved": [
+    "resume emits 37 caller messages after the event; not projected (v3 carries callee dialogue only)",
+    "no done flag identified in the guard; the reentry is gated inside the callee (reentry emits 0 messages)",
+    "site declared by 2 profiles; trigger and results from ground_kpic_arrival_v12",
+    "effect on global_u8[3005] depends on the entry state (observed final values [0, 1, 2, 15]); v3 has no delta effect"
+  ]
+}

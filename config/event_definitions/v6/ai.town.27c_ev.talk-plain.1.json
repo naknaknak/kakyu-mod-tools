@@ -1,0 +1,1062 @@
+{
+  "schema_version": "kakyu_event_definition/v6",
+  "contract_fingerprint": "74556e6406beed5fc82a51c14e2d7569e3ec748ec45c7dd595ae32ec7eefd2c9",
+  "names_fingerprint": "94223afe79303bd54eaa4bcdfd7b1e22a806191a749f80bea31d0068568fb29e",
+  "id": "ai.town.27c_ev.talk-plain.1",
+  "kind": "event",
+  "display": {
+    "title_ko": "27c_ev에서 아이 (K_TALK)",
+    "title_en": "Ai at 27c_ev (K_TALK)",
+    "heroine": "ai",
+    "category": "town",
+    "place": "27c_ev"
+  },
+  "evidence": {
+    "kind": "analysis_group",
+    "archive_sha256": "31a95b31cb0f1051cf973a4dba4f4a5405671e4488240adfafb9b02290986aa6",
+    "groups": [
+      {
+        "group_id": "27c-ev-k-talk",
+        "profile_sha256": "8a7c71ac36177a981f9bb389550789cb85365df4ecf04b0a655f97eabf4b1f62",
+        "route_ids": [
+          "k-talk-plain"
+        ]
+      }
+    ],
+    "members": [
+      {
+        "entry": "27C_EV.MES",
+        "entry_sha256": "2af24ef7a0bf66a3006c66da133ec7f653f79bf5904fad7ff2f39f42302ccec3"
+      },
+      {
+        "entry": "K_TALK.MES",
+        "entry_sha256": "4ee13b0660feb448e515aa7df240cdeb0ffbb8238f72270f4c0851cc06829ef3"
+      },
+      {
+        "entry": "K_PIC.MES",
+        "entry_sha256": "99b2cb3612de31c5817c03834bfa56db80e647bd8120c01b9352896e2d240ea2"
+      },
+      {
+        "entry": "LIBLARY.LIB",
+        "entry_sha256": "d9aba6eb8dab51fe321e22c868ed0cf38416bba1f0cf2f5d7d719f48e89b8b4d"
+      },
+      {
+        "entry": "DEF_MAIN.MES",
+        "entry_sha256": "f2012ce5d90f60a5d1ca8190e03571341c0384c2d3d96e9aec2b3ab949db0ef0"
+      },
+      {
+        "entry": "START.MES",
+        "entry_sha256": "ba57bf666fbd9db9b3110f2bf1c70e80e11a35de00e82256aaaf35921c77038f"
+      }
+    ],
+    "document_refs": [],
+    "effect_witnesses": [
+      {
+        "result": "body",
+        "cell": {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 10
+        },
+        "basis": "flag_pattern",
+        "entry": 0,
+        "final": 1,
+        "declared": false
+      },
+      {
+        "result": "body",
+        "cell": {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2538
+        },
+        "basis": "flag_pattern",
+        "entry": 0,
+        "final": 1,
+        "declared": false
+      },
+      {
+        "result": "h2_talk",
+        "cell": {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 10
+        },
+        "basis": "flag_pattern",
+        "entry": 0,
+        "final": 1,
+        "declared": false
+      },
+      {
+        "result": "h2_talk",
+        "cell": {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2538
+        },
+        "basis": "flag_pattern",
+        "entry": 0,
+        "final": 1,
+        "declared": false
+      }
+    ]
+  },
+  "package_binding": {
+    "schema": "kakyu_playback_package/v7",
+    "package_sha256": "b638bd7d135b408d748dd45a2bbb74486e2b7cb71a4eb8e920de2e092f6589ad"
+  },
+  "trigger": {
+    "type": "caller_dispatch",
+    "caller": {
+      "entry": "27C_EV.MES",
+      "entry_sha256": "2af24ef7a0bf66a3006c66da133ec7f653f79bf5904fad7ff2f39f42302ccec3",
+      "offset": 31343,
+      "end": 31357,
+      "command": 15,
+      "kind": "nested_call"
+    },
+    "callee": {
+      "entry": "K_TALK.MES",
+      "entry_sha256": "4ee13b0660feb448e515aa7df240cdeb0ffbb8238f72270f4c0851cc06829ef3",
+      "start_coordinate": 0
+    },
+    "origin": {
+      "kind": "typed_guard",
+      "offset": 31225
+    },
+    "order_hint": {
+      "scope": "27C_EV.MES",
+      "rank": 3,
+      "of": 3,
+      "basis": "guard_offset",
+      "chain_confirmed": false
+    }
+  },
+  "scenes": [],
+  "guard": {
+    "offset": 31225,
+    "end": 31268,
+    "false_target": 31804,
+    "record_sha256": "2ceea21f0c2037ea76266e49b0bfaecce4e2dbd9e5c8e316f7aa3e399e8e4838",
+    "conjuncts": [
+      {
+        "kind": "cell",
+        "storage": "global_u8",
+        "bank": 0,
+        "index": 180,
+        "op": "equal",
+        "value": 0
+      },
+      {
+        "kind": "cell",
+        "storage": "global_u8",
+        "bank": 0,
+        "index": 188,
+        "op": "not_equal",
+        "value": 0
+      },
+      {
+        "kind": "cell",
+        "storage": "global_u8",
+        "bank": 0,
+        "index": 184,
+        "op": "equal",
+        "value": 0
+      },
+      {
+        "kind": "cell",
+        "storage": "global_u8",
+        "bank": 0,
+        "index": 185,
+        "op": "equal",
+        "value": 0
+      },
+      {
+        "kind": "cell",
+        "storage": "global_u8",
+        "bank": 0,
+        "index": 2225,
+        "op": "equal",
+        "value": 0
+      },
+      {
+        "kind": "cell",
+        "storage": "banked_u16",
+        "bank": 0,
+        "index": 208,
+        "op": "greater_than",
+        "value": 30
+      }
+    ],
+    "witnesses": [
+      {
+        "case_id": "accepted",
+        "writes": [],
+        "expected": 1
+      },
+      {
+        "case_id": "rejected",
+        "writes": [
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 180,
+            "value": 1
+          }
+        ],
+        "expected": 0
+      }
+    ]
+  },
+  "conditions": [
+    {
+      "type": "mes_expression",
+      "ast": {
+        "lhs": {
+          "lhs": {
+            "lhs": {
+              "lhs": {
+                "lhs": {
+                  "lhs": {
+                    "bank": 0,
+                    "index": {
+                      "type": "literal",
+                      "value": 180
+                    },
+                    "source": {
+                      "offset": 31226,
+                      "token": "0xf3"
+                    },
+                    "storage": "global_u8",
+                    "type": "state_ref"
+                  },
+                  "op": "equal",
+                  "rhs": {
+                    "source": {
+                      "offset": 31229,
+                      "token": "0x00"
+                    },
+                    "type": "literal",
+                    "value": 0,
+                    "width": 8
+                  },
+                  "source": {
+                    "offset": 31230,
+                    "token": "0xef"
+                  },
+                  "type": "binary"
+                },
+                "op": "logical_and",
+                "rhs": {
+                  "lhs": {
+                    "bank": 0,
+                    "index": {
+                      "type": "literal",
+                      "value": 188
+                    },
+                    "source": {
+                      "offset": 31231,
+                      "token": "0xf3"
+                    },
+                    "storage": "global_u8",
+                    "type": "state_ref"
+                  },
+                  "op": "not_equal",
+                  "rhs": {
+                    "source": {
+                      "offset": 31234,
+                      "token": "0x00"
+                    },
+                    "type": "literal",
+                    "value": 0,
+                    "width": 8
+                  },
+                  "source": {
+                    "offset": 31235,
+                    "token": "0xf0"
+                  },
+                  "type": "binary"
+                },
+                "source": {
+                  "offset": 31236,
+                  "token": "0xe6"
+                },
+                "type": "binary"
+              },
+              "op": "logical_and",
+              "rhs": {
+                "lhs": {
+                  "bank": 0,
+                  "index": {
+                    "type": "literal",
+                    "value": 184
+                  },
+                  "source": {
+                    "offset": 31237,
+                    "token": "0xf3"
+                  },
+                  "storage": "global_u8",
+                  "type": "state_ref"
+                },
+                "op": "equal",
+                "rhs": {
+                  "source": {
+                    "offset": 31240,
+                    "token": "0x00"
+                  },
+                  "type": "literal",
+                  "value": 0,
+                  "width": 8
+                },
+                "source": {
+                  "offset": 31241,
+                  "token": "0xef"
+                },
+                "type": "binary"
+              },
+              "source": {
+                "offset": 31242,
+                "token": "0xe6"
+              },
+              "type": "binary"
+            },
+            "op": "logical_and",
+            "rhs": {
+              "lhs": {
+                "bank": 0,
+                "index": {
+                  "type": "literal",
+                  "value": 185
+                },
+                "source": {
+                  "offset": 31243,
+                  "token": "0xf3"
+                },
+                "storage": "global_u8",
+                "type": "state_ref"
+              },
+              "op": "equal",
+              "rhs": {
+                "source": {
+                  "offset": 31246,
+                  "token": "0x00"
+                },
+                "type": "literal",
+                "value": 0,
+                "width": 8
+              },
+              "source": {
+                "offset": 31247,
+                "token": "0xef"
+              },
+              "type": "binary"
+            },
+            "source": {
+              "offset": 31248,
+              "token": "0xe6"
+            },
+            "type": "binary"
+          },
+          "op": "logical_and",
+          "rhs": {
+            "lhs": {
+              "bank": 0,
+              "index": {
+                "type": "literal",
+                "value": 2225
+              },
+              "source": {
+                "offset": 31249,
+                "token": "0xf3"
+              },
+              "storage": "global_u8",
+              "type": "state_ref"
+            },
+            "op": "equal",
+            "rhs": {
+              "source": {
+                "offset": 31252,
+                "token": "0x00"
+              },
+              "type": "literal",
+              "value": 0,
+              "width": 8
+            },
+            "source": {
+              "offset": 31253,
+              "token": "0xef"
+            },
+            "type": "binary"
+          },
+          "source": {
+            "offset": 31254,
+            "token": "0xe6"
+          },
+          "type": "binary"
+        },
+        "op": "logical_and",
+        "rhs": {
+          "lhs": {
+            "bank": 0,
+            "index": {
+              "source": {
+                "offset": 31255,
+                "token": "0xf1"
+              },
+              "type": "literal",
+              "value": 208,
+              "width": 16
+            },
+            "source": {
+              "offset": 31258,
+              "token": "0xa0"
+            },
+            "storage": "banked_u16",
+            "type": "state_ref"
+          },
+          "op": "greater_than",
+          "rhs": {
+            "source": {
+              "offset": 31260,
+              "token": "0x1e"
+            },
+            "type": "literal",
+            "value": 30,
+            "width": 8
+          },
+          "source": {
+            "offset": 31261,
+            "token": "0xec"
+          },
+          "type": "binary"
+        },
+        "source": {
+          "offset": 31262,
+          "token": "0xe6"
+        },
+        "type": "binary"
+      },
+      "source_offset": 31225,
+      "failure_reason": "guard_rejected"
+    }
+  ],
+  "presets": [
+    {
+      "preset_id": "baseline",
+      "label": "baseline",
+      "writes": [
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 180,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 188,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 184,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 185,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2225,
+          "value": 0
+        },
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 208,
+          "value": 80
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 7,
+          "value": 1430
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2538,
+          "value": 0
+        }
+      ]
+    }
+  ],
+  "dialogue": [
+    {
+      "kind": "hop",
+      "hop_id": "h1_caller_dispatch"
+    },
+    {
+      "kind": "hop",
+      "hop_id": "h2_talk"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "K_TALK.MES",
+        "at": 260,
+        "s": 0,
+        "raw_sha256": "344c3cb3d75d8f3907b45b0f09e4c72cd713fab7367b7fe458356eea8a4d3bee"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "K_TALK.MES",
+        "at": 316,
+        "s": 1,
+        "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "K_TALK.MES",
+      "at": 320,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "K_TALK.MES",
+        "at": 337,
+        "s": 2,
+        "raw_sha256": "8e03ea4c0fac6474a46a9dbb4d395fb0cc0d2507960519ec3a1fa146e7a13d4b"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "K_TALK.MES",
+        "at": 403,
+        "s": 3,
+        "raw_sha256": "3987bbfa07c9b0e42ad4e44df3c4482a27e6e02d034db803c0e0ab163746b32c"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "K_TALK.MES",
+        "at": 483,
+        "s": 1,
+        "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "K_TALK.MES",
+      "at": 487,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "K_TALK.MES",
+        "at": 504,
+        "s": 4,
+        "raw_sha256": "d9b522d99fd86936ece92b52ee19b7e83c1543b60550dbbe12c5fecbeb57fb16"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "K_TALK.MES",
+        "at": 584,
+        "s": 5,
+        "raw_sha256": "05defa92885153c5722508f213a8549c141e169bbfde3c8989164d9c0fde1615"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "K_TALK.MES",
+        "at": 686,
+        "s": 1,
+        "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "K_TALK.MES",
+      "at": 690,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "K_TALK.MES",
+        "at": 707,
+        "s": 6,
+        "raw_sha256": "2bdc6b3f16cbf21a5f258f08c51024bb5d706d8972d3fdf5c1e4c07f8b363a38"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "K_TALK.MES",
+        "at": 837,
+        "s": 7,
+        "raw_sha256": "78658aa97b37ddc42769215d4099a7dd483a1aadca4a52ac07e5cf0e5cf9a494"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "K_TALK.MES",
+        "at": 901,
+        "s": 1,
+        "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "K_TALK.MES",
+      "at": 905,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "K_TALK.MES",
+        "at": 922,
+        "s": 8,
+        "raw_sha256": "b09071a669d221d9a93b3add5eda3f6f9b764931914047811ac3ac0b3f02860d"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "K_TALK.MES",
+        "at": 966,
+        "s": 9,
+        "raw_sha256": "9de20c7da600f3e96088fcd4ec1061639ec206320c54046a38495e2e69e97de9"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "K_TALK.MES",
+        "at": 1048,
+        "s": 1,
+        "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "K_TALK.MES",
+      "at": 1052,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "K_TALK.MES",
+        "at": 1069,
+        "s": 10,
+        "raw_sha256": "4b29999c4a4804c7c086404596abf97d02e8ac0c120321d3760a4f1a99552046"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "K_TALK.MES",
+        "at": 1121,
+        "s": 11,
+        "raw_sha256": "1c179e01031168b29189fe748217124ea6ce236ba2dd3d59cdcb669b7f6fcde3"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "K_TALK.MES",
+        "at": 1199,
+        "s": 1,
+        "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "K_TALK.MES",
+      "at": 1203,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "K_TALK.MES",
+        "at": 1220,
+        "s": 12,
+        "raw_sha256": "aca81767c5be01f9ae63c2696fe2397f02d2eee6d87bdb61d28ffbcfcaa9c73d"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "K_TALK.MES",
+        "at": 1262,
+        "s": 13,
+        "raw_sha256": "773b411a7b56f9eacddf85cbc9fad42a816b1fd0e61157c91c1266fd5d401487"
+      }
+    },
+    {
+      "kind": "scene_end"
+    }
+  ],
+  "after": [
+    {
+      "type": "write_legacy_value",
+      "storage": "global_u8",
+      "bank": 0,
+      "index": 10,
+      "value": 1,
+      "cell_class": "flag"
+    },
+    {
+      "type": "write_legacy_value",
+      "storage": "global_u8",
+      "bank": 0,
+      "index": 2538,
+      "value": 1,
+      "cell_class": "flag"
+    }
+  ],
+  "results": {
+    "result_default": {
+      "selected_by": {
+        "kind": "default"
+      },
+      "event_played": true,
+      "dialogue": [],
+      "after": [],
+      "terminal": "flow"
+    }
+  },
+  "terminals": {
+    "flow": {
+      "kind": "callee_return",
+      "owner_entry": "K_TALK.MES",
+      "offset": 1357,
+      "end": 1358,
+      "next_target": "",
+      "required_state": []
+    }
+  },
+  "dependencies": [
+    {
+      "entry": "K_PIC.MES",
+      "entry_sha256": "99b2cb3612de31c5817c03834bfa56db80e647bd8120c01b9352896e2d240ea2",
+      "role": "nested_presentation"
+    }
+  ],
+  "presentation": {
+    "status": "deferred",
+    "resources": []
+  },
+  "unresolved": [
+    "no done flag identified in the guard: the flow's own origin guard ((global_u8[180] equal 0); (global_u8[188] not_equal 0); (global_u8[184] equal 0); (global_u8[185] equal 0); (global_u8[2225] equal 0); (banked_u16[208] greater_than 30)) names no cleared completion flag",
+    "The state at the anchor is seeded, a tool decision: global_u8[180] = 0, global_u8[188] = 1, global_u8[184] = 0, global_u8[185] = 0, global_u8[2225] = 0, banked_u16[208] = 80, state_u16[7] = 1430, global_u8[2538] = 0. The origin is the caller's block guard at 31225; the cells are the guard's own conjuncts and the script's own gate (its date, affection word and once-only flag), solved by the smallest round value that satisfies them.",
+    "The script asks no question; its own gate (date, affection word and once-only flag) is seeded satisfied, so the default path plays it whole (1 answer path(s) measured).",
+    "The caller resumes into the place's day loop after the call, which runs on day after day (its own definition steps stop at the probe's limit, and under the original calendar the loop plays on to the game's ending): there is no natural end to measure, so the flow ends at the script's own return.",
+    "effect on banked_u16[1] for result h1_caller_dispatch: no matching shift witness (entry=0 final=7)",
+    "effect on global_u8[3005] for result h2_talk: no matching shift witness (entry=0 final=2)",
+    "effect on banked_u16[1] for result body: no matching shift witness (entry=0 final=7)",
+    "effect on global_u8[3005] for result body: no matching shift witness (entry=0 final=2)"
+  ],
+  "flow": {
+    "evidence": {
+      "group": "27c-ev-k-talk",
+      "profile_sha256": "8a7c71ac36177a981f9bb389550789cb85365df4ecf04b0a655f97eabf4b1f62",
+      "route": "k-talk-plain"
+    },
+    "origin": {
+      "entry": "27C_EV.MES",
+      "entry_sha256": "2af24ef7a0bf66a3006c66da133ec7f653f79bf5904fad7ff2f39f42302ccec3",
+      "offset": 31225,
+      "guard": {
+        "offset": 31225,
+        "end": 31268,
+        "false_target": 31804,
+        "record_sha256": "2ceea21f0c2037ea76266e49b0bfaecce4e2dbd9e5c8e316f7aa3e399e8e4838"
+      }
+    },
+    "state_context": {
+      "kind": "fresh"
+    },
+    "hops": [
+      {
+        "hop_id": "h1_caller_dispatch",
+        "entry": "27C_EV.MES",
+        "entry_sha256": "2af24ef7a0bf66a3006c66da133ec7f653f79bf5904fad7ff2f39f42302ccec3",
+        "entered_by": {
+          "kind": "origin",
+          "offset": 31225,
+          "end": 31268
+        },
+        "answers": [],
+        "gates": [],
+        "map_locations": [],
+        "poll_supplies": [],
+        "dialogue": [],
+        "after": [],
+        "message_count": 0
+      },
+      {
+        "hop_id": "h2_talk",
+        "entry": "K_TALK.MES",
+        "entry_sha256": "4ee13b0660feb448e515aa7df240cdeb0ffbb8238f72270f4c0851cc06829ef3",
+        "entered_by": {
+          "kind": "nested_call",
+          "offset": 31343,
+          "end": 31357
+        },
+        "answers": [],
+        "gates": [],
+        "map_locations": [],
+        "poll_supplies": [],
+        "dialogue": [
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "K_TALK.MES",
+              "at": 260,
+              "s": 0,
+              "raw_sha256": "344c3cb3d75d8f3907b45b0f09e4c72cd713fab7367b7fe458356eea8a4d3bee"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "K_TALK.MES",
+              "at": 316,
+              "s": 1,
+              "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+            }
+          },
+          {
+            "kind": "name_insert",
+            "entry": "K_TALK.MES",
+            "at": 320,
+            "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "K_TALK.MES",
+              "at": 337,
+              "s": 2,
+              "raw_sha256": "8e03ea4c0fac6474a46a9dbb4d395fb0cc0d2507960519ec3a1fa146e7a13d4b"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "K_TALK.MES",
+              "at": 403,
+              "s": 3,
+              "raw_sha256": "3987bbfa07c9b0e42ad4e44df3c4482a27e6e02d034db803c0e0ab163746b32c"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "K_TALK.MES",
+              "at": 483,
+              "s": 1,
+              "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+            }
+          },
+          {
+            "kind": "name_insert",
+            "entry": "K_TALK.MES",
+            "at": 487,
+            "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "K_TALK.MES",
+              "at": 504,
+              "s": 4,
+              "raw_sha256": "d9b522d99fd86936ece92b52ee19b7e83c1543b60550dbbe12c5fecbeb57fb16"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "K_TALK.MES",
+              "at": 584,
+              "s": 5,
+              "raw_sha256": "05defa92885153c5722508f213a8549c141e169bbfde3c8989164d9c0fde1615"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "K_TALK.MES",
+              "at": 686,
+              "s": 1,
+              "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+            }
+          },
+          {
+            "kind": "name_insert",
+            "entry": "K_TALK.MES",
+            "at": 690,
+            "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "K_TALK.MES",
+              "at": 707,
+              "s": 6,
+              "raw_sha256": "2bdc6b3f16cbf21a5f258f08c51024bb5d706d8972d3fdf5c1e4c07f8b363a38"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "K_TALK.MES",
+              "at": 837,
+              "s": 7,
+              "raw_sha256": "78658aa97b37ddc42769215d4099a7dd483a1aadca4a52ac07e5cf0e5cf9a494"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "K_TALK.MES",
+              "at": 901,
+              "s": 1,
+              "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+            }
+          },
+          {
+            "kind": "name_insert",
+            "entry": "K_TALK.MES",
+            "at": 905,
+            "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "K_TALK.MES",
+              "at": 922,
+              "s": 8,
+              "raw_sha256": "b09071a669d221d9a93b3add5eda3f6f9b764931914047811ac3ac0b3f02860d"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "K_TALK.MES",
+              "at": 966,
+              "s": 9,
+              "raw_sha256": "9de20c7da600f3e96088fcd4ec1061639ec206320c54046a38495e2e69e97de9"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "K_TALK.MES",
+              "at": 1048,
+              "s": 1,
+              "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+            }
+          },
+          {
+            "kind": "name_insert",
+            "entry": "K_TALK.MES",
+            "at": 1052,
+            "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "K_TALK.MES",
+              "at": 1069,
+              "s": 10,
+              "raw_sha256": "4b29999c4a4804c7c086404596abf97d02e8ac0c120321d3760a4f1a99552046"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "K_TALK.MES",
+              "at": 1121,
+              "s": 11,
+              "raw_sha256": "1c179e01031168b29189fe748217124ea6ce236ba2dd3d59cdcb669b7f6fcde3"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "K_TALK.MES",
+              "at": 1199,
+              "s": 1,
+              "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+            }
+          },
+          {
+            "kind": "name_insert",
+            "entry": "K_TALK.MES",
+            "at": 1203,
+            "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "K_TALK.MES",
+              "at": 1220,
+              "s": 12,
+              "raw_sha256": "aca81767c5be01f9ae63c2696fe2397f02d2eee6d87bdb61d28ffbcfcaa9c73d"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "K_TALK.MES",
+              "at": 1262,
+              "s": 13,
+              "raw_sha256": "773b411a7b56f9eacddf85cbc9fad42a816b1fd0e61157c91c1266fd5d401487"
+            }
+          }
+        ],
+        "after": [
+          {
+            "type": "write_legacy_value",
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 10,
+            "value": 1,
+            "cell_class": "flag"
+          },
+          {
+            "type": "write_legacy_value",
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 2538,
+            "value": 1,
+            "cell_class": "flag"
+          }
+        ],
+        "message_count": 25
+      }
+    ],
+    "terminal": "flow"
+  }
+}

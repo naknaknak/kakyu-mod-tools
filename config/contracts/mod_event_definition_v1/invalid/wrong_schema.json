@@ -1,0 +1,103 @@
+{
+  "schema_version": "kakyu_mod_event_definition/v0",
+  "contract_fingerprint": "self",
+  "cells_fingerprint": "self",
+  "kind": "new_event",
+  "mod": {
+    "id": "samplemod",
+    "revision": 1
+  },
+  "id": "mod.samplemod.new_event_plain",
+  "display": {
+    "title_ko": "새 이벤트",
+    "title_en": "A new event",
+    "heroine": "ai",
+    "category": "school",
+    "place": "gate"
+  },
+  "trigger": {
+    "type": "place",
+    "category": "school",
+    "place": "gate",
+    "order_hint": {
+      "rank": 1
+    }
+  },
+  "conditions": [
+    {
+      "type": "event_not_completed"
+    },
+    {
+      "type": "weekday_equals",
+      "weekday": 3
+    },
+    {
+      "type": "time_at_or_after",
+      "time_code": 1530
+    }
+  ],
+  "presentation": {
+    "mode": "scene",
+    "background": "gate_bg",
+    "bgm": "bgm_gate",
+    "characters": [
+      "ai"
+    ],
+    "hud": "default_hud",
+    "message_window": "default_window"
+  },
+  "dialogue": [
+    {
+      "kind": "line",
+      "text": "Hello there.",
+      "speaker": "Ai",
+      "voice": "ai_voice_01"
+    },
+    {
+      "kind": "line",
+      "text": "Good to see you, {name}.\nSee you soon."
+    },
+    {
+      "kind": "scene_end"
+    }
+  ],
+  "after": [
+    {
+      "type": "write_legacy_value",
+      "storage": "state_u16",
+      "bank": 0,
+      "index": 50,
+      "value": 1,
+      "cell_class": "unnamed"
+    },
+    {
+      "type": "consume_time",
+      "minutes": 30,
+      "cell_class": "clock"
+    }
+  ],
+  "results": {
+    "result_default": {
+      "selected_by": {
+        "kind": "default"
+      },
+      "event_played": true,
+      "dialogue": [],
+      "after": [],
+      "terminal": "term_return"
+    }
+  },
+  "terminals": {
+    "term_return": {
+      "kind": "return_to_map"
+    }
+  },
+  "done": {
+    "cell": {
+      "storage": "global_u8",
+      "bank": 0,
+      "index": 900,
+      "value": 1
+    }
+  }
+}

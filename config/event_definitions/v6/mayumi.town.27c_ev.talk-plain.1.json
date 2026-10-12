@@ -1,0 +1,920 @@
+{
+  "schema_version": "kakyu_event_definition/v6",
+  "contract_fingerprint": "74556e6406beed5fc82a51c14e2d7569e3ec748ec45c7dd595ae32ec7eefd2c9",
+  "names_fingerprint": "94223afe79303bd54eaa4bcdfd7b1e22a806191a749f80bea31d0068568fb29e",
+  "id": "mayumi.town.27c_ev.talk-plain.1",
+  "kind": "event",
+  "display": {
+    "title_ko": "27c_ev에서 마유미 (I_TALK)",
+    "title_en": "Mayumi at 27c_ev (I_TALK)",
+    "heroine": "mayumi",
+    "category": "town",
+    "place": "27c_ev"
+  },
+  "evidence": {
+    "kind": "analysis_group",
+    "archive_sha256": "31a95b31cb0f1051cf973a4dba4f4a5405671e4488240adfafb9b02290986aa6",
+    "groups": [
+      {
+        "group_id": "27c-ev-i-talk",
+        "profile_sha256": "3bb0491b7532d659ad8fe93746ea83fcbac14ad456f52e9287d6a9f390e6e2f1",
+        "route_ids": [
+          "i-talk-plain"
+        ]
+      }
+    ],
+    "members": [
+      {
+        "entry": "27C_EV.MES",
+        "entry_sha256": "2af24ef7a0bf66a3006c66da133ec7f653f79bf5904fad7ff2f39f42302ccec3"
+      },
+      {
+        "entry": "I_TALK.MES",
+        "entry_sha256": "6c00df984dab40a47b3202eef8c64993375d5280f536a7b3728c9427ace00472"
+      },
+      {
+        "entry": "I_PIC.MES",
+        "entry_sha256": "d8ab61f1de4733a41a358f1923ab07a0046f7ff9f5f8afea5fef44bf957daad5"
+      },
+      {
+        "entry": "LIBLARY.LIB",
+        "entry_sha256": "d9aba6eb8dab51fe321e22c868ed0cf38416bba1f0cf2f5d7d719f48e89b8b4d"
+      },
+      {
+        "entry": "DEF_MAIN.MES",
+        "entry_sha256": "f2012ce5d90f60a5d1ca8190e03571341c0384c2d3d96e9aec2b3ab949db0ef0"
+      },
+      {
+        "entry": "START.MES",
+        "entry_sha256": "ba57bf666fbd9db9b3110f2bf1c70e80e11a35de00e82256aaaf35921c77038f"
+      }
+    ],
+    "document_refs": [],
+    "effect_witnesses": [
+      {
+        "result": "body",
+        "cell": {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2530
+        },
+        "basis": "flag_pattern",
+        "entry": 0,
+        "final": 1,
+        "declared": false
+      },
+      {
+        "result": "h2_talk",
+        "cell": {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2530
+        },
+        "basis": "flag_pattern",
+        "entry": 0,
+        "final": 1,
+        "declared": false
+      }
+    ]
+  },
+  "package_binding": {
+    "schema": "kakyu_playback_package/v7",
+    "package_sha256": "b638bd7d135b408d748dd45a2bbb74486e2b7cb71a4eb8e920de2e092f6589ad"
+  },
+  "trigger": {
+    "type": "caller_dispatch",
+    "caller": {
+      "entry": "27C_EV.MES",
+      "entry_sha256": "2af24ef7a0bf66a3006c66da133ec7f653f79bf5904fad7ff2f39f42302ccec3",
+      "offset": 21537,
+      "end": 21551,
+      "command": 15,
+      "kind": "nested_call"
+    },
+    "callee": {
+      "entry": "I_TALK.MES",
+      "entry_sha256": "6c00df984dab40a47b3202eef8c64993375d5280f536a7b3728c9427ace00472",
+      "start_coordinate": 0
+    },
+    "origin": {
+      "kind": "typed_guard",
+      "offset": 21419
+    },
+    "order_hint": {
+      "scope": "27C_EV.MES",
+      "rank": 3,
+      "of": 3,
+      "basis": "guard_offset",
+      "chain_confirmed": false
+    }
+  },
+  "scenes": [],
+  "guard": {
+    "offset": 21419,
+    "end": 21462,
+    "false_target": 25634,
+    "record_sha256": "8c37cfb18d377cbd569d9bff4bb3d88d12d62c44023ec95e330d2de174a522d6",
+    "conjuncts": [
+      {
+        "kind": "cell",
+        "storage": "global_u8",
+        "bank": 0,
+        "index": 130,
+        "op": "equal",
+        "value": 0
+      },
+      {
+        "kind": "cell",
+        "storage": "global_u8",
+        "bank": 0,
+        "index": 138,
+        "op": "not_equal",
+        "value": 0
+      },
+      {
+        "kind": "cell",
+        "storage": "global_u8",
+        "bank": 0,
+        "index": 134,
+        "op": "equal",
+        "value": 0
+      },
+      {
+        "kind": "cell",
+        "storage": "global_u8",
+        "bank": 0,
+        "index": 1259,
+        "op": "equal",
+        "value": 0
+      },
+      {
+        "kind": "cell",
+        "storage": "global_u8",
+        "bank": 0,
+        "index": 135,
+        "op": "equal",
+        "value": 0
+      },
+      {
+        "kind": "cell",
+        "storage": "banked_u16",
+        "bank": 0,
+        "index": 203,
+        "op": "greater_than",
+        "value": 30
+      }
+    ],
+    "witnesses": [
+      {
+        "case_id": "accepted",
+        "writes": [],
+        "expected": 1
+      },
+      {
+        "case_id": "rejected",
+        "writes": [
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 130,
+            "value": 1
+          }
+        ],
+        "expected": 0
+      }
+    ]
+  },
+  "conditions": [
+    {
+      "type": "mes_expression",
+      "ast": {
+        "lhs": {
+          "lhs": {
+            "lhs": {
+              "lhs": {
+                "lhs": {
+                  "lhs": {
+                    "bank": 0,
+                    "index": {
+                      "type": "literal",
+                      "value": 130
+                    },
+                    "source": {
+                      "offset": 21420,
+                      "token": "0xf3"
+                    },
+                    "storage": "global_u8",
+                    "type": "state_ref"
+                  },
+                  "op": "equal",
+                  "rhs": {
+                    "source": {
+                      "offset": 21423,
+                      "token": "0x00"
+                    },
+                    "type": "literal",
+                    "value": 0,
+                    "width": 8
+                  },
+                  "source": {
+                    "offset": 21424,
+                    "token": "0xef"
+                  },
+                  "type": "binary"
+                },
+                "op": "logical_and",
+                "rhs": {
+                  "lhs": {
+                    "bank": 0,
+                    "index": {
+                      "type": "literal",
+                      "value": 138
+                    },
+                    "source": {
+                      "offset": 21425,
+                      "token": "0xf3"
+                    },
+                    "storage": "global_u8",
+                    "type": "state_ref"
+                  },
+                  "op": "not_equal",
+                  "rhs": {
+                    "source": {
+                      "offset": 21428,
+                      "token": "0x00"
+                    },
+                    "type": "literal",
+                    "value": 0,
+                    "width": 8
+                  },
+                  "source": {
+                    "offset": 21429,
+                    "token": "0xf0"
+                  },
+                  "type": "binary"
+                },
+                "source": {
+                  "offset": 21430,
+                  "token": "0xe6"
+                },
+                "type": "binary"
+              },
+              "op": "logical_and",
+              "rhs": {
+                "lhs": {
+                  "bank": 0,
+                  "index": {
+                    "type": "literal",
+                    "value": 134
+                  },
+                  "source": {
+                    "offset": 21431,
+                    "token": "0xf3"
+                  },
+                  "storage": "global_u8",
+                  "type": "state_ref"
+                },
+                "op": "equal",
+                "rhs": {
+                  "source": {
+                    "offset": 21434,
+                    "token": "0x00"
+                  },
+                  "type": "literal",
+                  "value": 0,
+                  "width": 8
+                },
+                "source": {
+                  "offset": 21435,
+                  "token": "0xef"
+                },
+                "type": "binary"
+              },
+              "source": {
+                "offset": 21436,
+                "token": "0xe6"
+              },
+              "type": "binary"
+            },
+            "op": "logical_and",
+            "rhs": {
+              "lhs": {
+                "bank": 0,
+                "index": {
+                  "type": "literal",
+                  "value": 1259
+                },
+                "source": {
+                  "offset": 21437,
+                  "token": "0xf3"
+                },
+                "storage": "global_u8",
+                "type": "state_ref"
+              },
+              "op": "equal",
+              "rhs": {
+                "source": {
+                  "offset": 21440,
+                  "token": "0x00"
+                },
+                "type": "literal",
+                "value": 0,
+                "width": 8
+              },
+              "source": {
+                "offset": 21441,
+                "token": "0xef"
+              },
+              "type": "binary"
+            },
+            "source": {
+              "offset": 21442,
+              "token": "0xe6"
+            },
+            "type": "binary"
+          },
+          "op": "logical_and",
+          "rhs": {
+            "lhs": {
+              "bank": 0,
+              "index": {
+                "type": "literal",
+                "value": 135
+              },
+              "source": {
+                "offset": 21443,
+                "token": "0xf3"
+              },
+              "storage": "global_u8",
+              "type": "state_ref"
+            },
+            "op": "equal",
+            "rhs": {
+              "source": {
+                "offset": 21446,
+                "token": "0x00"
+              },
+              "type": "literal",
+              "value": 0,
+              "width": 8
+            },
+            "source": {
+              "offset": 21447,
+              "token": "0xef"
+            },
+            "type": "binary"
+          },
+          "source": {
+            "offset": 21448,
+            "token": "0xe6"
+          },
+          "type": "binary"
+        },
+        "op": "logical_and",
+        "rhs": {
+          "lhs": {
+            "bank": 0,
+            "index": {
+              "source": {
+                "offset": 21449,
+                "token": "0xf1"
+              },
+              "type": "literal",
+              "value": 203,
+              "width": 16
+            },
+            "source": {
+              "offset": 21452,
+              "token": "0xa0"
+            },
+            "storage": "banked_u16",
+            "type": "state_ref"
+          },
+          "op": "greater_than",
+          "rhs": {
+            "source": {
+              "offset": 21454,
+              "token": "0x1e"
+            },
+            "type": "literal",
+            "value": 30,
+            "width": 8
+          },
+          "source": {
+            "offset": 21455,
+            "token": "0xec"
+          },
+          "type": "binary"
+        },
+        "source": {
+          "offset": 21456,
+          "token": "0xe6"
+        },
+        "type": "binary"
+      },
+      "source_offset": 21419,
+      "failure_reason": "guard_rejected"
+    }
+  ],
+  "presets": [
+    {
+      "preset_id": "baseline",
+      "label": "baseline",
+      "writes": [
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 130,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 138,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 134,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 1259,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 135,
+          "value": 0
+        },
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 203,
+          "value": 60
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 7,
+          "value": 1510
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2530,
+          "value": 0
+        }
+      ]
+    }
+  ],
+  "dialogue": [
+    {
+      "kind": "hop",
+      "hop_id": "h1_caller_dispatch"
+    },
+    {
+      "kind": "hop",
+      "hop_id": "h2_talk"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "I_TALK.MES",
+        "at": 273,
+        "s": 0,
+        "raw_sha256": "9a50541d834909f64bf89c4f2c0a734bdafcc8754ea7791c4f631856315dd59a"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "I_TALK.MES",
+      "at": 287,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "I_TALK.MES",
+        "at": 304,
+        "s": 1,
+        "raw_sha256": "3420e8cfecc1fac671a6338ded49d4259808687840e47f302bb0d3c3a18531c7"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "I_TALK.MES",
+        "at": 340,
+        "s": 2,
+        "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "I_TALK.MES",
+      "at": 344,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "I_TALK.MES",
+        "at": 361,
+        "s": 3,
+        "raw_sha256": "1636186f4bc22d8ba30193c8db0dc727c205433590bc772844132ae07788ea9e"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "I_TALK.MES",
+        "at": 455,
+        "s": 4,
+        "raw_sha256": "c1176af6b059f5babc5a760a0eedfdb885de8424da99d2544b625c9bc751bade"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "I_TALK.MES",
+        "at": 529,
+        "s": 2,
+        "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "I_TALK.MES",
+      "at": 533,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "I_TALK.MES",
+        "at": 550,
+        "s": 5,
+        "raw_sha256": "52ee03f3b92f92bf38b13fb6808c4e98e254ff95b869cd16336545bda5335c74"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "I_TALK.MES",
+        "at": 676,
+        "s": 6,
+        "raw_sha256": "ebc8d180a5b98574c28926ca6674e5803b97e92483abf588947fa119b31bb4ce"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "I_TALK.MES",
+        "at": 758,
+        "s": 2,
+        "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "I_TALK.MES",
+      "at": 762,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "I_TALK.MES",
+        "at": 779,
+        "s": 7,
+        "raw_sha256": "70d0edc756ef56fbc7a4d6c978a9ce2f0ee726e67d79c535d6bc3c10df5a61c3"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "I_TALK.MES",
+        "at": 905,
+        "s": 8,
+        "raw_sha256": "4c1d729db9b381607f5b686fa7221b8d230ee3e1c0edb2173885cae25e541486"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "I_TALK.MES",
+        "at": 991,
+        "s": 2,
+        "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "I_TALK.MES",
+      "at": 995,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "I_TALK.MES",
+        "at": 1012,
+        "s": 9,
+        "raw_sha256": "11202f0fe16fb713f40bbaffbabedb2cd7147f0b4d27c83742955b7f17fc334a"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "I_TALK.MES",
+        "at": 1132,
+        "s": 10,
+        "raw_sha256": "8e4be2c70d7af287c69d5172622ebebc15ec7ccd1f5a56adbf98e3a71e3a6fed"
+      }
+    },
+    {
+      "kind": "scene_end"
+    }
+  ],
+  "after": [
+    {
+      "type": "write_legacy_value",
+      "storage": "global_u8",
+      "bank": 0,
+      "index": 2530,
+      "value": 1,
+      "cell_class": "flag"
+    }
+  ],
+  "results": {
+    "result_default": {
+      "selected_by": {
+        "kind": "default"
+      },
+      "event_played": true,
+      "dialogue": [],
+      "after": [],
+      "terminal": "flow"
+    }
+  },
+  "terminals": {
+    "flow": {
+      "kind": "callee_return",
+      "owner_entry": "I_TALK.MES",
+      "offset": 2285,
+      "end": 2286,
+      "next_target": "",
+      "required_state": []
+    }
+  },
+  "dependencies": [
+    {
+      "entry": "I_PIC.MES",
+      "entry_sha256": "d8ab61f1de4733a41a358f1923ab07a0046f7ff9f5f8afea5fef44bf957daad5",
+      "role": "nested_presentation"
+    }
+  ],
+  "presentation": {
+    "status": "deferred",
+    "resources": []
+  },
+  "unresolved": [
+    "no done flag identified in the guard: the flow's own origin guard ((global_u8[130] equal 0); (global_u8[138] not_equal 0); (global_u8[134] equal 0); (global_u8[1259] equal 0); (global_u8[135] equal 0); (banked_u16[203] greater_than 30)) names no cleared completion flag",
+    "The state at the anchor is seeded, a tool decision: global_u8[130] = 0, global_u8[138] = 1, global_u8[134] = 0, global_u8[1259] = 0, global_u8[135] = 0, banked_u16[203] = 60, state_u16[7] = 1510, global_u8[2530] = 0. The origin is the caller's block guard at 21419; the cells are the guard's own conjuncts and the script's own gate (its date, affection word and once-only flag), solved by the smallest round value that satisfies them.",
+    "The script asks no question; its own gate (date, affection word and once-only flag) is seeded satisfied, so the default path plays it whole (1 answer path(s) measured).",
+    "The caller resumes into the place's day loop after the call, which runs on day after day (its own definition steps stop at the probe's limit, and under the original calendar the loop plays on to the game's ending): there is no natural end to measure, so the flow ends at the script's own return.",
+    "effect on banked_u16[1] for result h1_caller_dispatch: no matching shift witness (entry=0 final=7)",
+    "effect on global_u8[10] for result h2_talk: no matching shift witness (entry=0 final=8)",
+    "effect on banked_u16[1] for result body: no matching shift witness (entry=0 final=7)",
+    "effect on global_u8[10] for result body: no matching shift witness (entry=0 final=8)"
+  ],
+  "flow": {
+    "evidence": {
+      "group": "27c-ev-i-talk",
+      "profile_sha256": "3bb0491b7532d659ad8fe93746ea83fcbac14ad456f52e9287d6a9f390e6e2f1",
+      "route": "i-talk-plain"
+    },
+    "origin": {
+      "entry": "27C_EV.MES",
+      "entry_sha256": "2af24ef7a0bf66a3006c66da133ec7f653f79bf5904fad7ff2f39f42302ccec3",
+      "offset": 21419,
+      "guard": {
+        "offset": 21419,
+        "end": 21462,
+        "false_target": 25634,
+        "record_sha256": "8c37cfb18d377cbd569d9bff4bb3d88d12d62c44023ec95e330d2de174a522d6"
+      }
+    },
+    "state_context": {
+      "kind": "fresh"
+    },
+    "hops": [
+      {
+        "hop_id": "h1_caller_dispatch",
+        "entry": "27C_EV.MES",
+        "entry_sha256": "2af24ef7a0bf66a3006c66da133ec7f653f79bf5904fad7ff2f39f42302ccec3",
+        "entered_by": {
+          "kind": "origin",
+          "offset": 21419,
+          "end": 21462
+        },
+        "answers": [],
+        "gates": [],
+        "map_locations": [],
+        "poll_supplies": [],
+        "dialogue": [],
+        "after": [],
+        "message_count": 0
+      },
+      {
+        "hop_id": "h2_talk",
+        "entry": "I_TALK.MES",
+        "entry_sha256": "6c00df984dab40a47b3202eef8c64993375d5280f536a7b3728c9427ace00472",
+        "entered_by": {
+          "kind": "nested_call",
+          "offset": 21537,
+          "end": 21551
+        },
+        "answers": [],
+        "gates": [],
+        "map_locations": [],
+        "poll_supplies": [],
+        "dialogue": [
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "I_TALK.MES",
+              "at": 273,
+              "s": 0,
+              "raw_sha256": "9a50541d834909f64bf89c4f2c0a734bdafcc8754ea7791c4f631856315dd59a"
+            }
+          },
+          {
+            "kind": "name_insert",
+            "entry": "I_TALK.MES",
+            "at": 287,
+            "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "I_TALK.MES",
+              "at": 304,
+              "s": 1,
+              "raw_sha256": "3420e8cfecc1fac671a6338ded49d4259808687840e47f302bb0d3c3a18531c7"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "I_TALK.MES",
+              "at": 340,
+              "s": 2,
+              "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+            }
+          },
+          {
+            "kind": "name_insert",
+            "entry": "I_TALK.MES",
+            "at": 344,
+            "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "I_TALK.MES",
+              "at": 361,
+              "s": 3,
+              "raw_sha256": "1636186f4bc22d8ba30193c8db0dc727c205433590bc772844132ae07788ea9e"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "I_TALK.MES",
+              "at": 455,
+              "s": 4,
+              "raw_sha256": "c1176af6b059f5babc5a760a0eedfdb885de8424da99d2544b625c9bc751bade"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "I_TALK.MES",
+              "at": 529,
+              "s": 2,
+              "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+            }
+          },
+          {
+            "kind": "name_insert",
+            "entry": "I_TALK.MES",
+            "at": 533,
+            "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "I_TALK.MES",
+              "at": 550,
+              "s": 5,
+              "raw_sha256": "52ee03f3b92f92bf38b13fb6808c4e98e254ff95b869cd16336545bda5335c74"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "I_TALK.MES",
+              "at": 676,
+              "s": 6,
+              "raw_sha256": "ebc8d180a5b98574c28926ca6674e5803b97e92483abf588947fa119b31bb4ce"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "I_TALK.MES",
+              "at": 758,
+              "s": 2,
+              "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+            }
+          },
+          {
+            "kind": "name_insert",
+            "entry": "I_TALK.MES",
+            "at": 762,
+            "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "I_TALK.MES",
+              "at": 779,
+              "s": 7,
+              "raw_sha256": "70d0edc756ef56fbc7a4d6c978a9ce2f0ee726e67d79c535d6bc3c10df5a61c3"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "I_TALK.MES",
+              "at": 905,
+              "s": 8,
+              "raw_sha256": "4c1d729db9b381607f5b686fa7221b8d230ee3e1c0edb2173885cae25e541486"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "I_TALK.MES",
+              "at": 991,
+              "s": 2,
+              "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+            }
+          },
+          {
+            "kind": "name_insert",
+            "entry": "I_TALK.MES",
+            "at": 995,
+            "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "I_TALK.MES",
+              "at": 1012,
+              "s": 9,
+              "raw_sha256": "11202f0fe16fb713f40bbaffbabedb2cd7147f0b4d27c83742955b7f17fc334a"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "I_TALK.MES",
+              "at": 1132,
+              "s": 10,
+              "raw_sha256": "8e4be2c70d7af287c69d5172622ebebc15ec7ccd1f5a56adbf98e3a71e3a6fed"
+            }
+          }
+        ],
+        "after": [
+          {
+            "type": "write_legacy_value",
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 2530,
+            "value": 1,
+            "cell_class": "flag"
+          }
+        ],
+        "message_count": 19
+      }
+    ],
+    "terminal": "flow"
+  }
+}

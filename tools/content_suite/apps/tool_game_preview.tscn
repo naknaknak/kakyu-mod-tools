@@ -1,0 +1,125 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://tools/content_suite/apps/tool_game_preview.gd" id="1_preview"]
+
+[node name="ToolGamePreview" type="VBoxContainer"]
+custom_minimum_size = Vector2(320, 240)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_preview")
+
+[node name="Toolbar" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Toolbar"]
+layout_mode = 2
+text = "Game frame 640×400"
+
+[node name="ToolbarSpacer" type="Control" parent="Toolbar"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="FocusLabel" type="Label" parent="Toolbar"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Input disabled"
+
+[node name="CoordinateLabel" type="Label" parent="Toolbar"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(72, 0)
+layout_mode = 2
+text = "---, ---"
+horizontal_alignment = 2
+
+[node name="ScaleSelector" type="OptionButton" parent="Toolbar"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Preview scale"
+
+[node name="PreviewSurface" type="Control" parent="."]
+unique_name_in_owner = true
+clip_contents = true
+custom_minimum_size = Vector2(320, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Letterbox" type="ColorRect" parent="PreviewSurface"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.035, 0.035, 0.04, 1)
+
+[node name="Display" type="TextureRect" parent="PreviewSurface"]
+unique_name_in_owner = true
+offset_right = 640.0
+offset_bottom = 400.0
+focus_mode = 2
+mouse_default_cursor_shape = 2
+expand_mode = 1
+stretch_mode = 0
+
+[node name="GameViewport" type="SubViewport" parent="."]
+unique_name_in_owner = true
+handle_input_locally = true
+size = Vector2i(640, 400)
+render_target_update_mode = 4
+
+[node name="FrameRoot" type="Control" parent="GameViewport"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 400.0
+
+[node name="Backdrop" type="ColorRect" parent="GameViewport/FrameRoot"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="FrameTexture" type="TextureRect" parent="GameViewport/FrameRoot"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ForegroundTexture" type="TextureRect" parent="GameViewport/FrameRoot"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="OverlayRoot" type="Control" parent="GameViewport/FrameRoot"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1

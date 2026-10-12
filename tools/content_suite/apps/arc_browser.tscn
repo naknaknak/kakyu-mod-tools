@@ -1,0 +1,196 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://tools/content_suite/apps/arc_browser.gd" id="1_script"]
+
+[node name="ArcBrowser" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Layout" type="VBoxContainer" parent="Margin"]
+layout_mode = 2
+
+[node name="Toolbar" type="HBoxContainer" parent="Margin/Layout"]
+layout_mode = 2
+
+[node name="Open" type="Button" parent="Margin/Layout/Toolbar"]
+layout_mode = 2
+text = "Open ARC..."
+
+[node name="ArchiveLabel" type="Label" parent="Margin/Layout/Toolbar"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "No archive open"
+text_overrun_behavior = 3
+
+[node name="Toolbar2" type="HBoxContainer" parent="Margin/Layout"]
+layout_mode = 2
+
+[node name="Extract" type="Button" parent="Margin/Layout/Toolbar2"]
+layout_mode = 2
+text = "Extract selected..."
+
+[node name="ExtractSelectedFolder" type="Button" parent="Margin/Layout/Toolbar2"]
+layout_mode = 2
+text = "Extract selected to folder..."
+
+[node name="ExtractArchive" type="Button" parent="Margin/Layout/Toolbar2"]
+layout_mode = 2
+text = "Extract archive..."
+
+[node name="LoadOverlay" type="Button" parent="Margin/Layout/Toolbar2"]
+layout_mode = 2
+text = "Load overlay..."
+
+[node name="HotReloadOverlay" type="Button" parent="Margin/Layout/Toolbar2"]
+layout_mode = 2
+text = "Hot Reload"
+
+[node name="ClearOverlay" type="Button" parent="Margin/Layout/Toolbar2"]
+layout_mode = 2
+text = "Clear overlay"
+
+[node name="ExportOverlayArc" type="Button" parent="Margin/Layout/Toolbar2"]
+layout_mode = 2
+text = "Export overlay ARC..."
+
+[node name="Toolbar3" type="HBoxContainer" parent="Margin/Layout"]
+layout_mode = 2
+
+[node name="CompareArc" type="Button" parent="Margin/Layout/Toolbar3"]
+layout_mode = 2
+text = "Compare with ARC..."
+
+[node name="CompareOverlay" type="Button" parent="Margin/Layout/Toolbar3"]
+layout_mode = 2
+text = "Compare with overlay"
+
+[node name="OpenInEditor" type="Button" parent="Margin/Layout/Toolbar3"]
+layout_mode = 2
+text = "Open in editor..."
+
+[node name="StageRaw" type="Button" parent="Margin/Layout/Toolbar3"]
+layout_mode = 2
+text = "Stage raw replacement..."
+
+[node name="FilterEdit" type="LineEdit" parent="Margin/Layout"]
+unique_name_in_owner = true
+layout_mode = 2
+placeholder_text = "Filter ARC entry names..."
+clear_button_enabled = true
+
+[node name="EntryTree" type="Tree" parent="Margin/Layout"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+columns = 4
+column_titles_visible = true
+hide_root = true
+
+[node name="ExtractionProgressRow" type="HBoxContainer" parent="Margin/Layout"]
+unique_name_in_owner = true
+layout_mode = 2
+visible = false
+
+[node name="ExtractionProgress" type="ProgressBar" parent="Margin/Layout/ExtractionProgressRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+show_percentage = false
+
+[node name="CancelExtraction" type="Button" parent="Margin/Layout/ExtractionProgressRow"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Cancel extraction"
+
+[node name="StatusLabel" type="Label" parent="Margin/Layout"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Original archives are opened read-only."
+text_overrun_behavior = 3
+
+[node name="OpenDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+title = "Open read-only ARC"
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.arc ; Kakyu ARC archives")
+
+[node name="ExtractDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+title = "Extract entry to a new file"
+file_mode = 4
+access = 2
+
+[node name="ExtractDirectoryDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+title = "Extract entries into a folder"
+file_mode = 2
+access = 2
+
+[node name="LoadOverlayDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+title = "Load existing overlay package"
+file_mode = 2
+access = 2
+
+[node name="ExportOverlayArcDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+title = "Export active overlay as a new ARC copy"
+file_mode = 4
+access = 2
+filters = PackedStringArray("*.arc ; Kakyu ARC archives")
+
+[node name="CompareArcDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+title = "Compare with another read-only ARC"
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.arc ; Kakyu ARC archives")
+
+[node name="StageRawDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+title = "Stage a raw replacement file"
+file_mode = 0
+access = 2
+
+[connection signal="pressed" from="Margin/Layout/Toolbar/Open" to="." method="_on_open_pressed"]
+[connection signal="pressed" from="Margin/Layout/Toolbar2/Extract" to="." method="_on_extract_pressed"]
+[connection signal="pressed" from="Margin/Layout/Toolbar2/ExtractSelectedFolder" to="." method="_on_extract_selected_folder_pressed"]
+[connection signal="pressed" from="Margin/Layout/Toolbar2/ExtractArchive" to="." method="_on_extract_archive_pressed"]
+[connection signal="pressed" from="Margin/Layout/Toolbar2/LoadOverlay" to="." method="_on_load_overlay_pressed"]
+[connection signal="pressed" from="Margin/Layout/Toolbar2/HotReloadOverlay" to="." method="_on_hot_reload_overlay_pressed"]
+[connection signal="pressed" from="Margin/Layout/Toolbar2/ClearOverlay" to="." method="_on_clear_overlay_pressed"]
+[connection signal="pressed" from="Margin/Layout/Toolbar2/ExportOverlayArc" to="." method="_on_export_overlay_arc_pressed"]
+[connection signal="pressed" from="Margin/Layout/Toolbar3/CompareArc" to="." method="_on_compare_arc_pressed"]
+[connection signal="pressed" from="Margin/Layout/Toolbar3/CompareOverlay" to="." method="_on_compare_overlay_pressed"]
+[connection signal="pressed" from="Margin/Layout/Toolbar3/OpenInEditor" to="." method="_on_open_in_editor_pressed"]
+[connection signal="pressed" from="Margin/Layout/Toolbar3/StageRaw" to="." method="_on_stage_raw_pressed"]
+[connection signal="pressed" from="Margin/Layout/ExtractionProgressRow/CancelExtraction" to="." method="_on_cancel_extraction_pressed"]
+[connection signal="text_changed" from="Margin/Layout/FilterEdit" to="." method="_on_filter_changed"]
+[connection signal="item_selected" from="Margin/Layout/EntryTree" to="." method="_on_entry_selected"]
+[connection signal="multi_selected" from="Margin/Layout/EntryTree" to="." method="_on_entry_multi_selected"]
+[connection signal="file_selected" from="OpenDialog" to="." method="_on_archive_selected"]
+[connection signal="file_selected" from="ExtractDialog" to="." method="_on_extract_path_selected"]
+[connection signal="dir_selected" from="ExtractDirectoryDialog" to="." method="_on_extract_directory_selected"]
+[connection signal="dir_selected" from="LoadOverlayDialog" to="." method="_on_load_overlay_directory_selected"]
+[connection signal="file_selected" from="ExportOverlayArcDialog" to="." method="_on_export_overlay_arc_path_selected"]
+[connection signal="file_selected" from="CompareArcDialog" to="." method="_on_compare_arc_path_selected"]
+[connection signal="file_selected" from="StageRawDialog" to="." method="_on_stage_raw_file_selected"]

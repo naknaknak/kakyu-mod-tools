@@ -1,0 +1,228 @@
+{
+  "schema_version": "kakyu_event_definition/v3",
+  "contract_fingerprint": "self",
+  "names_fingerprint": "self",
+  "id": "ai.school.gate.09.1",
+  "kind": "choice_event",
+  "display": {
+    "title_ko": "ai gate 사건",
+    "title_en": "ai at gate",
+    "heroine": "ai",
+    "category": "school",
+    "place": "gate"
+  },
+  "evidence": {
+    "kind": "analysis_group",
+    "archive_sha256": "e7f1d2150a574dd13178cc1f7613b4589c726b71d1d065bbb7a139a296e7e0ac",
+    "groups": [
+      {
+        "group_id": "gate_group",
+        "profile_sha256": "5903f65c24662ad6d64fa4ff3d7f5304c1140ffb160b4cd15c8e2a7aadd313ce",
+        "route_ids": [
+          "route_0"
+        ]
+      }
+    ],
+    "members": [
+      {
+        "entry": "CALLER",
+        "entry_sha256": "7415b846db48c9ab586403a3f85c1b20b09200b4b5cf0a598d939a1a98f734dc"
+      },
+      {
+        "entry": "CALLEE",
+        "entry_sha256": "dc86d1da88de5428500264f8a624354c5e38b0169d94ca58965071c163b3a95c"
+      }
+    ],
+    "document_refs": []
+  },
+  "package_binding": {
+    "schema": "kakyu_playback_package/v7",
+    "package_sha256": "f0122dd9bf9771d868391f4659fdbcb3321cb80b8490453b36f8ef68882cb864"
+  },
+  "trigger": {
+    "type": "caller_dispatch",
+    "caller": {
+      "entry": "CALLER",
+      "entry_sha256": "f3f8dfd81d7584f77aceb947e9ce1412ebc565fd91a338eb2dbbb331a75d65c3",
+      "offset": 100,
+      "end": 140,
+      "command": 15,
+      "kind": "nested_call"
+    },
+    "callee": {
+      "entry": "CALLEE",
+      "entry_sha256": "00b01e03493d5a7a3827054610d2d3a2c7fad290c7a26f94fdc4bcc728800958",
+      "start_coordinate": 0
+    },
+    "origin": {
+      "kind": "typed_guard",
+      "offset": 100
+    }
+  },
+  "conditions": [
+    {
+      "type": "mes_expression",
+      "ast": {
+        "op": "and",
+        "args": []
+      },
+      "source_offset": 100,
+      "failure_reason": "guard_rejected"
+    }
+  ],
+  "presets": [
+    {
+      "preset_id": "baseline",
+      "label": "baseline",
+      "writes": [
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 5,
+          "value": 1
+        }
+      ]
+    }
+  ],
+  "dialogue": [
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "CALLEE",
+        "at": 10,
+        "s": 0,
+        "raw_sha256": "4bc690180c1654c52fc572461e690ca4f90b19700909e2065f91be885924e82e"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "CALLEE",
+        "at": 20,
+        "s": 1,
+        "raw_sha256": "a223b85c17a74086aeba7386dac08bee1fb8a9110ab162ea4256992ae5245a12"
+      }
+    }
+  ],
+  "after": [
+    {
+      "type": "write_legacy_value",
+      "storage": "state_u16",
+      "bank": 0,
+      "index": 6,
+      "value": 1
+    }
+  ],
+  "results": {
+    "result_yes": {
+      "selected_by": {
+        "kind": "choice",
+        "value": 0
+      },
+      "event_played": true,
+      "dialogue": [
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "CALLEE",
+            "at": 220,
+            "s": 7,
+            "raw_sha256": "5c66d988d844e9b58a07e8a8fb82b008eeb5b6888ba6674517b3d2424327d16a"
+          }
+        }
+      ],
+      "after": [
+        {
+          "type": "write_legacy_value",
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 12,
+          "value": 1
+        }
+      ],
+      "terminal": "term_return",
+      "reentry": {
+        "outcome": "same",
+        "message_count": 1,
+        "after": [
+          {
+            "storage": "state_u16",
+            "bank": 0,
+            "index": 13,
+            "value": 1
+          }
+        ]
+      }
+    },
+    "result_no": {
+      "selected_by": {
+        "kind": "choice",
+        "value": 1
+      },
+      "event_played": true,
+      "dialogue": [
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "CALLEE",
+            "at": 230,
+            "s": 8,
+            "raw_sha256": "c4ae707b0162024a2ce476bfcc2dc962e5deebfb90f4f913d880f696c2b57b3f"
+          }
+        }
+      ],
+      "after": [],
+      "terminal": "term_return"
+    },
+    "result_maybe": {
+      "selected_by": {
+        "kind": "choice",
+        "value": 2
+      },
+      "event_played": true,
+      "dialogue": [
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "CALLEE",
+            "at": 240,
+            "s": 9,
+            "raw_sha256": "f9fa4ad5fb3ede043877cea7b91476b81b5e812d37da3a1feec051168d175961"
+          }
+        }
+      ],
+      "after": [],
+      "terminal": "term_root"
+    }
+  },
+  "terminals": {
+    "term_return": {
+      "kind": "callee_return",
+      "owner_entry": "CALLEE",
+      "offset": 210,
+      "end": 214,
+      "required_state": []
+    },
+    "term_root": {
+      "kind": "root_handoff",
+      "owner_entry": "CALLEE",
+      "offset": 400,
+      "end": 404,
+      "next_target": "MACHI.MES",
+      "required_state": [
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 11,
+          "value": 1
+        }
+      ]
+    }
+  },
+  "dependencies": [],
+  "presentation": {
+    "status": "deferred",
+    "resources": []
+  },
+  "unresolved": []
+}

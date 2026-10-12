@@ -1,0 +1,207 @@
+{
+  "schema": "kakyu_event_analysis_group/v14",
+  "group_id": "27c-ev-i-talk",
+  "archive_sha256": "31a95b31cb0f1051cf973a4dba4f4a5405671e4488240adfafb9b02290986aa6",
+  "source_members": [
+    {
+      "entry": "27C_EV.MES",
+      "entry_sha256": "2af24ef7a0bf66a3006c66da133ec7f653f79bf5904fad7ff2f39f42302ccec3"
+    },
+    {
+      "entry": "I_TALK.MES",
+      "entry_sha256": "6c00df984dab40a47b3202eef8c64993375d5280f536a7b3728c9427ace00472"
+    },
+    {
+      "entry": "I_PIC.MES",
+      "entry_sha256": "d8ab61f1de4733a41a358f1923ab07a0046f7ff9f5f8afea5fef44bf957daad5"
+    },
+    {
+      "entry": "LIBLARY.LIB",
+      "entry_sha256": "d9aba6eb8dab51fe321e22c868ed0cf38416bba1f0cf2f5d7d719f48e89b8b4d"
+    },
+    {
+      "entry": "DEF_MAIN.MES",
+      "entry_sha256": "f2012ce5d90f60a5d1ca8190e03571341c0384c2d3d96e9aec2b3ab949db0ef0"
+    },
+    {
+      "entry": "START.MES",
+      "entry_sha256": "ba57bf666fbd9db9b3110f2bf1c70e80e11a35de00e82256aaaf35921c77038f"
+    }
+  ],
+  "routes": [
+    {
+      "route_id": "i-talk-plain",
+      "state_context": {
+        "kind": "fresh"
+      },
+      "origin": {
+        "entry": "27C_EV.MES",
+        "offset": 21419,
+        "guard": {
+          "offset": 21419,
+          "end": 21462,
+          "false_target": 25634,
+          "prefix_sha256": "18d2a0ce9da6a4c35079bc646735dac6b3966e94538117b6ef16f22334c144fc",
+          "record_sha256": "8c37cfb18d377cbd569d9bff4bb3d88d12d62c44023ec95e330d2de174a522d6",
+          "source_binding": {
+            "kind": "typed_record"
+          }
+        },
+        "guard_cases": [
+          {
+            "case_id": "accepted",
+            "expected": 1,
+            "writes": []
+          },
+          {
+            "case_id": "rejected",
+            "expected": 0,
+            "writes": [
+              {
+                "bank": 0,
+                "index": 130,
+                "storage": "global_u8",
+                "value": 1
+              }
+            ]
+          }
+        ]
+      },
+      "baseline": [
+        {
+          "bank": 0,
+          "index": 130,
+          "storage": "global_u8",
+          "value": 0
+        },
+        {
+          "bank": 0,
+          "index": 138,
+          "storage": "global_u8",
+          "value": 1
+        },
+        {
+          "bank": 0,
+          "index": 134,
+          "storage": "global_u8",
+          "value": 0
+        },
+        {
+          "bank": 0,
+          "index": 1259,
+          "storage": "global_u8",
+          "value": 0
+        },
+        {
+          "bank": 0,
+          "index": 135,
+          "storage": "global_u8",
+          "value": 0
+        },
+        {
+          "bank": 0,
+          "index": 203,
+          "storage": "banked_u16",
+          "value": 60
+        },
+        {
+          "bank": 0,
+          "index": 7,
+          "storage": "state_u16",
+          "value": 1510
+        },
+        {
+          "bank": 0,
+          "index": 2530,
+          "storage": "global_u8",
+          "value": 0
+        }
+      ],
+      "choice_contracts": [],
+      "hops": [
+        {
+          "hop_id": "h1_caller_dispatch",
+          "entry": "27C_EV.MES",
+          "entered_by": {
+            "kind": "origin"
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 0,
+            "outcome": {
+              "offset": 21537,
+              "end": 21551,
+              "op": "script_dispatch",
+              "status": "script_dispatch_boundary",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "05a7d97b6c0c1b580906d28557dcf2c5860638ec6c826925d38703f10e9eeb54",
+              "target": "I_TALK.MES"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h2_talk",
+          "entry": "I_TALK.MES",
+          "entered_by": {
+            "kind": "nested_call",
+            "offset": 21537,
+            "end": 21551,
+            "op": "script_dispatch",
+            "record_sha256": "05a7d97b6c0c1b580906d28557dcf2c5860638ec6c826925d38703f10e9eeb54",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 19,
+            "outcome": {
+              "offset": 2285,
+              "end": 2286,
+              "op": "command_00",
+              "status": "script_return",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+            },
+            "expected_state": []
+          }
+        }
+      ],
+      "terminal": {
+        "entry": "I_TALK.MES",
+        "offset": 2285,
+        "end": 2286,
+        "op": "command_00",
+        "status": "script_return",
+        "source_binding": {
+          "kind": "typed_record"
+        },
+        "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+      },
+      "variants": [
+        {
+          "variant_id": "default",
+          "writes": [],
+          "expected_state": []
+        }
+      ],
+      "unresolved": [
+        "The state at the anchor is seeded, a tool decision: global_u8[130] = 0, global_u8[138] = 1, global_u8[134] = 0, global_u8[1259] = 0, global_u8[135] = 0, banked_u16[203] = 60, state_u16[7] = 1510, global_u8[2530] = 0. The origin is the caller's block guard at 21419; the cells are the guard's own conjuncts and the script's own gate (its date, affection word and once-only flag), solved by the smallest round value that satisfies them.",
+        "The script asks no question; its own gate (date, affection word and once-only flag) is seeded satisfied, so the default path plays it whole (1 answer path(s) measured).",
+        "The caller resumes into the place's day loop after the call, which runs on day after day (its own definition steps stop at the probe's limit, and under the original calendar the loop plays on to the game's ending): there is no natural end to measure, so the flow ends at the script's own return."
+      ]
+    }
+  ],
+  "payload_sha256": "3bb0491b7532d659ad8fe93746ea83fcbac14ad456f52e9287d6a9f390e6e2f1"
+}

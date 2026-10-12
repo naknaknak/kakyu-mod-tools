@@ -1,0 +1,199 @@
+{
+  "schema_version": "kakyu_event_definition/v4",
+  "contract_fingerprint": "self",
+  "names_fingerprint": "self",
+  "id": "ai.school.gate.pic.1",
+  "kind": "choice_event",
+  "display": {
+    "title_ko": "ai gate 사건",
+    "title_en": "ai at gate",
+    "heroine": "ai",
+    "category": "school",
+    "place": "gate"
+  },
+  "evidence": {
+    "kind": "analysis_group",
+    "archive_sha256": "6b286b6ccafd4fd6e74e264d9cd94d357bd3064315eecd05fa60840c1711ff61",
+    "groups": [
+      {
+        "group_id": "gate_group",
+        "profile_sha256": "d94f30f17fe5dcd87567b44b734bd06d5b55c9e1b85a461e24f2dffb95397ec1",
+        "route_ids": [
+          "route_0"
+        ]
+      }
+    ],
+    "members": [
+      {
+        "entry": "CALLER",
+        "entry_sha256": "f2e59c885357d67d165326f535db6ccdfb936ae4803a3613f52ba7c928c5283b"
+      },
+      {
+        "entry": "CALLEE",
+        "entry_sha256": "613d3101003b249bfb5d607d7e9b4642205a3b833cf7425c9ad8c487b5d785e1"
+      }
+    ],
+    "document_refs": []
+  },
+  "package_binding": {
+    "schema": "kakyu_playback_package/v7",
+    "package_sha256": "f0122dd9bf9771d868391f4659fdbcb3321cb80b8490453b36f8ef68882cb864"
+  },
+  "trigger": {
+    "type": "caller_dispatch",
+    "caller": {
+      "entry": "CALLER",
+      "entry_sha256": "0a816c7d0336dc0b530aef5a76b809941ed59579c5359e30dbe635dce36eb96b",
+      "offset": 100,
+      "end": 140,
+      "command": 14,
+      "kind": "root_handoff"
+    },
+    "callee": {
+      "entry": "CALLEE",
+      "entry_sha256": "ab2aa881fad7a75d6d78a394b62f0f8fb82da97e3e7c997b12370115f2133174",
+      "start_coordinate": 0
+    },
+    "origin": {
+      "kind": "typed_guard",
+      "offset": 100
+    }
+  },
+  "conditions": [
+    {
+      "type": "mes_expression",
+      "ast": {
+        "op": "and",
+        "args": []
+      },
+      "source_offset": 100,
+      "failure_reason": "guard_rejected"
+    }
+  ],
+  "presets": [
+    {
+      "preset_id": "baseline",
+      "label": "baseline",
+      "writes": [
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 5,
+          "value": 1
+        }
+      ]
+    }
+  ],
+  "dialogue": [
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "CALLEE",
+        "at": 10,
+        "s": 0,
+        "raw_sha256": "0af4913247b5ab3514a096141b91d2f461f5b45a7130b2cdd6ca5c7c3b2d6cd3"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "CALLEE",
+        "at": 20,
+        "s": 1,
+        "raw_sha256": "8de4c4f7762da4acd83e2d3078d28f1bd87e67bfabf073c4f39f3574639a09af"
+      }
+    },
+    {
+      "kind": "choice_point",
+      "choice": "top"
+    }
+  ],
+  "after": [
+    {
+      "type": "write_legacy_value",
+      "storage": "state_u16",
+      "bank": 0,
+      "index": 6,
+      "value": 1,
+      "cell_class": "unnamed"
+    }
+  ],
+  "results": {
+    "result_play": {
+      "selected_by": {
+        "kind": "choice",
+        "value": 0
+      },
+      "event_played": true,
+      "dialogue": [
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "CALLEE",
+            "at": 250,
+            "s": 10,
+            "raw_sha256": "94849e5b304214627dfaea4679e956edae34de4a65f034fe9143312a1079b107"
+          }
+        },
+        {
+          "kind": "scene_end"
+        }
+      ],
+      "after": [],
+      "terminal": "term_root_play"
+    },
+    "result_skip": {
+      "selected_by": {
+        "kind": "choice",
+        "value": 1
+      },
+      "event_played": false,
+      "dialogue": [
+        {
+          "kind": "scene_end"
+        }
+      ],
+      "after": [],
+      "terminal": "term_root_skip"
+    }
+  },
+  "terminals": {
+    "term_root_skip": {
+      "kind": "root_handoff",
+      "owner_entry": "CALLER",
+      "offset": 90,
+      "end": 96,
+      "next_target": "MACHI.MES",
+      "required_state": []
+    },
+    "term_root_play": {
+      "kind": "root_handoff",
+      "owner_entry": "CALLEE",
+      "offset": 400,
+      "end": 404,
+      "next_target": "MACHI.MES",
+      "required_state": []
+    }
+  },
+  "dependencies": [],
+  "presentation": {
+    "status": "deferred",
+    "resources": []
+  },
+  "unresolved": [],
+  "choice": {
+    "owner": "caller",
+    "boundary": 80,
+    "position": "before_event",
+    "options": [
+      {
+        "value": 0,
+        "result": "result_play"
+      },
+      {
+        "value": 1,
+        "result": "result_skip"
+      }
+    ]
+  }
+}

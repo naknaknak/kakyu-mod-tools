@@ -1,0 +1,878 @@
+{
+  "schema": "kakyu_event_analysis_group/v13",
+  "group_id": "44c-m10b",
+  "archive_sha256": "31a95b31cb0f1051cf973a4dba4f4a5405671e4488240adfafb9b02290986aa6",
+  "source_members": [
+    {
+      "entry": "44C.MES",
+      "entry_sha256": "49b5ae569923d6b0e58bf6bf64786f2e96fe9de00c9bad56cd450cb4a487d0ce"
+    },
+    {
+      "entry": "EVENTM10.MES",
+      "entry_sha256": "5d84a459861d5e28fdbef6596e6fc1020345a6400c48c93a2da92e72d4ad1a15"
+    },
+    {
+      "entry": "EVENTM11.MES",
+      "entry_sha256": "301037bdf3da976e215bf9859dc3bd3e23e111c2e8fbdc277a954a7470eddcab"
+    },
+    {
+      "entry": "START.MES",
+      "entry_sha256": "ba57bf666fbd9db9b3110f2bf1c70e80e11a35de00e82256aaaf35921c77038f"
+    },
+    {
+      "entry": "DEF_MAIN.MES",
+      "entry_sha256": "f2012ce5d90f60a5d1ca8190e03571341c0384c2d3d96e9aec2b3ab949db0ef0"
+    },
+    {
+      "entry": "LIBLARY.LIB",
+      "entry_sha256": "d9aba6eb8dab51fe321e22c868ed0cf38416bba1f0cf2f5d7d719f48e89b8b4d"
+    }
+  ],
+  "routes": [
+    {
+      "route_id": "44c-m10b",
+      "qualification": "caller_continuation_observation",
+      "origin_offset": 54206,
+      "caller": {
+        "entry": "44C.MES",
+        "offset": 54805,
+        "end": 54821,
+        "command": 15,
+        "record_sha256": "7d9689faad7a7c65171b99a895464ee29c971ebc4efc12cf436433b4f4764397",
+        "source_binding": {
+          "kind": "typed_record"
+        }
+      },
+      "callee": {
+        "entry": "EVENTM10.MES",
+        "offset": 0
+      },
+      "guard": {
+        "offset": 54206,
+        "end": 54235,
+        "false_target": 55334,
+        "record_sha256": "d320d8f9d4309c2ac8ddecef15e474b38b56a4c2f8d61684bada1acb3ffad7e3",
+        "prefix_sha256": "53ac0f22e04d95b4adc350edc3decfeff057272e4eb88463e5ddcff48c600d2d",
+        "source_binding": {
+          "kind": "typed_record"
+        }
+      },
+      "baseline": [
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 0,
+          "value": 0
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 1,
+          "value": 13
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 4,
+          "value": 0
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 7,
+          "value": 1001
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 19,
+          "value": 1300
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 21,
+          "value": 3
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2455,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2445,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2447,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2417,
+          "value": 0
+        }
+      ],
+      "guard_cases": [
+        {
+          "case_id": "baseline",
+          "writes": [],
+          "expected": 1
+        },
+        {
+          "case_id": "global_u8-2455-0",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 2455,
+              "storage": "global_u8",
+              "value": 0
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "global_u8-2445-0",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 2445,
+              "storage": "global_u8",
+              "value": 0
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "global_u8-2447-1",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 2447,
+              "storage": "global_u8",
+              "value": 1
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "global_u8-2417-1",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 2417,
+              "storage": "global_u8",
+              "value": 1
+            }
+          ],
+          "expected": 0
+        },
+        {
+          "case_id": "cross_a_baseline",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 2455,
+              "storage": "global_u8",
+              "value": 0
+            },
+            {
+              "bank": 0,
+              "index": 2445,
+              "storage": "global_u8",
+              "value": 1
+            },
+            {
+              "bank": 0,
+              "index": 2447,
+              "storage": "global_u8",
+              "value": 0
+            }
+          ],
+          "expected": 0
+        }
+      ],
+      "outcome": {
+        "offset": 6045,
+        "end": 6046,
+        "op": "command_00",
+        "status": "script_return"
+      },
+      "caller_outcome": {
+        "kind": "dispatch"
+      },
+      "expected_state": [
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 1,
+          "value": 7
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 350,
+          "value": 2
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 351,
+          "value": 3
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2415,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2417,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2456,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3560,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 4000,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 5161,
+          "value": 1
+        }
+      ],
+      "state_context": {
+        "kind": "original_calendar",
+        "entry": "START.MES",
+        "table_sha256": "f21ee0fcb09e960046878e35ad0410aed88680f849ace471b713ef7a12525b4a"
+      },
+      "choice_contracts": [],
+      "resume": {
+        "start": 54821,
+        "boundary_policy": "def_selection_boundary",
+        "outcome": {
+          "offset": 45952,
+          "end": 45957,
+          "op": "script_transfer",
+          "status": "def_selection_boundary",
+          "target": "",
+          "record_sha256": "92a059b1c678e8fb53ecf67b79ae4ebca133078412fe1db5110d9c8d41faabab",
+          "source_binding": {
+            "kind": "typed_record"
+          }
+        },
+        "message_count": 0,
+        "expected_state": []
+      },
+      "reentry": {
+        "outcome": {
+          "offset": 10734,
+          "end": 10735,
+          "op": "command_00",
+          "status": "script_return"
+        },
+        "message_count": 51,
+        "expected_state": [
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 2456,
+            "value": 2
+          },
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 350,
+            "value": 4
+          }
+        ]
+      },
+      "variants": [
+        {
+          "variant_id": "clock-900",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 19,
+              "storage": "state_u16",
+              "value": 900
+            }
+          ],
+          "selections": [],
+          "message_count": 84,
+          "expected_state": [],
+          "expected_resume_state": []
+        },
+        {
+          "variant_id": "clock-1300",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 19,
+              "storage": "state_u16",
+              "value": 1300
+            }
+          ],
+          "selections": [],
+          "message_count": 84,
+          "expected_state": [],
+          "expected_resume_state": []
+        },
+        {
+          "variant_id": "clock-2000",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 19,
+              "storage": "state_u16",
+              "value": 2000
+            }
+          ],
+          "selections": [],
+          "message_count": 84,
+          "expected_state": [
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 8,
+              "value": 1
+            }
+          ],
+          "expected_resume_state": []
+        },
+        {
+          "variant_id": "callee-global_u8_4000-1",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 4000,
+              "storage": "global_u8",
+              "value": 1
+            }
+          ],
+          "selections": [],
+          "message_count": 84,
+          "expected_state": [],
+          "expected_resume_state": []
+        },
+        {
+          "variant_id": "callee-state_u16_8-1",
+          "writes": [
+            {
+              "bank": 0,
+              "index": 8,
+              "storage": "state_u16",
+              "value": 1
+            }
+          ],
+          "selections": [],
+          "message_count": 84,
+          "expected_state": [],
+          "expected_resume_state": []
+        }
+      ],
+      "unresolved": [
+        "Natural scheduling into the typed origin is not established: what schedules 44C.MES into this guard, as opposed to any of its other intros, is not measured (as EVENTM17).",
+        "What sets global_u8[2445] and global_u8[2447] is not established.",
+        "EVENTM11.MES, the callee's static dependency, is not reached on any measured path (diagnostics.eventm11_dispatch_offsets_in_trace == []).",
+        "L_HOTEL2.MES dispatches the same callee and is not measured here.",
+        "The caller resume stops at the dormitory's routine-40 registered-definition selection 44C.MES:45952; its definitions are not in the stored form mes_routine40_choice_contract.gd supports, so nothing past that selection is qualified.",
+        "Native presentation records are omitted under the bounded runtime policy."
+      ],
+      "visits": [
+        {
+          "visit_id": "visit2-gate",
+          "after": "route",
+          "entry_state": [
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 7
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 350,
+              "value": 2
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 351,
+              "value": 3
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2415,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2417,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2456,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3560,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 4000,
+              "value": 0
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 5161,
+              "value": 1
+            }
+          ],
+          "seed_writes": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 287,
+              "value": 1
+            }
+          ],
+          "seed_basis": "tool_seeded",
+          "outcome": {
+            "offset": 10734,
+            "end": 10735,
+            "op": "command_00",
+            "status": "script_return"
+          },
+          "message_count": 60,
+          "expected_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2456,
+              "value": 2
+            }
+          ],
+          "dispatches": [
+            {
+              "entry": "EVENTM11.MES",
+              "offset": 9545,
+              "end": 9561,
+              "outcome": {
+                "offset": 37546,
+                "end": 37547,
+                "op": "command_00",
+                "status": "script_return"
+              },
+              "message_count": 6
+            }
+          ]
+        },
+        {
+          "visit_id": "visit3",
+          "after": "reentry",
+          "entry_state": [
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 7
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 350,
+              "value": 4
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 351,
+              "value": 3
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2415,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2417,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2456,
+              "value": 2
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3560,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 4000,
+              "value": 0
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 5161,
+              "value": 1
+            }
+          ],
+          "seed_writes": [],
+          "seed_basis": "none",
+          "outcome": {
+            "offset": 14154,
+            "end": 14155,
+            "op": "command_00",
+            "status": "script_return"
+          },
+          "message_count": 22,
+          "expected_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2456,
+              "value": 3
+            }
+          ],
+          "dispatches": []
+        },
+        {
+          "visit_id": "visit3-gate",
+          "after": "reentry",
+          "entry_state": [
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 7
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 350,
+              "value": 4
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 351,
+              "value": 3
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2415,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2417,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2456,
+              "value": 2
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3560,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 4000,
+              "value": 0
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 5161,
+              "value": 1
+            }
+          ],
+          "seed_writes": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 287,
+              "value": 1
+            }
+          ],
+          "seed_basis": "tool_seeded",
+          "outcome": {
+            "offset": 14154,
+            "end": 14155,
+            "op": "command_00",
+            "status": "script_return"
+          },
+          "message_count": 35,
+          "expected_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2456,
+              "value": 3
+            }
+          ],
+          "dispatches": [
+            {
+              "entry": "EVENTM11.MES",
+              "offset": 13274,
+              "end": 13290,
+              "outcome": {
+                "offset": 37546,
+                "end": 37547,
+                "op": "command_00",
+                "status": "script_return"
+              },
+              "message_count": 6
+            }
+          ]
+        },
+        {
+          "visit_id": "visit4-gate",
+          "after": "visit3-gate",
+          "entry_state": [
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 7
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 350,
+              "value": 4
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2415,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2417,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2456,
+              "value": 3
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3560,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 4000,
+              "value": 0
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 5161,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 351,
+              "value": 4
+            }
+          ],
+          "seed_writes": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 287,
+              "value": 1
+            }
+          ],
+          "seed_basis": "tool_seeded",
+          "outcome": {
+            "offset": 17622,
+            "end": 17623,
+            "op": "command_00",
+            "status": "script_return"
+          },
+          "message_count": 31,
+          "expected_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2456,
+              "value": 3
+            }
+          ],
+          "dispatches": [
+            {
+              "entry": "EVENTM11.MES",
+              "offset": 16586,
+              "end": 16602,
+              "outcome": {
+                "offset": 37546,
+                "end": 37547,
+                "op": "command_00",
+                "status": "script_return"
+              },
+              "message_count": 6
+            }
+          ]
+        },
+        {
+          "visit_id": "visit5-gate",
+          "after": "visit4-gate",
+          "entry_state": [
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 1,
+              "value": 7
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2415,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2417,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2456,
+              "value": 3
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 3560,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 4000,
+              "value": 0
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 5161,
+              "value": 1
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 350,
+              "value": 0
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 351,
+              "value": 4
+            },
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 287,
+              "value": 1
+            }
+          ],
+          "seed_writes": [],
+          "seed_basis": "none",
+          "outcome": {
+            "offset": 17622,
+            "end": 17623,
+            "op": "command_00",
+            "status": "script_return"
+          },
+          "message_count": 31,
+          "expected_state": [
+            {
+              "storage": "global_u8",
+              "bank": 0,
+              "index": 2456,
+              "value": 3
+            }
+          ],
+          "dispatches": [
+            {
+              "entry": "EVENTM11.MES",
+              "offset": 16586,
+              "end": 16602,
+              "outcome": {
+                "offset": 37546,
+                "end": 37547,
+                "op": "command_00",
+                "status": "script_return"
+              },
+              "message_count": 6
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "payload_sha256": "a8fc28609420ace1c59409ff99c94bfa79bced2da43b0fe3ece33e10d1278ced"
+}

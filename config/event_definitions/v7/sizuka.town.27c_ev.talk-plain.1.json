@@ -1,0 +1,1357 @@
+{
+  "schema_version": "kakyu_event_definition/v7",
+  "contract_fingerprint": "a48267ac13ccdfac87859bade15c872f966392020a34a10d7d3ba332ad167d25",
+  "names_fingerprint": "94223afe79303bd54eaa4bcdfd7b1e22a806191a749f80bea31d0068568fb29e",
+  "id": "sizuka.town.27c_ev.talk-plain.1",
+  "kind": "event",
+  "display": {
+    "title_ko": "27c_ev에서 시즈카 (L_TALK)",
+    "title_en": "Sizuka at 27c_ev (L_TALK)",
+    "heroine": "sizuka",
+    "category": "town",
+    "place": "27c_ev"
+  },
+  "evidence": {
+    "kind": "analysis_group",
+    "archive_sha256": "31a95b31cb0f1051cf973a4dba4f4a5405671e4488240adfafb9b02290986aa6",
+    "groups": [
+      {
+        "group_id": "27c-ev-l-talk",
+        "profile_sha256": "efebe95fa6aa184cda5ea85ed56c6212e52e64c8efeccfffe807e4c34dd3da02",
+        "route_ids": [
+          "l-talk-plain"
+        ]
+      }
+    ],
+    "members": [
+      {
+        "entry": "27C_EV.MES",
+        "entry_sha256": "2af24ef7a0bf66a3006c66da133ec7f653f79bf5904fad7ff2f39f42302ccec3"
+      },
+      {
+        "entry": "L_TALK.MES",
+        "entry_sha256": "74f3a10b6525dfc23ca93321024a0881ee67d04ac5f924151abcb82d4492ff65"
+      },
+      {
+        "entry": "L_PIC.MES",
+        "entry_sha256": "fd7d661d8ca7e27188e898363e815506135a9cebe297677bcd635942242f7e06"
+      },
+      {
+        "entry": "P_PIC.MES",
+        "entry_sha256": "c2190062fd0b5119e9f8e43c543642b2b2fc014ba43ef733087ee7b91d00d4e9"
+      },
+      {
+        "entry": "LIBLARY.LIB",
+        "entry_sha256": "d9aba6eb8dab51fe321e22c868ed0cf38416bba1f0cf2f5d7d719f48e89b8b4d"
+      },
+      {
+        "entry": "DEF_MAIN.MES",
+        "entry_sha256": "f2012ce5d90f60a5d1ca8190e03571341c0384c2d3d96e9aec2b3ab949db0ef0"
+      },
+      {
+        "entry": "START.MES",
+        "entry_sha256": "ba57bf666fbd9db9b3110f2bf1c70e80e11a35de00e82256aaaf35921c77038f"
+      }
+    ],
+    "document_refs": [],
+    "effect_witnesses": [
+      {
+        "result": "body",
+        "cell": {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2532
+        },
+        "basis": "flag_pattern",
+        "entry": 0,
+        "final": 1,
+        "declared": false
+      },
+      {
+        "result": "h2_talk",
+        "cell": {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2532
+        },
+        "basis": "flag_pattern",
+        "entry": 0,
+        "final": 1,
+        "declared": false
+      }
+    ]
+  },
+  "package_binding": {
+    "schema": "kakyu_playback_package/v7",
+    "package_sha256": "fe9bb6bd3256189ab9dd1ff91d75f95d378d8b625aae7e011ba16ccbb849f288"
+  },
+  "trigger": {
+    "type": "caller_dispatch",
+    "caller": {
+      "entry": "27C_EV.MES",
+      "entry_sha256": "2af24ef7a0bf66a3006c66da133ec7f653f79bf5904fad7ff2f39f42302ccec3",
+      "offset": 31922,
+      "end": 31936,
+      "command": 15,
+      "kind": "nested_call"
+    },
+    "callee": {
+      "entry": "L_TALK.MES",
+      "entry_sha256": "74f3a10b6525dfc23ca93321024a0881ee67d04ac5f924151abcb82d4492ff65",
+      "start_coordinate": 0
+    },
+    "origin": {
+      "kind": "typed_guard",
+      "offset": 31804
+    },
+    "order_hint": {
+      "scope": "27C_EV.MES",
+      "rank": 3,
+      "of": 3,
+      "basis": "guard_offset",
+      "chain_confirmed": false
+    }
+  },
+  "scenes": [],
+  "guard": {
+    "offset": 31804,
+    "end": 31847,
+    "false_target": 35644,
+    "record_sha256": "67ac4fc94e883e5a06ec90efef6c333f1c1f83c41ca1e11ab3b45a2d7b4ca7c5",
+    "conjuncts": [
+      {
+        "kind": "cell",
+        "storage": "global_u8",
+        "bank": 0,
+        "index": 190,
+        "op": "equal",
+        "value": 0
+      },
+      {
+        "kind": "cell",
+        "storage": "global_u8",
+        "bank": 0,
+        "index": 198,
+        "op": "not_equal",
+        "value": 0
+      },
+      {
+        "kind": "cell",
+        "storage": "global_u8",
+        "bank": 0,
+        "index": 194,
+        "op": "equal",
+        "value": 0
+      },
+      {
+        "kind": "cell",
+        "storage": "global_u8",
+        "bank": 0,
+        "index": 195,
+        "op": "equal",
+        "value": 0
+      },
+      {
+        "kind": "cell",
+        "storage": "global_u8",
+        "bank": 0,
+        "index": 1966,
+        "op": "equal",
+        "value": 0
+      },
+      {
+        "kind": "cell",
+        "storage": "banked_u16",
+        "bank": 0,
+        "index": 209,
+        "op": "greater_than",
+        "value": 30
+      }
+    ],
+    "witnesses": [
+      {
+        "case_id": "accepted",
+        "writes": [],
+        "expected": 1
+      },
+      {
+        "case_id": "rejected",
+        "writes": [
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 190,
+            "value": 1
+          }
+        ],
+        "expected": 0
+      }
+    ]
+  },
+  "conditions": [
+    {
+      "type": "mes_expression",
+      "ast": {
+        "lhs": {
+          "lhs": {
+            "lhs": {
+              "lhs": {
+                "lhs": {
+                  "lhs": {
+                    "bank": 0,
+                    "index": {
+                      "type": "literal",
+                      "value": 190
+                    },
+                    "source": {
+                      "offset": 31805,
+                      "token": "0xf3"
+                    },
+                    "storage": "global_u8",
+                    "type": "state_ref"
+                  },
+                  "op": "equal",
+                  "rhs": {
+                    "source": {
+                      "offset": 31808,
+                      "token": "0x00"
+                    },
+                    "type": "literal",
+                    "value": 0,
+                    "width": 8
+                  },
+                  "source": {
+                    "offset": 31809,
+                    "token": "0xef"
+                  },
+                  "type": "binary"
+                },
+                "op": "logical_and",
+                "rhs": {
+                  "lhs": {
+                    "bank": 0,
+                    "index": {
+                      "type": "literal",
+                      "value": 198
+                    },
+                    "source": {
+                      "offset": 31810,
+                      "token": "0xf3"
+                    },
+                    "storage": "global_u8",
+                    "type": "state_ref"
+                  },
+                  "op": "not_equal",
+                  "rhs": {
+                    "source": {
+                      "offset": 31813,
+                      "token": "0x00"
+                    },
+                    "type": "literal",
+                    "value": 0,
+                    "width": 8
+                  },
+                  "source": {
+                    "offset": 31814,
+                    "token": "0xf0"
+                  },
+                  "type": "binary"
+                },
+                "source": {
+                  "offset": 31815,
+                  "token": "0xe6"
+                },
+                "type": "binary"
+              },
+              "op": "logical_and",
+              "rhs": {
+                "lhs": {
+                  "bank": 0,
+                  "index": {
+                    "type": "literal",
+                    "value": 194
+                  },
+                  "source": {
+                    "offset": 31816,
+                    "token": "0xf3"
+                  },
+                  "storage": "global_u8",
+                  "type": "state_ref"
+                },
+                "op": "equal",
+                "rhs": {
+                  "source": {
+                    "offset": 31819,
+                    "token": "0x00"
+                  },
+                  "type": "literal",
+                  "value": 0,
+                  "width": 8
+                },
+                "source": {
+                  "offset": 31820,
+                  "token": "0xef"
+                },
+                "type": "binary"
+              },
+              "source": {
+                "offset": 31821,
+                "token": "0xe6"
+              },
+              "type": "binary"
+            },
+            "op": "logical_and",
+            "rhs": {
+              "lhs": {
+                "bank": 0,
+                "index": {
+                  "type": "literal",
+                  "value": 195
+                },
+                "source": {
+                  "offset": 31822,
+                  "token": "0xf3"
+                },
+                "storage": "global_u8",
+                "type": "state_ref"
+              },
+              "op": "equal",
+              "rhs": {
+                "source": {
+                  "offset": 31825,
+                  "token": "0x00"
+                },
+                "type": "literal",
+                "value": 0,
+                "width": 8
+              },
+              "source": {
+                "offset": 31826,
+                "token": "0xef"
+              },
+              "type": "binary"
+            },
+            "source": {
+              "offset": 31827,
+              "token": "0xe6"
+            },
+            "type": "binary"
+          },
+          "op": "logical_and",
+          "rhs": {
+            "lhs": {
+              "bank": 0,
+              "index": {
+                "type": "literal",
+                "value": 1966
+              },
+              "source": {
+                "offset": 31828,
+                "token": "0xf3"
+              },
+              "storage": "global_u8",
+              "type": "state_ref"
+            },
+            "op": "equal",
+            "rhs": {
+              "source": {
+                "offset": 31831,
+                "token": "0x00"
+              },
+              "type": "literal",
+              "value": 0,
+              "width": 8
+            },
+            "source": {
+              "offset": 31832,
+              "token": "0xef"
+            },
+            "type": "binary"
+          },
+          "source": {
+            "offset": 31833,
+            "token": "0xe6"
+          },
+          "type": "binary"
+        },
+        "op": "logical_and",
+        "rhs": {
+          "lhs": {
+            "bank": 0,
+            "index": {
+              "source": {
+                "offset": 31834,
+                "token": "0xf1"
+              },
+              "type": "literal",
+              "value": 209,
+              "width": 16
+            },
+            "source": {
+              "offset": 31837,
+              "token": "0xa0"
+            },
+            "storage": "banked_u16",
+            "type": "state_ref"
+          },
+          "op": "greater_than",
+          "rhs": {
+            "source": {
+              "offset": 31839,
+              "token": "0x1e"
+            },
+            "type": "literal",
+            "value": 30,
+            "width": 8
+          },
+          "source": {
+            "offset": 31840,
+            "token": "0xec"
+          },
+          "type": "binary"
+        },
+        "source": {
+          "offset": 31841,
+          "token": "0xe6"
+        },
+        "type": "binary"
+      },
+      "source_offset": 31804,
+      "failure_reason": "guard_rejected"
+    }
+  ],
+  "presets": [
+    {
+      "preset_id": "baseline",
+      "label": "baseline",
+      "writes": [
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 190,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 198,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 194,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 195,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 1966,
+          "value": 0
+        },
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 209,
+          "value": 50
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 7,
+          "value": 1510
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 2532,
+          "value": 0
+        }
+      ]
+    }
+  ],
+  "dialogue": [
+    {
+      "kind": "hop",
+      "hop_id": "h1_caller_dispatch"
+    },
+    {
+      "kind": "hop",
+      "hop_id": "h2_talk"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "L_TALK.MES",
+        "at": 330,
+        "s": 0,
+        "raw_sha256": "a58ee9b937e0348f271677b33d164b9bc4471394011ecd497b8073113dc4e7fd"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "L_TALK.MES",
+        "at": 404,
+        "s": 1,
+        "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "L_TALK.MES",
+      "at": 408,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "L_TALK.MES",
+        "at": 425,
+        "s": 2,
+        "raw_sha256": "243bf1486b91d09df2f4430eb28d75bf564656ed627482bca20caec6547b7160"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "L_TALK.MES",
+        "at": 701,
+        "s": 4,
+        "raw_sha256": "2e5e3fde59a31ce9c0531dcdf63f85cce7fc55209c3bb10bb49de20635cc9d06"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "L_TALK.MES",
+        "at": 789,
+        "s": 1,
+        "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "L_TALK.MES",
+      "at": 793,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "L_TALK.MES",
+        "at": 810,
+        "s": 5,
+        "raw_sha256": "1d402665fa4308d3d9f6d1d5eb4a8c8c2d94f24587bfeadf5c6bd45c0967fdf5"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "L_TALK.MES",
+        "at": 914,
+        "s": 6,
+        "raw_sha256": "d9f33687af162654b839e55c2deddbd3ea28e88f550b18fbcf4078b5239f44a4"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "L_TALK.MES",
+        "at": 2234,
+        "s": 1,
+        "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "L_TALK.MES",
+      "at": 2238,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "L_TALK.MES",
+        "at": 2255,
+        "s": 14,
+        "raw_sha256": "cdcc3c789420a9568ac5f4424908b6bab4f9d388e1e3917413e16d564c6985a2"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "L_TALK.MES",
+        "at": 2299,
+        "s": 1,
+        "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "L_TALK.MES",
+      "at": 2303,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "L_TALK.MES",
+        "at": 2320,
+        "s": 16,
+        "raw_sha256": "bf839554888a1627bd37864ca5a448907796c2a3d158ca799b73a425d8381bf2"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "L_TALK.MES",
+        "at": 2418,
+        "s": 17,
+        "raw_sha256": "2babdb450d4b8b0cc744cd65abfefa66aca5d63a645de4cb7032afd7e445a70d"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "L_TALK.MES",
+        "at": 2512,
+        "s": 1,
+        "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "L_TALK.MES",
+      "at": 2516,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "L_TALK.MES",
+        "at": 2533,
+        "s": 18,
+        "raw_sha256": "aca81767c5be01f9ae63c2696fe2397f02d2eee6d87bdb61d28ffbcfcaa9c73d"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "L_TALK.MES",
+        "at": 2614,
+        "s": 20,
+        "raw_sha256": "2de622ec3d069e98c494a1706676bb3220d548fe445d5163c1714a7d9a829e67"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "L_TALK.MES",
+        "at": 2718,
+        "s": 1,
+        "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "L_TALK.MES",
+      "at": 2722,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "L_TALK.MES",
+        "at": 2739,
+        "s": 21,
+        "raw_sha256": "b90e4e35abb767555428b3fe615b7b785faa1efc881b3b150f281dcd61052991"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "L_TALK.MES",
+        "at": 2783,
+        "s": 22,
+        "raw_sha256": "c1f41744fb7d2133eca1850ab44ea97668133455be7967100a920408be395679"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "L_TALK.MES",
+        "at": 2835,
+        "s": 1,
+        "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "L_TALK.MES",
+      "at": 2839,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "L_TALK.MES",
+        "at": 2856,
+        "s": 23,
+        "raw_sha256": "39d782ea3ea9be0e47da277739a81747facbb141bb7c47afc5e40a9497d1fd72"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "L_TALK.MES",
+        "at": 2970,
+        "s": 24,
+        "raw_sha256": "d18f3360506301b5514734e9801fd97b6d81f258f5f48525afa0b08a4de0c77b"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "L_TALK.MES",
+        "at": 3024,
+        "s": 1,
+        "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "L_TALK.MES",
+      "at": 3028,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "L_TALK.MES",
+        "at": 3045,
+        "s": 25,
+        "raw_sha256": "46b5dd84ea722e76c3ba8d693bb2ed3bcc7a24857a64ad6aa761e447ead388f4"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "L_TALK.MES",
+        "at": 3103,
+        "s": 26,
+        "raw_sha256": "1768a6699071386cf4b7c1be1b4f524eebbfe24e7a9caeb854bf73a7cc106876"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "L_TALK.MES",
+        "at": 3177,
+        "s": 1,
+        "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "L_TALK.MES",
+      "at": 3181,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "L_TALK.MES",
+        "at": 3198,
+        "s": 21,
+        "raw_sha256": "b90e4e35abb767555428b3fe615b7b785faa1efc881b3b150f281dcd61052991"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "L_TALK.MES",
+        "at": 3242,
+        "s": 27,
+        "raw_sha256": "dfbc804f3bf8e3c79765d60290919e36e1d7e76cdeea68684dfdf6dd07c22a84"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "L_TALK.MES",
+        "at": 3292,
+        "s": 1,
+        "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "L_TALK.MES",
+      "at": 3296,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "L_TALK.MES",
+        "at": 3313,
+        "s": 14,
+        "raw_sha256": "cdcc3c789420a9568ac5f4424908b6bab4f9d388e1e3917413e16d564c6985a2"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "L_TALK.MES",
+        "at": 3427,
+        "s": 28,
+        "raw_sha256": "fe8f76c21ba1785112e473060ae0e0bbb9dc5a5de23d8a3a3a82c337e3d0219a"
+      }
+    },
+    {
+      "kind": "scene_end"
+    }
+  ],
+  "after": [
+    {
+      "type": "write_legacy_value",
+      "storage": "global_u8",
+      "bank": 0,
+      "index": 2532,
+      "value": 1,
+      "cell_class": "flag"
+    }
+  ],
+  "results": {
+    "result_default": {
+      "selected_by": {
+        "kind": "default"
+      },
+      "event_played": true,
+      "dialogue": [],
+      "after": [],
+      "terminal": "flow"
+    }
+  },
+  "terminals": {
+    "flow": {
+      "kind": "callee_return",
+      "owner_entry": "L_TALK.MES",
+      "offset": 3582,
+      "end": 3583,
+      "next_target": "",
+      "required_state": []
+    }
+  },
+  "dependencies": [
+    {
+      "entry": "L_PIC.MES",
+      "entry_sha256": "fd7d661d8ca7e27188e898363e815506135a9cebe297677bcd635942242f7e06",
+      "role": "nested_presentation"
+    },
+    {
+      "entry": "P_PIC.MES",
+      "entry_sha256": "c2190062fd0b5119e9f8e43c543642b2b2fc014ba43ef733087ee7b91d00d4e9",
+      "role": "nested_presentation"
+    }
+  ],
+  "presentation": {
+    "status": "deferred",
+    "resources": [
+      {
+        "entry": "LIBLARY.LIB",
+        "source_offset": 39005,
+        "kind": "mmo",
+        "name": "27CPM_3.MMO"
+      },
+      {
+        "entry": "LIBLARY.LIB",
+        "source_offset": 39069,
+        "kind": "unclassified",
+        "name": "27CPM_3.MMO"
+      },
+      {
+        "entry": "L_PIC.MES",
+        "source_offset": 154,
+        "kind": "bgm",
+        "name": "SIZUKA.WAV"
+      },
+      {
+        "entry": "L_PIC.MES",
+        "source_offset": 667,
+        "kind": "mmo",
+        "name": "L5A.MMO"
+      },
+      {
+        "entry": "L_PIC.MES",
+        "source_offset": 2226,
+        "kind": "mmo",
+        "name": "LAN.MMO"
+      },
+      {
+        "entry": "L_PIC.MES",
+        "source_offset": 2246,
+        "kind": "ax",
+        "name": "L.AX"
+      },
+      {
+        "entry": "L_TALK.MES",
+        "source_offset": 291,
+        "kind": "voice",
+        "name": "L0866.OGG"
+      },
+      {
+        "entry": "L_TALK.MES",
+        "source_offset": 657,
+        "kind": "voice",
+        "name": "L0868.OGG"
+      },
+      {
+        "entry": "L_TALK.MES",
+        "source_offset": 870,
+        "kind": "voice",
+        "name": "L0869.OGG"
+      },
+      {
+        "entry": "P_PIC.MES",
+        "source_offset": 138,
+        "kind": "bgm",
+        "name": "HARUHIKO.WAV"
+      },
+      {
+        "entry": "P_PIC.MES",
+        "source_offset": 1708,
+        "kind": "mmo",
+        "name": "P.MMO"
+      },
+      {
+        "entry": "P_PIC.MES",
+        "source_offset": 1861,
+        "kind": "mmo",
+        "name": "PAN.MMO"
+      },
+      {
+        "entry": "P_PIC.MES",
+        "source_offset": 1881,
+        "kind": "ax",
+        "name": "P.AX"
+      }
+    ]
+  },
+  "unresolved": [
+    "no done flag identified in the guard: the flow's own origin guard ((global_u8[190] equal 0); (global_u8[198] not_equal 0); (global_u8[194] equal 0); (global_u8[195] equal 0); (global_u8[1966] equal 0); (banked_u16[209] greater_than 30)) names no cleared completion flag",
+    "The state at the anchor is seeded, a tool decision: global_u8[190] = 0, global_u8[198] = 1, global_u8[194] = 0, global_u8[195] = 0, global_u8[1966] = 0, banked_u16[209] = 50, state_u16[7] = 1510, global_u8[2532] = 0. The origin is the caller's block guard at 31804; the cells are the guard's own conjuncts and the script's own gate (its date, affection word and once-only flag), solved by the smallest round value that satisfies them.",
+    "The script asks no question; its own gate (date, affection word and once-only flag) is seeded satisfied, so the default path plays it whole (1 answer path(s) measured).",
+    "The caller resumes into the place's day loop after the call, which runs on day after day (its own definition steps stop at the probe's limit, and under the original calendar the loop plays on to the game's ending): there is no natural end to measure, so the flow ends at the script's own return.",
+    "effect on banked_u16[1] for result h1_caller_dispatch: no matching shift witness (entry=0 final=7)",
+    "effect on global_u8[10] for result h2_talk: no matching shift witness (entry=0 final=8)",
+    "effect on banked_u16[1] for result body: no matching shift witness (entry=0 final=7)",
+    "effect on global_u8[10] for result body: no matching shift witness (entry=0 final=8)",
+    "argument storage: global_i32[1] = 107550 written by command 0x09 at L_TALK.MES:3540; not an event effect (TD-56 D11)"
+  ],
+  "flow": {
+    "evidence": {
+      "group": "27c-ev-l-talk",
+      "profile_sha256": "efebe95fa6aa184cda5ea85ed56c6212e52e64c8efeccfffe807e4c34dd3da02",
+      "route": "l-talk-plain"
+    },
+    "origin": {
+      "entry": "27C_EV.MES",
+      "entry_sha256": "2af24ef7a0bf66a3006c66da133ec7f653f79bf5904fad7ff2f39f42302ccec3",
+      "offset": 31804,
+      "guard": {
+        "offset": 31804,
+        "end": 31847,
+        "false_target": 35644,
+        "record_sha256": "67ac4fc94e883e5a06ec90efef6c333f1c1f83c41ca1e11ab3b45a2d7b4ca7c5"
+      }
+    },
+    "state_context": {
+      "kind": "fresh"
+    },
+    "hops": [
+      {
+        "hop_id": "h1_caller_dispatch",
+        "entry": "27C_EV.MES",
+        "entry_sha256": "2af24ef7a0bf66a3006c66da133ec7f653f79bf5904fad7ff2f39f42302ccec3",
+        "entered_by": {
+          "kind": "origin",
+          "offset": 31804,
+          "end": 31847
+        },
+        "answers": [],
+        "gates": [],
+        "map_locations": [],
+        "poll_supplies": [],
+        "dialogue": [],
+        "after": [],
+        "message_count": 0
+      },
+      {
+        "hop_id": "h2_talk",
+        "entry": "L_TALK.MES",
+        "entry_sha256": "74f3a10b6525dfc23ca93321024a0881ee67d04ac5f924151abcb82d4492ff65",
+        "entered_by": {
+          "kind": "nested_call",
+          "offset": 31922,
+          "end": 31936
+        },
+        "answers": [],
+        "gates": [],
+        "map_locations": [],
+        "poll_supplies": [],
+        "dialogue": [
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "L_TALK.MES",
+              "at": 330,
+              "s": 0,
+              "raw_sha256": "a58ee9b937e0348f271677b33d164b9bc4471394011ecd497b8073113dc4e7fd"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "L_TALK.MES",
+              "at": 404,
+              "s": 1,
+              "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+            }
+          },
+          {
+            "kind": "name_insert",
+            "entry": "L_TALK.MES",
+            "at": 408,
+            "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "L_TALK.MES",
+              "at": 425,
+              "s": 2,
+              "raw_sha256": "243bf1486b91d09df2f4430eb28d75bf564656ed627482bca20caec6547b7160"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "L_TALK.MES",
+              "at": 701,
+              "s": 4,
+              "raw_sha256": "2e5e3fde59a31ce9c0531dcdf63f85cce7fc55209c3bb10bb49de20635cc9d06"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "L_TALK.MES",
+              "at": 789,
+              "s": 1,
+              "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+            }
+          },
+          {
+            "kind": "name_insert",
+            "entry": "L_TALK.MES",
+            "at": 793,
+            "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "L_TALK.MES",
+              "at": 810,
+              "s": 5,
+              "raw_sha256": "1d402665fa4308d3d9f6d1d5eb4a8c8c2d94f24587bfeadf5c6bd45c0967fdf5"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "L_TALK.MES",
+              "at": 914,
+              "s": 6,
+              "raw_sha256": "d9f33687af162654b839e55c2deddbd3ea28e88f550b18fbcf4078b5239f44a4"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "L_TALK.MES",
+              "at": 2234,
+              "s": 1,
+              "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+            }
+          },
+          {
+            "kind": "name_insert",
+            "entry": "L_TALK.MES",
+            "at": 2238,
+            "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "L_TALK.MES",
+              "at": 2255,
+              "s": 14,
+              "raw_sha256": "cdcc3c789420a9568ac5f4424908b6bab4f9d388e1e3917413e16d564c6985a2"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "L_TALK.MES",
+              "at": 2299,
+              "s": 1,
+              "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+            }
+          },
+          {
+            "kind": "name_insert",
+            "entry": "L_TALK.MES",
+            "at": 2303,
+            "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "L_TALK.MES",
+              "at": 2320,
+              "s": 16,
+              "raw_sha256": "bf839554888a1627bd37864ca5a448907796c2a3d158ca799b73a425d8381bf2"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "L_TALK.MES",
+              "at": 2418,
+              "s": 17,
+              "raw_sha256": "2babdb450d4b8b0cc744cd65abfefa66aca5d63a645de4cb7032afd7e445a70d"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "L_TALK.MES",
+              "at": 2512,
+              "s": 1,
+              "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+            }
+          },
+          {
+            "kind": "name_insert",
+            "entry": "L_TALK.MES",
+            "at": 2516,
+            "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "L_TALK.MES",
+              "at": 2533,
+              "s": 18,
+              "raw_sha256": "aca81767c5be01f9ae63c2696fe2397f02d2eee6d87bdb61d28ffbcfcaa9c73d"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "L_TALK.MES",
+              "at": 2614,
+              "s": 20,
+              "raw_sha256": "2de622ec3d069e98c494a1706676bb3220d548fe445d5163c1714a7d9a829e67"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "L_TALK.MES",
+              "at": 2718,
+              "s": 1,
+              "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+            }
+          },
+          {
+            "kind": "name_insert",
+            "entry": "L_TALK.MES",
+            "at": 2722,
+            "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "L_TALK.MES",
+              "at": 2739,
+              "s": 21,
+              "raw_sha256": "b90e4e35abb767555428b3fe615b7b785faa1efc881b3b150f281dcd61052991"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "L_TALK.MES",
+              "at": 2783,
+              "s": 22,
+              "raw_sha256": "c1f41744fb7d2133eca1850ab44ea97668133455be7967100a920408be395679"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "L_TALK.MES",
+              "at": 2835,
+              "s": 1,
+              "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+            }
+          },
+          {
+            "kind": "name_insert",
+            "entry": "L_TALK.MES",
+            "at": 2839,
+            "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "L_TALK.MES",
+              "at": 2856,
+              "s": 23,
+              "raw_sha256": "39d782ea3ea9be0e47da277739a81747facbb141bb7c47afc5e40a9497d1fd72"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "L_TALK.MES",
+              "at": 2970,
+              "s": 24,
+              "raw_sha256": "d18f3360506301b5514734e9801fd97b6d81f258f5f48525afa0b08a4de0c77b"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "L_TALK.MES",
+              "at": 3024,
+              "s": 1,
+              "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+            }
+          },
+          {
+            "kind": "name_insert",
+            "entry": "L_TALK.MES",
+            "at": 3028,
+            "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "L_TALK.MES",
+              "at": 3045,
+              "s": 25,
+              "raw_sha256": "46b5dd84ea722e76c3ba8d693bb2ed3bcc7a24857a64ad6aa761e447ead388f4"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "L_TALK.MES",
+              "at": 3103,
+              "s": 26,
+              "raw_sha256": "1768a6699071386cf4b7c1be1b4f524eebbfe24e7a9caeb854bf73a7cc106876"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "L_TALK.MES",
+              "at": 3177,
+              "s": 1,
+              "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+            }
+          },
+          {
+            "kind": "name_insert",
+            "entry": "L_TALK.MES",
+            "at": 3181,
+            "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "L_TALK.MES",
+              "at": 3198,
+              "s": 21,
+              "raw_sha256": "b90e4e35abb767555428b3fe615b7b785faa1efc881b3b150f281dcd61052991"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "L_TALK.MES",
+              "at": 3242,
+              "s": 27,
+              "raw_sha256": "dfbc804f3bf8e3c79765d60290919e36e1d7e76cdeea68684dfdf6dd07c22a84"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "L_TALK.MES",
+              "at": 3292,
+              "s": 1,
+              "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+            }
+          },
+          {
+            "kind": "name_insert",
+            "entry": "L_TALK.MES",
+            "at": 3296,
+            "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "L_TALK.MES",
+              "at": 3313,
+              "s": 14,
+              "raw_sha256": "cdcc3c789420a9568ac5f4424908b6bab4f9d388e1e3917413e16d564c6985a2"
+            }
+          },
+          {
+            "kind": "text",
+            "text_ref": {
+              "entry": "L_TALK.MES",
+              "at": 3427,
+              "s": 28,
+              "raw_sha256": "fe8f76c21ba1785112e473060ae0e0bbb9dc5a5de23d8a3a3a82c337e3d0219a"
+            }
+          }
+        ],
+        "after": [
+          {
+            "type": "write_legacy_value",
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 2532,
+            "value": 1,
+            "cell_class": "flag"
+          }
+        ],
+        "message_count": 40
+      }
+    ],
+    "terminal": "flow"
+  }
+}

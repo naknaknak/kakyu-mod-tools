@@ -1,0 +1,1207 @@
+{
+  "schema_version": "kakyu_event_definition/v3",
+  "contract_fingerprint": "7545e37e08d3dacac8eafb4757ec3ca68305af8afb9278001cce3932a272fb55",
+  "names_fingerprint": "b7ffcea3abac019a78f8ac19e98d5259fc778a0eb3c7123424f257b435163e1a",
+  "id": "minatu.town.station.04.1",
+  "kind": "event",
+  "display": {
+    "title_ko": "역에서 미나츠 (EVENTJ04)",
+    "title_en": "Minatu at the station (EVENTJ04)",
+    "heroine": "minatu",
+    "category": "town",
+    "place": "station"
+  },
+  "evidence": {
+    "kind": "catalog_event",
+    "archive_sha256": "31a95b31cb0f1051cf973a4dba4f4a5405671e4488240adfafb9b02290986aa6",
+    "catalog_id": "kakyu-original-events",
+    "catalog_revision": 23,
+    "groups": [],
+    "members": [
+      {
+        "entry": "EVENTJ04.MES",
+        "entry_sha256": "991b79a543bd8527b2bf94f83aa9b19381391eee2d24dd342bc2ae3a43bace84"
+      },
+      {
+        "entry": "LIBLARY.LIB",
+        "entry_sha256": "d9aba6eb8dab51fe321e22c868ed0cf38416bba1f0cf2f5d7d719f48e89b8b4d"
+      }
+    ],
+    "document_refs": [
+      "docs/spec/mes/eventj04_route.md"
+    ]
+  },
+  "package_binding": {
+    "schema": "kakyu_playback_package/v7",
+    "package_sha256": "bf3d1f6eeb3e0e3d5ae949597b3c273e91197f086e3627c27428a05413cc8fa1"
+  },
+  "trigger": {
+    "type": "caller_dispatch",
+    "caller": {
+      "entry": "01M.MES",
+      "entry_sha256": "a50511b0ad0ad446b7988c3cfb36736424bf6617e9eb952e20b505f745607cc5",
+      "offset": 39813,
+      "end": 39829,
+      "command": 14,
+      "kind": "root_handoff"
+    },
+    "callee": {
+      "entry": "EVENTJ04.MES",
+      "entry_sha256": "991b79a543bd8527b2bf94f83aa9b19381391eee2d24dd342bc2ae3a43bace84",
+      "start_coordinate": 0
+    },
+    "origin": {
+      "kind": "caller_prefix",
+      "offset": 39564
+    }
+  },
+  "scenes": [],
+  "guard": null,
+  "conditions": [
+    {
+      "type": "event_not_completed",
+      "event_id": "minatu.town.station.04.1",
+      "failure_reason": "already_completed",
+      "done_cell": {
+        "storage": "global_u8",
+        "bank": 0,
+        "index": 905,
+        "value": 1
+      }
+    }
+  ],
+  "presets": [
+    {
+      "preset_id": "source-854-0-823-0",
+      "label": "19:00 · flag 854=0, 823=0",
+      "writes": [
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 4,
+          "value": 0
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 19,
+          "value": 1900
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 401,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 210,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 212,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 905,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 955,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 854,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 823,
+          "value": 0
+        }
+      ]
+    },
+    {
+      "preset_id": "source-854-0-823-1",
+      "label": "19:00 · flag 854=0, 823=1",
+      "writes": [
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 4,
+          "value": 0
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 19,
+          "value": 1900
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 401,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 210,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 212,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 905,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 955,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 854,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 823,
+          "value": 1
+        }
+      ]
+    },
+    {
+      "preset_id": "source-854-1-823-0",
+      "label": "19:00 · flag 854=1, 823=0",
+      "writes": [
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 4,
+          "value": 0
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 19,
+          "value": 1900
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 401,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 210,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 212,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 905,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 955,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 854,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 823,
+          "value": 0
+        }
+      ]
+    },
+    {
+      "preset_id": "source-854-1-823-1",
+      "label": "19:00 · flag 854=1, 823=1",
+      "writes": [
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 4,
+          "value": 0
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 19,
+          "value": 1900
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 401,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 210,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 212,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 905,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 955,
+          "value": 0
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 854,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 823,
+          "value": 1
+        }
+      ]
+    }
+  ],
+  "dialogue": [],
+  "after": [
+    {
+      "type": "write_legacy_value",
+      "storage": "global_u8",
+      "bank": 0,
+      "index": 905,
+      "value": 1
+    },
+    {
+      "type": "write_legacy_value",
+      "storage": "global_u8",
+      "bank": 0,
+      "index": 854,
+      "value": 1
+    },
+    {
+      "type": "write_legacy_value",
+      "storage": "global_u8",
+      "bank": 0,
+      "index": 927,
+      "value": 1
+    },
+    {
+      "type": "write_legacy_value",
+      "storage": "global_u8",
+      "bank": 0,
+      "index": 3714,
+      "value": 1
+    },
+    {
+      "type": "write_legacy_value",
+      "storage": "global_u8",
+      "bank": 0,
+      "index": 286,
+      "value": 1
+    }
+  ],
+  "results": {
+    "flag854-0.flag823-0": {
+      "selected_by": {
+        "kind": "condition",
+        "conditions": [
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 854,
+            "operator": "equals",
+            "value": 0
+          },
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 823,
+            "operator": "equals",
+            "value": 0
+          }
+        ]
+      },
+      "event_played": true,
+      "dialogue": [
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTJ04.MES",
+            "at": 632,
+            "s": 0,
+            "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+          }
+        },
+        {
+          "kind": "name_insert",
+          "entry": "EVENTJ04.MES",
+          "at": 636,
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTJ04.MES",
+            "at": 653,
+            "s": 1,
+            "raw_sha256": "8e5e9cd1a66477e6e8dcd5549b794e9a7b3db5af007ca7ec40458aa27541f787"
+          }
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTJ04.MES",
+            "at": 859,
+            "s": 0,
+            "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+          }
+        },
+        {
+          "kind": "name_insert",
+          "entry": "EVENTJ04.MES",
+          "at": 863,
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTJ04.MES",
+            "at": 880,
+            "s": 3,
+            "raw_sha256": "e529f2f567d70cde7581a646c89da09d821063e28ea59922e5c4f997ec98353e"
+          }
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTJ04.MES",
+            "at": 926,
+            "s": 0,
+            "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+          }
+        },
+        {
+          "kind": "name_insert",
+          "entry": "EVENTJ04.MES",
+          "at": 930,
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTJ04.MES",
+            "at": 947,
+            "s": 4,
+            "raw_sha256": "36a5b0f7a3dfb027383419e0fded0f24677cd4f4e38feeeb2eb4a4965bb73d29"
+          }
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTJ04.MES",
+            "at": 1292,
+            "s": 0,
+            "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+          }
+        },
+        {
+          "kind": "name_insert",
+          "entry": "EVENTJ04.MES",
+          "at": 1296,
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTJ04.MES",
+            "at": 1313,
+            "s": 3,
+            "raw_sha256": "e529f2f567d70cde7581a646c89da09d821063e28ea59922e5c4f997ec98353e"
+          }
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTJ04.MES",
+            "at": 1359,
+            "s": 0,
+            "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+          }
+        },
+        {
+          "kind": "name_insert",
+          "entry": "EVENTJ04.MES",
+          "at": 1363,
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTJ04.MES",
+            "at": 1380,
+            "s": 6,
+            "raw_sha256": "95b64d407a0dc2421fda727a6a9261218431d55d6a16d7d9a1100592d4aeba20"
+          }
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTJ04.MES",
+            "at": 1487,
+            "s": 0,
+            "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+          }
+        },
+        {
+          "kind": "name_insert",
+          "entry": "EVENTJ04.MES",
+          "at": 1491,
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTJ04.MES",
+            "at": 1508,
+            "s": 3,
+            "raw_sha256": "e529f2f567d70cde7581a646c89da09d821063e28ea59922e5c4f997ec98353e"
+          }
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTJ04.MES",
+            "at": 1554,
+            "s": 0,
+            "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+          }
+        },
+        {
+          "kind": "name_insert",
+          "entry": "EVENTJ04.MES",
+          "at": 1558,
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTJ04.MES",
+            "at": 1575,
+            "s": 7,
+            "raw_sha256": "e0b9afb97f7d506f3410f9674af88a1c18537b20a7f0b377b873435721a01b53"
+          }
+        }
+      ],
+      "after": [],
+      "terminal": "root-replacement",
+      "reentry": {
+        "kind": "callee_return",
+        "message_count": 0,
+        "effects": []
+      }
+    },
+    "flag854-0.flag823-1": {
+      "selected_by": {
+        "kind": "condition",
+        "conditions": [
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 854,
+            "operator": "equals",
+            "value": 0
+          },
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 823,
+            "operator": "equals",
+            "value": 1
+          }
+        ]
+      },
+      "event_played": true,
+      "dialogue": [
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTJ04.MES",
+            "at": 632,
+            "s": 0,
+            "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+          }
+        },
+        {
+          "kind": "name_insert",
+          "entry": "EVENTJ04.MES",
+          "at": 636,
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTJ04.MES",
+            "at": 653,
+            "s": 1,
+            "raw_sha256": "8e5e9cd1a66477e6e8dcd5549b794e9a7b3db5af007ca7ec40458aa27541f787"
+          }
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTJ04.MES",
+            "at": 859,
+            "s": 0,
+            "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+          }
+        },
+        {
+          "kind": "name_insert",
+          "entry": "EVENTJ04.MES",
+          "at": 863,
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTJ04.MES",
+            "at": 880,
+            "s": 3,
+            "raw_sha256": "e529f2f567d70cde7581a646c89da09d821063e28ea59922e5c4f997ec98353e"
+          }
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTJ04.MES",
+            "at": 926,
+            "s": 0,
+            "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+          }
+        },
+        {
+          "kind": "name_insert",
+          "entry": "EVENTJ04.MES",
+          "at": 930,
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTJ04.MES",
+            "at": 947,
+            "s": 4,
+            "raw_sha256": "36a5b0f7a3dfb027383419e0fded0f24677cd4f4e38feeeb2eb4a4965bb73d29"
+          }
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTJ04.MES",
+            "at": 1087,
+            "s": 0,
+            "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+          }
+        },
+        {
+          "kind": "name_insert",
+          "entry": "EVENTJ04.MES",
+          "at": 1091,
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTJ04.MES",
+            "at": 1108,
+            "s": 3,
+            "raw_sha256": "e529f2f567d70cde7581a646c89da09d821063e28ea59922e5c4f997ec98353e"
+          }
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTJ04.MES",
+            "at": 1154,
+            "s": 0,
+            "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+          }
+        },
+        {
+          "kind": "name_insert",
+          "entry": "EVENTJ04.MES",
+          "at": 1158,
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTJ04.MES",
+            "at": 1175,
+            "s": 5,
+            "raw_sha256": "dbf0ed67742a59aca0ff46e2a399f14a9c90a21c0c6bbccc1e70f6eb182c2017"
+          }
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTJ04.MES",
+            "at": 1487,
+            "s": 0,
+            "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+          }
+        },
+        {
+          "kind": "name_insert",
+          "entry": "EVENTJ04.MES",
+          "at": 1491,
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTJ04.MES",
+            "at": 1508,
+            "s": 3,
+            "raw_sha256": "e529f2f567d70cde7581a646c89da09d821063e28ea59922e5c4f997ec98353e"
+          }
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTJ04.MES",
+            "at": 1554,
+            "s": 0,
+            "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+          }
+        },
+        {
+          "kind": "name_insert",
+          "entry": "EVENTJ04.MES",
+          "at": 1558,
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTJ04.MES",
+            "at": 1575,
+            "s": 7,
+            "raw_sha256": "e0b9afb97f7d506f3410f9674af88a1c18537b20a7f0b377b873435721a01b53"
+          }
+        }
+      ],
+      "after": [],
+      "terminal": "root-replacement",
+      "reentry": {
+        "kind": "callee_return",
+        "message_count": 0,
+        "effects": []
+      }
+    },
+    "flag854-1.flag823-0": {
+      "selected_by": {
+        "kind": "condition",
+        "conditions": [
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 854,
+            "operator": "equals",
+            "value": 1
+          },
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 823,
+            "operator": "equals",
+            "value": 0
+          }
+        ]
+      },
+      "event_played": true,
+      "dialogue": [
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTJ04.MES",
+            "at": 745,
+            "s": 0,
+            "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+          }
+        },
+        {
+          "kind": "name_insert",
+          "entry": "EVENTJ04.MES",
+          "at": 749,
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTJ04.MES",
+            "at": 766,
+            "s": 2,
+            "raw_sha256": "976d56f6fa684520356a54d97ccfdd9ae36df9fae3fd7960176a97b85cb33aa0"
+          }
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTJ04.MES",
+            "at": 859,
+            "s": 0,
+            "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+          }
+        },
+        {
+          "kind": "name_insert",
+          "entry": "EVENTJ04.MES",
+          "at": 863,
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTJ04.MES",
+            "at": 880,
+            "s": 3,
+            "raw_sha256": "e529f2f567d70cde7581a646c89da09d821063e28ea59922e5c4f997ec98353e"
+          }
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTJ04.MES",
+            "at": 926,
+            "s": 0,
+            "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+          }
+        },
+        {
+          "kind": "name_insert",
+          "entry": "EVENTJ04.MES",
+          "at": 930,
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTJ04.MES",
+            "at": 947,
+            "s": 4,
+            "raw_sha256": "36a5b0f7a3dfb027383419e0fded0f24677cd4f4e38feeeb2eb4a4965bb73d29"
+          }
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTJ04.MES",
+            "at": 1292,
+            "s": 0,
+            "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+          }
+        },
+        {
+          "kind": "name_insert",
+          "entry": "EVENTJ04.MES",
+          "at": 1296,
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTJ04.MES",
+            "at": 1313,
+            "s": 3,
+            "raw_sha256": "e529f2f567d70cde7581a646c89da09d821063e28ea59922e5c4f997ec98353e"
+          }
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTJ04.MES",
+            "at": 1359,
+            "s": 0,
+            "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+          }
+        },
+        {
+          "kind": "name_insert",
+          "entry": "EVENTJ04.MES",
+          "at": 1363,
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTJ04.MES",
+            "at": 1380,
+            "s": 6,
+            "raw_sha256": "95b64d407a0dc2421fda727a6a9261218431d55d6a16d7d9a1100592d4aeba20"
+          }
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTJ04.MES",
+            "at": 1487,
+            "s": 0,
+            "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+          }
+        },
+        {
+          "kind": "name_insert",
+          "entry": "EVENTJ04.MES",
+          "at": 1491,
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTJ04.MES",
+            "at": 1508,
+            "s": 3,
+            "raw_sha256": "e529f2f567d70cde7581a646c89da09d821063e28ea59922e5c4f997ec98353e"
+          }
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTJ04.MES",
+            "at": 1554,
+            "s": 0,
+            "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+          }
+        },
+        {
+          "kind": "name_insert",
+          "entry": "EVENTJ04.MES",
+          "at": 1558,
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTJ04.MES",
+            "at": 1575,
+            "s": 7,
+            "raw_sha256": "e0b9afb97f7d506f3410f9674af88a1c18537b20a7f0b377b873435721a01b53"
+          }
+        }
+      ],
+      "after": [],
+      "terminal": "root-replacement",
+      "reentry": {
+        "kind": "callee_return",
+        "message_count": 0,
+        "effects": []
+      }
+    },
+    "flag854-1.flag823-1": {
+      "selected_by": {
+        "kind": "condition",
+        "conditions": [
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 854,
+            "operator": "equals",
+            "value": 1
+          },
+          {
+            "storage": "global_u8",
+            "bank": 0,
+            "index": 823,
+            "operator": "equals",
+            "value": 1
+          }
+        ]
+      },
+      "event_played": true,
+      "dialogue": [
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTJ04.MES",
+            "at": 745,
+            "s": 0,
+            "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+          }
+        },
+        {
+          "kind": "name_insert",
+          "entry": "EVENTJ04.MES",
+          "at": 749,
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTJ04.MES",
+            "at": 766,
+            "s": 2,
+            "raw_sha256": "976d56f6fa684520356a54d97ccfdd9ae36df9fae3fd7960176a97b85cb33aa0"
+          }
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTJ04.MES",
+            "at": 859,
+            "s": 0,
+            "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+          }
+        },
+        {
+          "kind": "name_insert",
+          "entry": "EVENTJ04.MES",
+          "at": 863,
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTJ04.MES",
+            "at": 880,
+            "s": 3,
+            "raw_sha256": "e529f2f567d70cde7581a646c89da09d821063e28ea59922e5c4f997ec98353e"
+          }
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTJ04.MES",
+            "at": 926,
+            "s": 0,
+            "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+          }
+        },
+        {
+          "kind": "name_insert",
+          "entry": "EVENTJ04.MES",
+          "at": 930,
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTJ04.MES",
+            "at": 947,
+            "s": 4,
+            "raw_sha256": "36a5b0f7a3dfb027383419e0fded0f24677cd4f4e38feeeb2eb4a4965bb73d29"
+          }
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTJ04.MES",
+            "at": 1087,
+            "s": 0,
+            "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+          }
+        },
+        {
+          "kind": "name_insert",
+          "entry": "EVENTJ04.MES",
+          "at": 1091,
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTJ04.MES",
+            "at": 1108,
+            "s": 3,
+            "raw_sha256": "e529f2f567d70cde7581a646c89da09d821063e28ea59922e5c4f997ec98353e"
+          }
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTJ04.MES",
+            "at": 1154,
+            "s": 0,
+            "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+          }
+        },
+        {
+          "kind": "name_insert",
+          "entry": "EVENTJ04.MES",
+          "at": 1158,
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTJ04.MES",
+            "at": 1175,
+            "s": 5,
+            "raw_sha256": "dbf0ed67742a59aca0ff46e2a399f14a9c90a21c0c6bbccc1e70f6eb182c2017"
+          }
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTJ04.MES",
+            "at": 1487,
+            "s": 0,
+            "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+          }
+        },
+        {
+          "kind": "name_insert",
+          "entry": "EVENTJ04.MES",
+          "at": 1491,
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTJ04.MES",
+            "at": 1508,
+            "s": 3,
+            "raw_sha256": "e529f2f567d70cde7581a646c89da09d821063e28ea59922e5c4f997ec98353e"
+          }
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTJ04.MES",
+            "at": 1554,
+            "s": 0,
+            "raw_sha256": "cd4872d8abab7429b55bdec7232490e811a98dc2dc0426c8e030cb756fa32a17"
+          }
+        },
+        {
+          "kind": "name_insert",
+          "entry": "EVENTJ04.MES",
+          "at": 1558,
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "EVENTJ04.MES",
+            "at": 1575,
+            "s": 7,
+            "raw_sha256": "e0b9afb97f7d506f3410f9674af88a1c18537b20a7f0b377b873435721a01b53"
+          }
+        }
+      ],
+      "after": [],
+      "terminal": "root-replacement",
+      "reentry": {
+        "kind": "callee_return",
+        "message_count": 0,
+        "effects": []
+      }
+    }
+  },
+  "terminals": {
+    "root-replacement": {
+      "kind": "root_handoff",
+      "owner_entry": "EVENTJ04.MES",
+      "offset": 1823,
+      "end": 1836,
+      "next_target": "MACHI.MES",
+      "required_state": [
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 905,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 854,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 927,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3714,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 286,
+          "value": 1
+        }
+      ]
+    }
+  },
+  "dependencies": [
+    {
+      "entry": "LIBLARY.LIB",
+      "entry_sha256": "d9aba6eb8dab51fe321e22c868ed0cf38416bba1f0cf2f5d7d719f48e89b8b4d",
+      "role": "shared_library"
+    }
+  ],
+  "presentation": {
+    "status": "deferred",
+    "resources": []
+  },
+  "unresolved": [
+    "Analyze route executes typed state and dialogue with bounded native effects omitted. Music, images, native cadence and the MACHI host are not played.",
+    "Four caller-qualified presets only; unspecified sandbox state is zero. No whole-scheduler or arbitrary-save eligibility claim."
+  ]
+}

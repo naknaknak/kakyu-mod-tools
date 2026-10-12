@@ -1,0 +1,4047 @@
+{
+  "schema": "kakyu_event_analysis_group/v14",
+  "group_id": "01m-a-date",
+  "archive_sha256": "31a95b31cb0f1051cf973a4dba4f4a5405671e4488240adfafb9b02290986aa6",
+  "source_members": [
+    {
+      "entry": "01M.MES",
+      "entry_sha256": "a50511b0ad0ad446b7988c3cfb36736424bf6617e9eb952e20b505f745607cc5"
+    },
+    {
+      "entry": "A_PIC.MES",
+      "entry_sha256": "a6fec48aad306a2f48a8f9ae16e6de0a4eb10ded4d9320ba580ebe177eea7476"
+    },
+    {
+      "entry": "A_DATE1.MES",
+      "entry_sha256": "f914fd9359464ee16a930d7915c51aad42d9a12825d56aab570cc3ef092b2663"
+    },
+    {
+      "entry": "DENSHA.MES",
+      "entry_sha256": "d307dc55339981b0f31f84635e1e4b72408eaeca40ee11ae0c9ae066e85678c1"
+    },
+    {
+      "entry": "TRAIN.MES",
+      "entry_sha256": "1bb4331668682679732a105027372ab013364739c7a324e6ba977fba4ceb6df9"
+    },
+    {
+      "entry": "A_TIME.MES",
+      "entry_sha256": "3519e42806e2b4bba59fe9d2a2a7376974521a483f0301b0ab0f1e360e969ed1"
+    },
+    {
+      "entry": "YABAI.MES",
+      "entry_sha256": "490c08a2c6158a17dda5d0bd328cffe47772cf46027575b9da89d45097f99d1f"
+    },
+    {
+      "entry": "A_DATE2.MES",
+      "entry_sha256": "53c0793f3a7f6d6fb550ffb137f9eca27edc2f762803c4722931ed2242b779f6"
+    },
+    {
+      "entry": "A_DATE7.MES",
+      "entry_sha256": "3ca09211ef2d1532a080123f02cf7c05e4a7ced956cffb11b0b6c2c677768a11"
+    },
+    {
+      "entry": "A_DATE3.MES",
+      "entry_sha256": "18454745f1dc6646aa5ed43d4221fdb4af3914951a14a3c79c7ee9aef171e086"
+    },
+    {
+      "entry": "A_DATE4.MES",
+      "entry_sha256": "e11acef58191b1155201e291e6fb747533a8cec607dd253384bb0045b687e529"
+    },
+    {
+      "entry": "A_DATE5.MES",
+      "entry_sha256": "c2799833cf372d8074646f1888c4fe4145bb2ee97d41bef8c390e62cc64ca2da"
+    },
+    {
+      "entry": "A_HOTEL.MES",
+      "entry_sha256": "793e03ba8cb388ace5269302fbde9bdd90134936a706b40dca577b07143883ed"
+    },
+    {
+      "entry": "A_HOTEL1.MES",
+      "entry_sha256": "8d893af0a82d1eee84fd6b7d73b26070e226ec130009b39201f9f3c6bae5968b"
+    },
+    {
+      "entry": "A_HOTEL2.MES",
+      "entry_sha256": "fe3dce8ca16987d5dbf23c1580db7fe8781cb854f7d61e4a8fce2ad943a87d79"
+    },
+    {
+      "entry": "LIBLARY.LIB",
+      "entry_sha256": "d9aba6eb8dab51fe321e22c868ed0cf38416bba1f0cf2f5d7d719f48e89b8b4d"
+    },
+    {
+      "entry": "DEF_MAIN.MES",
+      "entry_sha256": "f2012ce5d90f60a5d1ca8190e03571341c0384c2d3d96e9aec2b3ab949db0ef0"
+    },
+    {
+      "entry": "START.MES",
+      "entry_sha256": "ba57bf666fbd9db9b3110f2bf1c70e80e11a35de00e82256aaaf35921c77038f"
+    }
+  ],
+  "routes": [
+    {
+      "route_id": "a-date-town",
+      "state_context": {
+        "kind": "original_calendar",
+        "entry": "START.MES",
+        "table_sha256": "f21ee0fcb09e960046878e35ad0410aed88680f849ace471b713ef7a12525b4a"
+      },
+      "origin": {
+        "entry": "01M.MES",
+        "offset": 10999,
+        "guard": {
+          "offset": 10999,
+          "end": 11088,
+          "false_target": 12656,
+          "prefix_sha256": "221f837cd4d8a6714acdf87422b4702fd02a0a7a5e3bd836dfbacbe8b2f52d61",
+          "record_sha256": "b7314844e929563792746672a74858c66aa4c6adb20880c7a1928ec5b95949ae",
+          "source_binding": {
+            "kind": "typed_record"
+          }
+        },
+        "guard_cases": [
+          {
+            "case_id": "accepted",
+            "writes": [],
+            "expected": 1
+          },
+          {
+            "case_id": "rejected",
+            "writes": [
+              {
+                "storage": "global_u8",
+                "bank": 0,
+                "index": 110,
+                "value": 0
+              }
+            ],
+            "expected": 0
+          }
+        ]
+      },
+      "baseline": [
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 7,
+          "value": 502
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 19,
+          "value": 1530
+        },
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 215,
+          "value": 502
+        },
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 216,
+          "value": 900
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 610,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 119,
+          "value": 15
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 110,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 117,
+          "value": 2
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3004,
+          "value": 0
+        }
+      ],
+      "choice_contracts": [
+        {
+          "boundary_offset": 13402,
+          "bytecode_sha256": "f22657b9860e05786f52e3f6ddc9ee7998828cf624b2f8f869f7f23b2c46680b",
+          "code_size": 32378,
+          "comparisons": [
+            {
+              "fallthrough_offset": 13452,
+              "false_target_offset": 16789,
+              "result": 1,
+              "source_offset": 13437
+            },
+            {
+              "fallthrough_offset": 16804,
+              "false_target_offset": 20108,
+              "result": 2,
+              "source_offset": 16789
+            }
+          ],
+          "consumer_kind": "one_based_state_u16_21_branch_chain",
+          "definition_count": 3,
+          "definitions": [
+            {
+              "body_offset": 13188,
+              "body_sha256": "d5852fabe46f89c8bb9c79173abe1c4ec1f8cd19a4dfe49d4fa0e8b0548f9cd4",
+              "body_size": 47,
+              "definition_id": 0,
+              "source_offset": 13179,
+              "target_offset": 13235
+            },
+            {
+              "body_offset": 13260,
+              "body_sha256": "3e3f7a52274b96d71a5411188cce2524d3c09045927db97c3a9a56085a793458",
+              "body_size": 57,
+              "definition_id": 1,
+              "source_offset": 13251,
+              "target_offset": 13317
+            },
+            {
+              "body_offset": 13337,
+              "body_sha256": "4aad1a3960a0c62f482d39595588f9def6b3935e4c7047e25e8e03cce53b08dd",
+              "body_size": 65,
+              "definition_id": 2,
+              "source_offset": 13328,
+              "target_offset": 13402
+            }
+          ],
+          "fallback_offset": -1,
+          "gate": {},
+          "gate_policy": "not_applicable",
+          "input_policy": "explicit_remake_choice",
+          "native_input_semantics": "unresolved",
+          "ok": true,
+          "omitted_native_effects": [
+            "state_u16_18_result",
+            "state_u16_13_output",
+            "routine20",
+            "native_vector_clear"
+          ],
+          "option_entry_offsets": [
+            13452,
+            16804,
+            20108
+          ],
+          "redirect_offset": -1,
+          "redirect_target_offset": -1,
+          "result_index": 21,
+          "result_storage": "state_u16",
+          "result_values": [
+            1,
+            2,
+            3
+          ],
+          "resume_offset": 13407,
+          "schema": "kakyu_mes_routine40_choice_contract/v4",
+          "source_identity": {
+            "archive": "mes.arc",
+            "entry": "A_DATE3.MES"
+          },
+          "variants": []
+        },
+        {
+          "boundary_offset": 2652,
+          "bytecode_sha256": "5ce67ec340b0d20ab1dd1feb16128ba8fcb829a58e62babd92de9b7e218785f4",
+          "code_size": 42539,
+          "comparisons": [
+            {
+              "fallthrough_offset": 2677,
+              "false_target_offset": 3914,
+              "result": 1,
+              "source_offset": 2662
+            },
+            {
+              "fallthrough_offset": 3929,
+              "false_target_offset": 4877,
+              "result": 2,
+              "source_offset": 3914
+            }
+          ],
+          "consumer_kind": "one_based_state_u16_21_branch_chain",
+          "definition_count": 3,
+          "definitions": [
+            {
+              "body_offset": 2493,
+              "body_sha256": "6cc1d1de2c1098b5d0367a56066bac35bb78cdfe10e516383b722fd6b6466b8e",
+              "body_size": 43,
+              "definition_id": 0,
+              "source_offset": 2484,
+              "target_offset": 2536
+            },
+            {
+              "body_offset": 2550,
+              "body_sha256": "6d396c7752d20826112c25d951bd0d499b1b0dbeb8b072e4abb67eabc6571f14",
+              "body_size": 39,
+              "definition_id": 1,
+              "source_offset": 2541,
+              "target_offset": 2589
+            },
+            {
+              "body_offset": 2603,
+              "body_sha256": "9fbea6f997c8906a9a6be57b334909515c8436152f6683f0bd8a16dc2741b5f6",
+              "body_size": 39,
+              "definition_id": 2,
+              "source_offset": 2594,
+              "target_offset": 2642
+            }
+          ],
+          "fallback_offset": -1,
+          "gate": {},
+          "gate_policy": "not_applicable",
+          "input_policy": "explicit_remake_choice",
+          "native_input_semantics": "unresolved",
+          "ok": true,
+          "omitted_native_effects": [
+            "state_u16_18_result",
+            "state_u16_13_output",
+            "routine20",
+            "native_vector_clear"
+          ],
+          "option_entry_offsets": [
+            2677,
+            3929,
+            4877
+          ],
+          "redirect_offset": -1,
+          "redirect_target_offset": -1,
+          "result_index": 21,
+          "result_storage": "state_u16",
+          "result_values": [
+            1,
+            2,
+            3
+          ],
+          "resume_offset": 2657,
+          "schema": "kakyu_mes_routine40_choice_contract/v4",
+          "source_identity": {
+            "archive": "mes.arc",
+            "entry": "DENSHA.MES"
+          },
+          "variants": []
+        },
+        {
+          "boundary_offset": 1497,
+          "bytecode_sha256": "ebf2a1c1799ac6dd87632d6729bb8171c781a59859df7603a9da46b815f04ce9",
+          "code_size": 62586,
+          "comparisons": [
+            {
+              "fallthrough_offset": 1542,
+              "false_target_offset": 7994,
+              "result": 1,
+              "source_offset": 1527
+            },
+            {
+              "fallthrough_offset": 8009,
+              "false_target_offset": 13959,
+              "result": 2,
+              "source_offset": 7994
+            },
+            {
+              "fallthrough_offset": 13974,
+              "false_target_offset": 19962,
+              "result": 3,
+              "source_offset": 13959
+            },
+            {
+              "fallthrough_offset": 19977,
+              "false_target_offset": 26039,
+              "result": 4,
+              "source_offset": 19962
+            },
+            {
+              "fallthrough_offset": 26054,
+              "false_target_offset": 32122,
+              "result": 5,
+              "source_offset": 26039
+            },
+            {
+              "fallthrough_offset": 32137,
+              "false_target_offset": 38209,
+              "result": 6,
+              "source_offset": 32122
+            },
+            {
+              "fallthrough_offset": 38224,
+              "false_target_offset": 44282,
+              "result": 7,
+              "source_offset": 38209
+            },
+            {
+              "fallthrough_offset": 44297,
+              "false_target_offset": 50351,
+              "result": 8,
+              "source_offset": 44282
+            },
+            {
+              "fallthrough_offset": 50366,
+              "false_target_offset": 56438,
+              "result": 9,
+              "source_offset": 50351
+            }
+          ],
+          "consumer_kind": "one_based_state_u16_21_branch_chain",
+          "definition_count": 10,
+          "definitions": [
+            {
+              "body_offset": 1064,
+              "body_sha256": "6654d546744578733477a4dbb1bfc3b3bcd9008e089c775e06895465240dfa02",
+              "body_size": 19,
+              "definition_id": 0,
+              "source_offset": 1055,
+              "target_offset": 1083
+            },
+            {
+              "body_offset": 1097,
+              "body_sha256": "1c1750e623dd063d22e99b022b7c0dbc2b823a1954e6e1b4c87dc24d976f7901",
+              "body_size": 19,
+              "definition_id": 1,
+              "source_offset": 1088,
+              "target_offset": 1116
+            },
+            {
+              "body_offset": 1130,
+              "body_sha256": "b67cb36c47d02fd5d86f6c1bdc939db8d615577e7217f979b7f0a7d51d521f1e",
+              "body_size": 19,
+              "definition_id": 2,
+              "source_offset": 1121,
+              "target_offset": 1149
+            },
+            {
+              "body_offset": 1163,
+              "body_sha256": "a9eaa67f3b1839787ef87e3298e349fb5ef7bf93085484f7875eab4071907b35",
+              "body_size": 19,
+              "definition_id": 3,
+              "source_offset": 1154,
+              "target_offset": 1182
+            },
+            {
+              "body_offset": 1196,
+              "body_sha256": "f7e30a778b15f2943a51c5304ae30492fa1f1b935feeaede56d072ff3be4c20b",
+              "body_size": 19,
+              "definition_id": 4,
+              "source_offset": 1187,
+              "target_offset": 1215
+            },
+            {
+              "body_offset": 1229,
+              "body_sha256": "c2dcf8f0f927eaedc8c186092379a2ae11ddce7b662bb1c30541e7a72be8df90",
+              "body_size": 19,
+              "definition_id": 5,
+              "source_offset": 1220,
+              "target_offset": 1248
+            },
+            {
+              "body_offset": 1262,
+              "body_sha256": "81bfddcc67676a3800765a8d5b2ddda6c39a0c14e2e8c408f393effb223b05fd",
+              "body_size": 19,
+              "definition_id": 6,
+              "source_offset": 1253,
+              "target_offset": 1281
+            },
+            {
+              "body_offset": 1295,
+              "body_sha256": "21878743e056de2ee2d24a4e22dff1928a2bafbd48c9f3f30a537eb352126165",
+              "body_size": 19,
+              "definition_id": 7,
+              "source_offset": 1286,
+              "target_offset": 1314
+            },
+            {
+              "body_offset": 1328,
+              "body_sha256": "2261c3156ca1ba90a21e4f313f5f549d8da5864d94719f37896f4404a3401d03",
+              "body_size": 19,
+              "definition_id": 8,
+              "source_offset": 1319,
+              "target_offset": 1347
+            },
+            {
+              "body_offset": 1361,
+              "body_sha256": "bee88278bd7dc9653c4e666efec34fa4787f58bfc4db9e8ed815ef9eb1b83d7f",
+              "body_size": 21,
+              "definition_id": 9,
+              "source_offset": 1352,
+              "target_offset": 1382
+            }
+          ],
+          "fallback_offset": -1,
+          "gate": {},
+          "gate_policy": "not_applicable",
+          "input_policy": "explicit_remake_choice",
+          "native_input_semantics": "unresolved",
+          "ok": true,
+          "omitted_native_effects": [
+            "state_u16_18_result",
+            "state_u16_13_output",
+            "routine20",
+            "native_vector_clear"
+          ],
+          "option_entry_offsets": [
+            1542,
+            8009,
+            13974,
+            19977,
+            26054,
+            32137,
+            38224,
+            44297,
+            50366,
+            56438
+          ],
+          "redirect_offset": -1,
+          "redirect_target_offset": -1,
+          "result_index": 21,
+          "result_storage": "state_u16",
+          "result_values": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "resume_offset": 1502,
+          "schema": "kakyu_mes_routine40_choice_contract/v4",
+          "source_identity": {
+            "archive": "mes.arc",
+            "entry": "A_TIME.MES"
+          },
+          "variants": []
+        }
+      ],
+      "hops": [
+        {
+          "hop_id": "h1_dispatch_a_pic1",
+          "entry": "01M.MES",
+          "entered_by": {
+            "kind": "origin"
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 0,
+            "outcome": {
+              "offset": 11148,
+              "end": 11161,
+              "op": "script_dispatch",
+              "status": "script_dispatch_boundary",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "cd6850505be4db6ad1e2fcd4f58b75a104588dfb6696154651872174cfefe9b4",
+              "target": "A_PIC.MES"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h2_a_pic1",
+          "entry": "A_PIC.MES",
+          "entered_by": {
+            "kind": "nested_call",
+            "offset": 11148,
+            "end": 11161,
+            "op": "script_dispatch",
+            "record_sha256": "cd6850505be4db6ad1e2fcd4f58b75a104588dfb6696154651872174cfefe9b4",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 0,
+            "outcome": {
+              "offset": 2392,
+              "end": 2393,
+              "op": "command_00",
+              "status": "script_return",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h3_dispatch_a_date1",
+          "entry": "01M.MES",
+          "entered_by": {
+            "kind": "resume",
+            "offset": 2392,
+            "end": 2393,
+            "op": "command_00",
+            "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 0,
+            "outcome": {
+              "offset": 11166,
+              "end": 11181,
+              "op": "script_dispatch",
+              "status": "script_dispatch_boundary",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "c43c93e6bf7d4cdf288a2755ed59c6ffb3aeaffddc8400caca687f1224a101ab",
+              "target": "A_DATE1.MES"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h4_a_date1",
+          "entry": "A_DATE1.MES",
+          "entered_by": {
+            "kind": "nested_call",
+            "offset": 11166,
+            "end": 11181,
+            "op": "script_dispatch",
+            "record_sha256": "c43c93e6bf7d4cdf288a2755ed59c6ffb3aeaffddc8400caca687f1224a101ab",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 13,
+            "outcome": {
+              "offset": 12442,
+              "end": 12443,
+              "op": "command_00",
+              "status": "script_return",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h5_dispatch_densha",
+          "entry": "01M.MES",
+          "entered_by": {
+            "kind": "resume",
+            "offset": 12442,
+            "end": 12443,
+            "op": "command_00",
+            "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 0,
+            "outcome": {
+              "offset": 11208,
+              "end": 11222,
+              "op": "script_dispatch",
+              "status": "script_dispatch_boundary",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "d9bd13d9b8bdd113d3d1878f85a75f69c2340b14da980a6a49ee5016d1aa94fe",
+              "target": "DENSHA.MES"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h6_densha_train",
+          "entry": "DENSHA.MES",
+          "entered_by": {
+            "kind": "nested_call",
+            "offset": 11208,
+            "end": 11222,
+            "op": "script_dispatch",
+            "record_sha256": "d9bd13d9b8bdd113d3d1878f85a75f69c2340b14da980a6a49ee5016d1aa94fe",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [
+            {
+              "boundary_offset": 2652,
+              "result_value": 1
+            }
+          ],
+          "gates": [],
+          "map_locations": [
+            {
+              "schema": "kakyu_mes_map_location_contract/v1",
+              "source_identity": {
+                "archive": "mes.arc",
+                "entry": "TRAIN.MES"
+              },
+              "poll_offset": 886,
+              "poll_end": 894,
+              "poll_function": [
+                6,
+                13
+              ],
+              "record_sha256": "e9e095f3bf6b864c4c1b585815ad9ac422ee1aedc88817a133823b110a5f8752",
+              "result_storage": "state_u16",
+              "result_index": 18,
+              "none_value": 65535,
+              "locations": [
+                0,
+                1
+              ]
+            }
+          ],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 29,
+            "outcome": {
+              "offset": 42522,
+              "end": 42523,
+              "op": "command_00",
+              "status": "script_return",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h7_dispatch_a_time",
+          "entry": "01M.MES",
+          "entered_by": {
+            "kind": "resume",
+            "offset": 42522,
+            "end": 42523,
+            "op": "command_00",
+            "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 0,
+            "outcome": {
+              "offset": 11227,
+              "end": 11241,
+              "op": "script_dispatch",
+              "status": "script_dispatch_boundary",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "f106950814fb4f6493a0a99d66d412d7cb650edf4e66dd479426be49b47cc448",
+              "target": "A_TIME.MES"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h8_a_time",
+          "entry": "A_TIME.MES",
+          "entered_by": {
+            "kind": "nested_call",
+            "offset": 11227,
+            "end": 11241,
+            "op": "script_dispatch",
+            "record_sha256": "f106950814fb4f6493a0a99d66d412d7cb650edf4e66dd479426be49b47cc448",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [
+            {
+              "boundary_offset": 1497,
+              "result_value": 1
+            }
+          ],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 6,
+            "outcome": {
+              "offset": 62534,
+              "end": 62535,
+              "op": "command_00",
+              "status": "script_return",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h9_dispatch_yabai",
+          "entry": "01M.MES",
+          "entered_by": {
+            "kind": "resume",
+            "offset": 62534,
+            "end": 62535,
+            "op": "command_00",
+            "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 0,
+            "outcome": {
+              "offset": 11378,
+              "end": 11391,
+              "op": "script_dispatch",
+              "status": "script_dispatch_boundary",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "6e4c5e3267cb210113d2ddcfe5cd1fea4ad155560ff8e3de12ce5a6f0dd34c54",
+              "target": "YABAI.MES"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h10_yabai",
+          "entry": "YABAI.MES",
+          "entered_by": {
+            "kind": "nested_call",
+            "offset": 11378,
+            "end": 11391,
+            "op": "script_dispatch",
+            "record_sha256": "6e4c5e3267cb210113d2ddcfe5cd1fea4ad155560ff8e3de12ce5a6f0dd34c54",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 0,
+            "outcome": {
+              "offset": 38869,
+              "end": 38870,
+              "op": "command_00",
+              "status": "script_return",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h11_dispatch_a_date2",
+          "entry": "01M.MES",
+          "entered_by": {
+            "kind": "resume",
+            "offset": 38869,
+            "end": 38870,
+            "op": "command_00",
+            "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 0,
+            "outcome": {
+              "offset": 11396,
+              "end": 11411,
+              "op": "script_dispatch",
+              "status": "script_dispatch_boundary",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "8edbccbd97c40cba4bb16685290e3451cae7b1244cd5c75f8a46263a9f74944f",
+              "target": "A_DATE2.MES"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h12_a_date2",
+          "entry": "A_DATE2.MES",
+          "entered_by": {
+            "kind": "nested_call",
+            "offset": 11396,
+            "end": 11411,
+            "op": "script_dispatch",
+            "record_sha256": "8edbccbd97c40cba4bb16685290e3451cae7b1244cd5c75f8a46263a9f74944f",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 0,
+            "outcome": {
+              "offset": 31229,
+              "end": 31230,
+              "op": "command_00",
+              "status": "script_return",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h13_dispatch_a_pic2",
+          "entry": "01M.MES",
+          "entered_by": {
+            "kind": "resume",
+            "offset": 31229,
+            "end": 31230,
+            "op": "command_00",
+            "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 0,
+            "outcome": {
+              "offset": 12160,
+              "end": 12173,
+              "op": "script_dispatch",
+              "status": "script_dispatch_boundary",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "cd6850505be4db6ad1e2fcd4f58b75a104588dfb6696154651872174cfefe9b4",
+              "target": "A_PIC.MES"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h14_a_pic2",
+          "entry": "A_PIC.MES",
+          "entered_by": {
+            "kind": "nested_call",
+            "offset": 12160,
+            "end": 12173,
+            "op": "script_dispatch",
+            "record_sha256": "cd6850505be4db6ad1e2fcd4f58b75a104588dfb6696154651872174cfefe9b4",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 0,
+            "outcome": {
+              "offset": 2392,
+              "end": 2393,
+              "op": "command_00",
+              "status": "script_return",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h15_dispatch_a_date7",
+          "entry": "01M.MES",
+          "entered_by": {
+            "kind": "resume",
+            "offset": 2392,
+            "end": 2393,
+            "op": "command_00",
+            "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 0,
+            "outcome": {
+              "offset": 12178,
+              "end": 12193,
+              "op": "script_dispatch",
+              "status": "script_dispatch_boundary",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "b1e96d21c021885854778e3149805b7ec6931ba109226dc5e0319fea6dbf85ca",
+              "target": "A_DATE7.MES"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h16_a_date7",
+          "entry": "A_DATE7.MES",
+          "entered_by": {
+            "kind": "nested_call",
+            "offset": 12178,
+            "end": 12193,
+            "op": "script_dispatch",
+            "record_sha256": "b1e96d21c021885854778e3149805b7ec6931ba109226dc5e0319fea6dbf85ca",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 22,
+            "outcome": {
+              "offset": 13146,
+              "end": 13147,
+              "op": "command_00",
+              "status": "script_return",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h17_dispatch_a_pic3",
+          "entry": "01M.MES",
+          "entered_by": {
+            "kind": "resume",
+            "offset": 13146,
+            "end": 13147,
+            "op": "command_00",
+            "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 0,
+            "outcome": {
+              "offset": 12355,
+              "end": 12368,
+              "op": "script_dispatch",
+              "status": "script_dispatch_boundary",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "cd6850505be4db6ad1e2fcd4f58b75a104588dfb6696154651872174cfefe9b4",
+              "target": "A_PIC.MES"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h18_a_pic3",
+          "entry": "A_PIC.MES",
+          "entered_by": {
+            "kind": "nested_call",
+            "offset": 12355,
+            "end": 12368,
+            "op": "script_dispatch",
+            "record_sha256": "cd6850505be4db6ad1e2fcd4f58b75a104588dfb6696154651872174cfefe9b4",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 0,
+            "outcome": {
+              "offset": 2392,
+              "end": 2393,
+              "op": "command_00",
+              "status": "script_return",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h19_dispatch_a_date3",
+          "entry": "01M.MES",
+          "entered_by": {
+            "kind": "resume",
+            "offset": 2392,
+            "end": 2393,
+            "op": "command_00",
+            "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 0,
+            "outcome": {
+              "offset": 12373,
+              "end": 12388,
+              "op": "script_dispatch",
+              "status": "script_dispatch_boundary",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "f9259107147d9476e8a40f8b0063ed706b8bd12dab2effe0e07b12b8aba83022",
+              "target": "A_DATE3.MES"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "t20_a_date3",
+          "entry": "A_DATE3.MES",
+          "entered_by": {
+            "kind": "nested_call",
+            "offset": 12373,
+            "end": 12388,
+            "op": "script_dispatch",
+            "record_sha256": "f9259107147d9476e8a40f8b0063ed706b8bd12dab2effe0e07b12b8aba83022",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [
+            {
+              "boundary_offset": 13402,
+              "result_value": 1
+            }
+          ],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 7,
+            "outcome": {
+              "offset": 32377,
+              "end": 32378,
+              "op": "command_00",
+              "status": "script_return",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "t21_dispatch_a_date4",
+          "entry": "01M.MES",
+          "entered_by": {
+            "kind": "resume",
+            "offset": 32377,
+            "end": 32378,
+            "op": "command_00",
+            "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 0,
+            "outcome": {
+              "offset": 12583,
+              "end": 12598,
+              "op": "script_dispatch",
+              "status": "script_dispatch_boundary",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "92ad86a795f177064a404e5fc0f400a6251d7c22a67b1ed9dec89741bf840321",
+              "target": "A_DATE4.MES"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "t22_a_date4",
+          "entry": "A_DATE4.MES",
+          "entered_by": {
+            "kind": "nested_call",
+            "offset": 12583,
+            "end": 12598,
+            "op": "script_dispatch",
+            "record_sha256": "92ad86a795f177064a404e5fc0f400a6251d7c22a67b1ed9dec89741bf840321",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 6,
+            "outcome": {
+              "offset": 2336,
+              "end": 2337,
+              "op": "command_00",
+              "status": "script_return",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "t23_handoff_machi",
+          "entry": "01M.MES",
+          "entered_by": {
+            "kind": "resume",
+            "offset": 2336,
+            "end": 2337,
+            "op": "command_00",
+            "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 0,
+            "outcome": {
+              "offset": 12633,
+              "end": 12646,
+              "op": "script_handoff_marker",
+              "status": "script_handoff_boundary",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "496ee6fc5e929a0d78f596b742cf256b0651842fc13c717c182cd217879ac047",
+              "target": "MACHI.MES"
+            },
+            "expected_state": []
+          }
+        }
+      ],
+      "terminal": {
+        "entry": "01M.MES",
+        "offset": 12633,
+        "end": 12646,
+        "op": "script_handoff_marker",
+        "status": "script_handoff_boundary",
+        "source_binding": {
+          "kind": "typed_record"
+        },
+        "record_sha256": "496ee6fc5e929a0d78f596b742cf256b0651842fc13c717c182cd217879ac047",
+        "target": "MACHI.MES"
+      },
+      "variants": [
+        {
+          "variant_id": "default",
+          "writes": [],
+          "expected_state": []
+        }
+      ],
+      "unresolved": [
+        "who clears state_u16[18] for definition 17's own host-wait poll in natural play (the host; poll_supplies is a tool-supplied stand-in)",
+        "state_u16[12]'s natural supply (read here as money, date_scene.md's naming; who credits it and its natural range are not measured)",
+        "global_u8[110]/[117]'s own natural trigger (traced only to LIBLARY.LIB/?_TALKnn.MES as a class, not to a specific caller, in ep12_date_prereq_report.md)"
+      ]
+    },
+    {
+      "route_id": "a-date-date5",
+      "state_context": {
+        "kind": "original_calendar",
+        "entry": "START.MES",
+        "table_sha256": "f21ee0fcb09e960046878e35ad0410aed88680f849ace471b713ef7a12525b4a"
+      },
+      "origin": {
+        "entry": "01M.MES",
+        "offset": 10999,
+        "guard": {
+          "offset": 10999,
+          "end": 11088,
+          "false_target": 12656,
+          "prefix_sha256": "221f837cd4d8a6714acdf87422b4702fd02a0a7a5e3bd836dfbacbe8b2f52d61",
+          "record_sha256": "b7314844e929563792746672a74858c66aa4c6adb20880c7a1928ec5b95949ae",
+          "source_binding": {
+            "kind": "typed_record"
+          }
+        },
+        "guard_cases": [
+          {
+            "case_id": "accepted",
+            "writes": [],
+            "expected": 1
+          },
+          {
+            "case_id": "rejected",
+            "writes": [
+              {
+                "storage": "global_u8",
+                "bank": 0,
+                "index": 110,
+                "value": 0
+              }
+            ],
+            "expected": 0
+          }
+        ]
+      },
+      "baseline": [
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 7,
+          "value": 502
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 19,
+          "value": 1530
+        },
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 215,
+          "value": 502
+        },
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 216,
+          "value": 900
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 610,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 119,
+          "value": 15
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 110,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 117,
+          "value": 2
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3004,
+          "value": 0
+        }
+      ],
+      "choice_contracts": [
+        {
+          "boundary_offset": 13402,
+          "bytecode_sha256": "f22657b9860e05786f52e3f6ddc9ee7998828cf624b2f8f869f7f23b2c46680b",
+          "code_size": 32378,
+          "comparisons": [
+            {
+              "fallthrough_offset": 13452,
+              "false_target_offset": 16789,
+              "result": 1,
+              "source_offset": 13437
+            },
+            {
+              "fallthrough_offset": 16804,
+              "false_target_offset": 20108,
+              "result": 2,
+              "source_offset": 16789
+            }
+          ],
+          "consumer_kind": "one_based_state_u16_21_branch_chain",
+          "definition_count": 3,
+          "definitions": [
+            {
+              "body_offset": 13188,
+              "body_sha256": "d5852fabe46f89c8bb9c79173abe1c4ec1f8cd19a4dfe49d4fa0e8b0548f9cd4",
+              "body_size": 47,
+              "definition_id": 0,
+              "source_offset": 13179,
+              "target_offset": 13235
+            },
+            {
+              "body_offset": 13260,
+              "body_sha256": "3e3f7a52274b96d71a5411188cce2524d3c09045927db97c3a9a56085a793458",
+              "body_size": 57,
+              "definition_id": 1,
+              "source_offset": 13251,
+              "target_offset": 13317
+            },
+            {
+              "body_offset": 13337,
+              "body_sha256": "4aad1a3960a0c62f482d39595588f9def6b3935e4c7047e25e8e03cce53b08dd",
+              "body_size": 65,
+              "definition_id": 2,
+              "source_offset": 13328,
+              "target_offset": 13402
+            }
+          ],
+          "fallback_offset": -1,
+          "gate": {},
+          "gate_policy": "not_applicable",
+          "input_policy": "explicit_remake_choice",
+          "native_input_semantics": "unresolved",
+          "ok": true,
+          "omitted_native_effects": [
+            "state_u16_18_result",
+            "state_u16_13_output",
+            "routine20",
+            "native_vector_clear"
+          ],
+          "option_entry_offsets": [
+            13452,
+            16804,
+            20108
+          ],
+          "redirect_offset": -1,
+          "redirect_target_offset": -1,
+          "result_index": 21,
+          "result_storage": "state_u16",
+          "result_values": [
+            1,
+            2,
+            3
+          ],
+          "resume_offset": 13407,
+          "schema": "kakyu_mes_routine40_choice_contract/v4",
+          "source_identity": {
+            "archive": "mes.arc",
+            "entry": "A_DATE3.MES"
+          },
+          "variants": []
+        },
+        {
+          "boundary_offset": 2652,
+          "bytecode_sha256": "5ce67ec340b0d20ab1dd1feb16128ba8fcb829a58e62babd92de9b7e218785f4",
+          "code_size": 42539,
+          "comparisons": [
+            {
+              "fallthrough_offset": 2677,
+              "false_target_offset": 3914,
+              "result": 1,
+              "source_offset": 2662
+            },
+            {
+              "fallthrough_offset": 3929,
+              "false_target_offset": 4877,
+              "result": 2,
+              "source_offset": 3914
+            }
+          ],
+          "consumer_kind": "one_based_state_u16_21_branch_chain",
+          "definition_count": 3,
+          "definitions": [
+            {
+              "body_offset": 2493,
+              "body_sha256": "6cc1d1de2c1098b5d0367a56066bac35bb78cdfe10e516383b722fd6b6466b8e",
+              "body_size": 43,
+              "definition_id": 0,
+              "source_offset": 2484,
+              "target_offset": 2536
+            },
+            {
+              "body_offset": 2550,
+              "body_sha256": "6d396c7752d20826112c25d951bd0d499b1b0dbeb8b072e4abb67eabc6571f14",
+              "body_size": 39,
+              "definition_id": 1,
+              "source_offset": 2541,
+              "target_offset": 2589
+            },
+            {
+              "body_offset": 2603,
+              "body_sha256": "9fbea6f997c8906a9a6be57b334909515c8436152f6683f0bd8a16dc2741b5f6",
+              "body_size": 39,
+              "definition_id": 2,
+              "source_offset": 2594,
+              "target_offset": 2642
+            }
+          ],
+          "fallback_offset": -1,
+          "gate": {},
+          "gate_policy": "not_applicable",
+          "input_policy": "explicit_remake_choice",
+          "native_input_semantics": "unresolved",
+          "ok": true,
+          "omitted_native_effects": [
+            "state_u16_18_result",
+            "state_u16_13_output",
+            "routine20",
+            "native_vector_clear"
+          ],
+          "option_entry_offsets": [
+            2677,
+            3929,
+            4877
+          ],
+          "redirect_offset": -1,
+          "redirect_target_offset": -1,
+          "result_index": 21,
+          "result_storage": "state_u16",
+          "result_values": [
+            1,
+            2,
+            3
+          ],
+          "resume_offset": 2657,
+          "schema": "kakyu_mes_routine40_choice_contract/v4",
+          "source_identity": {
+            "archive": "mes.arc",
+            "entry": "DENSHA.MES"
+          },
+          "variants": []
+        },
+        {
+          "boundary_offset": 1497,
+          "bytecode_sha256": "ebf2a1c1799ac6dd87632d6729bb8171c781a59859df7603a9da46b815f04ce9",
+          "code_size": 62586,
+          "comparisons": [
+            {
+              "fallthrough_offset": 1542,
+              "false_target_offset": 7994,
+              "result": 1,
+              "source_offset": 1527
+            },
+            {
+              "fallthrough_offset": 8009,
+              "false_target_offset": 13959,
+              "result": 2,
+              "source_offset": 7994
+            },
+            {
+              "fallthrough_offset": 13974,
+              "false_target_offset": 19962,
+              "result": 3,
+              "source_offset": 13959
+            },
+            {
+              "fallthrough_offset": 19977,
+              "false_target_offset": 26039,
+              "result": 4,
+              "source_offset": 19962
+            },
+            {
+              "fallthrough_offset": 26054,
+              "false_target_offset": 32122,
+              "result": 5,
+              "source_offset": 26039
+            },
+            {
+              "fallthrough_offset": 32137,
+              "false_target_offset": 38209,
+              "result": 6,
+              "source_offset": 32122
+            },
+            {
+              "fallthrough_offset": 38224,
+              "false_target_offset": 44282,
+              "result": 7,
+              "source_offset": 38209
+            },
+            {
+              "fallthrough_offset": 44297,
+              "false_target_offset": 50351,
+              "result": 8,
+              "source_offset": 44282
+            },
+            {
+              "fallthrough_offset": 50366,
+              "false_target_offset": 56438,
+              "result": 9,
+              "source_offset": 50351
+            }
+          ],
+          "consumer_kind": "one_based_state_u16_21_branch_chain",
+          "definition_count": 10,
+          "definitions": [
+            {
+              "body_offset": 1064,
+              "body_sha256": "6654d546744578733477a4dbb1bfc3b3bcd9008e089c775e06895465240dfa02",
+              "body_size": 19,
+              "definition_id": 0,
+              "source_offset": 1055,
+              "target_offset": 1083
+            },
+            {
+              "body_offset": 1097,
+              "body_sha256": "1c1750e623dd063d22e99b022b7c0dbc2b823a1954e6e1b4c87dc24d976f7901",
+              "body_size": 19,
+              "definition_id": 1,
+              "source_offset": 1088,
+              "target_offset": 1116
+            },
+            {
+              "body_offset": 1130,
+              "body_sha256": "b67cb36c47d02fd5d86f6c1bdc939db8d615577e7217f979b7f0a7d51d521f1e",
+              "body_size": 19,
+              "definition_id": 2,
+              "source_offset": 1121,
+              "target_offset": 1149
+            },
+            {
+              "body_offset": 1163,
+              "body_sha256": "a9eaa67f3b1839787ef87e3298e349fb5ef7bf93085484f7875eab4071907b35",
+              "body_size": 19,
+              "definition_id": 3,
+              "source_offset": 1154,
+              "target_offset": 1182
+            },
+            {
+              "body_offset": 1196,
+              "body_sha256": "f7e30a778b15f2943a51c5304ae30492fa1f1b935feeaede56d072ff3be4c20b",
+              "body_size": 19,
+              "definition_id": 4,
+              "source_offset": 1187,
+              "target_offset": 1215
+            },
+            {
+              "body_offset": 1229,
+              "body_sha256": "c2dcf8f0f927eaedc8c186092379a2ae11ddce7b662bb1c30541e7a72be8df90",
+              "body_size": 19,
+              "definition_id": 5,
+              "source_offset": 1220,
+              "target_offset": 1248
+            },
+            {
+              "body_offset": 1262,
+              "body_sha256": "81bfddcc67676a3800765a8d5b2ddda6c39a0c14e2e8c408f393effb223b05fd",
+              "body_size": 19,
+              "definition_id": 6,
+              "source_offset": 1253,
+              "target_offset": 1281
+            },
+            {
+              "body_offset": 1295,
+              "body_sha256": "21878743e056de2ee2d24a4e22dff1928a2bafbd48c9f3f30a537eb352126165",
+              "body_size": 19,
+              "definition_id": 7,
+              "source_offset": 1286,
+              "target_offset": 1314
+            },
+            {
+              "body_offset": 1328,
+              "body_sha256": "2261c3156ca1ba90a21e4f313f5f549d8da5864d94719f37896f4404a3401d03",
+              "body_size": 19,
+              "definition_id": 8,
+              "source_offset": 1319,
+              "target_offset": 1347
+            },
+            {
+              "body_offset": 1361,
+              "body_sha256": "bee88278bd7dc9653c4e666efec34fa4787f58bfc4db9e8ed815ef9eb1b83d7f",
+              "body_size": 21,
+              "definition_id": 9,
+              "source_offset": 1352,
+              "target_offset": 1382
+            }
+          ],
+          "fallback_offset": -1,
+          "gate": {},
+          "gate_policy": "not_applicable",
+          "input_policy": "explicit_remake_choice",
+          "native_input_semantics": "unresolved",
+          "ok": true,
+          "omitted_native_effects": [
+            "state_u16_18_result",
+            "state_u16_13_output",
+            "routine20",
+            "native_vector_clear"
+          ],
+          "option_entry_offsets": [
+            1542,
+            8009,
+            13974,
+            19977,
+            26054,
+            32137,
+            38224,
+            44297,
+            50366,
+            56438
+          ],
+          "redirect_offset": -1,
+          "redirect_target_offset": -1,
+          "result_index": 21,
+          "result_storage": "state_u16",
+          "result_values": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "resume_offset": 1502,
+          "schema": "kakyu_mes_routine40_choice_contract/v4",
+          "source_identity": {
+            "archive": "mes.arc",
+            "entry": "A_TIME.MES"
+          },
+          "variants": []
+        }
+      ],
+      "hops": [
+        {
+          "hop_id": "h1_dispatch_a_pic1",
+          "entry": "01M.MES",
+          "entered_by": {
+            "kind": "origin"
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 0,
+            "outcome": {
+              "offset": 11148,
+              "end": 11161,
+              "op": "script_dispatch",
+              "status": "script_dispatch_boundary",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "cd6850505be4db6ad1e2fcd4f58b75a104588dfb6696154651872174cfefe9b4",
+              "target": "A_PIC.MES"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h2_a_pic1",
+          "entry": "A_PIC.MES",
+          "entered_by": {
+            "kind": "nested_call",
+            "offset": 11148,
+            "end": 11161,
+            "op": "script_dispatch",
+            "record_sha256": "cd6850505be4db6ad1e2fcd4f58b75a104588dfb6696154651872174cfefe9b4",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 0,
+            "outcome": {
+              "offset": 2392,
+              "end": 2393,
+              "op": "command_00",
+              "status": "script_return",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h3_dispatch_a_date1",
+          "entry": "01M.MES",
+          "entered_by": {
+            "kind": "resume",
+            "offset": 2392,
+            "end": 2393,
+            "op": "command_00",
+            "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 0,
+            "outcome": {
+              "offset": 11166,
+              "end": 11181,
+              "op": "script_dispatch",
+              "status": "script_dispatch_boundary",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "c43c93e6bf7d4cdf288a2755ed59c6ffb3aeaffddc8400caca687f1224a101ab",
+              "target": "A_DATE1.MES"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h4_a_date1",
+          "entry": "A_DATE1.MES",
+          "entered_by": {
+            "kind": "nested_call",
+            "offset": 11166,
+            "end": 11181,
+            "op": "script_dispatch",
+            "record_sha256": "c43c93e6bf7d4cdf288a2755ed59c6ffb3aeaffddc8400caca687f1224a101ab",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 13,
+            "outcome": {
+              "offset": 12442,
+              "end": 12443,
+              "op": "command_00",
+              "status": "script_return",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h5_dispatch_densha",
+          "entry": "01M.MES",
+          "entered_by": {
+            "kind": "resume",
+            "offset": 12442,
+            "end": 12443,
+            "op": "command_00",
+            "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 0,
+            "outcome": {
+              "offset": 11208,
+              "end": 11222,
+              "op": "script_dispatch",
+              "status": "script_dispatch_boundary",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "d9bd13d9b8bdd113d3d1878f85a75f69c2340b14da980a6a49ee5016d1aa94fe",
+              "target": "DENSHA.MES"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h6_densha_train",
+          "entry": "DENSHA.MES",
+          "entered_by": {
+            "kind": "nested_call",
+            "offset": 11208,
+            "end": 11222,
+            "op": "script_dispatch",
+            "record_sha256": "d9bd13d9b8bdd113d3d1878f85a75f69c2340b14da980a6a49ee5016d1aa94fe",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [
+            {
+              "boundary_offset": 2652,
+              "result_value": 1
+            }
+          ],
+          "gates": [],
+          "map_locations": [
+            {
+              "schema": "kakyu_mes_map_location_contract/v1",
+              "source_identity": {
+                "archive": "mes.arc",
+                "entry": "TRAIN.MES"
+              },
+              "poll_offset": 886,
+              "poll_end": 894,
+              "poll_function": [
+                6,
+                13
+              ],
+              "record_sha256": "e9e095f3bf6b864c4c1b585815ad9ac422ee1aedc88817a133823b110a5f8752",
+              "result_storage": "state_u16",
+              "result_index": 18,
+              "none_value": 65535,
+              "locations": [
+                0,
+                1
+              ]
+            }
+          ],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 29,
+            "outcome": {
+              "offset": 42522,
+              "end": 42523,
+              "op": "command_00",
+              "status": "script_return",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h7_dispatch_a_time",
+          "entry": "01M.MES",
+          "entered_by": {
+            "kind": "resume",
+            "offset": 42522,
+            "end": 42523,
+            "op": "command_00",
+            "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 0,
+            "outcome": {
+              "offset": 11227,
+              "end": 11241,
+              "op": "script_dispatch",
+              "status": "script_dispatch_boundary",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "f106950814fb4f6493a0a99d66d412d7cb650edf4e66dd479426be49b47cc448",
+              "target": "A_TIME.MES"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h8_a_time",
+          "entry": "A_TIME.MES",
+          "entered_by": {
+            "kind": "nested_call",
+            "offset": 11227,
+            "end": 11241,
+            "op": "script_dispatch",
+            "record_sha256": "f106950814fb4f6493a0a99d66d412d7cb650edf4e66dd479426be49b47cc448",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [
+            {
+              "boundary_offset": 1497,
+              "result_value": 1
+            }
+          ],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 6,
+            "outcome": {
+              "offset": 62534,
+              "end": 62535,
+              "op": "command_00",
+              "status": "script_return",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h9_dispatch_yabai",
+          "entry": "01M.MES",
+          "entered_by": {
+            "kind": "resume",
+            "offset": 62534,
+            "end": 62535,
+            "op": "command_00",
+            "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 0,
+            "outcome": {
+              "offset": 11378,
+              "end": 11391,
+              "op": "script_dispatch",
+              "status": "script_dispatch_boundary",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "6e4c5e3267cb210113d2ddcfe5cd1fea4ad155560ff8e3de12ce5a6f0dd34c54",
+              "target": "YABAI.MES"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h10_yabai",
+          "entry": "YABAI.MES",
+          "entered_by": {
+            "kind": "nested_call",
+            "offset": 11378,
+            "end": 11391,
+            "op": "script_dispatch",
+            "record_sha256": "6e4c5e3267cb210113d2ddcfe5cd1fea4ad155560ff8e3de12ce5a6f0dd34c54",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 0,
+            "outcome": {
+              "offset": 38869,
+              "end": 38870,
+              "op": "command_00",
+              "status": "script_return",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h11_dispatch_a_date2",
+          "entry": "01M.MES",
+          "entered_by": {
+            "kind": "resume",
+            "offset": 38869,
+            "end": 38870,
+            "op": "command_00",
+            "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 0,
+            "outcome": {
+              "offset": 11396,
+              "end": 11411,
+              "op": "script_dispatch",
+              "status": "script_dispatch_boundary",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "8edbccbd97c40cba4bb16685290e3451cae7b1244cd5c75f8a46263a9f74944f",
+              "target": "A_DATE2.MES"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h12_a_date2",
+          "entry": "A_DATE2.MES",
+          "entered_by": {
+            "kind": "nested_call",
+            "offset": 11396,
+            "end": 11411,
+            "op": "script_dispatch",
+            "record_sha256": "8edbccbd97c40cba4bb16685290e3451cae7b1244cd5c75f8a46263a9f74944f",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 0,
+            "outcome": {
+              "offset": 31229,
+              "end": 31230,
+              "op": "command_00",
+              "status": "script_return",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h13_dispatch_a_pic2",
+          "entry": "01M.MES",
+          "entered_by": {
+            "kind": "resume",
+            "offset": 31229,
+            "end": 31230,
+            "op": "command_00",
+            "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 0,
+            "outcome": {
+              "offset": 12160,
+              "end": 12173,
+              "op": "script_dispatch",
+              "status": "script_dispatch_boundary",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "cd6850505be4db6ad1e2fcd4f58b75a104588dfb6696154651872174cfefe9b4",
+              "target": "A_PIC.MES"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h14_a_pic2",
+          "entry": "A_PIC.MES",
+          "entered_by": {
+            "kind": "nested_call",
+            "offset": 12160,
+            "end": 12173,
+            "op": "script_dispatch",
+            "record_sha256": "cd6850505be4db6ad1e2fcd4f58b75a104588dfb6696154651872174cfefe9b4",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 0,
+            "outcome": {
+              "offset": 2392,
+              "end": 2393,
+              "op": "command_00",
+              "status": "script_return",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h15_dispatch_a_date7",
+          "entry": "01M.MES",
+          "entered_by": {
+            "kind": "resume",
+            "offset": 2392,
+            "end": 2393,
+            "op": "command_00",
+            "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 0,
+            "outcome": {
+              "offset": 12178,
+              "end": 12193,
+              "op": "script_dispatch",
+              "status": "script_dispatch_boundary",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "b1e96d21c021885854778e3149805b7ec6931ba109226dc5e0319fea6dbf85ca",
+              "target": "A_DATE7.MES"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h16_a_date7",
+          "entry": "A_DATE7.MES",
+          "entered_by": {
+            "kind": "nested_call",
+            "offset": 12178,
+            "end": 12193,
+            "op": "script_dispatch",
+            "record_sha256": "b1e96d21c021885854778e3149805b7ec6931ba109226dc5e0319fea6dbf85ca",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 22,
+            "outcome": {
+              "offset": 13146,
+              "end": 13147,
+              "op": "command_00",
+              "status": "script_return",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h17_dispatch_a_pic3",
+          "entry": "01M.MES",
+          "entered_by": {
+            "kind": "resume",
+            "offset": 13146,
+            "end": 13147,
+            "op": "command_00",
+            "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 0,
+            "outcome": {
+              "offset": 12355,
+              "end": 12368,
+              "op": "script_dispatch",
+              "status": "script_dispatch_boundary",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "cd6850505be4db6ad1e2fcd4f58b75a104588dfb6696154651872174cfefe9b4",
+              "target": "A_PIC.MES"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h18_a_pic3",
+          "entry": "A_PIC.MES",
+          "entered_by": {
+            "kind": "nested_call",
+            "offset": 12355,
+            "end": 12368,
+            "op": "script_dispatch",
+            "record_sha256": "cd6850505be4db6ad1e2fcd4f58b75a104588dfb6696154651872174cfefe9b4",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 0,
+            "outcome": {
+              "offset": 2392,
+              "end": 2393,
+              "op": "command_00",
+              "status": "script_return",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h19_dispatch_a_date3",
+          "entry": "01M.MES",
+          "entered_by": {
+            "kind": "resume",
+            "offset": 2392,
+            "end": 2393,
+            "op": "command_00",
+            "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 0,
+            "outcome": {
+              "offset": 12373,
+              "end": 12388,
+              "op": "script_dispatch",
+              "status": "script_dispatch_boundary",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "f9259107147d9476e8a40f8b0063ed706b8bd12dab2effe0e07b12b8aba83022",
+              "target": "A_DATE3.MES"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "d20_a_date3",
+          "entry": "A_DATE3.MES",
+          "entered_by": {
+            "kind": "nested_call",
+            "offset": 12373,
+            "end": 12388,
+            "op": "script_dispatch",
+            "record_sha256": "f9259107147d9476e8a40f8b0063ed706b8bd12dab2effe0e07b12b8aba83022",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [
+            {
+              "boundary_offset": 13402,
+              "result_value": 2
+            }
+          ],
+          "gates": [
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 201,
+              "value": 65,
+              "op": "greater_or_equal",
+              "basis": "tool_seeded"
+            }
+          ],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 11,
+            "outcome": {
+              "offset": 18414,
+              "end": 18429,
+              "op": "script_handoff_marker",
+              "status": "script_handoff_boundary",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "7cc244ca8525f57bd1eccdfb20a34521be6ad275b88aa2a364ef62dc3cd0b568",
+              "target": "A_DATE5.MES"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "d21_a_date5",
+          "entry": "A_DATE5.MES",
+          "entered_by": {
+            "kind": "root_handoff",
+            "offset": 18414,
+            "end": 18429,
+            "op": "script_handoff_marker",
+            "record_sha256": "7cc244ca8525f57bd1eccdfb20a34521be6ad275b88aa2a364ef62dc3cd0b568",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [
+            {
+              "definition": 17,
+              "poll_offset": 4222,
+              "entry": "DEF_MAIN.MES",
+              "result_storage": "state_u16",
+              "result_index": 18,
+              "value": 0
+            }
+          ],
+          "expected": {
+            "message_count": 11,
+            "outcome": {
+              "offset": 3949,
+              "end": 3962,
+              "op": "script_handoff_marker",
+              "status": "script_handoff_boundary",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "496ee6fc5e929a0d78f596b742cf256b0651842fc13c717c182cd217879ac047",
+              "target": "MACHI.MES"
+            },
+            "expected_state": []
+          }
+        }
+      ],
+      "terminal": {
+        "entry": "A_DATE5.MES",
+        "offset": 3949,
+        "end": 3962,
+        "op": "script_handoff_marker",
+        "status": "script_handoff_boundary",
+        "source_binding": {
+          "kind": "typed_record"
+        },
+        "record_sha256": "496ee6fc5e929a0d78f596b742cf256b0651842fc13c717c182cd217879ac047",
+        "target": "MACHI.MES"
+      },
+      "variants": [
+        {
+          "variant_id": "default",
+          "writes": [],
+          "expected_state": []
+        }
+      ],
+      "unresolved": [
+        "who clears state_u16[18] for definition 17's own host-wait poll in natural play (the host; poll_supplies is a tool-supplied stand-in)",
+        "state_u16[12]'s natural supply (read here as money, date_scene.md's naming; who credits it and its natural range are not measured)",
+        "global_u8[110]/[117]'s own natural trigger (traced only to LIBLARY.LIB/?_TALKnn.MES as a class, not to a specific caller, in ep12_date_prereq_report.md)"
+      ]
+    },
+    {
+      "route_id": "a-date-hotel",
+      "state_context": {
+        "kind": "original_calendar",
+        "entry": "START.MES",
+        "table_sha256": "f21ee0fcb09e960046878e35ad0410aed88680f849ace471b713ef7a12525b4a"
+      },
+      "origin": {
+        "entry": "01M.MES",
+        "offset": 10999,
+        "guard": {
+          "offset": 10999,
+          "end": 11088,
+          "false_target": 12656,
+          "prefix_sha256": "221f837cd4d8a6714acdf87422b4702fd02a0a7a5e3bd836dfbacbe8b2f52d61",
+          "record_sha256": "b7314844e929563792746672a74858c66aa4c6adb20880c7a1928ec5b95949ae",
+          "source_binding": {
+            "kind": "typed_record"
+          }
+        },
+        "guard_cases": [
+          {
+            "case_id": "accepted",
+            "writes": [],
+            "expected": 1
+          },
+          {
+            "case_id": "rejected",
+            "writes": [
+              {
+                "storage": "global_u8",
+                "bank": 0,
+                "index": 110,
+                "value": 0
+              }
+            ],
+            "expected": 0
+          }
+        ]
+      },
+      "baseline": [
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 7,
+          "value": 502
+        },
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 19,
+          "value": 1530
+        },
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 215,
+          "value": 502
+        },
+        {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 216,
+          "value": 900
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 610,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 119,
+          "value": 15
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 110,
+          "value": 1
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 117,
+          "value": 2
+        },
+        {
+          "storage": "global_u8",
+          "bank": 0,
+          "index": 3004,
+          "value": 0
+        }
+      ],
+      "choice_contracts": [
+        {
+          "boundary_offset": 13402,
+          "bytecode_sha256": "f22657b9860e05786f52e3f6ddc9ee7998828cf624b2f8f869f7f23b2c46680b",
+          "code_size": 32378,
+          "comparisons": [
+            {
+              "fallthrough_offset": 13452,
+              "false_target_offset": 16789,
+              "result": 1,
+              "source_offset": 13437
+            },
+            {
+              "fallthrough_offset": 16804,
+              "false_target_offset": 20108,
+              "result": 2,
+              "source_offset": 16789
+            }
+          ],
+          "consumer_kind": "one_based_state_u16_21_branch_chain",
+          "definition_count": 3,
+          "definitions": [
+            {
+              "body_offset": 13188,
+              "body_sha256": "d5852fabe46f89c8bb9c79173abe1c4ec1f8cd19a4dfe49d4fa0e8b0548f9cd4",
+              "body_size": 47,
+              "definition_id": 0,
+              "source_offset": 13179,
+              "target_offset": 13235
+            },
+            {
+              "body_offset": 13260,
+              "body_sha256": "3e3f7a52274b96d71a5411188cce2524d3c09045927db97c3a9a56085a793458",
+              "body_size": 57,
+              "definition_id": 1,
+              "source_offset": 13251,
+              "target_offset": 13317
+            },
+            {
+              "body_offset": 13337,
+              "body_sha256": "4aad1a3960a0c62f482d39595588f9def6b3935e4c7047e25e8e03cce53b08dd",
+              "body_size": 65,
+              "definition_id": 2,
+              "source_offset": 13328,
+              "target_offset": 13402
+            }
+          ],
+          "fallback_offset": -1,
+          "gate": {},
+          "gate_policy": "not_applicable",
+          "input_policy": "explicit_remake_choice",
+          "native_input_semantics": "unresolved",
+          "ok": true,
+          "omitted_native_effects": [
+            "state_u16_18_result",
+            "state_u16_13_output",
+            "routine20",
+            "native_vector_clear"
+          ],
+          "option_entry_offsets": [
+            13452,
+            16804,
+            20108
+          ],
+          "redirect_offset": -1,
+          "redirect_target_offset": -1,
+          "result_index": 21,
+          "result_storage": "state_u16",
+          "result_values": [
+            1,
+            2,
+            3
+          ],
+          "resume_offset": 13407,
+          "schema": "kakyu_mes_routine40_choice_contract/v4",
+          "source_identity": {
+            "archive": "mes.arc",
+            "entry": "A_DATE3.MES"
+          },
+          "variants": []
+        },
+        {
+          "boundary_offset": 2652,
+          "bytecode_sha256": "5ce67ec340b0d20ab1dd1feb16128ba8fcb829a58e62babd92de9b7e218785f4",
+          "code_size": 42539,
+          "comparisons": [
+            {
+              "fallthrough_offset": 2677,
+              "false_target_offset": 3914,
+              "result": 1,
+              "source_offset": 2662
+            },
+            {
+              "fallthrough_offset": 3929,
+              "false_target_offset": 4877,
+              "result": 2,
+              "source_offset": 3914
+            }
+          ],
+          "consumer_kind": "one_based_state_u16_21_branch_chain",
+          "definition_count": 3,
+          "definitions": [
+            {
+              "body_offset": 2493,
+              "body_sha256": "6cc1d1de2c1098b5d0367a56066bac35bb78cdfe10e516383b722fd6b6466b8e",
+              "body_size": 43,
+              "definition_id": 0,
+              "source_offset": 2484,
+              "target_offset": 2536
+            },
+            {
+              "body_offset": 2550,
+              "body_sha256": "6d396c7752d20826112c25d951bd0d499b1b0dbeb8b072e4abb67eabc6571f14",
+              "body_size": 39,
+              "definition_id": 1,
+              "source_offset": 2541,
+              "target_offset": 2589
+            },
+            {
+              "body_offset": 2603,
+              "body_sha256": "9fbea6f997c8906a9a6be57b334909515c8436152f6683f0bd8a16dc2741b5f6",
+              "body_size": 39,
+              "definition_id": 2,
+              "source_offset": 2594,
+              "target_offset": 2642
+            }
+          ],
+          "fallback_offset": -1,
+          "gate": {},
+          "gate_policy": "not_applicable",
+          "input_policy": "explicit_remake_choice",
+          "native_input_semantics": "unresolved",
+          "ok": true,
+          "omitted_native_effects": [
+            "state_u16_18_result",
+            "state_u16_13_output",
+            "routine20",
+            "native_vector_clear"
+          ],
+          "option_entry_offsets": [
+            2677,
+            3929,
+            4877
+          ],
+          "redirect_offset": -1,
+          "redirect_target_offset": -1,
+          "result_index": 21,
+          "result_storage": "state_u16",
+          "result_values": [
+            1,
+            2,
+            3
+          ],
+          "resume_offset": 2657,
+          "schema": "kakyu_mes_routine40_choice_contract/v4",
+          "source_identity": {
+            "archive": "mes.arc",
+            "entry": "DENSHA.MES"
+          },
+          "variants": []
+        },
+        {
+          "boundary_offset": 1497,
+          "bytecode_sha256": "ebf2a1c1799ac6dd87632d6729bb8171c781a59859df7603a9da46b815f04ce9",
+          "code_size": 62586,
+          "comparisons": [
+            {
+              "fallthrough_offset": 1542,
+              "false_target_offset": 7994,
+              "result": 1,
+              "source_offset": 1527
+            },
+            {
+              "fallthrough_offset": 8009,
+              "false_target_offset": 13959,
+              "result": 2,
+              "source_offset": 7994
+            },
+            {
+              "fallthrough_offset": 13974,
+              "false_target_offset": 19962,
+              "result": 3,
+              "source_offset": 13959
+            },
+            {
+              "fallthrough_offset": 19977,
+              "false_target_offset": 26039,
+              "result": 4,
+              "source_offset": 19962
+            },
+            {
+              "fallthrough_offset": 26054,
+              "false_target_offset": 32122,
+              "result": 5,
+              "source_offset": 26039
+            },
+            {
+              "fallthrough_offset": 32137,
+              "false_target_offset": 38209,
+              "result": 6,
+              "source_offset": 32122
+            },
+            {
+              "fallthrough_offset": 38224,
+              "false_target_offset": 44282,
+              "result": 7,
+              "source_offset": 38209
+            },
+            {
+              "fallthrough_offset": 44297,
+              "false_target_offset": 50351,
+              "result": 8,
+              "source_offset": 44282
+            },
+            {
+              "fallthrough_offset": 50366,
+              "false_target_offset": 56438,
+              "result": 9,
+              "source_offset": 50351
+            }
+          ],
+          "consumer_kind": "one_based_state_u16_21_branch_chain",
+          "definition_count": 10,
+          "definitions": [
+            {
+              "body_offset": 1064,
+              "body_sha256": "6654d546744578733477a4dbb1bfc3b3bcd9008e089c775e06895465240dfa02",
+              "body_size": 19,
+              "definition_id": 0,
+              "source_offset": 1055,
+              "target_offset": 1083
+            },
+            {
+              "body_offset": 1097,
+              "body_sha256": "1c1750e623dd063d22e99b022b7c0dbc2b823a1954e6e1b4c87dc24d976f7901",
+              "body_size": 19,
+              "definition_id": 1,
+              "source_offset": 1088,
+              "target_offset": 1116
+            },
+            {
+              "body_offset": 1130,
+              "body_sha256": "b67cb36c47d02fd5d86f6c1bdc939db8d615577e7217f979b7f0a7d51d521f1e",
+              "body_size": 19,
+              "definition_id": 2,
+              "source_offset": 1121,
+              "target_offset": 1149
+            },
+            {
+              "body_offset": 1163,
+              "body_sha256": "a9eaa67f3b1839787ef87e3298e349fb5ef7bf93085484f7875eab4071907b35",
+              "body_size": 19,
+              "definition_id": 3,
+              "source_offset": 1154,
+              "target_offset": 1182
+            },
+            {
+              "body_offset": 1196,
+              "body_sha256": "f7e30a778b15f2943a51c5304ae30492fa1f1b935feeaede56d072ff3be4c20b",
+              "body_size": 19,
+              "definition_id": 4,
+              "source_offset": 1187,
+              "target_offset": 1215
+            },
+            {
+              "body_offset": 1229,
+              "body_sha256": "c2dcf8f0f927eaedc8c186092379a2ae11ddce7b662bb1c30541e7a72be8df90",
+              "body_size": 19,
+              "definition_id": 5,
+              "source_offset": 1220,
+              "target_offset": 1248
+            },
+            {
+              "body_offset": 1262,
+              "body_sha256": "81bfddcc67676a3800765a8d5b2ddda6c39a0c14e2e8c408f393effb223b05fd",
+              "body_size": 19,
+              "definition_id": 6,
+              "source_offset": 1253,
+              "target_offset": 1281
+            },
+            {
+              "body_offset": 1295,
+              "body_sha256": "21878743e056de2ee2d24a4e22dff1928a2bafbd48c9f3f30a537eb352126165",
+              "body_size": 19,
+              "definition_id": 7,
+              "source_offset": 1286,
+              "target_offset": 1314
+            },
+            {
+              "body_offset": 1328,
+              "body_sha256": "2261c3156ca1ba90a21e4f313f5f549d8da5864d94719f37896f4404a3401d03",
+              "body_size": 19,
+              "definition_id": 8,
+              "source_offset": 1319,
+              "target_offset": 1347
+            },
+            {
+              "body_offset": 1361,
+              "body_sha256": "bee88278bd7dc9653c4e666efec34fa4787f58bfc4db9e8ed815ef9eb1b83d7f",
+              "body_size": 21,
+              "definition_id": 9,
+              "source_offset": 1352,
+              "target_offset": 1382
+            }
+          ],
+          "fallback_offset": -1,
+          "gate": {},
+          "gate_policy": "not_applicable",
+          "input_policy": "explicit_remake_choice",
+          "native_input_semantics": "unresolved",
+          "ok": true,
+          "omitted_native_effects": [
+            "state_u16_18_result",
+            "state_u16_13_output",
+            "routine20",
+            "native_vector_clear"
+          ],
+          "option_entry_offsets": [
+            1542,
+            8009,
+            13974,
+            19977,
+            26054,
+            32137,
+            38224,
+            44297,
+            50366,
+            56438
+          ],
+          "redirect_offset": -1,
+          "redirect_target_offset": -1,
+          "result_index": 21,
+          "result_storage": "state_u16",
+          "result_values": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "resume_offset": 1502,
+          "schema": "kakyu_mes_routine40_choice_contract/v4",
+          "source_identity": {
+            "archive": "mes.arc",
+            "entry": "A_TIME.MES"
+          },
+          "variants": []
+        },
+        {
+          "boundary_offset": 28100,
+          "bytecode_sha256": "f22657b9860e05786f52e3f6ddc9ee7998828cf624b2f8f869f7f23b2c46680b",
+          "code_size": 32378,
+          "comparisons": [
+            {
+              "fallthrough_offset": 28125,
+              "false_target_offset": 28474,
+              "result": 1,
+              "source_offset": 28110
+            },
+            {
+              "fallthrough_offset": 28489,
+              "false_target_offset": 29066,
+              "result": 2,
+              "source_offset": 28474
+            }
+          ],
+          "consumer_kind": "one_based_state_u16_21_branch_chain",
+          "definition_count": 3,
+          "definitions": [
+            {
+              "body_offset": 27935,
+              "body_sha256": "eb1c0c8bf1d4eac1985034ce4e962bbde483b9796994f36df944716f1674db50",
+              "body_size": 45,
+              "definition_id": 0,
+              "source_offset": 27926,
+              "target_offset": 27980
+            },
+            {
+              "body_offset": 28000,
+              "body_sha256": "71a45c2365bc2d1afebf3cd7bcde49645ee1fe8f1ebea281f2444513f98d7c12",
+              "body_size": 39,
+              "definition_id": 1,
+              "source_offset": 27991,
+              "target_offset": 28039
+            },
+            {
+              "body_offset": 28059,
+              "body_sha256": "3ec2e78c4895a82b981da727504ca7497626684b411c3ffb74fbd14c78b5360a",
+              "body_size": 41,
+              "definition_id": 2,
+              "source_offset": 28050,
+              "target_offset": 28100
+            }
+          ],
+          "fallback_offset": -1,
+          "gate": {},
+          "gate_policy": "not_applicable",
+          "input_policy": "explicit_remake_choice",
+          "native_input_semantics": "unresolved",
+          "ok": true,
+          "omitted_native_effects": [
+            "state_u16_18_result",
+            "state_u16_13_output",
+            "routine20",
+            "native_vector_clear"
+          ],
+          "option_entry_offsets": [
+            28125,
+            28489,
+            29066
+          ],
+          "redirect_offset": -1,
+          "redirect_target_offset": -1,
+          "result_index": 21,
+          "result_storage": "state_u16",
+          "result_values": [
+            1,
+            2,
+            3
+          ],
+          "resume_offset": 28105,
+          "schema": "kakyu_mes_routine40_choice_contract/v4",
+          "source_identity": {
+            "archive": "mes.arc",
+            "entry": "A_DATE3.MES"
+          },
+          "variants": []
+        },
+        {
+          "boundary_offset": 7131,
+          "bytecode_sha256": "969e53077cc899db12c50fa23c6b683a99ff1d0fdd6cd8c19f25e516f08c25d0",
+          "code_size": 15668,
+          "comparisons": [
+            {
+              "fallthrough_offset": 7176,
+              "false_target_offset": 7905,
+              "result": 1,
+              "source_offset": 7161
+            },
+            {
+              "fallthrough_offset": 7920,
+              "false_target_offset": 8716,
+              "result": 2,
+              "source_offset": 7905
+            },
+            {
+              "fallthrough_offset": 8731,
+              "false_target_offset": 10819,
+              "result": 3,
+              "source_offset": 8716
+            },
+            {
+              "fallthrough_offset": 10834,
+              "false_target_offset": 12666,
+              "result": 4,
+              "source_offset": 10819
+            }
+          ],
+          "consumer_kind": "one_based_state_u16_21_branch_chain_via_unconditional_redirect",
+          "definition_count": 5,
+          "definitions": [
+            {
+              "body_offset": 6725,
+              "body_sha256": "85d4156d154b7aa2ce6730ee892f892d5cef7653165ca87f88f14729f5155d4a",
+              "body_size": 19,
+              "definition_id": 0,
+              "source_offset": 6716,
+              "target_offset": 6744
+            },
+            {
+              "body_offset": 6764,
+              "body_sha256": "16e4956a116a9c3468dfc34e7129abafa7e0caf9eeef4a5da30ff749df85137b",
+              "body_size": 19,
+              "definition_id": 1,
+              "source_offset": 6755,
+              "target_offset": 6783
+            },
+            {
+              "body_offset": 6803,
+              "body_sha256": "22e338b19d8fe578413632203ecdb2b22dd0b282198602dc4ff635df04670430",
+              "body_size": 19,
+              "definition_id": 2,
+              "source_offset": 6794,
+              "target_offset": 6822
+            },
+            {
+              "body_offset": 6842,
+              "body_sha256": "e5b1047ce72c290e52c30d60f8c363b45af6ca0876fda61e1b2cbff50237f6dc",
+              "body_size": 19,
+              "definition_id": 3,
+              "source_offset": 6833,
+              "target_offset": 6861
+            },
+            {
+              "body_offset": 6881,
+              "body_sha256": "14f6d9ec4a46889d36932bd2c1c438928731e7d93db99fe2c83d990720136888",
+              "body_size": 19,
+              "definition_id": 4,
+              "source_offset": 6872,
+              "target_offset": 6900
+            }
+          ],
+          "fallback_offset": -1,
+          "gate": {},
+          "gate_policy": "not_applicable",
+          "input_policy": "explicit_remake_choice",
+          "native_input_semantics": "unresolved",
+          "ok": true,
+          "omitted_native_effects": [
+            "state_u16_18_result",
+            "state_u16_13_output",
+            "routine20",
+            "native_vector_clear"
+          ],
+          "option_entry_offsets": [
+            7176,
+            7920,
+            8731,
+            10834,
+            12666
+          ],
+          "redirect_offset": 7141,
+          "redirect_target_offset": 7161,
+          "result_index": 21,
+          "result_storage": "state_u16",
+          "result_values": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "resume_offset": 7136,
+          "schema": "kakyu_mes_routine40_choice_contract/v4",
+          "source_identity": {
+            "archive": "mes.arc",
+            "entry": "A_HOTEL.MES"
+          },
+          "variants": []
+        }
+      ],
+      "hops": [
+        {
+          "hop_id": "h1_dispatch_a_pic1",
+          "entry": "01M.MES",
+          "entered_by": {
+            "kind": "origin"
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 0,
+            "outcome": {
+              "offset": 11148,
+              "end": 11161,
+              "op": "script_dispatch",
+              "status": "script_dispatch_boundary",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "cd6850505be4db6ad1e2fcd4f58b75a104588dfb6696154651872174cfefe9b4",
+              "target": "A_PIC.MES"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h2_a_pic1",
+          "entry": "A_PIC.MES",
+          "entered_by": {
+            "kind": "nested_call",
+            "offset": 11148,
+            "end": 11161,
+            "op": "script_dispatch",
+            "record_sha256": "cd6850505be4db6ad1e2fcd4f58b75a104588dfb6696154651872174cfefe9b4",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 0,
+            "outcome": {
+              "offset": 2392,
+              "end": 2393,
+              "op": "command_00",
+              "status": "script_return",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h3_dispatch_a_date1",
+          "entry": "01M.MES",
+          "entered_by": {
+            "kind": "resume",
+            "offset": 2392,
+            "end": 2393,
+            "op": "command_00",
+            "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 0,
+            "outcome": {
+              "offset": 11166,
+              "end": 11181,
+              "op": "script_dispatch",
+              "status": "script_dispatch_boundary",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "c43c93e6bf7d4cdf288a2755ed59c6ffb3aeaffddc8400caca687f1224a101ab",
+              "target": "A_DATE1.MES"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h4_a_date1",
+          "entry": "A_DATE1.MES",
+          "entered_by": {
+            "kind": "nested_call",
+            "offset": 11166,
+            "end": 11181,
+            "op": "script_dispatch",
+            "record_sha256": "c43c93e6bf7d4cdf288a2755ed59c6ffb3aeaffddc8400caca687f1224a101ab",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 13,
+            "outcome": {
+              "offset": 12442,
+              "end": 12443,
+              "op": "command_00",
+              "status": "script_return",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h5_dispatch_densha",
+          "entry": "01M.MES",
+          "entered_by": {
+            "kind": "resume",
+            "offset": 12442,
+            "end": 12443,
+            "op": "command_00",
+            "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 0,
+            "outcome": {
+              "offset": 11208,
+              "end": 11222,
+              "op": "script_dispatch",
+              "status": "script_dispatch_boundary",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "d9bd13d9b8bdd113d3d1878f85a75f69c2340b14da980a6a49ee5016d1aa94fe",
+              "target": "DENSHA.MES"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h6_densha_train",
+          "entry": "DENSHA.MES",
+          "entered_by": {
+            "kind": "nested_call",
+            "offset": 11208,
+            "end": 11222,
+            "op": "script_dispatch",
+            "record_sha256": "d9bd13d9b8bdd113d3d1878f85a75f69c2340b14da980a6a49ee5016d1aa94fe",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [
+            {
+              "boundary_offset": 2652,
+              "result_value": 1
+            }
+          ],
+          "gates": [],
+          "map_locations": [
+            {
+              "schema": "kakyu_mes_map_location_contract/v1",
+              "source_identity": {
+                "archive": "mes.arc",
+                "entry": "TRAIN.MES"
+              },
+              "poll_offset": 886,
+              "poll_end": 894,
+              "poll_function": [
+                6,
+                13
+              ],
+              "record_sha256": "e9e095f3bf6b864c4c1b585815ad9ac422ee1aedc88817a133823b110a5f8752",
+              "result_storage": "state_u16",
+              "result_index": 18,
+              "none_value": 65535,
+              "locations": [
+                0,
+                1
+              ]
+            }
+          ],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 29,
+            "outcome": {
+              "offset": 42522,
+              "end": 42523,
+              "op": "command_00",
+              "status": "script_return",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h7_dispatch_a_time",
+          "entry": "01M.MES",
+          "entered_by": {
+            "kind": "resume",
+            "offset": 42522,
+            "end": 42523,
+            "op": "command_00",
+            "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 0,
+            "outcome": {
+              "offset": 11227,
+              "end": 11241,
+              "op": "script_dispatch",
+              "status": "script_dispatch_boundary",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "f106950814fb4f6493a0a99d66d412d7cb650edf4e66dd479426be49b47cc448",
+              "target": "A_TIME.MES"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h8_a_time",
+          "entry": "A_TIME.MES",
+          "entered_by": {
+            "kind": "nested_call",
+            "offset": 11227,
+            "end": 11241,
+            "op": "script_dispatch",
+            "record_sha256": "f106950814fb4f6493a0a99d66d412d7cb650edf4e66dd479426be49b47cc448",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [
+            {
+              "boundary_offset": 1497,
+              "result_value": 1
+            }
+          ],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 6,
+            "outcome": {
+              "offset": 62534,
+              "end": 62535,
+              "op": "command_00",
+              "status": "script_return",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h9_dispatch_yabai",
+          "entry": "01M.MES",
+          "entered_by": {
+            "kind": "resume",
+            "offset": 62534,
+            "end": 62535,
+            "op": "command_00",
+            "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 0,
+            "outcome": {
+              "offset": 11378,
+              "end": 11391,
+              "op": "script_dispatch",
+              "status": "script_dispatch_boundary",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "6e4c5e3267cb210113d2ddcfe5cd1fea4ad155560ff8e3de12ce5a6f0dd34c54",
+              "target": "YABAI.MES"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h10_yabai",
+          "entry": "YABAI.MES",
+          "entered_by": {
+            "kind": "nested_call",
+            "offset": 11378,
+            "end": 11391,
+            "op": "script_dispatch",
+            "record_sha256": "6e4c5e3267cb210113d2ddcfe5cd1fea4ad155560ff8e3de12ce5a6f0dd34c54",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 0,
+            "outcome": {
+              "offset": 38869,
+              "end": 38870,
+              "op": "command_00",
+              "status": "script_return",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h11_dispatch_a_date2",
+          "entry": "01M.MES",
+          "entered_by": {
+            "kind": "resume",
+            "offset": 38869,
+            "end": 38870,
+            "op": "command_00",
+            "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 0,
+            "outcome": {
+              "offset": 11396,
+              "end": 11411,
+              "op": "script_dispatch",
+              "status": "script_dispatch_boundary",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "8edbccbd97c40cba4bb16685290e3451cae7b1244cd5c75f8a46263a9f74944f",
+              "target": "A_DATE2.MES"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h12_a_date2",
+          "entry": "A_DATE2.MES",
+          "entered_by": {
+            "kind": "nested_call",
+            "offset": 11396,
+            "end": 11411,
+            "op": "script_dispatch",
+            "record_sha256": "8edbccbd97c40cba4bb16685290e3451cae7b1244cd5c75f8a46263a9f74944f",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 0,
+            "outcome": {
+              "offset": 31229,
+              "end": 31230,
+              "op": "command_00",
+              "status": "script_return",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h13_dispatch_a_pic2",
+          "entry": "01M.MES",
+          "entered_by": {
+            "kind": "resume",
+            "offset": 31229,
+            "end": 31230,
+            "op": "command_00",
+            "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 0,
+            "outcome": {
+              "offset": 12160,
+              "end": 12173,
+              "op": "script_dispatch",
+              "status": "script_dispatch_boundary",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "cd6850505be4db6ad1e2fcd4f58b75a104588dfb6696154651872174cfefe9b4",
+              "target": "A_PIC.MES"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h14_a_pic2",
+          "entry": "A_PIC.MES",
+          "entered_by": {
+            "kind": "nested_call",
+            "offset": 12160,
+            "end": 12173,
+            "op": "script_dispatch",
+            "record_sha256": "cd6850505be4db6ad1e2fcd4f58b75a104588dfb6696154651872174cfefe9b4",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 0,
+            "outcome": {
+              "offset": 2392,
+              "end": 2393,
+              "op": "command_00",
+              "status": "script_return",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h15_dispatch_a_date7",
+          "entry": "01M.MES",
+          "entered_by": {
+            "kind": "resume",
+            "offset": 2392,
+            "end": 2393,
+            "op": "command_00",
+            "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 0,
+            "outcome": {
+              "offset": 12178,
+              "end": 12193,
+              "op": "script_dispatch",
+              "status": "script_dispatch_boundary",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "b1e96d21c021885854778e3149805b7ec6931ba109226dc5e0319fea6dbf85ca",
+              "target": "A_DATE7.MES"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h16_a_date7",
+          "entry": "A_DATE7.MES",
+          "entered_by": {
+            "kind": "nested_call",
+            "offset": 12178,
+            "end": 12193,
+            "op": "script_dispatch",
+            "record_sha256": "b1e96d21c021885854778e3149805b7ec6931ba109226dc5e0319fea6dbf85ca",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 22,
+            "outcome": {
+              "offset": 13146,
+              "end": 13147,
+              "op": "command_00",
+              "status": "script_return",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h17_dispatch_a_pic3",
+          "entry": "01M.MES",
+          "entered_by": {
+            "kind": "resume",
+            "offset": 13146,
+            "end": 13147,
+            "op": "command_00",
+            "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 0,
+            "outcome": {
+              "offset": 12355,
+              "end": 12368,
+              "op": "script_dispatch",
+              "status": "script_dispatch_boundary",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "cd6850505be4db6ad1e2fcd4f58b75a104588dfb6696154651872174cfefe9b4",
+              "target": "A_PIC.MES"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h18_a_pic3",
+          "entry": "A_PIC.MES",
+          "entered_by": {
+            "kind": "nested_call",
+            "offset": 12355,
+            "end": 12368,
+            "op": "script_dispatch",
+            "record_sha256": "cd6850505be4db6ad1e2fcd4f58b75a104588dfb6696154651872174cfefe9b4",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 0,
+            "outcome": {
+              "offset": 2392,
+              "end": 2393,
+              "op": "command_00",
+              "status": "script_return",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "h19_dispatch_a_date3",
+          "entry": "01M.MES",
+          "entered_by": {
+            "kind": "resume",
+            "offset": 2392,
+            "end": 2393,
+            "op": "command_00",
+            "record_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 0,
+            "outcome": {
+              "offset": 12373,
+              "end": 12388,
+              "op": "script_dispatch",
+              "status": "script_dispatch_boundary",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "f9259107147d9476e8a40f8b0063ed706b8bd12dab2effe0e07b12b8aba83022",
+              "target": "A_DATE3.MES"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "o20_a_date3",
+          "entry": "A_DATE3.MES",
+          "entered_by": {
+            "kind": "nested_call",
+            "offset": 12373,
+            "end": 12388,
+            "op": "script_dispatch",
+            "record_sha256": "f9259107147d9476e8a40f8b0063ed706b8bd12dab2effe0e07b12b8aba83022",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [
+            {
+              "boundary_offset": 13402,
+              "result_value": 3
+            },
+            {
+              "boundary_offset": 28100,
+              "result_value": 3
+            }
+          ],
+          "gates": [
+            {
+              "storage": "banked_u16",
+              "bank": 0,
+              "index": 201,
+              "value": 111,
+              "op": "equal",
+              "basis": "tool_seeded"
+            },
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 12,
+              "value": 150,
+              "op": "greater_or_equal",
+              "basis": "tool_seeded"
+            }
+          ],
+          "map_locations": [],
+          "poll_supplies": [
+            {
+              "definition": 17,
+              "poll_offset": 4222,
+              "entry": "DEF_MAIN.MES",
+              "result_storage": "state_u16",
+              "result_index": 18,
+              "value": 0
+            }
+          ],
+          "expected": {
+            "message_count": 45,
+            "outcome": {
+              "offset": 31465,
+              "end": 31480,
+              "op": "script_handoff_marker",
+              "status": "script_handoff_boundary",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "558daf8265861e6d9868d09cdaabeea5e5927e77e174be937d40cafd86cbd8f8",
+              "target": "A_HOTEL.MES"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "o21_a_hotel",
+          "entry": "A_HOTEL.MES",
+          "entered_by": {
+            "kind": "root_handoff",
+            "offset": 31465,
+            "end": 31480,
+            "op": "script_handoff_marker",
+            "record_sha256": "558daf8265861e6d9868d09cdaabeea5e5927e77e174be937d40cafd86cbd8f8",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [
+            {
+              "boundary_offset": 7131,
+              "result_value": 5
+            }
+          ],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 37,
+            "outcome": {
+              "offset": 13271,
+              "end": 13287,
+              "op": "script_handoff_marker",
+              "status": "script_handoff_boundary",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "db48cb070c5ae236549698689987daaf6df55dee141784d6366fea7498d76a3c",
+              "target": "A_HOTEL1.MES"
+            },
+            "expected_state": [
+              {
+                "storage": "state_u16",
+                "bank": 0,
+                "index": 21,
+                "value": 5
+              }
+            ]
+          }
+        },
+        {
+          "hop_id": "o22_a_hotel1",
+          "entry": "A_HOTEL1.MES",
+          "entered_by": {
+            "kind": "root_handoff",
+            "offset": 13271,
+            "end": 13287,
+            "op": "script_handoff_marker",
+            "record_sha256": "db48cb070c5ae236549698689987daaf6df55dee141784d6366fea7498d76a3c",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [
+            {
+              "storage": "state_u16",
+              "bank": 0,
+              "index": 21,
+              "value": 5,
+              "op": "equal",
+              "basis": "written_by:o21_a_hotel"
+            }
+          ],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 94,
+            "outcome": {
+              "offset": 31492,
+              "end": 31508,
+              "op": "script_handoff_marker",
+              "status": "script_handoff_boundary",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "c2cf961117d5481bf38d3aa04b86eca9a3e19c6502b1c68dd448b748559ddabf",
+              "target": "A_HOTEL2.MES"
+            },
+            "expected_state": []
+          }
+        },
+        {
+          "hop_id": "o23_a_hotel2",
+          "entry": "A_HOTEL2.MES",
+          "entered_by": {
+            "kind": "root_handoff",
+            "offset": 31492,
+            "end": 31508,
+            "op": "script_handoff_marker",
+            "record_sha256": "c2cf961117d5481bf38d3aa04b86eca9a3e19c6502b1c68dd448b748559ddabf",
+            "source_binding": {
+              "kind": "typed_record"
+            }
+          },
+          "answers": [],
+          "gates": [],
+          "map_locations": [],
+          "poll_supplies": [],
+          "expected": {
+            "message_count": 26,
+            "outcome": {
+              "offset": 11625,
+              "end": 11638,
+              "op": "script_handoff_marker",
+              "status": "script_handoff_boundary",
+              "source_binding": {
+                "kind": "typed_record"
+              },
+              "record_sha256": "496ee6fc5e929a0d78f596b742cf256b0651842fc13c717c182cd217879ac047",
+              "target": "MACHI.MES"
+            },
+            "expected_state": []
+          }
+        }
+      ],
+      "terminal": {
+        "entry": "A_HOTEL2.MES",
+        "offset": 11625,
+        "end": 11638,
+        "op": "script_handoff_marker",
+        "status": "script_handoff_boundary",
+        "source_binding": {
+          "kind": "typed_record"
+        },
+        "record_sha256": "496ee6fc5e929a0d78f596b742cf256b0651842fc13c717c182cd217879ac047",
+        "target": "MACHI.MES"
+      },
+      "variants": [
+        {
+          "variant_id": "default",
+          "writes": [],
+          "expected_state": []
+        }
+      ],
+      "unresolved": [
+        "who clears state_u16[18] for definition 17's own host-wait poll in natural play (the host; poll_supplies is a tool-supplied stand-in)",
+        "state_u16[12]'s natural supply (read here as money, date_scene.md's naming; who credits it and its natural range are not measured)",
+        "global_u8[110]/[117]'s own natural trigger (traced only to LIBLARY.LIB/?_TALKnn.MES as a class, not to a specific caller, in ep12_date_prereq_report.md)",
+        "the return-visit variant (global_u8[992] = 1, handoff at 32352) needs a hop-outcome override per variant, which the v14 variant shape does not carry (variants share the exact same hop outcomes) - reported, not built"
+      ]
+    }
+  ],
+  "payload_sha256": "d5011bbc0a1d34c2defee0bd65e6b1c85e6c246eac228c1a883a903b069303d1"
+}

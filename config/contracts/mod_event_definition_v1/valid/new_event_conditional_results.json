@@ -1,0 +1,122 @@
+{
+  "schema_version": "kakyu_mod_event_definition/v1",
+  "contract_fingerprint": "self",
+  "cells_fingerprint": "self",
+  "kind": "new_event",
+  "mod": {
+    "id": "samplemod",
+    "revision": 1
+  },
+  "id": "mod.samplemod.new_event_conditional_results",
+  "display": {
+    "title_ko": "새 이벤트",
+    "title_en": "A new event",
+    "heroine": "ryoko",
+    "category": "school",
+    "place": "gate"
+  },
+  "trigger": {
+    "type": "place",
+    "category": "school",
+    "place": "gate"
+  },
+  "conditions": [
+    {
+      "type": "date_equals",
+      "date_code": 501
+    },
+    {
+      "type": "time_before",
+      "time_code": 2200
+    },
+    {
+      "type": "event_completed",
+      "event_id": "ai.school.gate.09.1"
+    }
+  ],
+  "dialogue": [
+    {
+      "kind": "line",
+      "text": "Conditional event."
+    }
+  ],
+  "after": [],
+  "results": {
+    "result_cond1": {
+      "selected_by": {
+        "kind": "condition",
+        "conditions": [
+          {
+            "type": "legacy_cell",
+            "storage": "banked_u16",
+            "bank": 0,
+            "index": 204,
+            "operator": "greater_than",
+            "value": 50,
+            "cell_class": "affection"
+          }
+        ]
+      },
+      "event_played": true,
+      "dialogue": [
+        {
+          "kind": "line",
+          "text": "Ryoko notices."
+        },
+        {
+          "kind": "scene_end"
+        }
+      ],
+      "after": [],
+      "terminal": "term_return"
+    },
+    "result_cond2": {
+      "selected_by": {
+        "kind": "condition",
+        "conditions": [
+          {
+            "type": "mes_expression",
+            "ast": {
+              "op": "and",
+              "args": []
+            }
+          }
+        ]
+      },
+      "event_played": true,
+      "dialogue": [
+        {
+          "kind": "line",
+          "text": "Expression path."
+        },
+        {
+          "kind": "scene_end"
+        }
+      ],
+      "after": [],
+      "terminal": "term_return"
+    },
+    "result_default": {
+      "selected_by": {
+        "kind": "default"
+      },
+      "event_played": true,
+      "dialogue": [
+        {
+          "kind": "line",
+          "text": "Default path."
+        },
+        {
+          "kind": "scene_end"
+        }
+      ],
+      "after": [],
+      "terminal": "term_return"
+    }
+  },
+  "terminals": {
+    "term_return": {
+      "kind": "return_to_map"
+    }
+  }
+}

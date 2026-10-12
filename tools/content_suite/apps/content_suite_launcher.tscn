@@ -1,0 +1,257 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://tools/content_suite/apps/content_suite_launcher.gd" id="1_script"]
+
+[node name="ContentSuiteLauncher" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = 10.0
+offset_right = -12.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Layout" type="VBoxContainer" parent="Margin"]
+layout_mode = 2
+theme_override_constants/separation = 7
+
+[node name="Title" type="Label" parent="Margin/Layout"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Kakyu Content Suite"
+horizontal_alignment = 1
+
+[node name="Intro" type="Label" parent="Margin/Layout"]
+layout_mode = 2
+text = "Launch each tool independently. Original ARC files are always opened read-only."
+horizontal_alignment = 1
+
+[node name="ArchiveRow" type="HBoxContainer" parent="Margin/Layout"]
+layout_mode = 2
+
+[node name="ArchiveLabel" type="Label" parent="Margin/Layout/ArchiveRow"]
+layout_mode = 2
+text = "Optional startup source:"
+
+[node name="ArchivePathEdit" type="LineEdit" parent="Margin/Layout/ArchiveRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Leave empty to choose inside the launched tool"
+
+[node name="Browse" type="Button" parent="Margin/Layout/ArchiveRow"]
+layout_mode = 2
+text = "ARC..."
+
+[node name="Clear" type="Button" parent="Margin/Layout/ArchiveRow"]
+layout_mode = 2
+text = "Clear"
+
+[node name="ContentSetRow" type="HBoxContainer" parent="Margin/Layout"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Margin/Layout/ContentSetRow"]
+custom_minimum_size = Vector2(145, 0)
+layout_mode = 2
+text = "ELFIMAGE content set:"
+
+[node name="ContentSetPathEdit" type="LineEdit" parent="Margin/Layout/ContentSetRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Select the user-owned ELFIMAGE directory"
+
+[node name="Browse" type="Button" parent="Margin/Layout/ContentSetRow"]
+layout_mode = 2
+text = "ELFIMAGE..."
+
+[node name="WorkspaceRow" type="HBoxContainer" parent="Margin/Layout"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Margin/Layout/WorkspaceRow"]
+custom_minimum_size = Vector2(145, 0)
+layout_mode = 2
+text = "Content workspace:"
+
+[node name="WorkspacePathEdit" type="LineEdit" parent="Margin/Layout/WorkspaceRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+editable = false
+placeholder_text = "Create or open a versioned mod workspace"
+
+[node name="Create" type="Button" parent="Margin/Layout/WorkspaceRow"]
+layout_mode = 2
+text = "Create..."
+
+[node name="Open" type="Button" parent="Margin/Layout/WorkspaceRow"]
+layout_mode = 2
+text = "Open..."
+
+[node name="ExportReport" type="Button" parent="Margin/Layout/WorkspaceRow"]
+layout_mode = 2
+text = "Export report..."
+
+[node name="Dashboard" type="Button" parent="Margin/Layout/WorkspaceRow"]
+layout_mode = 2
+text = "Dashboard..."
+
+[node name="ProjectRow" type="HBoxContainer" parent="Margin/Layout"]
+layout_mode = 2
+
+[node name="IdLabel" type="Label" parent="Margin/Layout/ProjectRow"]
+layout_mode = 2
+text = "Project ID:"
+
+[node name="ProjectIdEdit" type="LineEdit" parent="Margin/Layout/ProjectRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "new.kakyu.mod"
+
+[node name="NameLabel" type="Label" parent="Margin/Layout/ProjectRow"]
+layout_mode = 2
+text = "Display name:"
+
+[node name="DisplayNameEdit" type="LineEdit" parent="Margin/Layout/ProjectRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "New Kakyu Mod"
+
+[node name="Tools" type="VBoxContainer" parent="Margin/Layout"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 5
+
+[node name="ArcRow" type="HBoxContainer" parent="Margin/Layout/Tools"]
+layout_mode = 2
+
+[node name="Launch" type="Button" parent="Margin/Layout/Tools/ArcRow"]
+custom_minimum_size = Vector2(168, 0)
+layout_mode = 2
+text = "ARC Browser"
+
+[node name="Description" type="Label" parent="Margin/Layout/Tools/ArcRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Browse and extract ARC entries."
+
+[node name="AudioRow" type="HBoxContainer" parent="Margin/Layout/Tools"]
+layout_mode = 2
+
+[node name="Launch" type="Button" parent="Margin/Layout/Tools/AudioRow"]
+custom_minimum_size = Vector2(168, 0)
+layout_mode = 2
+text = "Audio ARC Editor"
+
+[node name="Description" type="Label" parent="Margin/Layout/Tools/AudioRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Preview and stage WAV/Ogg replacements."
+
+[node name="MesRow" type="HBoxContainer" parent="Margin/Layout/Tools"]
+layout_mode = 2
+
+[node name="Launch" type="Button" parent="Margin/Layout/Tools/MesRow"]
+custom_minimum_size = Vector2(168, 0)
+layout_mode = 2
+text = "MES Editor"
+
+[node name="Description" type="Label" parent="Margin/Layout/Tools/MesRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Inspect messages, references, and partial CFG."
+
+[node name="EventRow" type="HBoxContainer" parent="Margin/Layout/Tools"]
+layout_mode = 2
+
+[node name="Launch" type="Button" parent="Margin/Layout/Tools/EventRow"]
+custom_minimum_size = Vector2(168, 0)
+layout_mode = 2
+text = "Event Player"
+
+[node name="Description" type="Label" parent="Margin/Layout/Tools/EventRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Trace MES with isolated sandbox state."
+
+[node name="ImageRow" type="HBoxContainer" parent="Margin/Layout/Tools"]
+layout_mode = 2
+
+[node name="Launch" type="Button" parent="Margin/Layout/Tools/ImageRow"]
+custom_minimum_size = Vector2(168, 0)
+layout_mode = 2
+text = "Image ARC Editor"
+
+[node name="Description" type="Label" parent="Margin/Layout/Tools/ImageRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Preview MMO or DAT/PAL and export PNG."
+
+[node name="Validation" type="Button" parent="Margin/Layout"]
+layout_mode = 2
+text = "Validation results and coverage..."
+
+[node name="StatusLabel" type="Label" parent="Margin/Layout"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 34)
+layout_mode = 2
+text = "Select an ELFIMAGE content set, then create or open a versioned workspace."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="ArchiveDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+title = "Choose optional read-only startup ARC"
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.arc ; Kakyu ARC archives")
+
+[node name="ContentSetDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+title = "Choose user-owned ELFIMAGE content-set directory"
+file_mode = 2
+access = 2
+
+[node name="WorkspaceDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+file_mode = 2
+access = 2
+
+[node name="ReportDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+title = "Export a portable provenance report"
+file_mode = 4
+access = 2
+filters = PackedStringArray("*.json ; Kakyu provenance report")
+
+[connection signal="pressed" from="Margin/Layout/ArchiveRow/Browse" to="." method="_on_browse_pressed"]
+[connection signal="pressed" from="Margin/Layout/ArchiveRow/Clear" to="." method="_on_clear_pressed"]
+[connection signal="pressed" from="Margin/Layout/ContentSetRow/Browse" to="." method="_on_browse_content_set_pressed"]
+[connection signal="pressed" from="Margin/Layout/WorkspaceRow/Create" to="." method="_on_create_workspace_pressed"]
+[connection signal="pressed" from="Margin/Layout/WorkspaceRow/Open" to="." method="_on_open_workspace_pressed"]
+[connection signal="pressed" from="Margin/Layout/WorkspaceRow/ExportReport" to="." method="_on_export_report_pressed"]
+[connection signal="pressed" from="Margin/Layout/WorkspaceRow/Dashboard" to="." method="_on_dashboard_pressed"]
+[connection signal="pressed" from="Margin/Layout/Tools/ArcRow/Launch" to="." method="_on_arc_browser_pressed"]
+[connection signal="pressed" from="Margin/Layout/Tools/AudioRow/Launch" to="." method="_on_audio_editor_pressed"]
+[connection signal="pressed" from="Margin/Layout/Tools/MesRow/Launch" to="." method="_on_mes_editor_pressed"]
+[connection signal="pressed" from="Margin/Layout/Tools/EventRow/Launch" to="." method="_on_event_player_pressed"]
+[connection signal="pressed" from="Margin/Layout/Tools/ImageRow/Launch" to="." method="_on_image_editor_pressed"]
+[connection signal="pressed" from="Margin/Layout/Validation" to="." method="_on_validation_pressed"]
+[connection signal="file_selected" from="ArchiveDialog" to="." method="_on_archive_selected"]
+[connection signal="dir_selected" from="ContentSetDialog" to="." method="_on_content_set_selected"]
+[connection signal="dir_selected" from="WorkspaceDialog" to="." method="_on_workspace_selected"]
+[connection signal="file_selected" from="ReportDialog" to="." method="_on_report_path_selected"]

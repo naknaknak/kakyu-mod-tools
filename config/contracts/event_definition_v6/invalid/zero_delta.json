@@ -1,0 +1,269 @@
+{
+  "schema_version": "kakyu_event_definition/v6",
+  "contract_fingerprint": "self",
+  "names_fingerprint": "self",
+  "id": "reiko.school.floor4.03.1",
+  "kind": "event",
+  "display": {
+    "title_ko": "reiko floor4 사건",
+    "title_en": "reiko at floor4",
+    "heroine": "reiko",
+    "category": "school",
+    "place": "floor4"
+  },
+  "evidence": {
+    "kind": "analysis_group",
+    "archive_sha256": "48ea2efb1d42d65e8aa02471daf273eb583ae2ea6bad35f7003f7d1796719990",
+    "groups": [
+      {
+        "group_id": "floor4_group",
+        "profile_sha256": "ee3937b0add7bde91b2c3246950cf1ca244d4893294ab6cf3b350af12af5843d",
+        "route_ids": [
+          "route_0"
+        ]
+      }
+    ],
+    "members": [
+      {
+        "entry": "CALLER",
+        "entry_sha256": "68c7e37bb326d945fe9d94bbe45584e2d92fee9221da5a8df7b7ed96d10295f3"
+      },
+      {
+        "entry": "CALLEE",
+        "entry_sha256": "366c3ebaf5041ab1f315a75be4d31bea83842c62ba3c79c574422e1842641457"
+      }
+    ],
+    "document_refs": [],
+    "effect_witnesses": [
+      {
+        "result": "result_default",
+        "cell": {
+          "storage": "banked_u16",
+          "bank": 0,
+          "index": 201
+        },
+        "basis": "shift_witness",
+        "entry": 10,
+        "final": 13,
+        "step": 7,
+        "shifted_entry": 17,
+        "shifted_final": 20,
+        "declared": false
+      }
+    ]
+  },
+  "package_binding": {
+    "schema": "kakyu_playback_package/v7",
+    "package_sha256": "f0122dd9bf9771d868391f4659fdbcb3321cb80b8490453b36f8ef68882cb864"
+  },
+  "trigger": {
+    "type": "caller_dispatch",
+    "caller": {
+      "entry": "CALLER",
+      "entry_sha256": "519accd6d1cb5ae23a50821d1f412d9048ae1f8b231010cde54a146017aa4fab",
+      "offset": 100,
+      "end": 140,
+      "command": 15,
+      "kind": "nested_call"
+    },
+    "callee": {
+      "entry": "CALLEE",
+      "entry_sha256": "1c48e1ad83cc74cd2d53260d0cc3a08475ba48c89136a2de9fba46cbf0a0c36d",
+      "start_coordinate": 0
+    },
+    "origin": {
+      "kind": "typed_guard",
+      "offset": 100
+    },
+    "order_hint": {
+      "scope": "CALLER",
+      "rank": 1,
+      "of": 2,
+      "basis": "guard_offset",
+      "chain_confirmed": true
+    }
+  },
+  "conditions": [
+    {
+      "type": "mes_expression",
+      "ast": {
+        "op": "and",
+        "args": []
+      },
+      "source_offset": 100,
+      "failure_reason": "guard_rejected"
+    },
+    {
+      "type": "event_not_completed",
+      "event_id": "fixture/reiko-floor4-03",
+      "failure_reason": "already_completed",
+      "done_cell": {
+        "storage": "global_u8",
+        "bank": 0,
+        "index": 900,
+        "value": 1
+      },
+      "source": "guard_flag"
+    }
+  ],
+  "presets": [
+    {
+      "preset_id": "baseline",
+      "label": "baseline",
+      "writes": [
+        {
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 5,
+          "value": 1
+        }
+      ]
+    }
+  ],
+  "dialogue": [
+    {
+      "kind": "text",
+      "location_line": true,
+      "text_ref": {
+        "entry": "CALLEE",
+        "at": 10,
+        "s": 0,
+        "raw_sha256": "25c97f4da4257ea71a546c461d511aa34289b052bc93759e0d780529a1469b0e"
+      }
+    },
+    {
+      "kind": "text",
+      "text_ref": {
+        "entry": "CALLEE",
+        "at": 20,
+        "s": 1,
+        "raw_sha256": "750420dded6d125eecb6ceeb11a4f5fd6b23cc972103f1f2533b3349447ddc79"
+      }
+    },
+    {
+      "kind": "name_insert",
+      "entry": "CALLEE",
+      "at": 25,
+      "raw_sha256": "0e93132881b5e79dd5b713fa730006c22df3f4463fc3f427aaec7c697506e66d"
+    }
+  ],
+  "after": [
+    {
+      "type": "write_legacy_value",
+      "storage": "state_u16",
+      "bank": 0,
+      "index": 6,
+      "value": 1,
+      "cell_class": "unnamed"
+    },
+    {
+      "type": "add_legacy_value",
+      "storage": "banked_u16",
+      "bank": 0,
+      "index": 201,
+      "delta": 0,
+      "cell_class": "affection"
+    }
+  ],
+  "results": {
+    "result_default": {
+      "selected_by": {
+        "kind": "default"
+      },
+      "event_played": true,
+      "dialogue": [
+        {
+          "kind": "text",
+          "text_ref": {
+            "entry": "CALLEE",
+            "at": 30,
+            "s": 2,
+            "raw_sha256": "12bf7042bdc3d0fd22c696300ab67b90a711ff94c599c6fc4aa69a0e719067e3"
+          }
+        },
+        {
+          "kind": "scene_end"
+        }
+      ],
+      "after": [
+        {
+          "type": "write_legacy_value",
+          "storage": "state_u16",
+          "bank": 0,
+          "index": 10,
+          "value": 1,
+          "cell_class": "unnamed"
+        }
+      ],
+      "terminal": "term_natural"
+    }
+  },
+  "terminals": {
+    "term_natural": {
+      "kind": "natural_handoff",
+      "owner_entry": "CALLEE",
+      "offset": 300,
+      "end": 320,
+      "next_target": "MACHI.MES",
+      "required_state": []
+    }
+  },
+  "dependencies": [],
+  "presentation": {
+    "status": "deferred",
+    "resources": []
+  },
+  "unresolved": [],
+  "guard": {
+    "offset": 100,
+    "end": 140,
+    "false_target": 500,
+    "record_sha256": "a875433f41d705bce4b69c11f813fd8ce12235aa1ec98d21eee38e529bc7c789",
+    "conjuncts": [
+      {
+        "kind": "weekday",
+        "op": "equal",
+        "value": 2
+      },
+      {
+        "kind": "date",
+        "op": "equal",
+        "value": 501
+      },
+      {
+        "kind": "cell",
+        "storage": "state_u16",
+        "bank": 0,
+        "index": 9,
+        "op": "not_equal",
+        "value": 0
+      }
+    ],
+    "witnesses": [
+      {
+        "case_id": "case_0",
+        "writes": [
+          {
+            "storage": "state_u16",
+            "bank": 0,
+            "index": 9,
+            "value": 0
+          }
+        ],
+        "expected": 1
+      },
+      {
+        "case_id": "case_1",
+        "writes": [
+          {
+            "storage": "state_u16",
+            "bank": 0,
+            "index": 9,
+            "value": 1
+          }
+        ],
+        "expected": 0
+      }
+    ]
+  }
+}
